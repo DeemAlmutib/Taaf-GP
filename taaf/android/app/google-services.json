@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1049404009330",
+    "project_id": "taaf-5ef6b",
+    "storage_bucket": "taaf-5ef6b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1049404009330:android:b48398c53985ba5e3c0beb",
+        "android_client_info": {
+          "package_name": "com.example.taaf"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1049404009330-hcrgcg3sodrimo707eu7f0r6f5ru7bgb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnfwxAex-JSGAJ6BZRD1ooxbdn9Oms7GE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1049404009330-hcrgcg3sodrimo707eu7f0r6f5ru7bgb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
