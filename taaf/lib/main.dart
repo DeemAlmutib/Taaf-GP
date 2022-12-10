@@ -12,6 +12,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
+  print("object");
 }
 
 //test
@@ -108,7 +109,7 @@ class AddData extends StatelessWidget {
           onPressed: () async {
             FirebaseFirestore.instance
                 .collection('data')
-                .add({'text': 'added through app'});
+                .add({'text': 'data added through app2'});
 
             // test apis -- uncomment the code below to test ((ctrl + k + u ) shortcut to uncomment - you can change the mthod parameters if you like to see different results 
 
