@@ -6,6 +6,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MyApp());
+  print("object");
 }
 
 //test
@@ -36,7 +37,7 @@ class AddData extends StatelessWidget {
           onPressed: () {
             FirebaseFirestore.instance
                 .collection('data')
-                .add({'text': 'data added through app'});
+                .add({'text': 'data added through app2'});
           },
         ),
       ),
