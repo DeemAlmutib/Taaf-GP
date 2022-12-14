@@ -30,11 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Firebase',
-<<<<<<< HEAD
       home: WelcomePage(),
-=======
-      home: LoginPageWidget(),
->>>>>>> 87b09042c4c897b913dbc1ec29ed8789d171ee00
     );
   }
 }
@@ -117,41 +113,9 @@ class AddData extends StatelessWidget {
         child: FloatingActionButton(
           backgroundColor: Colors.green,
           child: Icon(Icons.add),
-<<<<<<< HEAD
           onPressed: () {
             Navigator.of(context).pushReplacement(
                 MaterialPageRoute(builder: (context) => WelcomePage()));
-=======
-          onPressed: () async {
-            FirebaseFirestore.instance
-                .collection('data')
-                .add({'text': 'data added through app2'});
-
-            // test apis -- uncomment the code below to test ((ctrl + k + u ) shortcut to uncomment - you can change the mthod parameters if you like to see different results 
-
-
-
-
-        
-            // var s = await getSym("cough");
-            // print(s.body); // printing symptomps related to cough
-
-            // var disease = await PredictDisease(["high_fever", "skin_rash"]); 
-            // print(disease.body); // printing the disease that has these 2 symptopms which are high fever and skin rash
-
-            // var description = await getDiseaseDescription("Psoriasis");
-            // print(description.body);
-
-            // var pre = await getDiseasePrecaution("Psoriasis");
-            // print(pre.body);
-
-            // var severity =
-            //     await getDiseaseSeverity(["high_fever", "skin_rash"], 3);
-            // print(jsonDecode(severity.body)[
-            //     'result']); // the way you can access things in the body of the request
-
-
->>>>>>> 87b09042c4c897b913dbc1ec29ed8789d171ee00
           },
         ),
       ),
