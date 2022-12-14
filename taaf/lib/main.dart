@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:taaf/welcomePage.dart';
+import 'welcomePage.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
 
@@ -16,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Firebase',
-      home: AddData(),
+      home: WelcomePage(),
     );
   }
 }
@@ -34,9 +39,8 @@ class AddData extends StatelessWidget {
           backgroundColor: Colors.green,
           child: Icon(Icons.add),
           onPressed: () {
-            FirebaseFirestore.instance
-                .collection('data')
-                .add({'text': 'data added through app'});
+            Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => WelcomePage()));
           },
         ),
       ),
