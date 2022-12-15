@@ -1,3 +1,7 @@
+import 'package:country_code_picker/country_code_picker.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:taaf/src/controllers/AuthController.dart';
+
 import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -5,6 +9,9 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:styled_divider/styled_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../src/base/showToast.dart';
+import '../verifyPhone.dart';
 
 class LoginPageWidget extends StatefulWidget {
   const LoginPageWidget({Key? key}) : super(key: key);
@@ -15,8 +22,12 @@ class LoginPageWidget extends StatefulWidget {
 
 class _LoginPageWidgetState extends State<LoginPageWidget> {
   String? dropDownValue;
-  TextEditingController? textController;
+  TextEditingController textController = new TextEditingController();
+  final formKey = GlobalKey<FormState>();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _auth = FirebaseAuth.instance;
+  final AuthController _authController = AuthController();
+
 
   @override
   void initState() {
@@ -35,8 +46,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFF14181B),
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
+      body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height * 1,
@@ -97,7 +107,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Container(
-                      width: 263.7,
+                      width: 280,
                       height: 53.9,
                       decoration: BoxDecoration(
                         color: Color(0xFFECECEC),
@@ -114,101 +124,105 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          FlutterFlowDropDown<String>(
-                            initialOption: dropDownValue ??=
-                                '+966 - Saudi Arabia',
-                            hintText: '+966',
-                            options: ['+966 - Saudi Arabia'],
-                            onChanged: (val) =>
-                                setState(() => dropDownValue = val),
-                            width: 85,
-                            height: 30,
-                            textStyle:
-                                FlutterFlowTheme.of(context).bodyText1.override(
-                                      fontFamily: 'Tajawal',
-                                      color: Color(0xC157636C),
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600,
+                          Form(
+                            key: formKey,
+                            autovalidateMode: AutovalidateMode.disabled,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Container(
+                                  width: 100, 
+                                  child: CountryCodePicker(
+                                    textStyle:FlutterFlowTheme.of(context)
+                                            .bodyText2
+                                            .override(
+                                              fontFamily: 'Tajawal',
+                                              color: Color(0xC157636C),
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                      onChanged: (Object? object) {
+                        String line = "$object";
+                        _authController.countryPhoneCode = line;
+                        // AppShowToast(text: line);
+                      },
+                      onInit: (Object? object) {
+                        String line = "$object";
+                        _authController.countryPhoneCode = line;
+
+                        // AppShowToast(text: line);
+                      },
+                      // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
+                      initialSelection: '+966',
+                      favorite: ['+966', 'KSA'],
+                      // optional. Shows only country name and flag
+                      showCountryOnly: false,
+                      showFlag: false,
+                      showDropDownButton: true,
+                      // optional. Shows only country name and flag when popup is closed.
+                      showOnlyCountryWhenClosed: false,
+                      // optional. aligns the flag and the Text left
+                      alignLeft: false,
+                    ),
+                                ),
+                                SizedBox(
+                                  height: 30,
+                                  child: VerticalDivider(
+                                    thickness: 2,
+                                  ),
+                                ),
+                                Container(
+                                  width: 150,
+                                  decoration: BoxDecoration(),
+                                  child: Container(
+                                    width: 70,
+                                    child: TextFormField(
+                                      controller: textController,
+                                      autofocus: true,
+                                      obscureText: false,
+                                      decoration: InputDecoration(
+                                        errorStyle: TextStyle(height: 0, fontSize: 10),
+                                        hintText: '5XXXXXXXX',
+                                        hintStyle: FlutterFlowTheme.of(context)
+                                            .bodyText2
+                                            .override(
+                                              fontFamily: 'Tajawal',
+                                              color: Color(0xC157636C),
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                        enabledBorder: InputBorder.none,
+                                        focusedBorder: InputBorder.none,
+                                        errorBorder: InputBorder.none,
+                                        focusedErrorBorder: InputBorder.none,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyText1
+                                          .override(
+                                            fontFamily: 'Tajawal',
+                                            color: Color(0xC157636C),
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                      keyboardType: TextInputType.phone,
+                                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                                      validator: (value) {
+                                        String validation ; 
+                                       if (value!.length == 0) {
+                                       return "يجب ملء هذا الحقل";
+                                       } else if (value.length != 9) {
+                                       return "الرجاء إدخال رقم الهاتف صحيح";
+                                       } else {
+                                        return null;
+                                        }
+                                        },
+                                    onSaved: (value) {
+                                    textController.text = value!;
+                                     },
                                     ),
-                            elevation: 2,
-                            borderColor: Colors.transparent,
-                            borderWidth: 0,
-                            borderRadius: 0,
-                            margin:
-                                EdgeInsetsDirectional.fromSTEB(12, 4, 12, 4),
-                            hidesUnderline: true,
-                          ),
-                          SizedBox(
-                            height: 30,
-                            child: VerticalDivider(
-                              thickness: 2,
-                            ),
-                          ),
-                          Expanded(
-                            child: TextFormField(
-                              controller: textController,
-                              autofocus: true,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                hintText: '5XXXXXXXX',
-                                hintStyle: FlutterFlowTheme.of(context)
-                                    .bodyText2
-                                    .override(
-                                      fontFamily: 'Tajawal',
-                                      color: Color(0xC157636C),
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
                                   ),
                                 ),
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                errorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                focusedErrorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                              ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyText1
-                                  .override(
-                                    fontFamily: 'Tajawal',
-                                    color: Color(0xC157636C),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                              keyboardType: TextInputType.phone,
+                              ],
                             ),
                           ),
                         ],
@@ -221,7 +235,31 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 25, 20, 5),
                         child: FFButtonWidget(
-                          onPressed: () {
+                          onPressed: () async {
+                            var validator = formKey.currentState?.validate();
+                    if (validator != null && validator == true) {
+                      bool allGood = await _authController.phoneAuthentication(
+                          textController.text.toString().trim());
+                      if (allGood) {
+                        AppShowToast(text: "تم إرسال رمز التحقق");
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: (context) => verifyloginPage(
+                                  authController: _authController,
+                                )));
+                      } else {
+                        AppShowToast(text: "error");
+                      }
+                      // AppShowToast(text: "all good");
+                    }
+                    //setState(() {
+                    //    if(_formkey.currentState.validate()){}
+                    //  });
+
+                    // AppShowToast(
+                    //     text: _authController.countryPhoneCode +
+                    //         phoneController.text.trim());
+                    // Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    //     builder: (context) => verifyloginPage()));
                             print('Button pressed ...');
                           },
                           text: 'تسجيل ',
@@ -240,7 +278,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               color: Colors.transparent,
                               width: 1,
                             ),
-                            borderRadius:30, //BorderRadius.circular(30),
+                            borderRadius: 30,
                           ),
                         ),
                       ),

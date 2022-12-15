@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:taaf/login/loginPage.dart';
 import 'login.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -16,7 +17,7 @@ class _WelcomePageState extends State<WelcomePage> {
         body: Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/images/background.png'),
+              image: AssetImage('assets/images/background_(1).png'),
               fit: BoxFit.fill)),
       child: SingleChildScrollView(
           child: Container(
@@ -48,7 +49,7 @@ class _WelcomePageState extends State<WelcomePage> {
                     padding: EdgeInsets.symmetric(vertical: 11, horizontal: 40),
                     onPressed: () {
                       Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => loginPage()));
+                          MaterialPageRoute(builder: (context) => LoginPageWidget()));
                     },
                     child: Text(
                       "تسجيل الدخول",
