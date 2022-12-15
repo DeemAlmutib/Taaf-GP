@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
-
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:ffi/ffi.dart';
-
+import 'humanBody.dart';
+import 'humanModel/MyModel.dart';
 import 'login/loginPage.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,13 +22,9 @@ class MyApp extends StatelessWidget {
 // of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Firebase',
-      home: LoginPageWidget(),
-    );
+    return MaterialApp(title: 'Firebase', home: MyModel());
   }
 }
-
 
 // method for getting the symptopms , it should take the first symptomp
 Future<http.Response> getSym(String symptomp) {
@@ -113,16 +108,12 @@ class AddData extends StatelessWidget {
                 .collection('data')
                 .add({'text': 'data added through app2'});
 
-            // test apis -- uncomment the code below to test ((ctrl + k + u ) shortcut to uncomment - you can change the mthod parameters if you like to see different results 
+            // test apis -- uncomment the code below to test ((ctrl + k + u ) shortcut to uncomment - you can change the mthod parameters if you like to see different results
 
-
-
-
-        
             // var s = await getSym("cough");
             // print(s.body); // printing symptomps related to cough
 
-            // var disease = await PredictDisease(["high_fever", "skin_rash"]); 
+            // var disease = await PredictDisease(["high_fever", "skin_rash"]);
             // print(disease.body); // printing the disease that has these 2 symptopms which are high fever and skin rash
 
             // var description = await getDiseaseDescription("Psoriasis");
@@ -135,8 +126,6 @@ class AddData extends StatelessWidget {
             //     await getDiseaseSeverity(["high_fever", "skin_rash"], 3);
             // print(jsonDecode(severity.body)[
             //     'result']); // the way you can access things in the body of the request
-
-
           },
         ),
       ),
