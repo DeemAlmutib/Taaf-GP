@@ -44,7 +44,7 @@ class _success extends State<success> {
             ),
             SizedBox(height: screenHeight * 0.05),
             Text(
-              "تم تحديث بياناتك بنجاح",
+              "heeeeaaadddd",
               style: GoogleFonts.tajawal(
                 color: Color.fromARGB(255, 140, 167, 190),
                 fontWeight: FontWeight.w600,

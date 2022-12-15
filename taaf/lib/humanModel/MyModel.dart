@@ -1,3 +1,4 @@
+/*
 import 'package:body_part_selector/body_part_selector.dart';
 import 'package:flutter/material.dart';
 
@@ -5,10 +6,11 @@ import 'package:flutter/material.dart';
   runApp(const MyApp());
 }*/
 
-class MyModel extends StatelessWidget {
+class MyModel extends StatefulWidget {
   const MyModel({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
+/*
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,27 +21,22 @@ class MyModel extends StatelessWidget {
       ),
       home: const MyHomePage(title: 'Body part Selector'),
     );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
+  }*/
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  _MyModel createState() => _MyModel();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyModel extends State<MyModel> {
+// final String title;
+
   BodyParts _bodyParts = const BodyParts();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
-      ),
+          //title: Text(widget.title),
+          ),
       body: SafeArea(
         child: BodyPartSelectorTurnable(
           bodyParts: _bodyParts,
@@ -55,3 +52,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+*/
