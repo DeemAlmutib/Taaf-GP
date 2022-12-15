@@ -16,7 +16,7 @@ class _WelcomePageState extends State<WelcomePage> {
         body: Container(
       decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/Images/background.png'),
+              image: AssetImage('assets/images/background.png'),
               fit: BoxFit.fill)),
       child: SingleChildScrollView(
           child: Container(
