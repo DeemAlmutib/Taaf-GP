@@ -6,8 +6,6 @@ import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:ffi/ffi.dart';
-import 'humanBody.dart';
-import 'humanModel/MyModel.dart';
 import 'login/loginPage.dart';
 
 void main() async {

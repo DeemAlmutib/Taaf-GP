@@ -61,7 +61,8 @@ dependencies:
   flutter_svg: any
   rotation_stage: any
   touchable: any
-  body_part_selector: any
+  body_part_selector:
+   path: C:\Users\aljoh\Downloads\444\Taaf-GP\body_part_selector
 
 dev_dependencies:
   flutter_test:

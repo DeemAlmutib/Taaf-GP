@@ -2,11 +2,10 @@ import 'dart:math';
 
 import 'package:body_part_selector/src/model/body_parts.dart';
 import 'package:body_part_selector/src/model/body_side.dart';
+import 'package:body_part_selector/src/service/successSave.dart';
 import 'package:body_part_selector/src/service/svg_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:taaf/humanModel/lib/src/service/successSave.dart';
-import 'package:taaf/humanModel/lib/src/successSave.dart';
 import 'package:touchable/touchable.dart';
 
 class BodyPartSelector extends StatelessWidget {
@@ -25,13 +24,6 @@ class BodyPartSelector extends StatelessWidget {
   final BodySide side;
   final BodyParts bodyParts;
   final void Function(BodyParts bodyParts)? onSelectionUpdated;
-  /*  void ontap(BodyParts bodyParts){
-Navigator.pushReplacement(
-                     context,
-                    MaterialPageRoute(
-                         builder: (context) => success(title: "title")));
-
-     } */
 
   final bool mirrored;
 
@@ -75,7 +67,7 @@ Navigator.pushReplacement(
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (contex) => (success(title: "title"))),
+                        builder: (contex) => (success2(title: "title"))),
                   );
                 } else {
                   Navigator.push(
@@ -83,8 +75,7 @@ Navigator.pushReplacement(
                     MaterialPageRoute(
                         builder: (context) => (success2(title: "title"))),
                   );
-                }
-              },
+                }},
               context: context,
               selectedColor: selectedColor ?? colorScheme.inversePrimary,
               unselectedColor: unselectedColor ?? colorScheme.inverseSurface,
