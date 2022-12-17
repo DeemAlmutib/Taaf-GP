@@ -127,7 +127,7 @@ class _LoginPageState extends State<loginPage> {
                           validator: (value) {
                             if (value!.length == 0) {
                               return "يجب ملء هذا الحقل";
-                            } else if (value!.length != 9) {
+                            } else if (value.length != 9) {
                               return "الرجاء إدخال رقم الهاتف صحيح";
                             } else {
                               return null;
@@ -156,15 +156,25 @@ class _LoginPageState extends State<loginPage> {
                     var validator = _formkey.currentState?.validate();
                     if (validator != null && validator == true) {
                       bool allGood = await _authController.phoneAuthentication(
-                          phoneController.text.toString().trim());
+                          phoneController.text.toString().trim(), context);
                       if (allGood) {
-                        AppShowToast(text: "check your phone");
+                          ScaffoldMessenger.of(context).showSnackBar(
+     const SnackBar(
+       content: Text('check your phone'),
+      ),
+     );
+                     
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (context) => verifyloginPage(
                                   authController: _authController,
                                 )));
                       } else {
-                        AppShowToast(text: "error");
+                                             ScaffoldMessenger.of(context).showSnackBar(
+     const SnackBar(
+       content: Text('error'),
+      ),
+     );
+                        
                       }
                       // AppShowToast(text: "all good");
                     }

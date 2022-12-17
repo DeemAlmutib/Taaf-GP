@@ -227,7 +227,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         if (value!.length == 0) {
                                           return "يجب ملء هذا الحقل";
                                         } else if (value.length != 9) {
-                                          return "الرجاء إدخال رقم الهاتف صحيح";
+                                          // ScaffoldMessenger.of(context)
+                                          //     .showSnackBar(
+                                          //   const SnackBar(
+                                          //     content: Text(
+                                          //         'الرجاء إدخال رقم هاتف صحيح ',
+                                          //         style:
+                                          //             TextStyle(fontSize: 18),
+                                          //         textAlign: TextAlign.right),
+                                          //   ),
+                                          // );
                                         } else {
                                           return null;
                                         }
@@ -256,7 +265,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             if (validator != null && validator == true) {
                               bool allGood =
                                   await _authController.phoneAuthentication(
-                                      textController.text.toString().trim());
+                                      textController.text.toString().trim(),context);
                               if (allGood) {
                                 AppShowToast(text: "تم إرسال رمز التحقق");
                                 Navigator.of(context)

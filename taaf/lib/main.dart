@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:taaf/welcomePage.dart';
+import 'src/base/globals.dart';
 import 'welcomePage.dart';
 import 'firebase_options.dart';
 
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Firebase',
+      scaffoldMessengerKey: snackbarKey,
       home: WelcomePage(),
     );
   }

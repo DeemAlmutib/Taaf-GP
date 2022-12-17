@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 import '../base/showToast.dart';
 
@@ -14,9 +15,14 @@ class AuthController {
     return this.countryPhoneCode + this.phoneNumber;
   }
 
-  Future<bool> phoneAuthentication(String phone) async {
+  Future<bool> phoneAuthentication(String phone, BuildContext context) async {
     bool allGood = true;
     String phoneNumber = getPhoneWithCountryCode(phone);
+    // ScaffoldMessenger.of(context).showSnackBar(
+    //   const SnackBar(
+    //     content: Text('A SnackBar has been shown.'),
+    //   ),
+    // );
     return await _auth
         .verifyPhoneNumber(
             phoneNumber: phoneNumber,
@@ -27,11 +33,19 @@ class AuthController {
             },
             verificationFailed: (e) {
               if (e.code == "invalid=phone=number") {
-                AppShowToast(
-                    text:
-                        "رقم الهاتف الذي ادخلته غير صحيح يرجى التاكد من رقم الهاتف والمحاولة مره اخرى ");
+                  ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text( "رقم الهاتف الذي ادخلته غير صحيح يرجى التاكد من رقم الهاتف والمحاولة مره اخرى "),
+      ),
+     );
+                
               } else {
-                AppShowToast(text: "حصل شيء خاطئ . يرجى المحاولة مره اخرى");
+                    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text("حصل شيء خاطئ . يرجى المحاولة مره اخرى"),
+      ),
+    );
+              
               }
               allGood = false;
               // print(e.code);
@@ -51,7 +65,7 @@ class AuthController {
     // return allGood;
   }
 
-  Future<bool> verfiyOTP(String otp) async {
+  Future<bool> verfiyOTP(String otp, BuildContext context) async {
     try {
       UserCredential credential = await _auth.signInWithCredential(
           PhoneAuthProvider.credential(
@@ -59,13 +73,26 @@ class AuthController {
       return credential.user != null ? true : false;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'invalid-verification-id') {
-        AppShowToast(text: "please check your phone number and back again");
+          ScaffoldMessenger.of(context).showSnackBar(
+     const SnackBar(
+       content: Text('please check your phone number and back again'),
+      ),
+     );
+       
       } else if (e.code == 'invalid-verification-code') {
-        AppShowToast(
-            text:
-                "the verification code is invalid pleas be re-enter valid code ");
+              ScaffoldMessenger.of(context).showSnackBar(
+     const SnackBar(
+       content: Text('the verification code is invalid pleas be re-enter valid code'),
+      ),
+     );
+        
       } else if (e.code == 'session-expired') {
-        AppShowToast(text: "please ask for new code your session expired");
+            ScaffoldMessenger.of(context).showSnackBar(
+     const SnackBar(
+       content: Text('please ask for new code your session expired'),
+      ),
+     );
+       
       }
     } catch (e) {
       print(e);

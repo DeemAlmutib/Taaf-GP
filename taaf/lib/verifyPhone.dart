@@ -137,7 +137,7 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                                 onPressed: () async {
                                   bool allGood = await widget.authController
                                       .phoneAuthentication(
-                                          widget.authController.phoneNumber);
+                                          widget.authController.phoneNumber,context);
                                   if (allGood) {
                                     AppShowToast(text: "check your phone");
                                     // Navigator.of(context).pushReplacement(MaterialPageRoute(
@@ -181,8 +181,8 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                           var validator = _formkey.currentState?.validate();
                           if (validator != null && validator == true) {
                             bool allGood = await widget.authController
-                                .verfiyOTP(
-                                    OTPController.text.toString().trim());
+                                .verfiyOTP(OTPController.text.toString().trim(),
+                                    context);
                             if (allGood) {
                               AppShowToast(text: "تم تسجيل الدخول بنجاح");
 
