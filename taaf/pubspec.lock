@@ -46,7 +46,7 @@ packages:
   body_part_selector:
     dependency: "direct main"
     description:
-      path: "C:\\Users\\aljoh\\Downloads\\444\\Taaf-GP\\body_part_selector"
+      path: "C:\\Users\\aljoh\\Downloads\\444\\Taaf-GP\\taaf\\body_part_selector"
       relative: false
     source: path
     version: "0.0.2"
