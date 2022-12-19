@@ -48,8 +48,8 @@ class _WelcomePageState extends State<WelcomePage> {
                     height: 50,
                     padding: EdgeInsets.symmetric(vertical: 11, horizontal: 40),
                     onPressed: () {
-                      Navigator.of(context).pushReplacement(
-                          MaterialPageRoute(builder: (context) => LoginPageWidget()));
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => LoginPageWidget()));
                     },
                     child: Text(
                       "تسجيل الدخول",

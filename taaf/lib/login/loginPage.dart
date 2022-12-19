@@ -221,22 +221,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           ),
                                       keyboardType: TextInputType.phone,
                                       autovalidateMode:
-                                          AutovalidateMode.onUserInteraction,
+                                          AutovalidateMode.disabled,
                                       validator: (value) {
-                                        String validation;
                                         if (value!.length == 0) {
                                           return "يجب ملء هذا الحقل";
                                         } else if (value.length != 9) {
-                                          // ScaffoldMessenger.of(context)
-                                          //     .showSnackBar(
-                                          //   const SnackBar(
-                                          //     content: Text(
-                                          //         'الرجاء إدخال رقم هاتف صحيح ',
-                                          //         style:
-                                          //             TextStyle(fontSize: 18),
-                                          //         textAlign: TextAlign.right),
-                                          //   ),
-                                          // );
+                                          return "الرجاء إدخال رقم الهاتف صحيح";
                                         } else {
                                           return null;
                                         }
@@ -265,9 +255,17 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             if (validator != null && validator == true) {
                               bool allGood =
                                   await _authController.phoneAuthentication(
-                                      textController.text.toString().trim(),context);
+                                      textController.text.toString().trim(),
+                                      context);
                               if (allGood) {
                                 AppShowToast(text: "تم إرسال رمز التحقق");
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('تم إرسال رمز التحقق',
+                                        style: TextStyle(fontSize: 18),
+                                        textAlign: TextAlign.right),
+                                  ),
+                                );
                                 Navigator.of(context)
                                     .pushReplacement(MaterialPageRoute(
                                         builder: (context) => verifyloginPage(

@@ -137,7 +137,8 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                                 onPressed: () async {
                                   bool allGood = await widget.authController
                                       .phoneAuthentication(
-                                          widget.authController.phoneNumber,context);
+                                          widget.authController.phoneNumber,
+                                          context);
                                   if (allGood) {
                                     AppShowToast(text: "check your phone");
                                     // Navigator.of(context).pushReplacement(MaterialPageRoute(
@@ -184,7 +185,11 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                                 .verfiyOTP(OTPController.text.toString().trim(),
                                     context);
                             if (allGood) {
-                              AppShowToast(text: "تم تسجيل الدخول بنجاح");
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text("تم تسجيل الدخول بنجاح "),
+                                ),
+                              );
 
                               // Navigator.of(context).pushReplacement(
                               // MaterialPageRoute(builder: (context) => homePage()));

@@ -4,6 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taaf/src/base/showToast.dart';
+import 'package:taaf/src/models/user_model.dart';
 import 'package:taaf/verifyPhone.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 
@@ -158,23 +159,22 @@ class _LoginPageState extends State<loginPage> {
                       bool allGood = await _authController.phoneAuthentication(
                           phoneController.text.toString().trim(), context);
                       if (allGood) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-     const SnackBar(
-       content: Text('check your phone'),
-      ),
-     );
-                     
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('check your phone'),
+                          ),
+                        );
+
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (context) => verifyloginPage(
                                   authController: _authController,
                                 )));
                       } else {
-                                             ScaffoldMessenger.of(context).showSnackBar(
-     const SnackBar(
-       content: Text('error'),
-      ),
-     );
-                        
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('error'),
+                          ),
+                        );
                       }
                       // AppShowToast(text: "all good");
                     }
