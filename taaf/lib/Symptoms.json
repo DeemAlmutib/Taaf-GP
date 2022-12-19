@@ -1,0 +1,252 @@
+[
+    {
+        "NameEn": "enlarged_thyroid",
+        "NameAr": "تضخم في الغدة الدرقية ( انتفاخ بارز أسفل عنقك مباشرة تحت تفاحة آدم ) "
+    },
+    {
+        "NameEn": "muscle_pain",
+        "NameAr": "ألم في العضلات"
+    },
+    {
+        "NameEn": "pain_behind_the_eyes",
+        "NameAr": "ألم خلف العينين"
+    },
+    {
+        "NameEn": "malaise",
+        "NameAr": "توعك أو ضيق أو شُعور بعدم الراحة"
+    },
+
+    {
+        "NameEn":"irritability",
+        "NameAr":"حالة من العصبية نتيجة الضغط النفسي"
+    },
+    {
+        "NameEn":"yellowing_of_eyes",
+        "NameAr":"( اصفرار في العيون ( تحول اللون الأبيض المحاط بالعدسة إلى أصفر" 
+    },
+    {
+        "NameEn":"chills",
+        "NameAr":"( القشعريرة ( ارتجاف او ارتعاش متكرر في الجسم مع شعور بالبرد أحياناً" 
+    },
+    {
+        "NameEn":"slurred_speech" ,
+        "NameAr": "عسر في اللفظ أو الكلام بحيث يصعب على الناس فهم ما تقوله أحيانا" 
+    },
+    {
+        "NameEn":"weight_loss",
+        "NameAr":"نزول  في الوزن  مؤخراً"
+    },
+    {
+        "NameEn":"fatigue",
+        "NameAr":"إجهاد أو شعور بفقدان الطاقة"
+    },
+    {
+        "NameEn":"dark_urine",
+        "NameAr":"تغير في لون البول بحيث أصبح أغمق من اللون المُعتاد"
+    },
+    {
+        "NameEn":"increased_appetite",
+        "NameAr":"زيادة في الشهيّة ( شعور بالرغبة في الأكل طوال الوقت )"
+
+    },
+  
+    {
+        "NameEn":"coma",
+        "NameAr":"فقدان بالوعي أو إغماء مفاجئ مؤخرا"
+
+    },
+
+    {
+        "NameEn":"joint_pain",
+        "NameAr":"ألم في مفاصل اليد, القدم, الركب أو غيرها"
+
+    },
+    {
+        "NameEn":"neck_pain",
+        "NameAr": "ألم في الرقبة"
+
+    },
+    {
+        "NameEn":"skin_rash",
+        "NameAr":"طفح جلدي بسيط نتيجة ملامسة أي شيء كمستحضرات التجميل أو الصابون"
+    },
+   
+    {
+        "NameEn":"obesity",
+        "NameAr":"السمنة ( وزنك زائد عن المعدل الطبيعي بالنسبة لطولك وجنسك ) "
+    },
+    {
+        "NameEn":"knee_pain",
+        "NameAr":"ألم في الركب"
+    },
+    {
+        "NameEn":"stiff_neck",
+        "NameAr": "تصلب في الرقبة ( الشعور بالألم وصعوبة تحريك الرقبة وخاصة عند محاولة ادارة الرأس الى أحد الجانبين )"
+    },
+    {
+        "NameEn":"restlessness",
+        "NameAr":"( الأرق ( صعوبة أو عدم القدرة على النوم"
+    },
+   
+    {
+        "NameEn":"constipation",
+        "NameAr":"الإمساك ( صعوبة في التبرّز نتيجة ضعف الأمعاء )"
+    },
+    {
+        "NameEn":"acidity",
+        "NameAr":"الحموضة ( شعور بالحرقان في المعدة أو الحلق أو شعور بمذاق مُر في الحلق أو الفم )"
+    },
+    {
+        "NameEn":"diarrhoea",
+        "NameAr":"الإسهال "
+    },
+    {
+        "NameEn":"swelling_of_stomach",
+        "NameAr":"انتفاخ في البطن"
+    },
+    {
+        "NameEn":"unsteadiness",
+        "NameAr":"دوران مع شعور أنك على وشك السقوط"
+    },
+    {
+        "NameEn":"loss_of_balance" ,
+        "NameAr":"اختلال في التوازن أثناء الوقوف "
+    },
+    {
+        "NameEn":"bladder_discomfort",
+        "NameAr":"ألم في المثانة مع مشاكل في التبوّل "
+    },
+    {
+        "NameEn":"vomiting",
+        "NameAr": " شعور بالغثيان مع التقيّؤ "
+    },
+    {
+        "NameEn":"passage_of_gases",
+        "NameAr":"إطلاق الغازات بكثرة"
+    },
+    {
+        "NameEn":"abdominal_pain",
+        "NameAr":"ألم في البطن"
+    },
+    {
+        "NameEn":"yellowish_skin",
+        "NameAr":"إصفرار بالجلد ( تحول لون بشرتك إلى اللون الأصفر قليلاً )"
+    },
+    {
+        "NameEn":"indigestion",
+        "NameAr":"( عسر في الهضم ( شعور بالألم في الجزء العلوي من البطن مع الشعور بالامتلاء فور تناول الطعام"
+    },
+   
+    {
+        "NameEn":"family_history",
+        "NameAr": "تاريخ مرضي في عائلتك"
+    },
+    {
+        "NameEn":"itching",
+        "NameAr": "حكة في أي جزء من الجسم"
+    },
+    {
+        "NameEn":"cough",
+        "NameAr": "سُعال ( كحة جافة ) "
+    },
+    {
+        "NameEn":"nausea" ,
+        "NameAr" : "شعور بالاشمئزاز أو الغثيان "
+    },
+    {
+        "NameEn":"chest_pain",
+        "NameAr": "ألم في الصدر"
+    },
+    {
+        "NameEn":"altered_sensorium" ,
+        "NameAr":"عدم القدرة على التركيز أو التفكير بوضوح"
+    },
+    {
+        "NameEn":"stomach_pain" , 
+        "NameAr": "ألم في المعدة"
+    },
+    {
+        "NameEn": "blister",
+        "NameAr": "فقاعات مملوءة بسائل على سطح الجلد كتلك التي تحدث بسبب الحرق أو الاحتكاك "
+    },
+    {
+        "NameEn":"high_fever" ,
+        "NameAr":"ارتفاع في درجة الحرارة ( درجة حرارتك 37.8 ف أكثر ) "
+    },
+    {
+        "NameEn":"burning_micturition",
+        "NameAr":"حرقة أثناء التبول"
+
+    },
+    {
+        "NameEn":"sunken_eyes" ,
+        "NameAr": "تغير لون وشكل الجلد والعضلات حول العينين لتصبح وكأنها متوجهة لداخل العظم أو الجمجمة فيكون لون الجلد أغمق" 
+
+    },
+    {
+        "NameEn":"back_pain",
+        "NameAr":"ألم في الظهر"
+    },
+    {
+        "NameEn":"foul_smell_of urine",
+        "NameAr":"رائحة بول كريهة"
+    },
+    {
+        "NameEn":"nodal_skin_eruptions",
+        "NameAr":"طفح جلدي عقدي ( كتل تُسبِّب الألم عند اللمس وبلون أحمر أو أرجوانيّ (عُقيدات) تحت الجلد ) "
+
+    },
+    {
+        "NameEn":"continuous_sneezing" ,
+        "NameAr":"عطاس مستمر"
+    },
+    {
+        "NameEn":"skin_peeling",
+        "NameAr": "تقشر في الجلد ( خسارة الطبقة العلوية من الجلد ) "
+    },
+    {
+        "NameEn":"muscle_wasting",
+        "NameAr":"ضمور في عضلات الجسم ( وخز أو خدر أو ضعف في ذراعيك وساقيك أو وجهك )" 
+
+    },
+    {
+        "NameEn":"pain_during_bowel_movements",
+        "NameAr":"ألم أثناء حركة الأمعاء ( ألم أثناء التبرّز )"
+    },
+    {
+        "NameEn":"muscle_weakness",
+        "NameAr":"ضعف في عضلات الجسم"
+
+    },
+    {
+        "NameEn" : "breathlessness" ,
+        "NameAr": "ضيق في التنفس"
+    },
+    {
+        "NameEn" : "headache" ,
+        "NameAr":"صداع أو ألم في الرأس"
+
+    },
+    {
+        "NameEn":"distention_of_abdomen",
+        "NameAr":"شعور بانتفاخ في البطن"
+    },
+    {
+        "NameEn":"mild_fever",
+        "NameAr": "ارتفاع طفيف في درجة الحرارة ( حمّى خفيفة )"
+    },
+    {
+        "NameEn":"phlegm",
+        "NameAr":"بلغم في الحلق ( شعور بمادة مائعة لزجة في مجرى الحلق )"
+    },
+    {
+        "NameEn":"abnormal_menstruation",
+        "NameAr":"عدم انتظام في الدورة الشهرية "
+    }
+    
+
+
+
+
+
+]
