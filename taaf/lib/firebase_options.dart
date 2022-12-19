@@ -63,6 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1049404009330',
     projectId: 'taaf-5ef6b',
     storageBucket: 'taaf-5ef6b.appspot.com',
+    androidClientId: '1049404009330-jbt1dolgbc18bghi7dkdpt6kjajrviol.apps.googleusercontent.com',
     iosClientId: '1049404009330-afn3hnamlqr226jm0613g9a4mprafccd.apps.googleusercontent.com',
     iosBundleId: 'com.example.taaf.com',
   );

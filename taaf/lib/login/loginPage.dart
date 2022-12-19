@@ -12,6 +12,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../src/base/showToast.dart';
 import '../verifyPhone.dart';
+import '../welcomePage.dart';
 
 class LoginPageWidget extends StatefulWidget {
   const LoginPageWidget({Key? key}) : super(key: key);
@@ -28,7 +29,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
   final _auth = FirebaseAuth.instance;
   final AuthController _authController = AuthController();
 
-
   @override
   void initState() {
     super.initState();
@@ -44,6 +44,20 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        automaticallyImplyLeading: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          color: Color.fromARGB(255, 248, 252, 255),
+          onPressed: () {
+            Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => WelcomePage()));
+          },
+        ),
+      ),
       key: scaffoldKey,
       backgroundColor: Color(0xFF14181B),
       body: SingleChildScrollView(
@@ -131,39 +145,39 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Container(
-                                  width: 100, 
+                                  width: 100,
                                   child: CountryCodePicker(
-                                    textStyle:FlutterFlowTheme.of(context)
-                                            .bodyText2
-                                            .override(
-                                              fontFamily: 'Tajawal',
-                                              color: Color(0xC157636C),
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                      onChanged: (Object? object) {
-                        String line = "$object";
-                        _authController.countryPhoneCode = line;
-                        // AppShowToast(text: line);
-                      },
-                      onInit: (Object? object) {
-                        String line = "$object";
-                        _authController.countryPhoneCode = line;
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyText2
+                                        .override(
+                                          fontFamily: 'Tajawal',
+                                          color: Color(0xC157636C),
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                    onChanged: (Object? object) {
+                                      String line = "$object";
+                                      _authController.countryPhoneCode = line;
+                                      // AppShowToast(text: line);
+                                    },
+                                    onInit: (Object? object) {
+                                      String line = "$object";
+                                      _authController.countryPhoneCode = line;
 
-                        // AppShowToast(text: line);
-                      },
-                      // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
-                      initialSelection: '+966',
-                      favorite: ['+966', 'KSA'],
-                      // optional. Shows only country name and flag
-                      showCountryOnly: false,
-                      showFlag: false,
-                      showDropDownButton: true,
-                      // optional. Shows only country name and flag when popup is closed.
-                      showOnlyCountryWhenClosed: false,
-                      // optional. aligns the flag and the Text left
-                      alignLeft: false,
-                    ),
+                                      // AppShowToast(text: line);
+                                    },
+                                    // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
+                                    initialSelection: '+966',
+                                    favorite: ['+966', 'KSA'],
+                                    // optional. Shows only country name and flag
+                                    showCountryOnly: false,
+                                    showFlag: false,
+                                    showDropDownButton: true,
+                                    // optional. Shows only country name and flag when popup is closed.
+                                    showOnlyCountryWhenClosed: false,
+                                    // optional. aligns the flag and the Text left
+                                    alignLeft: false,
+                                  ),
                                 ),
                                 SizedBox(
                                   height: 30,
@@ -181,7 +195,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       autofocus: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
-                                        errorStyle: TextStyle(height: 0, fontSize: 10),
+                                        errorStyle:
+                                            TextStyle(height: 0, fontSize: 10),
                                         hintText: '5XXXXXXXX',
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodyText2
@@ -205,20 +220,20 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             fontWeight: FontWeight.w600,
                                           ),
                                       keyboardType: TextInputType.phone,
-                                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                                      autovalidateMode:
+                                          AutovalidateMode.disabled,
                                       validator: (value) {
-                                        String validation ; 
-                                       if (value!.length == 0) {
-                                       return "يجب ملء هذا الحقل";
-                                       } else if (value.length != 9) {
-                                       return "الرجاء إدخال رقم الهاتف صحيح";
-                                       } else {
-                                        return null;
+                                        if (value!.length == 0) {
+                                          return "يجب ملء هذا الحقل";
+                                        } else if (value.length != 9) {
+                                          return "الرجاء إدخال رقم الهاتف صحيح";
+                                        } else {
+                                          return null;
                                         }
-                                        },
-                                    onSaved: (value) {
-                                    textController.text = value!;
-                                     },
+                                      },
+                                      onSaved: (value) {
+                                        textController.text = value!;
+                                      },
                                     ),
                                   ),
                                 ),
@@ -237,29 +252,39 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         child: FFButtonWidget(
                           onPressed: () async {
                             var validator = formKey.currentState?.validate();
-                    if (validator != null && validator == true) {
-                      bool allGood = await _authController.phoneAuthentication(
-                          textController.text.toString().trim());
-                      if (allGood) {
-                        AppShowToast(text: "تم إرسال رمز التحقق");
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (context) => verifyloginPage(
-                                  authController: _authController,
-                                )));
-                      } else {
-                        AppShowToast(text: "error");
-                      }
-                      // AppShowToast(text: "all good");
-                    }
-                    //setState(() {
-                    //    if(_formkey.currentState.validate()){}
-                    //  });
+                            if (validator != null && validator == true) {
+                              bool allGood =
+                                  await _authController.phoneAuthentication(
+                                      textController.text.toString().trim(),
+                                      context);
+                              if (allGood) {
+                                AppShowToast(text: "تم إرسال رمز التحقق");
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('تم إرسال رمز التحقق',
+                                        style: TextStyle(fontSize: 18),
+                                        textAlign: TextAlign.right),
+                                  ),
+                                );
+                                Navigator.of(context)
+                                    .pushReplacement(MaterialPageRoute(
+                                        builder: (context) => verifyloginPage(
+                                              authController: _authController,
+                                            )));
+                              } else {
+                                AppShowToast(text: "error");
+                              }
+                              // AppShowToast(text: "all good");
+                            }
+                            //setState(() {
+                            //    if(_formkey.currentState.validate()){}
+                            //  });
 
-                    // AppShowToast(
-                    //     text: _authController.countryPhoneCode +
-                    //         phoneController.text.trim());
-                    // Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    //     builder: (context) => verifyloginPage()));
+                            // AppShowToast(
+                            //     text: _authController.countryPhoneCode +
+                            //         phoneController.text.trim());
+                            // Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            //     builder: (context) => verifyloginPage()));
                             print('Button pressed ...');
                           },
                           text: 'تسجيل ',
