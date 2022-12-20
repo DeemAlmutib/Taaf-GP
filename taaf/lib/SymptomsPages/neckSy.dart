@@ -1,9 +1,11 @@
 //import '../flutter_flow/flutter_flow_radio_button.dart';
 
 import 'package:flutter/material.dart';
+import 'package:from_css_color/from_css_color.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
+import '../flutter_flow/flutter_flow_widgets.dart';
 
 class neckSymptoms extends StatefulWidget {
   const neckSymptoms({Key? key}) : super(key: key);
@@ -31,7 +33,7 @@ class _neckSymptoms extends State<neckSymptoms> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/images/background_(1).png',
+                  'assets/images/home.png',
                 ).image,
               ),
             ),
@@ -43,6 +45,7 @@ class _neckSymptoms extends State<neckSymptoms> {
                     "من ماذا تعاني؟",
                     style: TextStyle(fontSize: 18),
                   ),*/
+
                   Divider(
                     color: Colors.black,
                     //height: 36,
@@ -52,8 +55,7 @@ class _neckSymptoms extends State<neckSymptoms> {
                         "تضخم في الغدة الدرقية ( انتفاخ بارز أسفل عنقك مباشرة تحت تفاحة آدم )",
                         style: FlutterFlowTheme.of(context).title1.override(
                               fontFamily: 'Tajawal',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              color: Color.fromRGBO(0, 114, 130, 100),
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -74,8 +76,7 @@ class _neckSymptoms extends State<neckSymptoms> {
                     title: Text("ألم في الرقبة",
                         style: FlutterFlowTheme.of(context).title1.override(
                               fontFamily: 'Tajawal',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              color: Color.fromRGBO(0, 114, 130, 100),
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -97,8 +98,7 @@ class _neckSymptoms extends State<neckSymptoms> {
                         "تصلب في الرقبة ( الشعور بالألم وصعوبة تحريك الرقبة وخاصة عند محاولة ادارة الرأس الى أحد الجانبين )",
                         style: FlutterFlowTheme.of(context).title1.override(
                               fontFamily: 'Tajawal',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              color: Color.fromRGBO(0, 114, 130, 100),
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -115,11 +115,38 @@ class _neckSymptoms extends State<neckSymptoms> {
                     color: Colors.black,
                     //height: 36,
                   ),
+                  Container(
+                    width: 221.8,
+                    height: 77.8,
+                    decoration: BoxDecoration(),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(20, 25, 20, 5),
+                      child: FFButtonWidget(
+                        onPressed: () {
+                          print('Button pressed ...');
+                        },
+                        text: 'متابعه ',
+                        options: FFButtonOptions(
+                          width: 10,
+                          height: 10,
+                          color: Color(0xFF007282),
+                          textStyle:
+                              FlutterFlowTheme.of(context).subtitle2.override(
+                                    fontFamily: 'Tajawal',
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                          borderSide: BorderSide(
+                            color: Colors.transparent,
+                            width: 1,
+                          ),
+                          borderRadius: 30, //BorderRadius.circular(30),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
-                //     ),
-                //  ),
-                //  ),
-                //  ],
               ),
             ),
           ),

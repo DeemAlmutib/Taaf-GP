@@ -31,11 +31,11 @@ class _HeadSymptoms extends State<HeadSymptoms> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/images/background_(1).png',
+                  'assets/images/home.png',
                 ).image,
               ),
             ),
-            child: Container(
+            child: SingleChildScrollView(
               padding: EdgeInsets.only(top: 120),
               child: Column(
                 children: [
@@ -51,8 +51,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                     title: Text("دوران مع شعور أنك على وشك السقوط",
                         style: FlutterFlowTheme.of(context).title1.override(
                               fontFamily: 'Tajawal',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              color: Color.fromRGBO(0, 114, 130, 100),
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -73,8 +72,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                     title: Text("ارتفاع في درجة الحرارة (  37.8 ف أكثر )",
                         style: FlutterFlowTheme.of(context).title1.override(
                               fontFamily: 'Tajawal',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              color: Color.fromRGBO(0, 114, 130, 100),
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -95,8 +93,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                     title: Text("صداع أو ألم في الرأس",
                         style: FlutterFlowTheme.of(context).title1.override(
                               fontFamily: 'Tajawal',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              color: Color.fromRGBO(0, 114, 130, 100),
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -117,8 +114,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                     title: Text("رتفاع طفيف في درجة الحرارة ( حمّى خفيفة )",
                         style: FlutterFlowTheme.of(context).title1.override(
                               fontFamily: 'Tajawal',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              color: Color.fromRGBO(0, 114, 130, 100),
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -140,8 +136,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                         " ( اصفرار في العيون ( تحول اللون الأبيض المحاط بالعدسة إلى أصفر ",
                         style: FlutterFlowTheme.of(context).title1.override(
                               fontFamily: 'Tajawal',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              color: Color.fromRGBO(0, 114, 130, 100),
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -162,8 +157,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                     title: Text(" فقدان بالوعي أو إغماء مفاجئ مؤخرا ",
                         style: FlutterFlowTheme.of(context).title1.override(
                               fontFamily: 'Tajawal',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              color: Color.fromRGBO(0, 114, 130, 100),
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -184,8 +178,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                     title: Text(" دوران مع شعور أنك على وشك السقوط ",
                         style: FlutterFlowTheme.of(context).title1.override(
                               fontFamily: 'Tajawal',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              color: Color.fromRGBO(0, 114, 130, 100),
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -206,8 +199,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                     title: Text(" اختلال في التوازن أثناء الوقوف ",
                         style: FlutterFlowTheme.of(context).title1.override(
                               fontFamily: 'Tajawal',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              color: Color.fromRGBO(0, 114, 130, 100),
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -228,8 +220,28 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                     title: Text(" عدم القدرة على التركيز أو التفكير بوضوح ",
                         style: FlutterFlowTheme.of(context).title1.override(
                               fontFamily: 'Tajawal',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              color: Color.fromRGBO(0, 114, 130, 100),
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                        textAlign: TextAlign.right),
+                    value: "altered_sensorium",
+                    groupValue: sym,
+                    onChanged: (value) {
+                      setState(() {
+                        sym = value.toString();
+                      });
+                    },
+                  ),
+                  Divider(
+                    color: Colors.black,
+                    //height: 36,
+                  ),
+                  RadioListTile(
+                    title: Text(" عدم القدرة على التركيز أو التفكير بوضوح ",
+                        style: FlutterFlowTheme.of(context).title1.override(
+                              fontFamily: 'Tajawal',
+                              color: Color.fromRGBO(0, 114, 130, 100),
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),

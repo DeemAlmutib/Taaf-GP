@@ -31,7 +31,7 @@ class _upperBoday extends State<upperBoday> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/images/background_(1).png',
+                  'assets/images/home.png',
                 ).image,
               ),
             ),
@@ -51,8 +51,7 @@ class _upperBoday extends State<upperBoday> {
                     title: Text("توعك أو ضيق أو شُعور بعدم الراحة",
                         style: FlutterFlowTheme.of(context).title1.override(
                               fontFamily: 'Tajawal',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              color: Color.fromRGBO(0, 114, 130, 100),
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -74,8 +73,7 @@ class _upperBoday extends State<upperBoday> {
                         "الحموضة ( شعور بالحرقان في المعدة أو الحلق أو شعور بمذاق مُر في الحلق أو الفم )",
                         style: FlutterFlowTheme.of(context).title1.override(
                               fontFamily: 'Tajawal',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              color: Color.fromRGBO(0, 114, 130, 100),
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -96,8 +94,7 @@ class _upperBoday extends State<upperBoday> {
                     title: Text(" شعور بالغثيان مع التقيّؤ   ",
                         style: FlutterFlowTheme.of(context).title1.override(
                               fontFamily: 'Tajawal',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              color: Color.fromRGBO(0, 114, 130, 100),
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -119,8 +116,7 @@ class _upperBoday extends State<upperBoday> {
                         " ( عسر في الهضم ( شعور بالألم في الجزء العلوي من البطن مع الشعور بالامتلاء فور تناول الطعام   ",
                         style: FlutterFlowTheme.of(context).title1.override(
                               fontFamily: 'Tajawal',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              color: Color.fromRGBO(0, 114, 130, 100),
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -141,8 +137,7 @@ class _upperBoday extends State<upperBoday> {
                     title: Text(" ألم في المعده ",
                         style: FlutterFlowTheme.of(context).title1.override(
                               fontFamily: 'Tajawal',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              color: Color.fromRGBO(0, 114, 130, 100),
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
@@ -163,8 +158,7 @@ class _upperBoday extends State<upperBoday> {
                     title: Text("  عطاس مستمر  ",
                         style: FlutterFlowTheme.of(context).title1.override(
                               fontFamily: 'Tajawal',
-                              color:
-                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              color: Color.fromRGBO(0, 114, 130, 100),
                               fontSize: 15,
                               fontWeight: FontWeight.bold,
                             ),
