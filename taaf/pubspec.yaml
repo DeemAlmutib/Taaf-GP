@@ -62,7 +62,7 @@ dependencies:
   rotation_stage: any
   touchable: any
   body_part_selector:
-   path: /Users/deemalmutib/Desktop/Taaf/body_part_selector
+   path: ./body_part_selector
 
 dev_dependencies:
   flutter_test:

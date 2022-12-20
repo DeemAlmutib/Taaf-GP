@@ -46,8 +46,8 @@ packages:
   body_part_selector:
     dependency: "direct main"
     description:
-      path: "/Users/deemalmutib/Desktop/Taaf/body_part_selector"
-      relative: false
+      path: body_part_selector
+      relative: true
     source: path
     version: "0.0.2"
   boolean_selector:
