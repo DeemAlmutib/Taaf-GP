@@ -44,6 +44,8 @@ dependencies:
   firebase_auth: ^4.2.0
   fluttertoast: ^8.1.2
   firebase_database: ^10.0.7
+  loading_animations: "^2.1.0"
+  loading_animation_widget: ^1.2.0+4
   
   
  
@@ -93,11 +95,9 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/fonts/
-    - assets/images/
-    - assets/videos/
-    - assets/audios/
-    - assets/pdfs/
+  
+    - assets/Images/
+   
   # To add assets to your application, add an assets section, like this:
 
 

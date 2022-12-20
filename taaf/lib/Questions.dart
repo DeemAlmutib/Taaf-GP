@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:ffi/ffi.dart';
+import 'package:loading_animations/loading_animations.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:taaf/login.dart';
+import 'package:taaf/welcomePage.dart';
 
 class Questions extends StatefulWidget {
   @override
@@ -10,13 +15,14 @@ class Questions extends StatefulWidget {
  // static List<dynamic> allSymptompsArray =  [];
  static List<dynamic> allSymptompsArray =  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0
  ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0];
- static var nextSymp ='abnormal_menstruation'; // coming from the model // very important attribute 
+ static var nextSymp ='joint_pain'; // coming from the model // very important attribute 
  static var nextSympAR ;
  static var depth ; // important to to reach the next symptopm in the tree
+ static var comingFromModel = true ; 
 }
 
 class _QuestionsState extends State<Questions> {
-  
+var symp = Questions.nextSymp ;
 // method that will take the list of symptomps that the user has said yes to and return the final result 
 Future<http.Response> PredictDisease(List<String> symptomp) {
 
@@ -65,6 +71,10 @@ Future<http.Response> getDiseasePrecaution(String disease) {
     }),
   );
 }
+
+
+
+
 var symptomp ; // important attribute 
 // this method has been created manually to get the next symptopm to ask the user about based on his answer // to view the question in a way like a tree ! 
 String getSymp(List<dynamic> symptopms){
@@ -997,8 +1007,74 @@ return symptomp ;
 
 }
 
+//processing the symp coming from the model
+//////////////////
+
+Future<void> _dialogBuilder(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+           content: Text(
+             "  هل أنت متأكد من أنك رغبتك في الخروج ؟ ",
+                  style: GoogleFonts.tajawal(
+                    fontSize: 14,
+                    //fontStyle: FontStyle.italic,
+                    color: Color.fromARGB(255, 7, 7, 7),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+          actions: <Widget>[
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child:Text(
+                 "نعم",
+                  style: GoogleFonts.tajawal(
+                    fontSize: 15,
+                    //fontStyle: FontStyle.italic,
+                    color: Color(0xFF007282),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              onPressed: () {
+                Questions.allSymptompsArray =  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0
+ ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0];
+              Questions.nextSymp ='joint_pain';
+               // coming from the model // 
+               Questions.comingFromModel = true;
+
+              
+                Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(builder: (context) => Questions())); // should be the human body model
+              },
+            ),
+            TextButton(
+              style: TextButton.styleFrom(
+                textStyle: Theme.of(context).textTheme.labelLarge,
+              ),
+              child:Text(
+                 "لا",
+                  style: GoogleFonts.tajawal(
+                    fontSize: 15,
+                    //fontStyle: FontStyle.italic,
+                    color: Color(0xFF007282),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 
 
+////////////////////////
 var Symptomp ; 
 var index ; 
 bool show = false  ; 
@@ -1006,30 +1082,970 @@ List<String> Yes_Symptoms=[]; // this is the array that will collect the symptop
 var disease ; 
 var description ; 
 var precaution ; 
+
+// processing the symptopm coming from the model
+//////////////////////////////////////////////////////
+
+
+////////////////////////////////////////
   @override
   Widget build(BuildContext context) {
       //// Attention////
       ///the variable nextSymp should be coming from the prevois page which is the human model
+      ///
+    if(Questions.comingFromModel == true ){
+    if(Questions.nextSymp =="finish"){
+// disease = await PredictDisease(Yes_Symptoms); 
+// description = await getDiseaseDescription(jsonDecode(disease).body['result'][0]);
+// precaution = await getDiseasePrecaution(jsonDecode(disease).body['result'][0]);
+// print(disease);
+print("D1");
+                          
+     }
+    else if(Questions.nextSymp=="abnormal_menstruation"){
+    index = 0 ; 
+  
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("abnormal_menstruation"); 
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+    print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="muscle_pain"){
+    index = 1; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("muscle_pain"); 
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="malaise"){
+    index = 2; 
+    
+    
+    Questions.allSymptompsArray[index]=1 ;
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("malaise");
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+
+   else if (Questions.nextSymp=="irritability"){
+    index = 3; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("irritability");
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="chills"){
+    index = 4; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("chills");
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+    print("here"); 
+    print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="weight_loss"){
+    index = 5; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("weight_loss");
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="dark_urine"){
+    index = 6; 
+   
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("dark_urine");
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="joint_pain"){
+    index = 7;
+   
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("joint_pain");
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="neck_pain"){
+    index = 8; 
+    
+    Questions.allSymptompsArray[index]=1 ;
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("neck_pain");
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="obesity"){
+    index = 9; 
+    Questions.allSymptompsArray[index]=1; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("obesity");
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="stiff_neck"){
+    index = 10; 
+
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("stiff_neck");
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="constipation"){
+    index = 11; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("constipation");
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="diarrhoea"){
+    index = 12; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("diarrhoea");
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="swelling_of_stomach"){
+    index = 13; 
+    Questions.allSymptompsArray[index]=1;
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("swelling_of_stomach"); 
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="unsteadiness"){
+    index = 14; 
+    Questions.allSymptompsArray[index]=1 ;
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("unsteadiness"); 
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="loss_of_balance"){
+    index = 15; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("loss_of_balance"); 
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="bladder_discomfort"){
+    index = 16; 
+    Questions.allSymptompsArray[index]=1 ;
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("bladder_discomfort"); 
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp);
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray);  
+   }
+   else if (Questions.nextSymp=="passage_of_gases"){
+    index = 17; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("passage_of_gases"); 
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="abdominal_pain"){
+    index = 18; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("abdominal_pain"); 
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="yellowish_skin"){
+    index = 19; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("yellowish_skin"); 
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="family_history"){
+    index = 20; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("family_history"); 
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp);
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray);  
+   }
+   else if (Questions.nextSymp=="cough"){
+    index = 21; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("cough"); 
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="chest_pain"){
+    index = 22; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    Yes_Symptoms.add("chest_pain"); 
+    print(Questions.depth);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="altered_sensorium"){
+    index = 23; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("altered_sensorium"); 
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="blister"){
+    index = 24; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("blister"); 
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="high_fever"){
+    index = 25; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("high_fever"); 
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="vomiting"){
+    index = 26; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("vomiting"); 
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="burning_micturition"){
+    index = 27; 
+    
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("burning_micturition"); 
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="itching"){
+    index = 28; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("itching"); 
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+    print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray);
+    print(Questions.depth) ; 
+   }
+   else if (Questions.nextSymp=="stomach_pain"){
+    index = 29; 
+   
+    
+    print(Questions.depth);
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("stomach_pain"); 
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="nodal_skin_eruptions"){
+    index = 30; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    }
+    Yes_Symptoms.add("nodal_skin_eruptions"); 
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+    print(Questions.depth); 
+   }
+   else if (Questions.nextSymp=="continuous_sneezing"){
+    index = 31; 
+    Questions.allSymptompsArray[index]=1 ;
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("continuous_sneezing"); 
+    Questions.nextSymp = getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="skin_rash"){
+    index = 32; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("skin_rash"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+    print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="skin_peeling"){
+    index = 33; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("skin_peeling"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="muscle_wasting"){
+    index = 34; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("muscle_wasting"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="fatigue"){
+    index = 35; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("fatigue"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="pain_during_bowel_movements"){
+    index = 36; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("pain_during_bowel_movements"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="muscle_weakness"){
+    index = 37; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("muscle_weakness"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="foul_smell_of urine"){
+    index = 38; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("foul_smell_of urine"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+    print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="sunken_eyes"){
+    index = 39; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("sunken_eyes"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="breathlessness"){
+    index = 40; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("breathlessness"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="headache"){
+    index = 41; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("headache"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+
+   else if (Questions.nextSymp=="nausea"){
+    index = 42; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("nausea"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="indigestion"){
+    index = 43; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("indigestion"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="distention_of_abdomen"){
+    index = 44; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("distention_of_abdomen"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="back_pain"){
+    index = 45; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("back_pain"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="acidity"){
+    index = 46; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("acidity"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="restlessness"){
+    index = 47; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("restlessness"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="knee_pain"){
+    index = 48; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("knee_pain"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="coma"){
+    index = 49; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("coma"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="increased_appetite"){
+    index = 50; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("increased_appetite"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="slurred_speech"){
+    index = 51; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("slurred_speech"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="yellowing_of_eyes"){
+    index = 52; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("yellowing_of_eyes"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+
+   else if (Questions.nextSymp=="mild_fever"){
+    index = 53; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("mild_fever"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="pain_behind_the_eyes"){
+    index = 54; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("pain_behind_the_eyes"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="phlegm"){
+    index = 55; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("phlegm"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="enlarged_thyroid"){
+    index = 56; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("enlarged_thyroid"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   
+  
+
+
+if(Questions.nextSymp!="finish"){
+ print(Questions.nextSymp);
+ setState(() {
+   show = true ; 
+ });
+ 
+ }
+
+Questions.comingFromModel = false ; 
+      }
 
     return Scaffold(
-      
-      backgroundColor: const Color.fromARGB(255, 5, 50, 80),
+      appBar: AppBar(
+        leading:IconButton(icon: Icon(Icons.arrow_back , size: 35,), color:  Color(0xFF007282), 
+        onPressed: () =>  _dialogBuilder(context)
+         
+     
+         
+        
+        ),
+       // backgroundColor: Colors.transparent,
+        bottomOpacity: 0.0,
+         elevation: 0.0,
+        centerTitle: true,
+      backgroundColor: Colors.white,
+       title: Image.asset('assets/Images/taaf.jpg' , height: 90, alignment: FractionalOffset.center), 
+       toolbarHeight: 100,
+      ),
+      backgroundColor: Colors.white,
+    
       body: Container(
-          decoration: BoxDecoration(
+        width:500 ,
+         decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/Images/background_(1).png'),
-              fit: BoxFit.fill)),
+              image: AssetImage('assets/Images/Q2.jpeg' ), 
+            fit: BoxFit.fill
+             )),
+          // decoration: BoxDecoration(
+          // image: DecorationImage(
+          //     image: AssetImage('assets/Images/background_(1).png'),
+          //     fit: BoxFit.fill)),
+
        
         child:
-            Column(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-          const Text(
-            "Diagnosis Process :) ",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 24,
-            ),
-          ),
-          Column(children: [ // we have 2 widgets , questions widget will view the questions and the result - the answer widget will view yes no button , each button should contains a specific logic as will be shown below
+            Column(children: [
+              SizedBox(height: 50,),
+           Text(
+                  "تعافَ يقوم بتشخِيصك الآن",
+                  style: GoogleFonts.tajawal(
+                    fontSize: 23,
+                    //fontStyle: FontStyle.italic,
+                    color: Color(0xFF007282),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 20,),
+                if(Questions.nextSymp != "finish")
+               LoadingAnimationWidget.staggeredDotsWave( // LoadingAnimationwidget that call the
+        color: Color(0xFF007282),                          // staggereddotwave animation
+        size: 50,
+      ),
+    
+                
+
+          Column(children: [ 
+            SizedBox(height:35),
+// we have 2 widgets , questions widget will view the questions and the result - the answer widget will view yes no button , each button should contains a specific logic as will be shown below
            _questionWidget(Questions.nextSymp),SizedBox(height: 30,),
           _answerButton(), ],
           )
@@ -1110,20 +2126,35 @@ width: 500,
     ]);
     }
     else{
+  
     Questions.nextSymp = symp ; 
    // Questions.nextSymp = symp ; 
-    return Row(
-     children:[
-        Text(
-          "                   do you have ${symp} ? " ,
-          style: const TextStyle(
-            color:  Color.fromRGBO(0, 114, 130, 30),
-            fontSize: 15,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
+    //return Row(
+     //children:[
+      return  Container(
+              child: PhysicalModel(
+                borderRadius: BorderRadius.circular(30),
+                color: Colors.white,
+                elevation: 18,
+                shadowColor: Colors.black,
+                child: Container(
+                  height: 90,
+                  width: 350,
+                
+              
+        
+     child: Center(
+     child: Text(
+                  " هل تعاني من ${symp} ?",
+                  style: GoogleFonts.tajawal(
+                    fontSize: 20,
+                    //fontStyle: FontStyle.italic,
+                    color: Color.fromARGB(255, 65, 66, 66),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),),)),);
 
-    ]);
+   // ]);
   }
 
   }
@@ -1142,12 +2173,40 @@ width: 500,
    else{
     return Column(
       children:[
-  
-      ElevatedButton(
-        child: Text("Yes"),
-        style: ElevatedButton.styleFrom(
-          backgroundColor:  Color.fromRGBO(0, 114, 130, 30),
-          shape: const StadiumBorder(),
+  // DecoratedBox(
+  //   decoration: BoxDecoration(
+  //   gradient:LinearGradient(colors: [Color.fromRGBO(0, 114, 130, 30) , Color.fromARGB(255, 248, 246, 246) , Colors.transparent]),
+  //   borderRadius: BorderRadius.circular(30),
+  //   boxShadow: <BoxShadow>[
+  //     BoxShadow(
+  //       color: Color.fromRGBO(0,0,0,0.57),
+  //       blurRadius: 5 ,
+
+  //     )
+
+  //   ]
+  //   ),
+    
+       OutlinedButton(
+        
+        child: Text(
+                 "نعم",
+                  style: GoogleFonts.tajawal(
+                    fontSize: 20,
+                    //fontStyle: FontStyle.italic,
+                    color: Color.fromARGB(224, 74, 198, 74),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+        style: OutlinedButton.styleFrom(
+          
+         side: BorderSide(width: 2.0, color: Color.fromRGBO(0, 114, 130, 30)),
+         //shadowColor: Colors.transparent,
+         backgroundColor:  Colors.white.withOpacity(0.0),
+         shape: RoundedRectangleBorder(
+         borderRadius: BorderRadius.circular(20)
+       // )
+         ),
         ),
         onPressed: () async{
 if(Questions.nextSymp =="finish"){
@@ -2061,10 +3120,20 @@ if(Questions.nextSymp!="finish"){
         },
       ),
       
-       ElevatedButton(
-        child: Text("No"),
-        style: ElevatedButton.styleFrom(
-          backgroundColor:  Color.fromRGBO(0, 114, 130, 30),
+       OutlinedButton(
+        child: Text(
+                "لا" ,
+                  style: GoogleFonts.tajawal(
+                    fontSize: 20,
+                    //fontStyle: FontStyle.italic,
+                    color: Color.fromARGB(225, 230, 41, 28),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+        style: OutlinedButton.styleFrom(
+          side: BorderSide(width: 2.0, color: Color.fromRGBO(0, 114, 130, 30)),
+          backgroundColor: Colors.white.withOpacity(0.0),
+         // backgroundColor:  Color.fromRGBO(0, 114, 130, 30),
           shape: const StadiumBorder(),
         ),
         onPressed: ()async {
