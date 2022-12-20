@@ -62,7 +62,7 @@ dependencies:
   rotation_stage: any
   touchable: any
   body_part_selector:
-   path: C:\Users\aljoh\Downloads\444\Taaf-GP\body_part_selector
+   path: /Users/deemalmutib/Desktop/Taaf/body_part_selector
 
 dev_dependencies:
   flutter_test:
@@ -91,11 +91,11 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    #- assets/fonts/
-    #- assets/images/
-    #- assets/videos/
-    #- assets/audios/
-    #- assets/pdfs/
+    - assets/fonts/
+    - assets/images/
+    - assets/videos/
+    - assets/audios/
+    - assets/pdfs/
     - packages/body_part_selector/m_front.svg
     - packages/body_part_selector/m_left.svg
     - packages/body_part_selector/m_back.svg

@@ -6,7 +6,10 @@ import 'package:body_part_selector/src/service/successSave.dart';
 import 'package:body_part_selector/src/service/svg_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:taaf/SymptomsPages/headSy.dart';
+import 'package:taaf/SymptomsPages/neckSy.dart';
 import 'package:touchable/touchable.dart';
+import 'package:taaf/SymptomsPages/upperBoday.dart';
 
 class BodyPartSelector extends StatelessWidget {
   const BodyPartSelector({
@@ -65,17 +68,32 @@ class BodyPartSelector extends StatelessWidget {
               onTap: (s) {
                 if (s == "head") {
                   Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (contex) => (success2(title: "title"))),
-                  );
+                      context,
+                      MaterialPageRoute(
+                        builder: (contex) => (HeadSymptoms()),
+                      ));
+                } else if (s == "neck") {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            (neckSymptoms()), //leftShoulder abdomen
+                      ));
+                } else if (s == "upperBody") {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            (upperBoday()), //leftShoulder abdomen
+                      ));
                 } else {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => (success2(title: "title"))),
                   );
-                }},
+                }
+              },
               context: context,
               selectedColor: selectedColor ?? colorScheme.inversePrimary,
               unselectedColor: unselectedColor ?? colorScheme.inverseSurface,
