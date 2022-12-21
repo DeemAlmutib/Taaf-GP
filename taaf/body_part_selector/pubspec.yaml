@@ -18,7 +18,7 @@ dependencies:
   rotation_stage: ^0.0.3
   google_fonts: ^3.0.1
   taaf:
-   path: /Users/deemalmutib/Desktop/Taaf/taaf
+   path: ../
 
 dev_dependencies:
   flutter_test:
