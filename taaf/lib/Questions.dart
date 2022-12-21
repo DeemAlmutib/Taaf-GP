@@ -15,7 +15,7 @@ class Questions extends StatefulWidget {
  // static List<dynamic> allSymptompsArray =  [];
  static List<dynamic> allSymptompsArray =  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0
  ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0];
- static var nextSymp ='joint_pain'; // coming from the model // very important attribute 
+ static var nextSymp ='malaise'; // coming from the model // very important attribute 
  static var nextSympAR ;
  static var depth ; // important to to reach the next symptopm in the tree
  static var comingFromModel = true ; 
@@ -1041,7 +1041,7 @@ Future<void> _dialogBuilder(BuildContext context) {
               onPressed: () {
                 Questions.allSymptompsArray =  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0
  ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0];
-              Questions.nextSymp ='joint_pain';
+              Questions.nextSymp ='malaise';
                // coming from the model // 
                Questions.comingFromModel = true;
 
@@ -2011,11 +2011,12 @@ Questions.comingFromModel = false ;
     
       body: Container(
         width:500 ,
-         decoration: BoxDecoration(
+        
+         decoration:Questions.nextSymp!="finish"? BoxDecoration(
           image: DecorationImage(
               image: AssetImage('assets/Images/Q2.jpeg' ), 
             fit: BoxFit.fill
-             )),
+             )): BoxDecoration(),
           // decoration: BoxDecoration(
           // image: DecorationImage(
           //     image: AssetImage('assets/Images/background_(1).png'),
@@ -2024,9 +2025,20 @@ Questions.comingFromModel = false ;
        
         child:
             Column(children: [
-              SizedBox(height: 50,),
+              SizedBox(height: 30,),
+              if(Questions.nextSymp!="finish")
            Text(
                   "تعافَ يقوم بتشخِيصك الآن",
+                  style: GoogleFonts.tajawal(
+                    fontSize: 23,
+                    //fontStyle: FontStyle.italic,
+                    color: Color(0xFF007282),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                if(Questions.nextSymp=="finish")
+                 Text(
+                  " تم التشخِيص",
                   style: GoogleFonts.tajawal(
                     fontSize: 23,
                     //fontStyle: FontStyle.italic,
@@ -2068,62 +2080,190 @@ Questions.comingFromModel = false ;
        
       return Column(
      children:[
+
       
+        
+       
+                // shadowColor: Colors.black,
+                // child: Container(
+                //   height: 60,
+            Divider(
+thickness: 1,
+indent: 60,
+endIndent: 60,
+color: Color(0xFF007282),
+        ),     //   width: 350,
+      SizedBox(height: 10,),
+
+      Row(children: [
+       
         Text(
-          "Your inititial diagnosis is " + (jsonDecode(disease.body)['result']).toString() ,
-          style: const TextStyle(
-            color:  Color.fromARGB(225, 19, 19, 19),
-            fontSize: 16,
-            
-            fontWeight: FontWeight.bold,
-          ),
+        "            " +  (jsonDecode(disease.body)['result']).toString()  ,
+         style: GoogleFonts.tajawal(
+                    fontSize: 18,
+                    //fontStyle: FontStyle.italic,
+                    color: Color(0xFF007282),
+                    fontWeight: FontWeight.bold,
+                  ),
+
+        ),
+         Text(
+           " من المحتمل أنك تعاني من "  ,
+         style: GoogleFonts.tajawal(
+                    fontSize: 18,
+                    //fontStyle: FontStyle.italic,
+                    color: Color.fromARGB(255, 60, 61, 61),
+                    fontWeight: FontWeight.bold,
+                  ),
+        ),
+
+
+      ],),
+        
+        SizedBox(height: 10,),
+        Divider(
+thickness: 1,
+indent: 60,
+endIndent: 60,
+color: Color(0xFF007282),
+        ),
+                
+        SizedBox(height: 10,) ,
+         Align(
+          alignment: Alignment.centerRight,
+          child:  Text(
+        DateTime.now().toString() + "                   " ,
+         style: GoogleFonts.tajawal(
+                    fontSize: 12,
+                    //fontStyle: FontStyle.italic,
+                    
+                    color: Color.fromARGB(255, 116, 117, 117),
+                    fontWeight: FontWeight.bold,
+                  ),
         ), 
-        SizedBox(height: 30,),
-         Text('Disease Description : ' , style: const TextStyle(
-            color:  Color.fromARGB(225, 16, 22, 23),
-            fontSize: 12,
-            
-            fontWeight: FontWeight.w600,
-          ),
-         ),
-         SizedBox(height: 10,),
+        ),
+        SizedBox(height: 25,),
+       
+        Align(
+          alignment: Alignment.centerRight,
+          child:  Text(
+        "ملخص              "  ,
+         style: GoogleFonts.tajawal(
+                    fontSize: 19,
+                    //fontStyle: FontStyle.italic,
+                    
+                    color: Color(0xFF007282),
+                    fontWeight: FontWeight.bold,
+                  ),
+        ), 
+        ),
+        SizedBox(height: 10,),
+        Align(
+          alignment: Alignment.centerRight,
+        child: Text(' :وصف المرض             ' , style: GoogleFonts.tajawal(
+                    fontSize: 15,
+                    //fontStyle: FontStyle.italic,
+                    
+                    color: Color.fromARGB(255, 152, 152, 152),
+                    fontWeight: FontWeight.bold,
+                  ),
+         ),),
+         SizedBox(height: 5,),
         Column(children: [ Container(
-height:60,
+height:50,
 width: 500,
 
+       child: 
+       Align(
+        alignment: Alignment.centerRight,
        child: Text(jsonDecode(description.body)['result'].toString() ,  style: const TextStyle(
-            color:  Color.fromRGBO(0, 114, 130, 30),
+            color: Color.fromARGB(225, 8, 8, 8),
             fontSize: 12,
             
             fontWeight: FontWeight.w600,
-          ),)),
-           SizedBox(height: 10,),
-         Text('Advices: ' , style: const TextStyle(
-            color:  Color.fromARGB(225, 16, 22, 23),
-            fontSize: 12,
-            
-            fontWeight: FontWeight.w600,
-          ),
-         ),
+          ),)),),
+           SizedBox(height: 5,),
 
+           Align(alignment: Alignment.centerRight,
+       child :Text(': نصائح              ' , style: GoogleFonts.tajawal(
+                    fontSize: 15,
+                    //fontStyle: FontStyle.italic,
+                    
+                    color: Color.fromARGB(255, 152, 152, 152),
+                    fontWeight: FontWeight.bold,
+                  ),
+         ),
+           ),
+              SizedBox(height: 5,),
           Container(
-          height:30,
+          height:80,
           width: 500,
 
-          child: Text(jsonDecode(precaution.body)['result'].toString() ,  style: const TextStyle(
-            color:  Color.fromRGBO(0, 114, 130, 30),
+          child:
+          Column(children: [ 
+             Align(alignment: Alignment.centerRight,
+            child: Text("   1-" + jsonDecode(precaution.body)['result'][0].toString() +"                   ",  style: const TextStyle(
+            color:  Color.fromARGB(225, 11, 11, 11),
             fontSize: 12,
             
             fontWeight: FontWeight.w600,
-          ),)),
+          ),),),
+         SizedBox(height : 10),
+          Align(alignment: Alignment.centerRight,
+          child: Text("   2-" + jsonDecode(precaution.body)['result'][1].toString() + "                    ",  style: const TextStyle(
+            color:  Color.fromARGB(225, 8, 8, 8),
+            fontSize: 12,
+            
+            fontWeight: FontWeight.w600,
+          ),),),
+          SizedBox(height : 10),
+           Align(alignment: Alignment.centerRight,
+         child: Text("   3-" + jsonDecode(precaution.body)['result'][2].toString() + "                      ",  style: const TextStyle(
+            color:  Color.fromARGB(225, 12, 12, 12),
+            fontSize: 12,
+            
+            fontWeight: FontWeight.w600,
+          ),),)
+          
+          ]),
           
           
-          ],)
-        
-        
-,
+         ),
+        ]),
+SizedBox(height: 10,),
+        ElevatedButton(
+          child: Text('                   خروج                 ',
+          style: GoogleFonts.tajawal(
+                    fontSize: 15,
+                    //fontStyle: FontStyle.italic,
+                    
+                    color: Color.fromARGB(255, 255, 253, 253),
+                    fontWeight: FontWeight.bold,
+                  ),),
+          style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+        backgroundColor: MaterialStateProperty.all<Color>(Color.fromRGBO(0, 114, 130, 30)),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(18),
+            //side: BorderSide(color: Colors.red)
+          ),
+        ),
+          ),
+          onPressed: () {
+               Questions.allSymptompsArray =  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0
+ ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0];
+              Questions.nextSymp ='malaise';
+               // coming from the model // 
+               Questions.comingFromModel = true;
+             Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(builder: (context) => Questions()));
+          },
+        ),
+        ]);
 
-    ]);
+
+    
     }
     else{
   
