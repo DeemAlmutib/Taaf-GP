@@ -1,21 +1,20 @@
 //import '../flutter_flow/flutter_flow_radio_button.dart';
 
 import 'package:flutter/material.dart';
-import 'package:from_css_color/from_css_color.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main.dart';
 
-class neckSymptoms extends StatefulWidget {
-  const neckSymptoms({Key? key}) : super(key: key);
+class muscle extends StatefulWidget {
+  const muscle({Key? key}) : super(key: key);
 
   @override
-  _neckSymptoms createState() => _neckSymptoms();
+  _muscle createState() => _muscle();
 }
 
-class _neckSymptoms extends State<neckSymptoms> {
+class _muscle extends State<muscle> {
   String? sym;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -61,14 +60,12 @@ class _neckSymptoms extends State<neckSymptoms> {
                     "من ماذا تعاني؟",
                     style: TextStyle(fontSize: 18),
                   ),*/
-
                       Divider(
                         color: Colors.black,
                         //height: 36,
                       ),
                       RadioListTile(
-                        title: Text(
-                            "تضخم في الغدة الدرقية ( انتفاخ بارز أسفل عنقك مباشرة تحت تفاحة آدم )",
+                        title: Text(" ألم في العضلات",
                             style: FlutterFlowTheme.of(context).title1.override(
                                   fontFamily: 'Tajawal',
                                   color: Color.fromRGBO(0, 114, 130, 100),
@@ -76,7 +73,7 @@ class _neckSymptoms extends State<neckSymptoms> {
                                   fontWeight: FontWeight.bold,
                                 ),
                             textAlign: TextAlign.right),
-                        value: "enlarged_thyroid",
+                        value: "muscle_pain",
                         groupValue: sym,
                         onChanged: (value) {
                           setState(() {
@@ -89,7 +86,7 @@ class _neckSymptoms extends State<neckSymptoms> {
                         //height: 36,
                       ),
                       RadioListTile(
-                        title: Text("ألم في الرقبة",
+                        title: Text(" ألم في المفاصل  ",
                             style: FlutterFlowTheme.of(context).title1.override(
                                   fontFamily: 'Tajawal',
                                   color: Color.fromRGBO(0, 114, 130, 100),
@@ -97,7 +94,7 @@ class _neckSymptoms extends State<neckSymptoms> {
                                   fontWeight: FontWeight.bold,
                                 ),
                             textAlign: TextAlign.right),
-                        value: "neck_pain",
+                        value: "joint_pain",
                         groupValue: sym,
                         onChanged: (value) {
                           setState(() {
@@ -111,7 +108,7 @@ class _neckSymptoms extends State<neckSymptoms> {
                       ),
                       RadioListTile(
                         title: Text(
-                            "تصلب في الرقبة ( الشعور بالألم وصعوبة تحريك الرقبة وخاصة عند محاولة ادارة الرأس الى أحد الجانبين )",
+                            "   طفح جلدي    ", //keep it or it should be another place?
                             style: FlutterFlowTheme.of(context).title1.override(
                                   fontFamily: 'Tajawal',
                                   color: Color.fromRGBO(0, 114, 130, 100),
@@ -119,7 +116,28 @@ class _neckSymptoms extends State<neckSymptoms> {
                                   fontWeight: FontWeight.bold,
                                 ),
                             textAlign: TextAlign.right),
-                        value: "stiff_neck",
+                        value: " skin_rash ",
+                        groupValue: sym,
+                        onChanged: (value) {
+                          setState(() {
+                            sym = value.toString();
+                          });
+                        },
+                      ),
+                      Divider(
+                        color: Colors.black,
+                        //height: 36,
+                      ),
+                      RadioListTile(
+                        title: Text("    حكة    ",
+                            style: FlutterFlowTheme.of(context).title1.override(
+                                  fontFamily: 'Tajawal',
+                                  color: Color.fromRGBO(0, 114, 130, 100),
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                            textAlign: TextAlign.right),
+                        value: "itching",
                         groupValue: sym,
                         onChanged: (value) {
                           setState(() {
@@ -165,6 +183,10 @@ class _neckSymptoms extends State<neckSymptoms> {
                         ),
                       ),
                     ],
+                    //     ),
+                    //  ),
+                    //  ),
+                    //  ],
                   ),
                 )),
           ),

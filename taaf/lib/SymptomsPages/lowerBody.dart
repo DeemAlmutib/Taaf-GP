@@ -8,14 +8,14 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main.dart';
 
-class neckSymptoms extends StatefulWidget {
-  const neckSymptoms({Key? key}) : super(key: key);
+class lowerBody extends StatefulWidget {
+  const lowerBody({Key? key}) : super(key: key);
 
   @override
-  _neckSymptoms createState() => _neckSymptoms();
+  _lowerBody createState() => _lowerBody();
 }
 
-class _neckSymptoms extends State<neckSymptoms> {
+class _lowerBody extends State<lowerBody> {
   String? sym;
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -67,8 +67,7 @@ class _neckSymptoms extends State<neckSymptoms> {
                         //height: 36,
                       ),
                       RadioListTile(
-                        title: Text(
-                            "تضخم في الغدة الدرقية ( انتفاخ بارز أسفل عنقك مباشرة تحت تفاحة آدم )",
+                        title: Text("انتفاخ في البطن  ",
                             style: FlutterFlowTheme.of(context).title1.override(
                                   fontFamily: 'Tajawal',
                                   color: Color.fromRGBO(0, 114, 130, 100),
@@ -76,7 +75,8 @@ class _neckSymptoms extends State<neckSymptoms> {
                                   fontWeight: FontWeight.bold,
                                 ),
                             textAlign: TextAlign.right),
-                        value: "enlarged_thyroid",
+                        value:
+                            "swelling_of_stomach", // also the same = distention_of_abdomen
                         groupValue: sym,
                         onChanged: (value) {
                           setState(() {
@@ -89,7 +89,7 @@ class _neckSymptoms extends State<neckSymptoms> {
                         //height: 36,
                       ),
                       RadioListTile(
-                        title: Text("ألم في الرقبة",
+                        title: Text(" ألم في البطن  ",
                             style: FlutterFlowTheme.of(context).title1.override(
                                   fontFamily: 'Tajawal',
                                   color: Color.fromRGBO(0, 114, 130, 100),
@@ -97,7 +97,7 @@ class _neckSymptoms extends State<neckSymptoms> {
                                   fontWeight: FontWeight.bold,
                                 ),
                             textAlign: TextAlign.right),
-                        value: "neck_pain",
+                        value: "abdominal_pain",
                         groupValue: sym,
                         onChanged: (value) {
                           setState(() {
@@ -110,8 +110,7 @@ class _neckSymptoms extends State<neckSymptoms> {
                         //height: 36,
                       ),
                       RadioListTile(
-                        title: Text(
-                            "تصلب في الرقبة ( الشعور بالألم وصعوبة تحريك الرقبة وخاصة عند محاولة ادارة الرأس الى أحد الجانبين )",
+                        title: Text("   طفح جلدي  ",
                             style: FlutterFlowTheme.of(context).title1.override(
                                   fontFamily: 'Tajawal',
                                   color: Color.fromRGBO(0, 114, 130, 100),
@@ -119,17 +118,13 @@ class _neckSymptoms extends State<neckSymptoms> {
                                   fontWeight: FontWeight.bold,
                                 ),
                             textAlign: TextAlign.right),
-                        value: "stiff_neck",
+                        value: "nodal_skin_eruptions",
                         groupValue: sym,
                         onChanged: (value) {
                           setState(() {
                             sym = value.toString();
                           });
                         },
-                      ),
-                      Divider(
-                        color: Colors.black,
-                        //height: 36,
                       ),
                       Container(
                         width: 221.8,

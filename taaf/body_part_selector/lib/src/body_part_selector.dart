@@ -10,6 +10,12 @@ import 'package:taaf/SymptomsPages/headSy.dart';
 import 'package:taaf/SymptomsPages/neckSy.dart';
 import 'package:touchable/touchable.dart';
 import 'package:taaf/SymptomsPages/upperBoday.dart';
+import 'package:taaf/SymptomsPages/Knee.dart';
+import 'package:taaf/SymptomsPages/abdomen.dart';
+import 'package:taaf/SymptomsPages/back.dart';
+import 'package:taaf/SymptomsPages/lowerBody.dart';
+import 'package:taaf/SymptomsPages/muscle.dart';
+import 'package:taaf/SymptomsPages/handFoot.dart';
 
 class BodyPartSelector extends StatelessWidget {
   const BodyPartSelector({
@@ -76,15 +82,59 @@ class BodyPartSelector extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            (neckSymptoms()), //leftShoulder abdomen
+                        builder: (context) => (neckSymptoms()),
                       ));
                 } else if (s == "upperBody") {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
+                        builder: (context) => (upperBoday()),
+                      ));
+                } else if (s == "leftKnee" || s == "rightKnee") {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => (Knee()),
+                      ));
+                } else if (s == "abdomen") {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
                         builder: (context) =>
-                            (upperBoday()), //leftShoulder abdomen
+                            (abdomen()), //abdomen under stomach
+                      ));
+                } else if (s == "lowerBody") {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            (lowerBody()), //lower boday (stomach) i think
+                      ));
+                } //muscle
+                else if (s == "leftShoulder" ||
+                    s == "leftUpperArm" ||
+                    s == "rightShoulder" ||
+                    s == "rightLowerArm" ||
+                    s == "leftLowerArm" ||
+                    s == "leftElbow" ||
+                    s == "leftUpperLeg" ||
+                    s == "rightUpperArm" ||
+                    s == "leftLowerLeg" ||
+                    s == "rightUpperLeg" ||
+                    s == "rightLowerLeg") {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => (muscle()), //all muscles
+                      ));
+                } else if (s == "leftHand" ||
+                    s == "leftFoot" ||
+                    s == "rightFoot" ||
+                    s == "rightHand") {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => (handFoot()), //hand and foot only
                       ));
                 } else {
                   Navigator.push(
