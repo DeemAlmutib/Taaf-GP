@@ -10,15 +10,18 @@ import 'package:taaf/login.dart';
 import 'package:taaf/welcomePage.dart';
 
 class Questions extends StatefulWidget {
+   final sympController;
+   Questions({Key? key, this.sympController}) : super(key: key);
   @override
   State<Questions> createState() => _QuestionsState();
  // static List<dynamic> allSymptompsArray =  [];
  static List<dynamic> allSymptompsArray =  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0
  ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0];
- static var nextSymp ='malaise'; // coming from the model // very important attribute 
+ static var nextSymp  ; // coming from the model // very important attribute 
  static var nextSympAR ;
  static var depth ; // important to to reach the next symptopm in the tree
  static var comingFromModel = true ; 
+ static var expected ; 
 }
 
 class _QuestionsState extends State<Questions> {
@@ -439,6 +442,17 @@ else if(symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23
 }
 }
 if(Questions.depth==26){
+if(symptopms[26]==1 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==1 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 26  vomiting and joint pain
+symptomp ="finish" ; // here i changed
+}
+else if(symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==1 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){//  vomiting
+  symptomp ="finish" ;   
+}
+}
+if(Questions.depth==26){
 if(symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==1 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
 symptopms[6]==0 && symptopms[5]==0 && 
 symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 26  vomiting and loss balance
@@ -453,13 +467,15 @@ if(Questions.depth==26){
 if(symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==1 &&
 symptopms[6]==0 && symptopms[5]==0 && 
 symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 26  vomiting and joint pain
-symptomp ="back_pain" ; 
+symptomp ="skin_peeling" ; // here i changed
 }
 else if(symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==1 && 
   symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){//  vomiting
   symptomp ="high_fever" ;   
 }
 }
+
+
 
 if(Questions.depth==27){
 
@@ -582,6 +598,17 @@ symptomp ="skin_peeling" ;
 else if(symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0 && symptopms[29]==0 && symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==1 && 
   symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){//32 
   symptomp ="high_fever" ;   
+}
+}
+if(Questions.depth==32){
+if(symptopms[32]==1  &&symptopms[31]==0 &&symptopms[30]==0&& symptopms[29]==0  &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==1 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 32 skin_rash
+symptomp ="finish" ; 
+}
+else if(symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0 && symptopms[29]==0 && symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==1 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){//32 
+  symptomp ="vomiting" ;   
 }
 }
 if(Questions.depth==33){
@@ -1009,6 +1036,22 @@ return symptomp ;
 
 //processing the symp coming from the model
 //////////////////
+///
+Future<Response> predict(List<String> x) async{
+var y = await PredictDisease(x);
+
+return y ; 
+
+}
+Future<Response> predictD(String d) async{
+  var y = getDiseaseDescription(d); 
+  return y ; 
+
+}
+Future<Response> predictA(String d ) async{
+   var y = getDiseasePrecaution(d); 
+  return y ; 
+}
 
 Future<void> _dialogBuilder(BuildContext context) {
     return showDialog<void>(
@@ -1041,13 +1084,13 @@ Future<void> _dialogBuilder(BuildContext context) {
               onPressed: () {
                 Questions.allSymptompsArray =  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0
  ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0];
-              Questions.nextSymp ='malaise';
+              Questions.nextSymp = widget.sympController;
                // coming from the model // 
                Questions.comingFromModel = true;
 
               
                 Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(builder: (context) => Questions())); // should be the human body model
+                              MaterialPageRoute(builder: (context) => Questions(sympController: Questions.nextSymp))); // should be the human body model
               },
             ),
             TextButton(
@@ -1093,9 +1136,11 @@ var precaution ;
       //// Attention////
       ///the variable nextSymp should be coming from the prevois page which is the human model
       ///
+      
     if(Questions.comingFromModel == true ){
+      Questions.nextSymp = widget.sympController ;
     if(Questions.nextSymp =="finish"){
-// disease = await PredictDisease(Yes_Symptoms); 
+// \\disease = await PredictDisease(Yes_Symptoms); 
 // description = await getDiseaseDescription(jsonDecode(disease).body['result'][0]);
 // precaution = await getDiseasePrecaution(jsonDecode(disease).body['result'][0]);
 // print(disease);
@@ -1986,6 +2031,7 @@ if(Questions.nextSymp!="finish"){
  });
  
  }
+ 
 
 Questions.comingFromModel = false ; 
       }
@@ -2096,27 +2142,81 @@ color: Color(0xFF007282),
       SizedBox(height: 10,),
 
       Row(children: [
-       
-        Text(
-        "            " +  (jsonDecode(disease.body)['result']).toString()  ,
-         style: GoogleFonts.tajawal(
-                    fontSize: 18,
-                    //fontStyle: FontStyle.italic,
-                    color: Color(0xFF007282),
-                    fontWeight: FontWeight.bold,
-                  ),
+       FutureBuilder<Response>(
+        future: predict(Yes_Symptoms), // a previously-obtained Future<String> or null
+        builder: (BuildContext context, AsyncSnapshot<Response> snapshot)  {
+          List<Widget> children;
+          if (snapshot.hasData) {
+            //var x = await PredictDisease(Yes_Symptoms);
+          Questions.expected = jsonDecode((snapshot.data)!.body)['result'].toString() ;
 
-        ),
-         Text(
-           " من المحتمل أنك تعاني من "  ,
+            children = <Widget>[
+              Align(alignment: Alignment.center,
+              child: Column(children: [
+              
+              Align(alignment: Alignment.centerRight,
+         child: Text(
+           "                         من المحتمل أنك تعاني من  "  ,
          style: GoogleFonts.tajawal(
                     fontSize: 18,
                     //fontStyle: FontStyle.italic,
                     color: Color.fromARGB(255, 60, 61, 61),
                     fontWeight: FontWeight.bold,
                   ),
-        ),
+        ),),
+        Align(
+          alignment: Alignment.center,
+         child: Text(
+        "                   " +  (jsonDecode((snapshot.data)!.body)['result']).toString()  ,
+         style: GoogleFonts.tajawal(
+                    fontSize: 18,
+                    //fontStyle: FontStyle.italic,
+                    color: Color(0xFF007282),
+                    fontWeight: FontWeight.bold,
+                  ),
+                  
 
+        ),)
+
+              ],)
+              )
+            ];
+          } else if (snapshot.hasError) {
+            children = <Widget>[
+              const Icon(
+                Icons.error_outline,
+                color: Colors.red,
+                size: 60,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: Text('Error: ${snapshot.error}'),
+              ),
+            ];
+          } else {
+            children = const <Widget>[
+              SizedBox(
+                width: 60,
+                height: 60,
+                child: CircularProgressIndicator(),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 16),
+                child: Text('Awaiting result...'),
+              ),
+            ];
+          }
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: children,
+            ),
+          );
+        },
+      ),
+
+       
+        
 
       ],),
         
@@ -2142,7 +2242,7 @@ color: Color(0xFF007282),
                   ),
         ), 
         ),
-        SizedBox(height: 25,),
+      SizedBox(height: 5,),
        
         Align(
           alignment: Alignment.centerRight,
@@ -2168,20 +2268,113 @@ color: Color(0xFF007282),
                     fontWeight: FontWeight.bold,
                   ),
          ),),
-         SizedBox(height: 5,),
+        // SizedBox(height: 5,),
         Column(children: [ Container(
-height:50,
+height:56,
 width: 500,
 
+
        child: 
-       Align(
+       FutureBuilder<Response>(
+        future: predict(Yes_Symptoms), // a previously-obtained Future<String> or null
+        builder: (BuildContext context, AsyncSnapshot<Response> snapshot1) {
+          List<Widget> children;
+          if (snapshot1.hasData) {
+
+            children = <Widget>[
+
+        FutureBuilder<Response>(
+          
+        future: predictD(jsonDecode((snapshot1.data)!.body)['result'][0].toString()), // a previously-obtained Future<String> or null
+        builder: (BuildContext context, AsyncSnapshot<Response> snapshot2) {
+          List<Widget> children;
+          if (snapshot2.hasData) {
+            print(jsonDecode((snapshot1.data)!.body)['result'][0].toString());
+            print(jsonDecode((snapshot2.data)!.body)['result'][0].toString()); 
+            print("snapshots");
+            children = <Widget>[
+
+               Align(
         alignment: Alignment.centerRight,
-       child: Text(jsonDecode(description.body)['result'].toString() ,  style: const TextStyle(
+       child: Text(jsonDecode((snapshot2.data)!.body)['result'].toString() ,  style: const TextStyle(
             color: Color.fromARGB(225, 8, 8, 8),
             fontSize: 12,
             
             fontWeight: FontWeight.w600,
-          ),)),),
+          ),))
+            ];
+          } else if (snapshot2.hasError) {
+            children = <Widget>[
+              const Icon(
+                Icons.error_outline,
+                color: Colors.red,
+                size: 60,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: Text('Error: ${snapshot2.error}'),
+              ),
+            ];
+          } else {
+            children = const <Widget>[
+              SizedBox(
+                width: 60,
+                height: 60,
+                child: CircularProgressIndicator(),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 16),
+                child: Text('Awaiting result...'),
+              ),
+            ];
+          }
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: children,
+            ),
+          );
+        },
+      ),
+
+
+             
+            ];
+          } else if (snapshot1.hasError) {
+            children = <Widget>[
+              const Icon(
+                Icons.error_outline,
+                color: Colors.red,
+                size: 60,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: Text('Error: ${snapshot1.error}'),
+              ),
+            ];
+          } else {
+            children = const <Widget>[
+              SizedBox(
+                width: 60,
+                height: 60,
+                child: CircularProgressIndicator(),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 16),
+                child: Text('Awaiting result...'),
+              ),
+            ];
+          }
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: children,
+            ),
+          );
+        },
+      ),
+       
+      ),
            SizedBox(height: 5,),
 
            Align(alignment: Alignment.centerRight,
@@ -2200,9 +2393,24 @@ width: 500,
           width: 500,
 
           child:
-          Column(children: [ 
+          FutureBuilder<Response>(
+        future: predict(Yes_Symptoms), // a previously-obtained Future<String> or null
+        builder: (BuildContext context, AsyncSnapshot<Response> snapshot1) {
+          List<Widget> children;
+          if (snapshot1.hasData) {
+            children = <Widget>[
+               FutureBuilder<Response>(
+        future: predictA(jsonDecode((snapshot1.data)!.body)['result'][0].toString()), // a previously-obtained Future<String> or null
+        builder: (BuildContext context, AsyncSnapshot<Response> snapshot2) {
+          List<Widget> children;
+          if (snapshot2.hasData) {
+            print(jsonDecode((snapshot1.data)!.body)['result'][0].toString());
+            print(jsonDecode((snapshot2.data)!.body)['result'][0].toString()); 
+            print("snapshots");
+            children = <Widget>[
+               Column(children: [ 
              Align(alignment: Alignment.centerRight,
-            child: Text("   1-" + jsonDecode(precaution.body)['result'][0].toString() +"                   ",  style: const TextStyle(
+            child: Text("   1-" + jsonDecode((snapshot2.data)!.body)['result'][0].toString() +"                   ",  style: const TextStyle(
             color:  Color.fromARGB(225, 11, 11, 11),
             fontSize: 12,
             
@@ -2210,7 +2418,7 @@ width: 500,
           ),),),
          SizedBox(height : 10),
           Align(alignment: Alignment.centerRight,
-          child: Text("   2-" + jsonDecode(precaution.body)['result'][1].toString() + "                    ",  style: const TextStyle(
+          child: Text("   2-" + jsonDecode((snapshot2.data)!.body)['result'][1].toString() + "                    ",  style: const TextStyle(
             color:  Color.fromARGB(225, 8, 8, 8),
             fontSize: 12,
             
@@ -2218,7 +2426,7 @@ width: 500,
           ),),),
           SizedBox(height : 10),
            Align(alignment: Alignment.centerRight,
-         child: Text("   3-" + jsonDecode(precaution.body)['result'][2].toString() + "                      ",  style: const TextStyle(
+         child: Text("   3-" + jsonDecode((snapshot2.data)!.body)['result'][2].toString() + "                      ",  style: const TextStyle(
             color:  Color.fromARGB(225, 12, 12, 12),
             fontSize: 12,
             
@@ -2227,6 +2435,76 @@ width: 500,
           
           ]),
           
+            ];
+          } else if (snapshot2.hasError) {
+            children = <Widget>[
+              const Icon(
+                Icons.error_outline,
+                color: Colors.red,
+                size: 60,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: Text('Error: ${snapshot2.error}'),
+              ),
+            ];
+          } else {
+            children = const <Widget>[
+              SizedBox(
+                width: 60,
+                height: 60,
+                child: CircularProgressIndicator(),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 16),
+                child: Text('Awaiting result...'),
+              ),
+            ];
+          }
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: children,
+            ),
+          );
+        },
+      ),
+             
+            ];
+          } else if (snapshot1.hasError) {
+            children = <Widget>[
+              const Icon(
+                Icons.error_outline,
+                color: Colors.red,
+                size: 60,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: Text('Error: ${snapshot1.error}'),
+              ),
+            ];
+          } else {
+            children = const <Widget>[
+              SizedBox(
+                width: 60,
+                height: 60,
+                child: CircularProgressIndicator(),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 16),
+                child: Text('Awaiting result...'),
+              ),
+            ];
+          }
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: children,
+            ),
+          );
+        },
+      ),
+         
           
          ),
         ]),
@@ -2250,14 +2528,16 @@ SizedBox(height: 10,),
           ),
         ),
           ),
-          onPressed: () {
+          onPressed: () { // deem and aljoharah here you are going to use firebase 
+          // Yes_Symptoms , disease , description and  are the 2 vari
+        
                Questions.allSymptompsArray =  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0
  ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0];
-              Questions.nextSymp ='malaise';
+              Questions.nextSymp = widget.sympController ;
                // coming from the model // 
                Questions.comingFromModel = true;
              Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(builder: (context) => Questions()));
+                              MaterialPageRoute(builder: (context) => Questions(sympController: Questions.nextSymp)));
           },
         ),
         ]);
