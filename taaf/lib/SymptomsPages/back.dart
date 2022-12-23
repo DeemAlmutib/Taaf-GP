@@ -16,7 +16,7 @@ class back extends StatefulWidget {
 }
 
 class _back extends State<back> {
-  String? sym;
+  String? sym; // var have the symptoms name in english
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override

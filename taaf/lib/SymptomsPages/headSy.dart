@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:taaf/humanModel.dart';
 import 'package:taaf/main.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -31,7 +32,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
             color: Color.fromRGBO(0, 114, 130, 100),
             onPressed: () {
               Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => MyApp()));
+                  MaterialPageRoute(builder: (context) => humanModel()));
             },
           ),
         ),

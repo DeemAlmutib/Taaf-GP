@@ -1,3 +1,5 @@
+import 'package:taaf/humanModel.dart';
+
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -40,14 +42,14 @@ class _HompageWidgetState extends State<HompageWidget> {
                 alignment: AlignmentDirectional(-0.1, -0.55),
                 child: Container(
                   width: 389.1,
-                  height: 355.1,
+                  height: 370.1,
                   decoration: BoxDecoration(),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Container(
                         width: 432.2,
-                        height: 342.8,
+                        height: 330.8,
                         decoration: BoxDecoration(),
                         child: Align(
                           alignment: AlignmentDirectional(0.15, 0.35),
@@ -71,7 +73,7 @@ class _HompageWidgetState extends State<HompageWidget> {
                       ),
                       Container(
                         width: 371.3,
-                        height: 81.4,
+                        height: 30.4,
                         decoration: BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -88,7 +90,7 @@ class _HompageWidgetState extends State<HompageWidget> {
               ),
               Container(
                 width: 389.9,
-                height: 158.7,
+                height: 150.7,
                 decoration: BoxDecoration(),
                 child: Align(
                   alignment: AlignmentDirectional(0, -0.75),
@@ -182,6 +184,10 @@ class _HompageWidgetState extends State<HompageWidget> {
                                           0, 0, 0, 25),
                                       child: FFButtonWidget(
                                         onPressed: () {
+                                          Navigator.of(context).pushReplacement(
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      humanModel()));
                                           print('Button pressed ...');
                                         },
                                         text: 'ابدأ',

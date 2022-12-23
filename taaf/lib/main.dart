@@ -1,35 +1,38 @@
-import 'package:body_part_selector/body_part_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:taaf/homepage.dart';
+//import 'src/base/globals.dart';
+//import 'welcomePage.dart';
+//import 'firebase_options.dart';
+
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:ffi/ffi.dart';
+
 import 'login/loginPage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+      //options: DefaultFirebaseOptions.currentPlatform,
+      );
   runApp(MyApp());
   print("object");
 }
 
 //test
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
 // This widget is the root
 // of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Body Part Selector',
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.purple),
-      ),
-      home: const MyHomePage(title: 'Body Part Selector'),
+      //debugShowCheckedModeBanner: false,
+      title: 'Firebase',
+      //scaffoldMessengerKey: snackbarKey,
+      home: HompageWidget(),
     );
   }
 }
@@ -98,59 +101,3 @@ Future<http.Response> getDiseaseSeverity(exp, days) {
     body: jsonEncode(<dynamic, dynamic>{'expression': exp, 'days': days}),
   );
 }
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  BodyParts _bodyParts = const BodyParts();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: SafeArea(
-        child: BodyPartSelectorTurnable(
-          bodyParts: _bodyParts,
-          onSelectionUpdated: (p) => setState(() => _bodyParts = p),
-          labelData: const RotationStageLabelData(
-            front: 'Vorne',
-            left: 'Links',
-            right: 'Rechts',
-            back: 'Hinten',
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-
-
-
-            // test apis -- uncomment the code below to test ((ctrl + k + u ) shortcut to uncomment - you can change the mthod parameters if you like to see different results
-
-            // var s = await getSym("cough");
-            // print(s.body); // printing symptomps related to cough
-
-            // var disease = await PredictDisease(["high_fever", "skin_rash"]);
-            // print(disease.body); // printing the disease that has these 2 symptopms which are high fever and skin rash
-
-            // var description = await getDiseaseDescription("Psoriasis");
-            // print(description.body);
-
-            // var pre = await getDiseasePrecaution("Psoriasis");
-            // print(pre.body);
-
-            // var severity =
-            //     await getDiseaseSeverity(["high_fever", "skin_rash"], 3);
-            // print(jsonDecode(severity.body)[
-            //     'result']); // the way you can access things in the body of the request

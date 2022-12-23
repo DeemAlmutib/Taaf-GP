@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:from_css_color/from_css_color.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:taaf/humanModel.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -16,7 +17,7 @@ class lowerBody extends StatefulWidget {
 }
 
 class _lowerBody extends State<lowerBody> {
-  String? sym;
+  String? sym; // var have the symptoms name in english
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -32,7 +33,7 @@ class _lowerBody extends State<lowerBody> {
             color: Color.fromRGBO(0, 114, 130, 100),
             onPressed: () {
               Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => MyApp()));
+                  MaterialPageRoute(builder: (context) => humanModel()));
             },
           ),
         ),
