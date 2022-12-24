@@ -21,8 +21,7 @@ class _HompageWidgetState extends State<HompageWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFF14181B),
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).unfocus(),
+      body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height * 1,
