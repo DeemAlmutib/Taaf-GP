@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
 // of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Firebase',
       //scaffoldMessengerKey: snackbarKey,
