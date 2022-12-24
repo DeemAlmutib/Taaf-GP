@@ -16,12 +16,13 @@ class humanModel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Body Part Selector',
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: //
             ColorScheme.fromSeed(
-          seedColor: Color.fromARGB(156, 77, 77, 77),
+          seedColor: Color(0xFF007282),
         ),
       ),
       home: const humanModelPage(title: 'Body Part Selector'),
@@ -50,7 +51,7 @@ class _humanModelPage extends State<humanModelPage> {
           automaticallyImplyLeading: true,
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios),
-            color: Color.fromRGBO(0, 114, 130, 100),
+            color: Color(0xFF007282),
             onPressed: () {
               Navigator.of(context).pushReplacement(
                   MaterialPageRoute(builder: (context) => HompageWidget()));
