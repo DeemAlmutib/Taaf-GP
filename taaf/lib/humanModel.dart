@@ -16,7 +16,8 @@ class humanModel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Body Part Selector',
+      debugShowCheckedModeBanner: false,
+      //title: 'Body Part Selector',
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: //

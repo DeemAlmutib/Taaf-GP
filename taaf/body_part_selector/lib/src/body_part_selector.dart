@@ -121,7 +121,8 @@ class BodyPartSelector extends StatelessWidget {
                     s == "rightUpperArm" ||
                     s == "leftLowerLeg" ||
                     s == "rightUpperLeg" ||
-                    s == "rightLowerLeg") {
+                    s == "rightLowerLeg" ||
+                    s == "rightElbow") {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -136,12 +137,6 @@ class BodyPartSelector extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (context) => (handFoot()), //hand and foot only
                       ));
-                } else {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => (success2(title: "title"))),
-                  );
                 }
               },
               context: context,
