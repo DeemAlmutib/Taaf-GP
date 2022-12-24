@@ -303,7 +303,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               color: Colors.transparent,
                               width: 1,
                             ),
-                            borderRadius: 30,
+                            borderRadius:30, //BorderRadius.circular(30),
                           ),
                         ),
                       ),

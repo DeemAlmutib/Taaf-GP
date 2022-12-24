@@ -5,7 +5,6 @@ import 'package:taaf/welcomePage.dart';
 import 'src/base/globals.dart';
 import 'welcomePage.dart';
 import 'firebase_options.dart';
-
 import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -13,12 +12,9 @@ import 'package:ffi/ffi.dart';
 
 import 'login/loginPage.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp();
   runApp(MyApp());
   print("object");
 }
@@ -33,11 +29,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Firebase',
       scaffoldMessengerKey: snackbarKey,
-      home: WelcomePage(),
+      home: LoginPageWidget(),
     );
   }
 }
-
 
 // method for getting the symptopms , it should take the first symptomp
 Future<http.Response> getSym(String symptomp) {
@@ -116,9 +111,35 @@ class AddData extends StatelessWidget {
         child: FloatingActionButton(
           backgroundColor: Colors.green,
           child: Icon(Icons.add),
-          onPressed: () {
-            Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => WelcomePage()));
+          onPressed: () async {
+            FirebaseFirestore.instance
+                .collection('data')
+                .add({'text': 'data added through app2'});
+
+            // test apis -- uncomment the code below to test ((ctrl + k + u ) shortcut to uncomment - you can change the mthod parameters if you like to see different results 
+
+
+
+
+        
+            // var s = await getSym("cough");
+            // print(s.body); // printing symptomps related to cough
+
+            // var disease = await PredictDisease(["high_fever", "skin_rash"]); 
+            // print(disease.body); // printing the disease that has these 2 symptopms which are high fever and skin rash
+
+            // var description = await getDiseaseDescription("Psoriasis");
+            // print(description.body);
+
+            // var pre = await getDiseasePrecaution("Psoriasis");
+            // print(pre.body);
+
+            // var severity =
+            //     await getDiseaseSeverity(["high_fever", "skin_rash"], 3);
+            // print(jsonDecode(severity.body)[
+            //     'result']); // the way you can access things in the body of the request
+
+
           },
         ),
       ),

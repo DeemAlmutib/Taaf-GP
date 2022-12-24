@@ -20,7 +20,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.16.2 <3.0.0'
+  sdk: '>=2.17.0  <3.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -60,7 +60,7 @@ dependencies:
   from_css_color: ^2.0.0
   
   intl: ^0.17.0
-  json_path: ^0.4.1
+  json_path: any
   page_transition: ^2.0.4
   provider: ^6.0.4
   shared_preferences: ^2.0.15
@@ -68,18 +68,27 @@ dependencies:
   styled_divider: ^1.0.4
   timeago: ^3.2.2
   url_launcher: ^6.1.5
-
+  #human_body_selector: ^0.0.1
+  freezed_annotation: ^2.2.0
+  flutter_svg: any
+  rotation_stage: any
+  touchable: any
+  body_part_selector:
+   path: ./body_part_selector
+  google_nav_bar: ^5.0.6
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  flutter_lints: ^2.0.1
+  build_runner: ^2.1.11
+  freezed: ^2.0.3+1
+  json_serializable: ^6.2.0
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -99,7 +108,16 @@ flutter:
     - assets/Images/
    
   # To add assets to your application, add an assets section, like this:
-
+  assets:
+    - assets/fonts/
+    - assets/images/
+    - assets/videos/
+    - assets/audios/
+    - assets/pdfs/
+    - packages/body_part_selector/m_front.svg
+    - packages/body_part_selector/m_left.svg
+    - packages/body_part_selector/m_back.svg
+    - packages/body_part_selector/m_right.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
