@@ -54,7 +54,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
           color: Color.fromARGB(255, 248, 252, 255),
           onPressed: () {
             Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => WelcomePage()));
+                MaterialPageRoute(builder: (context) => WelcomePageWidget()));
           },
         ),
       ),

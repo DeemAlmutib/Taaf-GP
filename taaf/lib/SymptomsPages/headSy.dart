@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:taaf/Questions.dart';
 import 'package:taaf/humanModel.dart';
 import 'package:taaf/main.dart';
 
@@ -49,7 +50,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/images/home.png',
+                  'assets/Images/home.png',
                 ).image,
               ),
             ),
@@ -129,12 +130,12 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                           });
                         },
                       ),
-                      Divider(
+                       Divider(
                         color: Colors.black,
                         //height: 36,
                       ),
                       RadioListTile(
-                        title: Text("رتفاع طفيف في درجة الحرارة ( حمّى خفيفة )",
+                        title: Text("  عطاس مستمر  ",
                             style: FlutterFlowTheme.of(context).title1.override(
                                   fontFamily: 'Tajawal',
                                   color: Color.fromRGBO(0, 114, 130, 100),
@@ -142,7 +143,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                                   fontWeight: FontWeight.bold,
                                 ),
                             textAlign: TextAlign.right),
-                        value: "mild_fever",
+                        value: "continuous_sneezing",
                         groupValue: sym,
                         onChanged: (value) {
                           setState(() {
@@ -154,171 +155,182 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                         color: Colors.black,
                         //height: 36,
                       ),
-                      RadioListTile(
-                        title: Text(" فقدان بالوعي أو إغماء مفاجئ مؤخرا ",
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Tajawal',
-                                  color: Color.fromRGBO(0, 114, 130, 100),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            textAlign: TextAlign.right),
-                        value: "coma",
-                        groupValue: sym,
-                        onChanged: (value) {
-                          setState(() {
-                            sym = value.toString();
-                          });
-                        },
-                      ),
-                      Divider(
-                        color: Colors.black,
-                        //height: 36,
-                      ),
-                      RadioListTile(
-                        title: Text(" دوران مع شعور أنك على وشك السقوط ",
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Tajawal',
-                                  color: Color.fromRGBO(0, 114, 130, 100),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            textAlign: TextAlign.right),
-                        value: "unsteadiness",
-                        groupValue: sym,
-                        onChanged: (value) {
-                          setState(() {
-                            sym = value.toString();
-                          });
-                        },
-                      ),
-                      Divider(
-                        color: Colors.black,
-                        //height: 36,
-                      ),
-                      RadioListTile(
-                        title: Text(" اختلال في التوازن أثناء الوقوف ",
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Tajawal',
-                                  color: Color.fromRGBO(0, 114, 130, 100),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            textAlign: TextAlign.right),
-                        value: "loss_of_balance",
-                        groupValue: sym,
-                        onChanged: (value) {
-                          setState(() {
-                            sym = value.toString();
-                          });
-                        },
-                      ),
-                      Divider(
-                        color: Colors.black,
-                        //height: 36,
-                      ),
-                      RadioListTile(
-                        title: Text(" عدم القدرة على التركيز أو التفكير بوضوح ",
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Tajawal',
-                                  color: Color.fromRGBO(0, 114, 130, 100),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            textAlign: TextAlign.right),
-                        value: "altered_sensorium",
-                        groupValue: sym,
-                        onChanged: (value) {
-                          setState(() {
-                            sym = value.toString();
-                          });
-                        },
-                      ),
-                      Divider(
-                        color: Colors.black,
-                        //height: 36,
-                      ),
-                      RadioListTile(
-                        title: Text(" ألم خلف العينين ",
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Tajawal',
-                                  color: Color.fromRGBO(0, 114, 130, 100),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            textAlign: TextAlign.right),
-                        value: "pain_behind_the_eyes",
-                        groupValue: sym,
-                        onChanged: (value) {
-                          setState(() {
-                            sym = value.toString();
-                          });
-                        },
-                      ),
-                      Divider(
-                        color: Colors.black,
-                        //height: 36,
-                      ),
-                      RadioListTile(
-                        title: Text(
-                            " ( اصفرار في العيون ( تحول اللون الأبيض المحاط بالعدسة إلى أصفر ",
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Tajawal',
-                                  color: Color.fromRGBO(0, 114, 130, 100),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            textAlign: TextAlign.right),
-                        value: "yellowing_of_eyes",
-                        groupValue: sym,
-                        onChanged: (value) {
-                          setState(() {
-                            sym = value.toString();
-                          });
-                        },
-                      ),
-                      Divider(
-                        color: Colors.black,
-                        //height: 36,
-                      ),
-                      RadioListTile(
-                        title: Text(" اصفرار بالجلد  ",
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Tajawal',
-                                  color: Color.fromRGBO(0, 114, 130, 100),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            textAlign: TextAlign.right),
-                        value: "yellowish_skin",
-                        groupValue: sym,
-                        onChanged: (value) {
-                          setState(() {
-                            sym = value.toString();
-                          });
-                        },
-                      ),
-                      Divider(
-                        color: Colors.black,
-                        //height: 36,
-                      ),
-                      RadioListTile(
-                        title: Text(" تقشر في الجلد   ",
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Tajawal',
-                                  color: Color.fromRGBO(0, 114, 130, 100),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            textAlign: TextAlign.right),
-                        value: "skin_peeling",
-                        groupValue: sym,
-                        onChanged: (value) {
-                          setState(() {
-                            sym = value.toString();
-                          });
-                        },
-                      ),
+                      // Divider(
+                      //   color: Colors.black,
+                      //   //height: 36,
+                      // ),
+                      // RadioListTile(
+                      //   title: Text("رتفاع طفيف في درجة الحرارة ( حمّى خفيفة )",
+                      //       style: FlutterFlowTheme.of(context).title1.override(
+                      //             fontFamily: 'Tajawal',
+                      //             color: Color.fromRGBO(0, 114, 130, 100),
+                      //             fontSize: 15,
+                      //             fontWeight: FontWeight.bold,
+                      //           ),
+                      //       textAlign: TextAlign.right),
+                      //   value: "mild_fever",
+                      //   groupValue: sym,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       sym = value.toString();
+                      //     });
+                      //   },
+                      // ),
+                      // Divider(
+                      //   color: Colors.black,
+                      //   //height: 36,
+                      // ),
+                      // RadioListTile(
+                      //   title: Text(" فقدان بالوعي أو إغماء مفاجئ مؤخرا ",
+                      //       style: FlutterFlowTheme.of(context).title1.override(
+                      //             fontFamily: 'Tajawal',
+                      //             color: Color.fromRGBO(0, 114, 130, 100),
+                      //             fontSize: 15,
+                      //             fontWeight: FontWeight.bold,
+                      //           ),
+                      //       textAlign: TextAlign.right),
+                      //   value: "coma",
+                      //   groupValue: sym,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       sym = value.toString();
+                      //     });
+                      //   },
+                      // ),
+                     
+                      // Divider(
+                      //   color: Colors.black,
+                      //   //height: 36,
+                      // ),
+                      // RadioListTile(
+                      //   title: Text(" اختلال في التوازن أثناء الوقوف ",
+                      //       style: FlutterFlowTheme.of(context).title1.override(
+                      //             fontFamily: 'Tajawal',
+                      //             color: Color.fromRGBO(0, 114, 130, 100),
+                      //             fontSize: 15,
+                      //             fontWeight: FontWeight.bold,
+                      //           ),
+                      //       textAlign: TextAlign.right),
+                      //   value: "loss_of_balance",
+                      //   groupValue: sym,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       sym = value.toString();
+                      //     });
+                      //   },
+                      // ),
+                      // Divider(
+                      //   color: Colors.black,
+                      //   //height: 36,
+                      // ),
+                      // RadioListTile(
+                      //   title: Text(" عدم القدرة على التركيز أو التفكير بوضوح ",
+                      //       style: FlutterFlowTheme.of(context).title1.override(
+                      //             fontFamily: 'Tajawal',
+                      //             color: Color.fromRGBO(0, 114, 130, 100),
+                      //             fontSize: 15,
+                      //             fontWeight: FontWeight.bold,
+                      //           ),
+                      //       textAlign: TextAlign.right),
+                      //   value: "altered_sensorium",
+                      //   groupValue: sym,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       sym = value.toString();
+                      //     });
+                      //   },
+                      // ),
+                      // Divider(
+                      //   color: Colors.black,
+                      //   //height: 36,
+                      // ),
+                      // RadioListTile(
+                      //   title: Text(" ألم خلف العينين ",
+                      //       style: FlutterFlowTheme.of(context).title1.override(
+                      //             fontFamily: 'Tajawal',
+                      //             color: Color.fromRGBO(0, 114, 130, 100),
+                      //             fontSize: 15,
+                      //             fontWeight: FontWeight.bold,
+                      //           ),
+                      //       textAlign: TextAlign.right),
+                      //   value: "pain_behind_the_eyes",
+                      //   groupValue: sym,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       sym = value.toString();
+                      //     });
+                      //   },
+                      // ),
+                      // Divider(
+                      //   color: Colors.black,
+                      //   //height: 36,
+                      // ),
+                      // RadioListTile(
+                      //   title: Text(
+                      //       " ( اصفرار في العيون ( تحول اللون الأبيض المحاط بالعدسة إلى أصفر ",
+                      //       style: FlutterFlowTheme.of(context).title1.override(
+                      //             fontFamily: 'Tajawal',
+                      //             color: Color.fromRGBO(0, 114, 130, 100),
+                      //             fontSize: 15,
+                      //             fontWeight: FontWeight.bold,
+                      //           ),
+                      //       textAlign: TextAlign.right),
+                      //   value: "yellowing_of_eyes",
+                      //   groupValue: sym,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       sym = value.toString();
+                      //     });
+                      //   },
+                      // ),
+                      // Divider(
+                      //   color: Colors.black,
+                      //   //height: 36,
+                      // ),
+                      // RadioListTile(
+                      //   title: Text(" اصفرار بالجلد  ",
+                      //       style: FlutterFlowTheme.of(context).title1.override(
+                      //             fontFamily: 'Tajawal',
+                      //             color: Color.fromRGBO(0, 114, 130, 100),
+                      //             fontSize: 15,
+                      //             fontWeight: FontWeight.bold,
+                      //           ),
+                      //       textAlign: TextAlign.right),
+                      //   value: "yellowish_skin",
+                      //   groupValue: sym,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       sym = value.toString();
+                      //     });
+                      //   },
+                      // ),
+                      // Divider(
+                      //   color: Colors.black,
+                      //   //height: 36,
+                      // ),
+                      // RadioListTile(
+                      //   title: Text(" تقشر في الجلد   ",
+                      //       style: FlutterFlowTheme.of(context).title1.override(
+                      //             fontFamily: 'Tajawal',
+                      //             color: Color.fromRGBO(0, 114, 130, 100),
+                      //             fontSize: 15,
+                      //             fontWeight: FontWeight.bold,
+                      //           ),
+                      //       textAlign: TextAlign.right),
+                      //   value: "skin_peeling",
+                      //   groupValue: sym,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       sym = value.toString();
+                      //     });
+                      //   },
+                      // ),
+                      
+                      // Divider(
+                      //   color: Colors.black,
+                      //   //height: 36,
+                      // ),
+                     
                       Container(
                         width: 251.2,
                         height: 77.8,
@@ -329,8 +341,10 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                           child: FFButtonWidget(
                             onPressed: () {
                               print(sym);
+                               Navigator.of(context).pushReplacement(
+                             MaterialPageRoute(builder: (context) => Questions(sympController: sym)));
                             },
-                            text: 'متابعه ',
+                            text: 'متابعة ',
                             options: FFButtonOptions(
                               width: 10,
                               height: 10,

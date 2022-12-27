@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taaf/humanModel.dart';
 
+import '../Questions.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main.dart';
@@ -48,7 +49,7 @@ class _muscle extends State<muscle> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/images/home.png',
+                  'assets/Images/home.png',
                 ).image,
               ),
             ),
@@ -159,9 +160,10 @@ class _muscle extends State<muscle> {
                               EdgeInsetsDirectional.fromSTEB(20, 25, 20, 5),
                           child: FFButtonWidget(
                             onPressed: () {
-                              print('Button pressed ...');
+                               Navigator.of(context).pushReplacement(
+                             MaterialPageRoute(builder: (context) => Questions(sympController: sym)));
                             },
-                            text: 'متابعه ',
+                            text: 'متابعة ',
                             options: FFButtonOptions(
                               width: 10,
                               height: 10,

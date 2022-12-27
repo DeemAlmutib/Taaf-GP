@@ -45,9 +45,14 @@ class _verifyLoginPageState extends State<verifyloginPage> {
           child: SingleChildScrollView(
               child: Container(
             decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/images/background_(1).png'),
-                    fit: BoxFit.fill)),
+              color: Color(0xFF14181B),
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: Image.asset(
+                  'assets/images/background_(1).png',
+                ).image,
+              ),
+            ),
             child: Form(
               key: _formkey,
               child: Container(

@@ -203,7 +203,7 @@ class BodyPartSelector extends StatelessWidget {
               },
               context: context,
               selectedColor: selectedColor ?? colorScheme.inversePrimary,
-              unselectedColor: unselectedColor ?? colorScheme.inverseSurface,
+              unselectedColor: unselectedColor ?? Color.fromARGB(255, 155, 155, 155),
               selectedOutlineColor: selectedOutlineColor ?? colorScheme.primary,
               unselectedOutlineColor:
                   unselectedOutlineColor ?? colorScheme.onInverseSurface,
