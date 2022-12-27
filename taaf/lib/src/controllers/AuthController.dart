@@ -43,13 +43,18 @@ class AuthController {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
                     content: Text(
-                        "رقم الهاتف المدخل غير صحيح يرجى التاكد من رقم الهاتف والمحاولة مره اخرى ",style: TextStyle(fontSize: 18), textAlign: TextAlign.right),
+                        "رقم الهاتف المدخل غير صحيح يرجى التاكد من رقم الهاتف والمحاولة مره اخرى ",
+                        style: TextStyle(fontSize: 18),
+                        textAlign: TextAlign.right),
                   ),
                 );
               } else {
+                print(e);
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
-                    content: Text("حصل شيء خاطئ . يرجى المحاولة مره اخرى",style: TextStyle(fontSize: 18), textAlign: TextAlign.right),
+                    content: Text("حصل شيء خاطئ . يرجى المحاولة مره اخرى",
+                        style: TextStyle(fontSize: 18),
+                        textAlign: TextAlign.right),
                   ),
                 );
               }
@@ -87,14 +92,15 @@ class AuthController {
       if (e.code == 'invalid-verification-id') {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('تم إرسال الرمز الى رقم الجوال المدخل ',style: TextStyle(fontSize: 18), textAlign: TextAlign.right),
+            content: Text('تم إرسال الرمز الى رقم الجوال المدخل ',
+                style: TextStyle(fontSize: 18), textAlign: TextAlign.right),
           ),
         );
       } else if (e.code == 'invalid-verification-code') {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text(
-                'رمز التحقق المدخل غير صحيح يرجى إعادة المحاولة ',style: TextStyle(fontSize: 18), textAlign: TextAlign.right),
+            content: Text('رمز التحقق المدخل غير صحيح يرجى إعادة المحاولة ',
+                style: TextStyle(fontSize: 18), textAlign: TextAlign.right),
           ),
         );
       } else if (e.code == 'session-expired') {

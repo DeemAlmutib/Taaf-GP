@@ -17,7 +17,7 @@ class humanModel extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Body Part Selector',
+      title: '',
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: //
@@ -45,20 +45,25 @@ class _humanModelPage extends State<humanModelPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color.fromARGB(0, 255, 255, 255),
-          elevation: 0,
-          automaticallyImplyLeading: true,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios),
-            color: Color(0xFF007282),
-            onPressed: () {
-              Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => HompageWidget()));
-            },
-          ),
+      extendBodyBehindAppBar: true,
+
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(0, 27, 85, 139),
+        elevation: 0,
+        automaticallyImplyLeading: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          color: Color(0xFF007282),
+          onPressed: () {
+            Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => HompageWidget()));
+          },
         ),
-        body: SafeArea(
+      ),
+      // key: scaffoldKey,
+      backgroundColor: Color(0xFF14181B),
+      body: GestureDetector(
+          onTap: () => FocusScope.of(context).unfocus(),
           child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * 1,
@@ -71,6 +76,7 @@ class _humanModelPage extends State<humanModelPage> {
                 ).image,
               ),
             ),
+            //  child:FlipCardWidget(
             child: BodyPartSelectorTurnable(
               bodyParts: _bodyParts,
               onSelectionUpdated: (p) => setState(() => _bodyParts = p),
@@ -81,7 +87,8 @@ class _humanModelPage extends State<humanModelPage> {
                 back: 'خلف',
               ),
             ),
-          ),
-        ));
+          )),
+      // )
+    );
   }
 }

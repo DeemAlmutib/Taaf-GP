@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:taaf/humanModel.dart';
+import 'package:taaf/login.dart';
 import 'package:taaf/welcomePage.dart';
 import 'src/base/globals.dart';
 import 'welcomePage.dart';
@@ -14,7 +16,9 @@ import 'login/loginPage.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
   print("object");
 }
@@ -116,16 +120,12 @@ class AddData extends StatelessWidget {
                 .collection('data')
                 .add({'text': 'data added through app2'});
 
-            // test apis -- uncomment the code below to test ((ctrl + k + u ) shortcut to uncomment - you can change the mthod parameters if you like to see different results 
+            // test apis -- uncomment the code below to test ((ctrl + k + u ) shortcut to uncomment - you can change the mthod parameters if you like to see different results
 
-
-
-
-        
             // var s = await getSym("cough");
             // print(s.body); // printing symptomps related to cough
 
-            // var disease = await PredictDisease(["high_fever", "skin_rash"]); 
+            // var disease = await PredictDisease(["high_fever", "skin_rash"]);
             // print(disease.body); // printing the disease that has these 2 symptopms which are high fever and skin rash
 
             // var description = await getDiseaseDescription("Psoriasis");
@@ -138,8 +138,6 @@ class AddData extends StatelessWidget {
             //     await getDiseaseSeverity(["high_fever", "skin_rash"], 3);
             // print(jsonDecode(severity.body)[
             //     'result']); // the way you can access things in the body of the request
-
-
           },
         ),
       ),

@@ -191,8 +191,9 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                                 ),
                               );
 
-                              // Navigator.of(context).pushReplacement(
-                              // MaterialPageRoute(builder: (context) => homePage()));
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (context) => HompageWidget()));
                             } else {
                               // AppShowToast(text: "error");
                             }
