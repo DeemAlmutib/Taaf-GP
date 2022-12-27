@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:taaf/Questions.dart';
 import 'package:taaf/humanModel.dart';
 
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -48,7 +49,7 @@ class _upperBoday extends State<upperBoday> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/images/home.png',
+                  'assets/Images/home.png',
                 ).image,
               ),
             ),
@@ -82,28 +83,28 @@ class _upperBoday extends State<upperBoday> {
                           });
                         },
                       ),
-                      Divider(
-                        color: Colors.black,
-                        //height: 36,
-                      ),
-                      RadioListTile(
-                        title: Text(
-                            "الحموضة ( شعور بالحرقان في المعدة أو الحلق أو شعور بمذاق مُر في الحلق أو الفم )",
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Tajawal',
-                                  color: Color.fromRGBO(0, 114, 130, 100),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            textAlign: TextAlign.right),
-                        value: "acidity",
-                        groupValue: sym,
-                        onChanged: (value) {
-                          setState(() {
-                            sym = value.toString();
-                          });
-                        },
-                      ),
+                      // Divider(
+                      //   color: Colors.black,
+                      //   //height: 36,
+                      // ),
+                      // RadioListTile(
+                      //   title: Text(
+                      //       "الحموضة ( شعور بالحرقان في المعدة أو الحلق أو شعور بمذاق مُر في الحلق أو الفم )",
+                      //       style: FlutterFlowTheme.of(context).title1.override(
+                      //             fontFamily: 'Tajawal',
+                      //             color: Color.fromRGBO(0, 114, 130, 100),
+                      //             fontSize: 15,
+                      //             fontWeight: FontWeight.bold,
+                      //           ),
+                      //       textAlign: TextAlign.right),
+                      //   value: "acidity",
+                      //   groupValue: sym,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       sym = value.toString();
+                      //     });
+                      //   },
+                      // ),
                       Divider(
                         color: Colors.black,
                         //height: 36,
@@ -125,70 +126,70 @@ class _upperBoday extends State<upperBoday> {
                           });
                         },
                       ),
-                      Divider(
-                        color: Colors.black,
-                        //height: 36,
-                      ),
-                      RadioListTile(
-                        title: Text(" شعور  بالاشمئزاز أو الغثيان   ",
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Tajawal',
-                                  color: Color.fromRGBO(0, 114, 130, 100),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            textAlign: TextAlign.right),
-                        value: "nausea",
-                        groupValue: sym,
-                        onChanged: (value) {
-                          setState(() {
-                            sym = value.toString();
-                          });
-                        },
-                      ),
-                      Divider(
-                        color: Colors.black,
-                        //height: 36,
-                      ),
-                      RadioListTile(
-                        title: Text(
-                            " ( عسر في الهضم ( شعور بالألم في الجزء العلوي من البطن مع الشعور بالامتلاء فور تناول الطعام   ",
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Tajawal',
-                                  color: Color.fromRGBO(0, 114, 130, 100),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            textAlign: TextAlign.right),
-                        value: "indigestion",
-                        groupValue: sym,
-                        onChanged: (value) {
-                          setState(() {
-                            sym = value.toString();
-                          });
-                        },
-                      ),
-                      Divider(
-                        color: Colors.black,
-                        //height: 36,
-                      ),
-                      RadioListTile(
-                        title: Text(" ألم في المعده ",
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Tajawal',
-                                  color: Color.fromRGBO(0, 114, 130, 100),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            textAlign: TextAlign.right),
-                        value: "stomach_pain",
-                        groupValue: sym,
-                        onChanged: (value) {
-                          setState(() {
-                            sym = value.toString();
-                          });
-                        },
-                      ),
+                      // Divider(
+                      //   color: Colors.black,
+                      //   //height: 36,
+                      // ),
+                      // RadioListTile(
+                      //   title: Text(" شعور  بالاشمئزاز أو الغثيان   ",
+                      //       style: FlutterFlowTheme.of(context).title1.override(
+                      //             fontFamily: 'Tajawal',
+                      //             color: Color.fromRGBO(0, 114, 130, 100),
+                      //             fontSize: 15,
+                      //             fontWeight: FontWeight.bold,
+                      //           ),
+                      //       textAlign: TextAlign.right),
+                      //   value: "nausea",
+                      //   groupValue: sym,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       sym = value.toString();
+                      //     });
+                      //   },
+                      // ),
+                      // Divider(
+                      //   color: Colors.black,
+                      //   //height: 36,
+                      // ),
+                      // RadioListTile(
+                      //   title: Text(
+                      //       " ( عسر في الهضم ( شعور بالألم في الجزء العلوي من البطن مع الشعور بالامتلاء فور تناول الطعام   ",
+                      //       style: FlutterFlowTheme.of(context).title1.override(
+                      //             fontFamily: 'Tajawal',
+                      //             color: Color.fromRGBO(0, 114, 130, 100),
+                      //             fontSize: 15,
+                      //             fontWeight: FontWeight.bold,
+                      //           ),
+                      //       textAlign: TextAlign.right),
+                      //   value: "indigestion",
+                      //   groupValue: sym,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       sym = value.toString();
+                      //     });
+                      //   },
+                      // ),
+                      // Divider(
+                      //   color: Colors.black,
+                      //   //height: 36,
+                      // ),
+                      // RadioListTile(
+                      //   title: Text(" ألم في المعده ",
+                      //       style: FlutterFlowTheme.of(context).title1.override(
+                      //             fontFamily: 'Tajawal',
+                      //             color: Color.fromRGBO(0, 114, 130, 100),
+                      //             fontSize: 15,
+                      //             fontWeight: FontWeight.bold,
+                      //           ),
+                      //       textAlign: TextAlign.right),
+                      //   value: "stomach_pain",
+                      //   groupValue: sym,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       sym = value.toString();
+                      //     });
+                      //   },
+                      // ),
                       Divider(
                         color: Colors.black,
                         //height: 36,
@@ -210,48 +211,48 @@ class _upperBoday extends State<upperBoday> {
                           });
                         },
                       ),
-                      Divider(
-                        color: Colors.black,
-                        //height: 36,
-                      ),
-                      RadioListTile(
-                        title: Text(" ضيق في التنفس ",
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Tajawal',
-                                  color: Color.fromRGBO(0, 114, 130, 100),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            textAlign: TextAlign.right),
-                        value: "breathlessness",
-                        groupValue: sym,
-                        onChanged: (value) {
-                          setState(() {
-                            sym = value.toString();
-                          });
-                        },
-                      ),
-                      Divider(
-                        color: Colors.black,
-                        //height: 36,
-                      ),
-                      RadioListTile(
-                        title: Text("  عطاس مستمر  ",
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Tajawal',
-                                  color: Color.fromRGBO(0, 114, 130, 100),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            textAlign: TextAlign.right),
-                        value: "continuous_sneezing",
-                        groupValue: sym,
-                        onChanged: (value) {
-                          setState(() {
-                            sym = value.toString();
-                          });
-                        },
-                      ),
+                      // Divider(
+                      //   color: Colors.black,
+                      //   //height: 36,
+                      // ),
+                      // RadioListTile(
+                      //   title: Text(" ضيق في التنفس ",
+                      //       style: FlutterFlowTheme.of(context).title1.override(
+                      //             fontFamily: 'Tajawal',
+                      //             color: Color.fromRGBO(0, 114, 130, 100),
+                      //             fontSize: 15,
+                      //             fontWeight: FontWeight.bold,
+                      //           ),
+                      //       textAlign: TextAlign.right),
+                      //   value: "breathlessness",
+                      //   groupValue: sym,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       sym = value.toString();
+                      //     });
+                      //   },
+                      // ),
+                      // Divider(
+                      //   color: Colors.black,
+                      //   //height: 36,
+                      // ),
+                      // RadioListTile(
+                      //   title: Text("  عطاس مستمر  ",
+                      //       style: FlutterFlowTheme.of(context).title1.override(
+                      //             fontFamily: 'Tajawal',
+                      //             color: Color.fromRGBO(0, 114, 130, 100),
+                      //             fontSize: 15,
+                      //             fontWeight: FontWeight.bold,
+                      //           ),
+                      //       textAlign: TextAlign.right),
+                      //   value: "continuous_sneezing",
+                      //   groupValue: sym,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       sym = value.toString();
+                      //     });
+                      //   },
+                      // ),
                       Divider(
                         color: Colors.black,
                         //height: 36,
@@ -304,9 +305,11 @@ class _upperBoday extends State<upperBoday> {
                               EdgeInsetsDirectional.fromSTEB(20, 25, 20, 5),
                           child: FFButtonWidget(
                             onPressed: () {
-                              print('Button pressed ...');
+                             Navigator.of(context).pushReplacement(
+                             MaterialPageRoute(builder: (context) => Questions(sympController: sym)));
+          
                             },
-                            text: 'متابعه ',
+                            text: 'متابعة ',
                             options: FFButtonOptions(
                               width: 10,
                               height: 10,

@@ -6,8 +6,11 @@ import 'dart:convert';
 import 'package:ffi/ffi.dart';
 import 'package:loading_animations/loading_animations.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:taaf/homepage.dart';
 import 'package:taaf/login.dart';
 import 'package:taaf/welcomePage.dart';
+
+import 'navigation.dart';
 
 class Questions extends StatefulWidget {
    final sympController;
@@ -143,10 +146,10 @@ else if(symptopms[4]==1 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0
 
 if(Questions.depth==4){
 if(symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0 ){// 4 chills
-symptomp ="finish" ; 
+symptomp ="red_spots_over_body" ; // to be continued 
 }
 else if(symptopms[4]==1 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0 ){// chills yes
-  symptomp ="finish" ; 
+  symptomp ="continuous_sneezing" ; 
 }
 }
 
@@ -261,7 +264,7 @@ symptomp ="loss_of_balance" ;
 }
 else if(symptopms[14]==1 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
   symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){//  unsteadiness 
-  symptomp ="finish" ;  // disease will be determined - send array to the model
+  symptomp ="loss_of_balance" ;  // disease will be determined - send array to the model
 }
 }
 if(Questions.depth==15){
@@ -276,6 +279,20 @@ else if(symptopms[15]==1 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==
   symptomp ="vomiting" ;  // make sure this symptopm will be then one with loss of balance in the if statement 
 }
 }
+if(Questions.depth==15){ // this added for more deeping
+
+if(symptopms[15]==1 &&symptopms[14]==1 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 15 loss_of_balance
+symptomp ="headache" ; // updated it was finish
+}
+else if(symptopms[15]==0 &&symptopms[14]==1 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="spinning_movements" ;  // make sure this symptopm will be then one with loss of balance in the if statement 
+}
+}
+
+
 if(Questions.depth==16){
 
 if(symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
@@ -381,7 +398,7 @@ symptomp ="chills" ;
 }
 else if(symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
   symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){//  chest_pain
-  symptomp ="finish" ;   
+  symptomp ="sweating" ;   
 }
 }
 if(Questions.depth==23){
@@ -392,7 +409,7 @@ symptomp ="blister" ;
 }
 else if(symptopms[23]==1 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
   symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){//  altered_sensorium
-  symptomp ="finish" ;   
+  symptomp ="weakness_of_one_body_side" ;   // added it was finish
 }
 }
 if(Questions.depth==24){
@@ -427,6 +444,18 @@ symptomp ="finish" ;
 else if(symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==1 && 
   symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){//  high_fever
   symptomp ="finish" ;  
+}
+}
+
+if(Questions.depth==25){
+if(symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==1 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){// 25  high_fever //!!!
+symptomp ="finish" ; 
+}
+else if(symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==1 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){//  high_fever
+  symptomp ="receiving_blood_transfusion" ;  
 }
 }
 
@@ -472,6 +501,17 @@ symptomp ="skin_peeling" ; // here i changed
 else if(symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==1 && 
   symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){//  vomiting
   symptomp ="high_fever" ;   
+}
+}
+if(Questions.depth==26){
+if(symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==1 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 26  vomiting and joint pain
+symptomp ="finish" ; // here i changed
+}
+else if(symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==1 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){//  vomiting
+  symptomp ="finish" ;   
 }
 }
 
@@ -535,6 +575,17 @@ else if(symptopms[29]==0 && symptopms[28]==1 && symptopms[27]==0 && symptopms[26
   symptomp ="finish" ;   
 }
 }
+if(Questions.depth==29){
+if(symptopms[29]==1 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 29 stomach pain
+symptomp ="acidity" ; 
+}
+else if(symptopms[29]==0 && symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// stomach pain
+  symptomp ="acidity" ;   
+}
+}
 if(Questions.depth==30){
 if(symptopms[30]==1 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
 symptopms[6]==0 && symptopms[5]==0 && 
@@ -553,7 +604,18 @@ symptomp ="skin_rash" ;
 }
 else if(symptopms[31]==1  &&symptopms[30]==0 && symptopms[29]==0 && symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
   symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){//31 continuous_sneezing
-  symptomp ="finish" ;   
+  symptomp ="shivering" ;   // new symptopm // updated it was finish
+}
+}
+if(Questions.depth==31){
+if(symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0  &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==1 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){// 31 continuous_sneezing
+symptomp ="high_fever" ; 
+}
+else if(symptopms[31]==1  &&symptopms[30]==0 && symptopms[29]==0 && symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==1 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){//31 continuous_sneezing
+  symptomp ="shivering" ;   // new symptopm // updated it was finish
 }
 }
 if(Questions.depth==32){
@@ -571,11 +633,11 @@ if(Questions.depth==32){
 if(symptopms[32]==1  &&symptopms[31]==0 &&symptopms[30]==0&& symptopms[29]==0  &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
 symptopms[6]==0 && symptopms[5]==0 && 
 symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 32 skin_rash
-symptomp ="finish" ; 
+symptomp ="red_sore_around_nose" ; 
 }
 else if(symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0 && symptopms[29]==0 && symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
   symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){//32 
-  symptomp ="finish" ;   
+  symptomp ="extra_marital_contacts" ;   
 }
 }
 if(Questions.depth==32){
@@ -672,13 +734,13 @@ if(Questions.depth==35){
 if(symptopms[35]==1 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
 symptopms[6]==0 && symptopms[5]==0 && 
 symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 35  fatigue
-symptomp ="finish" ; 
+symptomp ="breathlessness" ; // updated it was finish
 }
 
 
 else if(symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 && symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
   symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){//35  fatigue
-  symptomp ="finish" ;   
+  symptomp ="stomach_pain" ;   // updated it was finish
 }
 
 
@@ -709,6 +771,21 @@ symptomp ="finish" ;
 
 else if(symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 && symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
   symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==1 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){//35  fatigue
+  symptomp ="finish" ;   
+}
+
+
+}
+if(Questions.depth==35){
+if(symptopms[35]==1 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 35  fatigue
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 && symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){//35  fatigue
   symptomp ="finish" ;   
 }
 
@@ -767,7 +844,7 @@ symptomp ="breathlessness" ;
 
 else if(symptopms[39]==1 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0 && symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
   symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 39  sunken_eyes
-  symptomp ="finish" ;   
+  symptomp ="dehydration" ;   
 }
 
 }
@@ -777,23 +854,81 @@ if(Questions.depth==40){
 if(symptopms[40]==1 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
 symptopms[6]==0 && symptopms[5]==0 && 
 symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 40 breathlessness"
-symptomp ="finish" ; 
+symptomp ="sweating" ; 
 }
 
 
 else if(symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0 && symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
   symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 40  breathlessness"
+  symptomp ="stomach_pain" ;   
+}
+
+}
+if(Questions.depth==40){
+if(symptopms[40]==1 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==1 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 40 breathlessness"
+symptomp ="mucoid_sputum" ; 
+}
+
+
+else if(symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==1 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 40  breathlessness"
+  symptomp ="blood_in_sputum" ; /// here tub  
+}
+
+}
+if(Questions.depth==40){ // if he said yes to no breath and no to fatigue
+if(symptopms[40]==1 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==1 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 40 breathlessness"
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==1 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 40  breathlessness"
   symptomp ="finish" ;   
 }
 
 }
+if(Questions.depth==40){
+if(symptopms[40]==1 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 40 breathlessness"
+symptomp ="fatigue" ; 
+}
+
+
+else if(symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 40  breathlessness"
+  symptomp ="fatigue" ;   
+}
+
+}
+
+if(Questions.depth==40){
+if(symptopms[40]==1 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){// 40 breathlessness"
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1&& symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){// 40  breathlessness"
+  symptomp ="finish" ;   
+}
+
+}
+
 
 if(Questions.depth==29){
   print("seeee");
 if( symptopms[29]==1 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0&& symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
 symptopms[6]==0 && symptopms[5]==0 && 
 symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 29 stomach_pain
-symptomp ="finish" ; 
+symptomp ="acidity" ; 
 }
 
 
@@ -803,17 +938,85 @@ else if( symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0 && symptopms[2
 }
 
 }
+if(Questions.depth==29){
+  print("seeee");
+if( symptopms[29]==1 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0&& symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 29 stomach_pain
+symptomp ="acidity"; 
+}
+
+
+else if( symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0  && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 29 stomach_pain
+  symptomp ="loss_of_smell" ;    
+}
+
+}
 if(Questions.depth==41){
 if( symptopms[41]==1 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 41 headache
+symptomp ="dizziness" ; // updated
+}
+
+
+else if( symptopms[41]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==1 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==1 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 41 headache
+  symptomp ="blood_in_sputum" ;   // updated
+}
+}
+// weakness_of_one_body_side if has headache
+if(Questions.depth==41){
+if( symptopms[41]==1 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 41 headache
+symptomp ="weakness_of_one_body_side" ; 
+}
+
+
+else if( symptopms[41]==1 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==1 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==1 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 41 headache
+  symptomp ="finish" ;  // no need  
+}
+}
+if(Questions.depth==41){
+if( symptopms[41]==1 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==1 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
 symptopms[6]==0 && symptopms[5]==0 && 
 symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 41 headache
 symptomp ="finish" ; 
 }
 
 
-else if( symptopms[41]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==1 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==1 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+else if( symptopms[41]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==1 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==1 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==1 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
   symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 41 headache
-  symptomp ="finish" ;   
+  symptomp ="finish" ;  // no need  
+}
+}
+if(Questions.depth==41){ // headache and chest pain
+if( symptopms[41]==1 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 41 headache
+symptomp ="dizziness" ; 
+}
+
+
+else if( symptopms[41]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 41 headache
+  symptomp ="blood_in_sputum" ;  // no need  
+}
+}
+if(Questions.depth==41){ // headache and loss of balamce and unsteadiness
+if( symptopms[41]==1 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==1 &&symptopms[14]==1 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 41 headache
+symptomp ="spinning_movements" ; 
+}
+
+
+else if( symptopms[41]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==1 &&symptopms[14]==1 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 41 headache
+  symptomp ="spinning_movements" ;  // no need  
 }
 }
 
@@ -826,6 +1029,20 @@ symptomp ="finish" ;
 
 
 else if( symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==1 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// nausea
+  symptomp ="finish" ;   // 
+}
+}
+
+if(Questions.depth==42){
+if( symptopms[42]==1 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==1 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 42 nausea
+symptomp ="finish" ; 
+}
+
+
+else if( symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==1 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]== 0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
   symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// nausea
   symptomp ="finish" ;   // 
 }
@@ -878,6 +1095,59 @@ symptomp ="finish" ;
 
 
 else if( symptopms[46]==1 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==1 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;   //acidity
+}
+}
+if(Questions.depth==46){
+if( symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==1 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 46 acidity
+symptomp ="finish" ; 
+}
+
+
+else if( symptopms[46]==1 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==1 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;   //acidity
+}
+}
+if(Questions.depth==46){
+if( symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 46 acidity
+symptomp ="finish" ; 
+}
+
+
+else if( symptopms[46]==1 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;   //acidity
+}
+}
+
+if(Questions.depth==46){
+if( symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==1 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 46 acidity
+symptomp ="finish" ; 
+}
+
+
+else if( symptopms[46]==1 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==1 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0&& symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;   //acidity
+}
+}
+if(Questions.depth==46){
+if( symptopms[46]==1 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==1 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 46 acidity
+symptomp ="finish" ; 
+}
+
+
+else if( symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==1 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0&& symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
   symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
   symptomp ="finish" ;   //acidity
 }
@@ -965,13 +1235,13 @@ if(Questions.depth==53){
 if(symptopms[53]==1 && symptopms[52]==1 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
 symptopms[6]==0 && symptopms[5]==0 && 
 symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){// 53 mild_fever
-symptomp ="finish" ; 
+symptomp ="red_spots_over_body" ; 
 }
 
 
 else if( symptopms[53]==0 && symptopms[52]==1 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
   symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){
-  symptomp ="finish" ;   // mild_fever
+  symptomp ="red_spots_over_body" ;   // mild_fever
 }
 }
 
@@ -988,6 +1258,20 @@ else if( symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50
   symptomp ="phlegm" ;   // mild_fever and mucle pain
 }
 }
+
+if(Questions.depth==53){
+if(symptopms[53]==1 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){// 53 mild_fever
+symptomp ="finish" ; 
+}
+
+
+else if( symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;   // mild_fever a malaise
+}
+}
 if(Questions.depth==54){
 if(symptopms[54]==1 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
 symptopms[6]==0 && symptopms[5]==0 && 
@@ -1002,6 +1286,7 @@ else if(symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]
 }
 }
 
+
 if(Questions.depth==55){
 if(symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
 symptopms[6]==0 && symptopms[5]==0 && 
@@ -1013,6 +1298,72 @@ symptomp ="finish" ;
 else if(symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
   symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==1 && symptopms[0]==0){
   symptomp ="finish" ;   //  phlegm
+}
+}
+if(Questions.depth==55){ // phlegm and continous sneezing
+if(symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 55  phlegm
+symptomp ="throat_irritation" ; 
+}
+
+
+else if(symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==1  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="loss_of_smell" ;   //  phlegm
+}
+}
+if(Questions.depth==55){ // phlegm 
+if(symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 55  phlegm
+symptomp ="rusty_sputum" ; 
+}
+
+
+else if(symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;   //  phlegm
+}
+}
+if(Questions.depth==55){ // phlegm 
+if(symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==1 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){// 55  phlegm
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==1  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==1 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="rusty_sputum" ;   //  phlegm
+}
+}
+
+if(Questions.depth==55){ // phlegm 
+if(symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==1 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 55  phlegm
+symptomp ="loss_of_smell" ; 
+}
+
+
+else if(symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==1 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="rusty_sputum" ;   //  phlegm
+}
+}
+if(Questions.depth==55){ // phlegm 
+if(symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){// 55  phlegm
+symptomp ="rusty_sputum" ; 
+}
+
+
+else if(symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="rusty_sputum" ;   //  phlegm
 }
 }
 if(Questions.depth==56){
@@ -1029,7 +1380,918 @@ else if(symptopms[56]==1 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]=
   symptomp ="finish" ;   //  enlarged_thyroid
 }
 }
+if(Questions.depth==57){ // spinning 57
 
+if(symptopms[57]==1 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==1 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==1 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="vomiting" ;  
+}
+}
+if(Questions.depth==57){ // spinning 57
+
+if(symptopms[57]==1 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==1 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==1 &&symptopms[14]==1 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==1 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==1 &&symptopms[14]==1 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  // updated 
+}
+}
+if(Questions.depth==57){ // spinning 57
+
+if(symptopms[57]==1 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==1 &&symptopms[14]==1 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==1 &&symptopms[14]==1 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  // updated 
+}
+}
+if(Questions.depth==58){ // extra_marital_contacts 58
+
+if(symptopms[58]==1 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; // extra_marital_contacts 58
+}
+
+
+else if(symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="mucoid_sputum" ;  
+}
+}
+if(Questions.depth==59){ //mucoid_sputum 59
+
+if(symptopms[59]==1 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="breathlessness" ; // mucoid_sputum 59 // updated
+}
+
+
+else if(symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="loss_of_smell" ;  //mucoid_sputum
+}
+}
+if(Questions.depth==59){ //mucoid_sputum 59
+
+if(symptopms[59]==1 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==1  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; // mucoid_sputum 59 // updated
+}
+
+
+else if(symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==1 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //mucoid_sputum
+}
+}
+if(Questions.depth==59){ //mucoid_sputum 59
+
+if(symptopms[59]==1 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==1 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; // mucoid_sputum 59 // updated
+}
+
+
+else if(symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==1 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //mucoid_sputum
+}
+}
+if(Questions.depth==59){ //mucoid_sputum 59
+
+if(symptopms[59]==1 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==1  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; // mucoid_sputum 59 // updated
+}
+
+
+else if(symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==1 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && 
+  symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //mucoid_sputum
+}
+}
+if(Questions.depth==59){ //mucoid_sputum 59
+
+if(symptopms[59]==1 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==1  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==1 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; // mucoid_sputum 59 // updated
+}
+
+
+else if(symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==1 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==1 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && 
+  symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //mucoid_sputum
+}
+}
+
+
+
+if(Questions.depth==60){ //loss_of_smell 60
+
+if(symptopms[60]==1 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="throat_irritation" ; //loss_of_smell 60
+}
+
+
+else if(symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="throat_irritation" ;  //loss_of_smell
+}
+}
+if(Questions.depth==60){ //loss of smell and headache 
+
+if(symptopms[60]==1 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==1 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; //loss_of_smell
+}
+else if(symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==1 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; // loss_of_smell
+}
+}
+if(Questions.depth==60){ //loss of smell and continous sneezing
+
+if(symptopms[60]==1 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; //loss_of_smell
+}
+else if(symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; // loss_of_smell
+}
+}
+if(Questions.depth==60){ //loss of smell and continous sneezing and phelgm
+
+if(symptopms[60]==1 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; //loss_of_smell
+}
+else if(symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; // loss_of_smell
+}
+}
+if(Questions.depth==60){ //loss of smell  and phelgm and cough and fatigue 
+
+if(symptopms[60]==1 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==1 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; //loss_of_smell
+}
+else if(symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==1 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; // loss_of_smell
+}
+}
+if(Questions.depth==60){ //loss of smell  and phelgm and cough and fatigue 
+
+if(symptopms[60]==1 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="congestion" ; //loss_of_smell
+}
+else if(symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="congestion" ; // loss_of_smell
+}
+}
+
+if(Questions.depth==61){ //throat_irritation
+
+if(symptopms[61]==1 &&symptopms[60]==1 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; //throat_irritation
+}
+else if(symptopms[61]==1 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; //throat_irritation
+}
+
+
+else if(symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //throat_irritation
+}
+}
+if(Questions.depth==61){ //throat_irritation and headache
+
+if(symptopms[61]==1 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==1 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="visual_disturbances" ; //throat_irritation
+}
+else if(symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==1 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="visual_disturbances" ; //throat_irritation
+}
+
+
+
+}
+
+if(Questions.depth==61){ //throat_irritation and phelgm
+
+if(symptopms[61]==1 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="loss_of_smell" ; //throat_irritation
+}
+else if(symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="loss_of_smell" ; //throat_irritation
+}
+
+
+
+}
+if(Questions.depth==61){ //throat_irritation and phelgm
+
+if(symptopms[61]==1 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; //throat_irritation
+}
+else if(symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; //throat_irritation
+}
+
+
+
+}
+if(Questions.depth==61){ //throat_irritation and headache
+
+if(symptopms[61]==1 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==1 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="visual_disturbances" ; //throat_irritation
+}
+else if(symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==1 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="visual_disturbances" ; //throat_irritation
+}
+
+
+
+}
+if(Questions.depth==61){ //throat_irritation and continous sneezing
+
+if(symptopms[61]==1 &&symptopms[60]==1 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="congestion" ; //throat_irritation
+}
+else if(symptopms[61]==0 &&symptopms[60]==1 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="congestion" ; //throat_irritation
+}
+
+
+
+}
+if(Questions.depth==61){ //throat_irritation and continous sneezing
+
+if(symptopms[61]==1 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="congestion" ; //throat_irritation
+}
+else if(symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="congestion" ; //throat_irritation
+}
+
+
+
+}
+
+
+
+
+
+
+
+if(Questions.depth==62){ // weakness in one body side
+
+if(symptopms[62]==1 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==1 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==1 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="sinus_pressure" ;  
+}
+}
+
+if(Questions.depth==62){ // weakness in one body side and altered sensorium
+
+if(symptopms[62]==1 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==1 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==1 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="headache" ;  
+}
+}
+if(Questions.depth==63){ // sinus_pressure
+
+if(symptopms[63]==1 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==1 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="throat_irritation" ; 
+}
+
+
+else if(symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==1 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="throat_irritation" ;  
+}
+}
+if(Questions.depth==63){ // sinus_pressure
+
+if(symptopms[63]==1 &&symptopms[62]==0 &&symptopms[61]==1 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==1 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==1 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==1 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  
+}
+}
+//// shivering
+if(Questions.depth==64){ // shivering 
+
+if(symptopms[64]==1 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="watering_from_eyes" ; 
+}
+
+
+else if(symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==1  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="phlegm" ;  // now go to phegm put continous sneezing one - number 31 
+}
+}
+if(Questions.depth==64){ // shivering 
+
+if(symptopms[64]==1 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==1 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==1  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==1 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="phlegm" ;  // now go to phegm put continous sneezing one - number 31 
+}
+}
+// rusty_sputum 65 
+if(Questions.depth==65){ // rusty_sputum 65 
+
+if(symptopms[65]==1 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="throat_irritation" ;  // rusty_sputum 65 
+}
+}
+if(Questions.depth==65){ // rusty_sputum 65 
+
+if(symptopms[65]==1 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==1 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==1  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==1 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  // rusty_sputum 65 
+}
+}
+
+if(Questions.depth==65){ // rusty_sputum 65 
+
+if(symptopms[65]==1 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  // rusty_sputum 65 
+}
+}
+if(Questions.depth==65){ // rusty_sputum 65 
+
+if(symptopms[65]==1 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  // rusty_sputum 65 
+}
+}
+if(Questions.depth==65){ // rusty_sputum 65 
+
+if(symptopms[65]==1 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==1 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==1 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  // rusty_sputum 65 
+}
+}
+// 66 red_sore_around_nose
+if(Questions.depth==66){ // 66 red_sore_around_nose
+
+if(symptopms[66]==1 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==1 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="yellow_crust_ooze" ; 
+}
+
+
+else if(symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==1 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="yellow_crust_ooze" ;  //66 red_sore_around_nose
+}
+}
+// yellow_crust_ooze
+if(Questions.depth==67){ // yellow_crust_ooze 67
+
+if(symptopms[67]==1 && symptopms[66]==1 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==1 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==1 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //67 yellow_crust_ooze
+}
+}
+if(Questions.depth==67){ // yellow_crust_ooze 67
+
+if(symptopms[67]==1 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==1 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[67]==0 &&symptopms[66]==1 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==1 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //67 yellow_crust_ooze
+}
+}
+// family_history
+if(Questions.depth==68){ // visual_disturbances 68
+
+if(symptopms[68]==1 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==1 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==1 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //visual_disturbances 68
+}
+}
+if(Questions.depth==68){ // visual_disturbances 68
+
+if(symptopms[68]==1 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==1 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==1 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==1 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==1 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //visual_disturbances 68
+}
+}
+if(Questions.depth==68){ // visual_disturbances 68
+
+if(symptopms[68]==1 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==1 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==1 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==1&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==1 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //visual_disturbances and sinus pressure 68
+}
+}
+//red_spots_over_body
+if(Questions.depth==69){ // red_spots_over_body 69
+
+if(symptopms[69]==1 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==1 && symptopms[52]==1 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==1 && symptopms[52]==1 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0&& symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //visual_disturbances and sinus pressure 68
+}
+}
+if(Questions.depth==69){ // red_spots_over_body 69
+
+if(symptopms[69]==1 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="mild_fever" ; 
+}
+
+
+else if(symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="mild_fever" ;  //red_spots_over_body 69
+}
+}
+if(Questions.depth==69){ // red_spots_over_body 69 with malise and mild fever 
+
+if(symptopms[69]==1 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==1 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; // now go to mild fever in case of no 
+}
+
+
+else if(symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==1 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //red_spots_over_body 69
+}
+}
+
+//sweating70
+if(Questions.depth==70){ // sweating 70
+
+if(symptopms[70]==1 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="breathlessness" ; 
+}
+
+
+else if(symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="breathlessness" ;  //sweating 70
+}
+}
+if(Questions.depth==70){ // sweating 70
+
+if(symptopms[70]==1 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==1  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==1 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //sweating 70
+}
+}
+
+if(Questions.depth==70){ // sweating 70
+
+if(symptopms[70]==1 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==1  && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==1 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="mucoid_sputum" ;  //sweating 70
+}
+}
+//receiving_blood_transfusion
+if(Questions.depth==71){ // receiving_blood_transfusion 71
+
+if(symptopms[71]==1 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==1 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==1 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==1 && symptopms[3]==0 && symptopms[2]==1 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //s 71receiving_blood_transfusion
+}
+}
+// dehydration
+
+if(Questions.depth==72){ // dehydration 72
+
+if(symptopms[72]==1 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0 && symptopms[39]==1 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="nausea" ; 
+}
+
+
+else if(symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==1 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==1 && symptopms[25]== 0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="nausea" ;  //dehydration 72
+}
+}
+if(Questions.depth==72){ // dehydration 72
+
+if(symptopms[72]==1 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==1 &&symptopms[41]==0 &&symptopms[40]==0 && symptopms[39]==1 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==1 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==1 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==1 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==1 && symptopms[25]== 0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //dehydration 72
+}
+}
+//dizziness
+if(Questions.depth==73){ // dizziness 73
+
+if(symptopms[73]==1 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==1 &&symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==1 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]== 0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //dizziness 73
+}
+}
+if(Questions.depth==74){ // blood_in_sputum 74
+
+if(symptopms[74]==1 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="swelled_lymph_nodes" ; 
+}
+
+
+else if(symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]== 0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && 
+  symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="phlegm" ;  //blood_in_sputum 74
+}
+}
+if(Questions.depth==74){ // blood_in_sputum 74
+
+if(symptopms[74]==1 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==1 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="swelled_lymph_nodes" ; 
+}
+
+
+else if(symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==1 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]== 0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && 
+  symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="phlegm" ;  //blood_in_sputum 74
+}
+}
+if(Questions.depth==75){ // swelled_lymph_nodes 75
+
+if(symptopms[75]==1 &&symptopms[74]==1 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[75]==0 &&symptopms[74]==1 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]== 0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==1 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && 
+  symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //swelled_lymph_nodes 75
+}
+}
+if(Questions.depth==75){ // swelled_lymph_nodes 75
+
+if(symptopms[75]==1 &&symptopms[74]==1 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==1 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[75]==0 &&symptopms[74]==1 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==1 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]== 0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && 
+  symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //swelled_lymph_nodes 75
+}
+}
+
+
+// watering_from_eyes
+if(Questions.depth==76){ // watering_from_eyes 76
+
+if(symptopms[76]==1 &&symptopms[75]==0 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==1 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[76]==0 &&symptopms[75]==0 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==1 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==1  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]== 0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && 
+  symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //watering_from_eyes 76
+}
+}
+if(Questions.depth==76){ // watering_from_eyes 76
+
+if(symptopms[76]==1 &&symptopms[75]==0 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==1 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==1 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[76]==0 &&symptopms[75]==0 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==1 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==1  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]== 0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && 
+  symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //watering_from_eyes 76
+}
+}
+// congestion 
+if(Questions.depth==77){ // congestion  77
+
+if(symptopms[77]==1 &&symptopms[76]==0 &&symptopms[75]==0 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==1 &&symptopms[60]==1 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]==0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[77]==0 &&symptopms[76]==0 &&symptopms[75]==0 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==1 &&symptopms[60]==1 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==1  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]== 0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && 
+  symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //watering_from_eyes 76
+}
+}
+if(Questions.depth==77){ // congestion  77
+
+if(symptopms[77]==1 &&symptopms[76]==0 &&symptopms[75]==0 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==1 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[77]==0 &&symptopms[76]==0 &&symptopms[75]==0 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==1 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==1  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]== 0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && 
+  symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //watering_from_eyes 76
+}
+}
+if(Questions.depth==77){ // congestion  77
+
+if(symptopms[77]==1 &&symptopms[76]==0 &&symptopms[75]==0 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==1 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[77]==0 &&symptopms[76]==0 &&symptopms[75]==0 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==1 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==1  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]== 0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && 
+  symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //watering_from_eyes 76
+}
+}
+if(Questions.depth==77){ // congestion  77
+
+if(symptopms[77]==1 &&symptopms[76]==0 &&symptopms[75]==0 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==1 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[77]==0 &&symptopms[76]==0 &&symptopms[75]==0 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==1 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==1  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]== 0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && 
+  symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //watering_from_eyes 76
+}
+}
+if(Questions.depth==77){ // congestion  77
+
+if(symptopms[77]==1 &&symptopms[76]==0 &&symptopms[75]==0 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==1 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[77]==0 &&symptopms[76]==0 &&symptopms[75]==0 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==1 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]== 0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && 
+  symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //watering_from_eyes 76
+}
+}
+//congestion
+if(Questions.depth==77){ // congestion  77
+
+if(symptopms[77]==1 &&symptopms[76]==0 &&symptopms[75]==0 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+
+
+else if(symptopms[77]==0 &&symptopms[76]==0 &&symptopms[75]==0 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]== 0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && 
+  symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //watering_from_eyes 76
+}
+}
 return symptomp ; 
 
 }
@@ -1059,7 +2321,7 @@ Future<void> _dialogBuilder(BuildContext context) {
       builder: (BuildContext context) {
         return AlertDialog(
            content: Text(
-             "  هل أنت متأكد من أنك رغبتك في الخروج ؟ ",
+             "  هل أنت متأكد من رغبتك في الخروج ؟ ",
                   style: GoogleFonts.tajawal(
                     fontSize: 14,
                     //fontStyle: FontStyle.italic,
@@ -1088,9 +2350,10 @@ Future<void> _dialogBuilder(BuildContext context) {
                // coming from the model // 
                Questions.comingFromModel = true;
 
-              
-                Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(builder: (context) => Questions(sympController: Questions.nextSymp))); // should be the human body model
+               Navigator.of(context).pushReplacement(
+                             MaterialPageRoute(builder: (context) => Navigation()));
+          
+                //hould be the human body model
               },
             ),
             TextButton(
@@ -2020,10 +3283,176 @@ print("D1");
      print(Yes_Symptoms); 
     print(Questions.allSymptompsArray); 
    }
-   
-  
+   else if (Questions.nextSymp=="spinning_movement"){
+    index = 57; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
 
+    } 
+    Yes_Symptoms.add("spinning_movement"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="extra_marital_contacts"){
+    index = 58; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
 
+    } 
+    Yes_Symptoms.add("extra_marital_contacts"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="mucoid_sputum"){
+    index = 59; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("mucoid_sputum"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="loss_of_smell"){
+    index = 60; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("loss_of_smell"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+  else if (Questions.nextSymp=="throat_irritation"){
+    index = 61; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("throat_irritation"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+   // weakness_of_one_body_side
+   else if (Questions.nextSymp=="weakness_of_one_body_side"){
+    index = 62; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("weakness_of_one_body_side"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } // 
+   //swelled_lymph_nodes
+   else if (Questions.nextSymp=="sinus_pressure"){
+    index = 63; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("sinus_pressure"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+   else if (Questions.nextSymp=="shivering"){
+    index = 64; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("shivering"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+   //rusty_sputum
+   else if (Questions.nextSymp=="rusty_sputum"){
+    index = 65; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("rusty_sputum"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+   // red_sore_around_nose
+   else if (Questions.nextSymp=="red_sore_around_nose"){
+    index = 66; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("red_sore_around_nose"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+//yellow_crust_ooze
+ else if (Questions.nextSymp=="yellow_crust_ooze"){
+    index = 67; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("yellow_crust_ooze"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
 if(Questions.nextSymp!="finish"){
  print(Questions.nextSymp);
  setState(() {
@@ -2094,10 +3523,14 @@ Questions.comingFromModel = false ;
                 ),
                 SizedBox(height: 20,),
                 if(Questions.nextSymp != "finish")
-               LoadingAnimationWidget.staggeredDotsWave( // LoadingAnimationwidget that call the
-        color: Color(0xFF007282),                          // staggereddotwave animation
-        size: 50,
-      ),
+                Container(
+               
+                  child:Image.asset(
+                                    'assets/Images/q4.png',
+                                    width: 100,
+                                    height: 80,
+                                    fit: BoxFit.cover,
+                                  ),),
     
                 
 
@@ -2139,9 +3572,9 @@ indent: 60,
 endIndent: 60,
 color: Color(0xFF007282),
         ),     //   width: 350,
-      SizedBox(height: 10,),
+      //SizedBox(height: 10,),
 
-      Row(children: [
+      Column(children: [
        FutureBuilder<Response>(
         future: predict(Yes_Symptoms), // a previously-obtained Future<String> or null
         builder: (BuildContext context, AsyncSnapshot<Response> snapshot)  {
@@ -2154,9 +3587,9 @@ color: Color(0xFF007282),
               Align(alignment: Alignment.center,
               child: Column(children: [
               
-              Align(alignment: Alignment.centerRight,
+              Align(alignment: Alignment.center,
          child: Text(
-           "                         من المحتمل أنك تعاني من  "  ,
+           "من المحتمل أنك تعاني من  "  ,
          style: GoogleFonts.tajawal(
                     fontSize: 18,
                     //fontStyle: FontStyle.italic,
@@ -2167,7 +3600,7 @@ color: Color(0xFF007282),
         Align(
           alignment: Alignment.center,
          child: Text(
-        "                   " +  (jsonDecode((snapshot.data)!.body)['result']).toString()  ,
+          (jsonDecode((snapshot.data)!.body)['result']).toString()  ,
          style: GoogleFonts.tajawal(
                     fontSize: 18,
                     //fontStyle: FontStyle.italic,
@@ -2196,12 +3629,12 @@ color: Color(0xFF007282),
           } else {
             children = const <Widget>[
               SizedBox(
-                width: 60,
-                height: 60,
+                // width: 60,
+                // height: 60,
                 child: CircularProgressIndicator(),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 16),
+                padding: EdgeInsets.only(top: 10),
                 child: Text('Awaiting result...'),
               ),
             ];
@@ -2220,7 +3653,7 @@ color: Color(0xFF007282),
 
       ],),
         
-        SizedBox(height: 10,),
+        //SizedBox(height: 5,),
         Divider(
 thickness: 1,
 indent: 60,
@@ -2228,7 +3661,7 @@ endIndent: 60,
 color: Color(0xFF007282),
         ),
                 
-        SizedBox(height: 10,) ,
+        SizedBox(height: 3) ,
          Align(
           alignment: Alignment.centerRight,
           child:  Text(
@@ -2270,7 +3703,7 @@ color: Color(0xFF007282),
          ),),
         // SizedBox(height: 5,),
         Column(children: [ Container(
-height:56,
+height:69,
 width: 500,
 
 
@@ -2318,12 +3751,12 @@ width: 500,
           } else {
             children = const <Widget>[
               SizedBox(
-                width: 60,
-                height: 60,
+               // width: 60,
+               // height: 60,
                 child: CircularProgressIndicator(),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 16),
+                padding: EdgeInsets.only(top: 10),
                 child: Text('Awaiting result...'),
               ),
             ];
@@ -2355,12 +3788,12 @@ width: 500,
           } else {
             children = const <Widget>[
               SizedBox(
-                width: 60,
-                height: 60,
+               // width: 60,
+               // height: 60,
                 child: CircularProgressIndicator(),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 16),
+                padding: EdgeInsets.only(top: 10),
                 child: Text('Awaiting result...'),
               ),
             ];
@@ -2389,7 +3822,7 @@ width: 500,
            ),
               SizedBox(height: 5,),
           Container(
-          height:80,
+          height:70,
           width: 500,
 
           child:
@@ -2416,7 +3849,7 @@ width: 500,
             
             fontWeight: FontWeight.w600,
           ),),),
-         SizedBox(height : 10),
+         SizedBox(height : 5),
           Align(alignment: Alignment.centerRight,
           child: Text("   2-" + jsonDecode((snapshot2.data)!.body)['result'][1].toString() + "                    ",  style: const TextStyle(
             color:  Color.fromARGB(225, 8, 8, 8),
@@ -2424,7 +3857,7 @@ width: 500,
             
             fontWeight: FontWeight.w600,
           ),),),
-          SizedBox(height : 10),
+          SizedBox(height : 5),
            Align(alignment: Alignment.centerRight,
          child: Text("   3-" + jsonDecode((snapshot2.data)!.body)['result'][2].toString() + "                      ",  style: const TextStyle(
             color:  Color.fromARGB(225, 12, 12, 12),
@@ -2444,19 +3877,19 @@ width: 500,
                 size: 60,
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 16),
+                padding: const EdgeInsets.only(top: 10),
                 child: Text('Error: ${snapshot2.error}'),
               ),
             ];
           } else {
             children = const <Widget>[
               SizedBox(
-                width: 60,
-                height: 60,
+                //width: 60,
+                //height: 60,
                 child: CircularProgressIndicator(),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 16),
+                padding: EdgeInsets.only(top: 10),
                 child: Text('Awaiting result...'),
               ),
             ];
@@ -2486,12 +3919,12 @@ width: 500,
           } else {
             children = const <Widget>[
               SizedBox(
-                width: 60,
-                height: 60,
+               // width: 60,
+               // height: 60,
                 child: CircularProgressIndicator(),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 16),
+                padding: EdgeInsets.only(top: 10),
                 child: Text('Awaiting result...'),
               ),
             ];
@@ -2508,7 +3941,7 @@ width: 500,
           
          ),
         ]),
-SizedBox(height: 10,),
+SizedBox(height: 5,),
         ElevatedButton(
           child: Text('                   خروج                 ',
           style: GoogleFonts.tajawal(
@@ -2536,8 +3969,8 @@ SizedBox(height: 10,),
               Questions.nextSymp = widget.sympController ;
                // coming from the model // 
                Questions.comingFromModel = true;
-             Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(builder: (context) => Questions(sympController: Questions.nextSymp)));
+              Navigator.of(context).pushReplacement(
+                             MaterialPageRoute(builder: (context) => Navigation()));
           },
         ),
         ]);
@@ -2620,9 +4053,9 @@ SizedBox(height: 10,),
                 ),
         style: OutlinedButton.styleFrom(
           
-         side: BorderSide(width: 2.0, color: Color.fromRGBO(0, 114, 130, 30)),
+         side: BorderSide(width: 3.0, color: Color.fromRGBO(0, 114, 130, 30)),
          //shadowColor: Colors.transparent,
-         backgroundColor:  Colors.white.withOpacity(0.0),
+         backgroundColor:  Colors.white,
          shape: RoundedRectangleBorder(
          borderRadius: BorderRadius.circular(20)
        // )
@@ -3510,10 +4943,336 @@ print("D1");
      print(Yes_Symptoms); 
     print(Questions.allSymptompsArray); 
    }
-   
+
+   else if (Questions.nextSymp=="spinning_movements"){
+    index = 57; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("spinning_movements"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="extra_marital_contacts"){
+    index = 58; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("extra_marital_contacts"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="mucoid_sputum"){
+    index = 59; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("mucoid_sputum"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="loss_of_smell"){
+    index = 60; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("loss_of_smell"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="throat_irritation"){
+    index = 61; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("throat_irritation"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
   
+else if (Questions.nextSymp=="weakness_of_one_body_side"){
+    index = 62; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("weakness_of_one_body_side"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } // 
+   else if (Questions.nextSymp=="sinus_pressure"){
+    index = 63; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("sinus_pressure"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+// shivering
+ else if (Questions.nextSymp=="shivering"){
+    index = 64; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("shivering"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
 
 
+   else if (Questions.nextSymp=="rusty_sputum"){
+    index = 65; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("rusty_sputum"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+   else if (Questions.nextSymp=="red_sore_around_nose"){
+    index = 66; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("red_sore_around_nose"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+
+   else if (Questions.nextSymp=="yellow_crust_ooze"){
+    index = 67; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("yellow_crust_ooze"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+   // family_history
+    else if (Questions.nextSymp=="visual_disturbances"){
+    index = 68; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("visual_disturbances"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+   //red_spots_over_body
+   else if (Questions.nextSymp=="red_spots_over_body"){
+    index = 69; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("red_spots_over_body"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+   //sweating
+else if (Questions.nextSymp=="sweating"){
+    index = 70; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("sweating"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+   //receiving_blood_transfusion
+   else if (Questions.nextSymp=="receiving_blood_transfusion"){
+    index = 71; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("receiving_blood_transfusion"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+   // dehydration
+   else if (Questions.nextSymp=="dehydration"){
+    index = 72; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("dehydration"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+// dizziness
+else if (Questions.nextSymp=="dizziness"){
+    index = 73; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("dizziness"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+
+   else if (Questions.nextSymp=="blood_in_sputum"){
+    index = 74; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("blood_in_sputum"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+   //swelled_lymph_nodes
+   else if (Questions.nextSymp=="swelled_lymph_nodes"){
+    index = 75; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("swelled_lymph_nodes"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+   else if (Questions.nextSymp=="watering_from_eyes"){
+    index = 76; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("watering_from_eyes"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+   //congestion
+    else if (Questions.nextSymp=="congestion"){
+    index = 77; 
+    Questions.allSymptompsArray[index]=1 ; 
+    for(var i = 0 ; i<Questions.allSymptompsArray.length ; i++){
+      if(Questions.allSymptompsArray[i]==1){
+        Questions.depth = i ; 
+      }
+
+    } 
+    Yes_Symptoms.add("congestion"); 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
 if(Questions.nextSymp!="finish"){
  print(Questions.nextSymp);
  setState(() {
@@ -3521,6 +5280,9 @@ if(Questions.nextSymp!="finish"){
  });
  
  }
+//blood_in_sputum
+//
+
 
  else{
   show = true ; 
@@ -3551,8 +5313,8 @@ if(Questions.nextSymp!="finish"){
                   ),
                 ),
         style: OutlinedButton.styleFrom(
-          side: BorderSide(width: 2.0, color: Color.fromRGBO(0, 114, 130, 30)),
-          backgroundColor: Colors.white.withOpacity(0.0),
+          side: BorderSide(width: 3.0, color: Color.fromRGBO(0, 114, 130, 30)),
+          backgroundColor: Colors.white,
          // backgroundColor:  Color.fromRGBO(0, 114, 130, 30),
           shape: const StadiumBorder(),
         ),
@@ -3899,7 +5661,7 @@ else if (Questions.nextSymp=="skin_peeling"){
    }
    else if (Questions.nextSymp=="sunken_eyes"){
     index = 39; 
-    Questions.allSymptompsArray[index]=1 ; 
+    Questions.allSymptompsArray[index]=0; 
     Questions.depth = index ; 
     
     Questions.nextSymp= getSymp(Questions.allSymptompsArray);
@@ -3909,7 +5671,7 @@ else if (Questions.nextSymp=="skin_peeling"){
    }
    else if (Questions.nextSymp=="breathlessness"){
     index = 40; 
-    Questions.allSymptompsArray[index]=1 ; 
+    Questions.allSymptompsArray[index]=0 ; 
     Questions.depth = index ; 
     
     Questions.nextSymp= getSymp(Questions.allSymptompsArray);
@@ -3919,7 +5681,7 @@ else if (Questions.nextSymp=="skin_peeling"){
    }
    else if (Questions.nextSymp=="headache"){
     index = 41; 
-    Questions.allSymptompsArray[index]=1 ; 
+    Questions.allSymptompsArray[index]=0 ; 
     Questions.depth = index ; 
    
     Questions.nextSymp= getSymp(Questions.allSymptompsArray);
@@ -4077,10 +5839,205 @@ else if (Questions.nextSymp=="skin_peeling"){
     print(Yes_Symptoms); 
     print(Questions.allSymptompsArray); 
    }
+   else if (Questions.nextSymp=="spinning_movements"){
+    index = 57; 
+    Questions.allSymptompsArray[index]=0 ; 
+    Questions.depth = index ;
+    
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+    print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="extra_marital_contacts"){
+    index = 58; 
+    Questions.allSymptompsArray[index]=0 ; 
+    Questions.depth = index ;
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="mucoid_sputum"){
+    index = 59; 
+    Questions.allSymptompsArray[index]=0 ; 
+    Questions.depth = index ;
+    
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="loss_of_smell"){
+    index = 60; 
+    Questions.allSymptompsArray[index]=0 ; 
+    Questions.depth = index ;
+    
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="throat_irritation"){
+    index = 61; 
+    Questions.allSymptompsArray[index]=0 ; 
+    Questions.depth = index ;
+    
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="weakness_of_one_body_side"){
+    index = 62; 
+    Questions.allSymptompsArray[index]=0 ; 
+    Questions.depth = index ;
+    
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } // 
+  else if (Questions.nextSymp=="sinus_pressure"){
+    index = 63; 
+    Questions.allSymptompsArray[index]=0 ; 
+     Questions.depth = index ;
    
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+else if (Questions.nextSymp=="shivering"){
+    index = 64; 
+    Questions.allSymptompsArray[index]=0 ; 
+    Questions.depth = index ; 
+    
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
   
+   else if (Questions.nextSymp=="rusty_sputum"){
+    index = 65; 
+    Questions.allSymptompsArray[index]=0 ; 
    
-
+     Questions.depth = index ; 
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+   else if (Questions.nextSymp=="red_sore_around_nose"){
+    index = 66; 
+    Questions.allSymptompsArray[index]=0 ; 
+    Questions.depth = index ; 
+   
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+   else if (Questions.nextSymp=="yellow_crust_ooze"){
+    index = 67; 
+    Questions.allSymptompsArray[index]=0 ; 
+    Questions.depth = index ;
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+   else if (Questions.nextSymp=="visual_disturbances"){
+    index = 68; 
+    Questions.allSymptompsArray[index]=0 ; 
+    Questions.depth = index ;
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+    else if (Questions.nextSymp=="red_spots_over_body"){
+    index = 69; 
+    Questions.allSymptompsArray[index]=0 ; 
+    Questions.depth = index ;
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+else if (Questions.nextSymp=="sweating"){
+    index = 70; 
+    Questions.allSymptompsArray[index]=0 ; 
+    Questions.depth = index ;
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+   else if (Questions.nextSymp=="receiving_blood_transfusion"){
+    index = 71; 
+    Questions.allSymptompsArray[index]=0 ; 
+    Questions.depth = index ;
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   }
+    else if (Questions.nextSymp=="dehydration"){
+    index = 72; 
+    Questions.allSymptompsArray[index]=0 ; 
+     Questions.depth = index ;
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+   else if (Questions.nextSymp=="dizziness"){
+    index = 73; 
+    Questions.allSymptompsArray[index]=0 ; 
+     Questions.depth = index ;
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+   else if (Questions.nextSymp=="blood_in_sputum"){
+    index = 74; 
+    Questions.allSymptompsArray[index]=0 ; 
+     Questions.depth = index ;
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+    else if (Questions.nextSymp=="swelled_lymph_nodes"){
+    index = 75; 
+    Questions.allSymptompsArray[index]=0; 
+    Questions.depth = index ;
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+   else if (Questions.nextSymp=="watering_from_eyes"){
+    index = 76; 
+    Questions.allSymptompsArray[index]=0 ; 
+     Questions.depth = index ;
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
+   else if (Questions.nextSymp=="congestion"){
+    index = 77; 
+    Questions.allSymptompsArray[index]=0; 
+    Questions.depth = index ;
+    Questions.nextSymp= getSymp(Questions.allSymptompsArray);
+    print(Questions.nextSymp); 
+     print(Yes_Symptoms); 
+    print(Questions.allSymptompsArray); 
+   } 
   if(Questions.nextSymp!="finish"){
  print(Questions.nextSymp);
  setState(() {

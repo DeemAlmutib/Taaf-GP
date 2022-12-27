@@ -7,6 +7,7 @@ import 'package:taaf/humanModel.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main.dart';
+import 'package:taaf/Questions.dart'; 
 
 class abdomen extends StatefulWidget {
   const abdomen({Key? key}) : super(key: key);
@@ -48,7 +49,7 @@ class _abdomen extends State<abdomen> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/images/home.png',
+                  'assets/Images/home.png',
                 ).image,
               ),
             ),
@@ -188,33 +189,33 @@ class _abdomen extends State<abdomen> {
                           });
                         },
                       ),
+                      // Divider(
+                      //   color: Colors.black,
+                      //   //height: 36,
+                      // ),
+                      // RadioListTile(
+                      //   title: Text(" رائحة بول كريهة",
+                      //       style: FlutterFlowTheme.of(context).title1.override(
+                      //             fontFamily: 'Tajawal',
+                      //             color: Color.fromRGBO(0, 114, 130, 100),
+                      //             fontSize: 15,
+                      //             fontWeight: FontWeight.bold,
+                      //           ),
+                      //       textAlign: TextAlign.right),
+                      //   value: "foul_smell_of urine",
+                      //   groupValue: sym,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       sym = value.toString();
+                      //     });
+                      //   },
+                      // ),
                       Divider(
                         color: Colors.black,
                         //height: 36,
                       ),
                       RadioListTile(
-                        title: Text("  رائحة بول كريهه",
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Tajawal',
-                                  color: Color.fromRGBO(0, 114, 130, 100),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            textAlign: TextAlign.right),
-                        value: "foul_smell_of urine",
-                        groupValue: sym,
-                        onChanged: (value) {
-                          setState(() {
-                            sym = value.toString();
-                          });
-                        },
-                      ),
-                      Divider(
-                        color: Colors.black,
-                        //height: 36,
-                      ),
-                      RadioListTile(
-                        title: Text(" عدم انتظام بالدورة الشهريه   ",
+                        title: Text("عدم انتظام بالدورة  الشهرية   ",
                             style: FlutterFlowTheme.of(context).title1.override(
                                   fontFamily: 'Tajawal',
                                   color: Color.fromRGBO(0, 114, 130, 100),
@@ -243,9 +244,10 @@ class _abdomen extends State<abdomen> {
                               EdgeInsetsDirectional.fromSTEB(20, 25, 20, 5),
                           child: FFButtonWidget(
                             onPressed: () {
-                              print('Button pressed ...');
+                              Navigator.of(context).pushReplacement(
+                             MaterialPageRoute(builder: (context) => Questions(sympController: sym)));
                             },
-                            text: 'متابعه ',
+                            text: 'متابعة ',
                             options: FFButtonOptions(
                               width: 10,
                               height: 10,
