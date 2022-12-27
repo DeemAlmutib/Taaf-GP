@@ -5,6 +5,7 @@ import 'package:from_css_color/from_css_color.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taaf/humanModel.dart';
 
+import '../Questions.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main.dart';
@@ -49,7 +50,7 @@ class _lowerBody extends State<lowerBody> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/images/home.png',
+                  'assets/Images/home.png',
                 ).image,
               ),
             ),
@@ -63,12 +64,34 @@ class _lowerBody extends State<lowerBody> {
                     style: TextStyle(fontSize: 18),
                   ),*/
 
+                      // Divider(
+                      //   color: Colors.black,
+                      //   //height: 36,
+                      // ),
+                      // RadioListTile(
+                      //   title: Text("انتفاخ في البطن  ",
+                      //       style: FlutterFlowTheme.of(context).title1.override(
+                      //             fontFamily: 'Tajawal',
+                      //             color: Color.fromRGBO(0, 114, 130, 100),
+                      //             fontSize: 15,
+                      //             fontWeight: FontWeight.bold,
+                      //           ),
+                      //       textAlign: TextAlign.right),
+                      //   value:
+                      //       "swelling_of_stomach", // also the same = distention_of_abdomen
+                      //   groupValue: sym,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       sym = value.toString();
+                      //     });
+                      //   },
+                      // ),
                       Divider(
                         color: Colors.black,
                         //height: 36,
                       ),
                       RadioListTile(
-                        title: Text("انتفاخ في البطن  ",
+                        title: Text(" شعور بالغثيان مع التقيّؤ   ",
                             style: FlutterFlowTheme.of(context).title1.override(
                                   fontFamily: 'Tajawal',
                                   color: Color.fromRGBO(0, 114, 130, 100),
@@ -76,8 +99,7 @@ class _lowerBody extends State<lowerBody> {
                                   fontWeight: FontWeight.bold,
                                 ),
                             textAlign: TextAlign.right),
-                        value:
-                            "swelling_of_stomach", // also the same = distention_of_abdomen
+                        value: "vomiting",
                         groupValue: sym,
                         onChanged: (value) {
                           setState(() {
@@ -85,6 +107,7 @@ class _lowerBody extends State<lowerBody> {
                           });
                         },
                       ),
+
                       Divider(
                         color: Colors.black,
                         //height: 36,
@@ -136,9 +159,10 @@ class _lowerBody extends State<lowerBody> {
                               EdgeInsetsDirectional.fromSTEB(20, 25, 20, 5),
                           child: FFButtonWidget(
                             onPressed: () {
-                              print('Button pressed ...');
+                             Navigator.of(context).pushReplacement(
+                             MaterialPageRoute(builder: (context) => Questions(sympController: sym)));
                             },
-                            text: 'متابعه ',
+                            text: 'متابعة ',
                             options: FFButtonOptions(
                               width: 10,
                               height: 10,

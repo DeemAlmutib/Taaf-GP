@@ -6,8 +6,10 @@ import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:ffi/ffi.dart';
+import 'flutter_flow/flutter_flow_theme.dart';
 import 'homepage.dart';
 import 'login/loginPage.dart';
+import 'navigation.dart';
 
 //test
 class humanModel extends StatelessWidget {
@@ -46,6 +48,16 @@ class _humanModelPage extends State<humanModelPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          title: Text(
+                      '  انقُر على المكان الذي تعاني منه  ',
+                     //textAlign: TextAlign.end,
+                      style: FlutterFlowTheme.of(context).title1.override(
+                            fontFamily: 'Tajawal',
+                            color: Color(0xFF007282),
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
           backgroundColor: Color.fromARGB(0, 255, 255, 255),
           elevation: 0,
           automaticallyImplyLeading: true,
@@ -54,7 +66,7 @@ class _humanModelPage extends State<humanModelPage> {
             color: Color(0xFF007282),
             onPressed: () {
               Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => HompageWidget()));
+                  MaterialPageRoute(builder: (context) => Navigation()));
             },
           ),
         ),
@@ -67,7 +79,7 @@ class _humanModelPage extends State<humanModelPage> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/images/home.png',
+                  'assets/Images/home.png',
                 ).image,
               ),
             ),

@@ -4,20 +4,6 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
-        {
-            "name": "body_part_selector",
-            "cwd": "body_part_selector",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "body_part_selector (profile mode)",
-            "cwd": "body_part_selector",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "profile"
-        },
         {
             "name": "taaf",
             "cwd": "taaf",
@@ -30,6 +16,13 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
+        },
+        {
+            "name": "taaf (release mode)",
+            "cwd": "taaf",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
         }
     ]
 }
