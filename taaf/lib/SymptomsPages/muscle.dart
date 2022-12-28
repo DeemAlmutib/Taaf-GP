@@ -118,7 +118,7 @@ class _muscle extends State<muscle> {
                                   fontWeight: FontWeight.bold,
                                 ),
                             textAlign: TextAlign.right),
-                        value: " skin_rash ",
+                        value: "nodal_skin_eruptions",
                         groupValue: sym,
                         onChanged: (value) {
                           setState(() {

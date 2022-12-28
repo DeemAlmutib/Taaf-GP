@@ -48,7 +48,7 @@ class _neckSymptoms extends State<neckSymptoms> {
             decoration: BoxDecoration(
               color: Color(0xFF14181B),
               image: DecorationImage(
-                fit: BoxFit.fill,
+                fit: BoxFit.cover,
                 image: Image.asset(
                   'assets/images/home.png',
                 ).image,
