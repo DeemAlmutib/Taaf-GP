@@ -50,7 +50,7 @@ class _handFoot extends State<handFoot> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/Images/home.png',
+                  'assets/images/home.png',
                 ).image,
               ),
             ),
@@ -64,8 +64,9 @@ class _handFoot extends State<handFoot> {
                     style: TextStyle(fontSize: 18),
                   ),*/
 
-                       RadioListTile(
-                        title: Text("فقاعات مملوءة بسائل كالتي تظهر بسبب حرق أو احتكاك ",
+                      RadioListTile(
+                        title: Text(
+                            "فقاعات مملوءة بسائل كالتي تظهر بسبب حرق أو احتكاك ",
                             style: FlutterFlowTheme.of(context).title1.override(
                                   fontFamily: 'Tajawal',
                                   color: Color.fromRGBO(0, 114, 130, 100),
@@ -119,7 +120,7 @@ class _handFoot extends State<handFoot> {
                           });
                         },
                       ),
-                       Divider(
+                      Divider(
                         color: Colors.black,
                         //height: 36,
                       ),
@@ -132,10 +133,11 @@ class _handFoot extends State<handFoot> {
                               EdgeInsetsDirectional.fromSTEB(20, 25, 20, 5),
                           child: FFButtonWidget(
                             onPressed: () {
-                              
-                             Navigator.of(context).pushReplacement(
-                             MaterialPageRoute(builder: (context) => Questions(sympController: sym,)));
-                            
+                              Navigator.of(context)
+                                  .pushReplacement(MaterialPageRoute(
+                                      builder: (context) => Questions(
+                                            sympController: sym,
+                                          )));
                             },
                             text: 'متابعة ',
                             options: FFButtonOptions(

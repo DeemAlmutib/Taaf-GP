@@ -49,7 +49,7 @@ class _upperBoday extends State<upperBoday> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/Images/home.png',
+                  'assets/images/home.png',
                 ).image,
               ),
             ),
@@ -305,9 +305,10 @@ class _upperBoday extends State<upperBoday> {
                               EdgeInsetsDirectional.fromSTEB(20, 25, 20, 5),
                           child: FFButtonWidget(
                             onPressed: () {
-                             Navigator.of(context).pushReplacement(
-                             MaterialPageRoute(builder: (context) => Questions(sympController: sym)));
-          
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          Questions(sympController: sym)));
                             },
                             text: 'متابعة ',
                             options: FFButtonOptions(

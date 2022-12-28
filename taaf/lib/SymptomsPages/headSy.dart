@@ -50,7 +50,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/Images/home.png',
+                  'assets/images/home.png',
                 ).image,
               ),
             ),
@@ -130,7 +130,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                           });
                         },
                       ),
-                       Divider(
+                      Divider(
                         color: Colors.black,
                         //height: 36,
                       ),
@@ -197,7 +197,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                       //     });
                       //   },
                       // ),
-                     
+
                       // Divider(
                       //   color: Colors.black,
                       //   //height: 36,
@@ -325,12 +325,12 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                       //     });
                       //   },
                       // ),
-                      
+
                       // Divider(
                       //   color: Colors.black,
                       //   //height: 36,
                       // ),
-                     
+
                       Container(
                         width: 251.2,
                         height: 77.8,
@@ -341,8 +341,10 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                           child: FFButtonWidget(
                             onPressed: () {
                               print(sym);
-                               Navigator.of(context).pushReplacement(
-                             MaterialPageRoute(builder: (context) => Questions(sympController: sym)));
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          Questions(sympController: sym)));
                             },
                             text: 'متابعة ',
                             options: FFButtonOptions(
