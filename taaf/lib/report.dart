@@ -26,8 +26,7 @@ class _ReportWidgetState extends State<ReportWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFF14181B),
-      body: GestureDetector(
-        onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height * 1,

@@ -6,6 +6,7 @@ import 'package:body_part_selector/src/service/successSave.dart';
 import 'package:body_part_selector/src/service/svg_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:taaf/SymptomsPages/headSy.dart';
 import 'package:taaf/SymptomsPages/neckSy.dart';
 import 'package:touchable/touchable.dart';
@@ -18,7 +19,7 @@ import 'package:taaf/SymptomsPages/muscle.dart';
 import 'package:taaf/SymptomsPages/handFoot.dart';
 
 class BodyPartSelector extends StatelessWidget {
-  const BodyPartSelector({
+  BodyPartSelector({
     super.key,
     required this.side,
     required this.bodyParts,
@@ -40,6 +41,7 @@ class BodyPartSelector extends StatelessWidget {
   final Color? unselectedColor;
   final Color? selectedOutlineColor;
   final Color? unselectedOutlineColor;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -58,8 +60,10 @@ class BodyPartSelector extends StatelessWidget {
   }
 
   Widget _buildBody(BuildContext context, DrawableRoot drawable) {
+    // dependOnInheritedWidgetOfExactType();
     final colorScheme = Theme.of(context).colorScheme;
     return AnimatedSwitcher(
+      //key: myGlobals.scaffoldKey,
       duration: kThemeAnimationDuration,
       switchInCurve: Curves.easeOutCubic,
       switchOutCurve: Curves.easeOutCubic,
@@ -73,11 +77,64 @@ class BodyPartSelector extends StatelessWidget {
               bodyParts: bodyParts,
               onTap: (s) {
                 if (s == "head") {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (contex) => (HeadSymptoms()),
-                      ));
+                  onSelectionUpdated
+                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+//
+                  showAlertDialog(BuildContext context) {
+                    // set up the buttons
+                    Widget cancelButton = TextButton(
+                      child: Text(
+                        "لا",
+                        style: GoogleFonts.tajawal(fontWeight: FontWeight.bold),
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context, false);
+                      },
+                    );
+                    Widget continueButton = TextButton(
+                      child: Text(
+                        "نعم ",
+                        style: GoogleFonts.tajawal(fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.right,
+                      ),
+                      onPressed: () async {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HeadSymptoms()));
+                      },
+                    );
+                    // set up the AlertDialog
+                    // AlertDialog alert =
+                    // show the dialog
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text(""),
+                          content: Text(
+                            " هل عارضك الصحي بمنطقة الرأس؟ ",
+                            style: GoogleFonts.tajawal(
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.right,
+                          ),
+                          actions: [
+                            cancelButton,
+                            continueButton,
+                          ],
+                        );
+                      },
+                    );
+                  }
+
+                  showAlertDialog(context);
+
+                  //Navigator.push(
+                  //    context,
+                  //    MaterialPageRoute(
+                  //      builder: (contex) => (HeadSymptoms()),
+                  //    ));
                 } else if (s == "neck") {
                   Navigator.push(
                       context,

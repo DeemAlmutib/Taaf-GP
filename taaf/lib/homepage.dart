@@ -14,7 +14,14 @@ class HompageWidget extends StatefulWidget {
 }
 
 class _HompageWidgetState extends State<HompageWidget> {
+  final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void dispose() {
+    _unfocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,17 +48,17 @@ class _HompageWidgetState extends State<HompageWidget> {
                 alignment: AlignmentDirectional(-0.1, -0.55),
                 child: Container(
                   width: 389.1,
-                  height: 370.1,
+                  height: 355.1,
                   decoration: BoxDecoration(),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Container(
                         width: 432.2,
-                        height: 330.8,
+                        height: 295.6,
                         decoration: BoxDecoration(),
                         child: Align(
-                          alignment: AlignmentDirectional(0.15, 0.35),
+                          alignment: AlignmentDirectional(0.15, 0.65),
                           child: Padding(
                             padding:
                                 EdgeInsetsDirectional.fromSTEB(30, 0, 30, 0),
@@ -72,7 +79,7 @@ class _HompageWidgetState extends State<HompageWidget> {
                       ),
                       Container(
                         width: 371.3,
-                        height: 30.4,
+                        height: 27.1,
                         decoration: BoxDecoration(),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
@@ -89,10 +96,10 @@ class _HompageWidgetState extends State<HompageWidget> {
               ),
               Container(
                 width: 389.9,
-                height: 150.7,
+                height: 103.6,
                 decoration: BoxDecoration(),
                 child: Align(
-                  alignment: AlignmentDirectional(0, -0.75),
+                  alignment: AlignmentDirectional(0, -0.9),
                   child: Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(30, 0, 30, 0),
                     child: Text(
@@ -101,7 +108,7 @@ class _HompageWidgetState extends State<HompageWidget> {
                       style: FlutterFlowTheme.of(context).title1.override(
                             fontFamily: 'Tajawal',
                             color: Color(0xFF007282),
-                            fontSize: 30,
+                            fontSize: 26,
                             fontWeight: FontWeight.bold,
                           ),
                     ),
@@ -116,8 +123,8 @@ class _HompageWidgetState extends State<HompageWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Container(
-                      width: 285,
-                      height: 189,
+                      width: 260,
+                      height: 170,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         boxShadow: [
@@ -134,10 +141,10 @@ class _HompageWidgetState extends State<HompageWidget> {
                         children: [
                           Container(
                             width: 244.9,
-                            height: 78.7,
+                            height: 70.6,
                             decoration: BoxDecoration(),
                             child: Align(
-                              alignment: AlignmentDirectional(1, 0.25),
+                              alignment: AlignmentDirectional(0.95, 0.25),
                               child: Text(
                                 'هل تود البدء؟',
                                 textAlign: TextAlign.end,
@@ -145,7 +152,7 @@ class _HompageWidgetState extends State<HompageWidget> {
                                     .bodyText1
                                     .override(
                                       fontFamily: 'Tajawal',
-                                      fontSize: 24,
+                                      fontSize: 20,
                                       fontWeight: FontWeight.bold,
                                     ),
                               ),
@@ -159,34 +166,29 @@ class _HompageWidgetState extends State<HompageWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Container(
-                                  width: 98.2,
+                                  width: 100,
                                   height: 100,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
+                                  decoration: BoxDecoration(),
                                   child: Image.asset(
                                     'assets/images/image_1.png',
                                     width: 100,
-                                    height: 100,
+                                    height: 64.4,
                                     fit: BoxFit.cover,
                                   ),
                                 ),
                                 Container(
-                                  width: 162.1,
+                                  width: 157.6,
                                   height: 100,
                                   decoration: BoxDecoration(),
                                   child: Align(
                                     alignment: AlignmentDirectional(0.4, -0.35),
                                     child: Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          0, 0, 0, 25),
+                                          0, 0, 0, 30),
                                       child: FFButtonWidget(
                                         onPressed: () {
-                                          Navigator.of(context).pushReplacement(
-                                              MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      humanModel()));
+                                           Navigator.of(context).pushReplacement(
+                                           MaterialPageRoute(builder: (context) => humanModel()));
                                           print('Button pressed ...');
                                         },
                                         text: 'ابدأ',
@@ -200,14 +202,15 @@ class _HompageWidgetState extends State<HompageWidget> {
                                                   .override(
                                                     fontFamily: 'Tajawal',
                                                     color: Colors.white,
-                                                    fontSize: 24,
+                                                    fontSize: 20,
                                                     fontWeight: FontWeight.w600,
                                                   ),
                                           borderSide: BorderSide(
                                             color: Colors.transparent,
                                             width: 1,
                                           ),
-                                          borderRadius: 15,
+                                          borderRadius:
+                                              15,
                                         ),
                                       ),
                                     ),

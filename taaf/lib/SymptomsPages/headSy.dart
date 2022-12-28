@@ -37,7 +37,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
             },
           ),
         ),
-        key: scaffoldKey,
+        //key: scaffoldKey,
         backgroundColor: Color(0xFF14181B),
         body: GestureDetector(
           // scrollDirection: Axis.horizontal,
@@ -55,17 +55,21 @@ class _HeadSymptoms extends State<HeadSymptoms> {
               ),
             ),
             child: Container(
-                padding: EdgeInsets.only(top: 120),
+                padding: EdgeInsets.only(top: 150),
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      /*  Text(
-                    "من ماذا تعاني؟",
-                    style: TextStyle(fontSize: 18),
-                  ),*/
+                      Text("الرجاء اختيار العارض الأكثر شده؟  ",
+                          style: FlutterFlowTheme.of(context).title1.override(
+                                fontFamily: 'Tajawal',
+                                color: Color.fromARGB(156, 0, 0, 0),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                          textAlign: TextAlign.right),
                       Divider(
                         color: Colors.black,
-                        //height: 36,
+                        height: 36,
                       ),
                       RadioListTile(
                         title: Text("دوران مع شعور أنك على وشك السقوط",

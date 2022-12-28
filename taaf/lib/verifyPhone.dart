@@ -45,13 +45,13 @@ class _verifyLoginPageState extends State<verifyloginPage> {
           child: SingleChildScrollView(
               child: Container(
             decoration: BoxDecoration(
-              color: Color(0xFF14181B) ,
+              color: Color(0xFF14181B),
               image: DecorationImage(
-              fit: BoxFit.cover,
-              image: Image.asset(
-                'assets/images/background_(1).png',
-              ).image,
-            ),
+                fit: BoxFit.cover,
+                image: Image.asset(
+                  'assets/images/background_(1).png',
+                ).image,
+              ),
             ),
             child: Form(
               key: _formkey,
@@ -196,8 +196,9 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                                 ),
                               );
 
-                               Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(builder: (context) => HompageWidget()));
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (context) => HompageWidget()));
                             } else {
                               // AppShowToast(text: "error");
                             }
