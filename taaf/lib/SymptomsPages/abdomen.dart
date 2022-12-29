@@ -7,7 +7,7 @@ import 'package:taaf/humanModel.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main.dart';
-import 'package:taaf/Questions.dart'; 
+import 'package:taaf/Questions.dart';
 
 class abdomen extends StatefulWidget {
   const abdomen({Key? key}) : super(key: key);
@@ -49,7 +49,7 @@ class _abdomen extends State<abdomen> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/Images/home.png',
+                  'assets/images/home.png',
                 ).image,
               ),
             ),
@@ -245,7 +245,9 @@ class _abdomen extends State<abdomen> {
                           child: FFButtonWidget(
                             onPressed: () {
                               Navigator.of(context).pushReplacement(
-                             MaterialPageRoute(builder: (context) => Questions(sympController: sym)));
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          Questions(sympController: sym)));
                             },
                             text: 'متابعة ',
                             options: FFButtonOptions(

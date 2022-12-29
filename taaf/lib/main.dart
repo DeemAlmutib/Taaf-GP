@@ -30,11 +30,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Firebase',
-      scaffoldMessengerKey: snackbarKey,
-      home: WelcomePageWidget(),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Firebase',
+        scaffoldMessengerKey: snackbarKey,
+        home: humanModel());
   }
 }
 

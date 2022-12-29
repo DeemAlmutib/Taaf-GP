@@ -79,8 +79,8 @@ class BodyPartSelector extends StatelessWidget {
                 if (s == "head") {
                   onSelectionUpdated
                       ?.call(bodyParts.withToggledId(s, mirror: mirrored));
-//
-                  showAlertDialog(BuildContext context) {
+
+                  /* showAlertDialog(BuildContext context) {
                     // set up the buttons
                     Widget cancelButton = TextButton(
                       child: Text(
@@ -103,32 +103,53 @@ class BodyPartSelector extends StatelessWidget {
                             MaterialPageRoute(
                                 builder: (context) => HeadSymptoms()));
                       },
-                    );
-                    // set up the AlertDialog
-                    // AlertDialog alert =
-                    // show the dialog
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: Text(""),
-                          content: Text(
-                            " هل عارضك الصحي بمنطقة الرأس؟ ",
-                            style: GoogleFonts.tajawal(
-                              fontWeight: FontWeight.bold,
-                            ),
-                            textAlign: TextAlign.right,
-                          ),
+                    ); */
+                  // set up the AlertDialog
+                  // AlertDialog alert =
+                  // show the dialog
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                          title: Text(" هل عارضك الصحي بمنطقة الرأس؟ ",
+                              style: GoogleFonts.tajawal(
+                                fontWeight: FontWeight.bold,
+                              ),
+                              textAlign: TextAlign.right),
                           actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                "لا",
+                                style: GoogleFonts.tajawal(),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => HeadSymptoms()));
+                              },
+                              child: Text(
+                                "نعم",
+                                style: GoogleFonts.tajawal(),
+                              ),
+                            ),
+                          ]
+
+                          /*  actions: [
                             cancelButton,
                             continueButton,
-                          ],
-                        );
-                      },
-                    );
-                  }
+                          ],*/
+                          );
+                    },
+                  );
+                  //  }
 
-                  showAlertDialog(context);
+                  // showAlertDialog(context);
 
                   //Navigator.push(
                   //    context,
@@ -203,7 +224,8 @@ class BodyPartSelector extends StatelessWidget {
               },
               context: context,
               selectedColor: selectedColor ?? colorScheme.inversePrimary,
-              unselectedColor: unselectedColor ?? Color.fromARGB(255, 155, 155, 155),
+              unselectedColor:
+                  unselectedColor ?? Color.fromARGB(255, 155, 155, 155),
               selectedOutlineColor: selectedOutlineColor ?? colorScheme.primary,
               unselectedOutlineColor:
                   unselectedOutlineColor ?? colorScheme.onInverseSurface,
