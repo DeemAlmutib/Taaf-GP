@@ -50,7 +50,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/images/home.png',
+                  'assets/Images/home.png',
                 ).image,
               ),
             ),
@@ -59,7 +59,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      Text("الرجاء اختيار العارض الأكثر شده؟  ",
+                      Text(" الرجاء اختيار العرَض الأكثر ظهورا عليك  ", // شدة *
                           style: FlutterFlowTheme.of(context).title1.override(
                                 fontFamily: 'Tajawal',
                                 color: Color.fromARGB(156, 0, 0, 0),
@@ -330,6 +330,28 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                       //   color: Colors.black,
                       //   //height: 36,
                       // ),
+                      
+                      RadioListTile(
+                        title: Text("   طفح جلدي  ",
+                            style: FlutterFlowTheme.of(context).title1.override(
+                                  fontFamily: 'Tajawal',
+                                  color: Color.fromRGBO(0, 114, 130, 100),
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                            textAlign: TextAlign.right),
+                        value: "nodal_skin_eruptions",
+                        groupValue: sym,
+                        onChanged: (value) {
+                          setState(() {
+                            sym = value.toString();
+                          });
+                        },
+                      ),
+                      Divider(
+                        color: Colors.black,
+                        //height: 36,
+                      ),
 
                       Container(
                         width: 251.2,

@@ -50,7 +50,7 @@ class _neckSymptoms extends State<neckSymptoms> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/images/home.png',
+                  'assets/Images/home.png',
                 ).image,
               ),
             ),
@@ -64,28 +64,28 @@ class _neckSymptoms extends State<neckSymptoms> {
                     style: TextStyle(fontSize: 18),
                   ),*/
 
-                      Divider(
-                        color: Colors.black,
-                        //height: 36,
-                      ),
-                      RadioListTile(
-                        title: Text(
-                            "تضخم في الغدة الدرقية ( انتفاخ بارز أسفل عنقك مباشرة تحت تفاحة آدم )",
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Tajawal',
-                                  color: Color.fromRGBO(0, 114, 130, 100),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            textAlign: TextAlign.right),
-                        value: "enlarged_thyroid",
-                        groupValue: sym,
-                        onChanged: (value) {
-                          setState(() {
-                            sym = value.toString();
-                          });
-                        },
-                      ),
+                      // Divider(
+                      //   color: Colors.black,
+                      //   //height: 36,
+                      // ),
+                      // RadioListTile(
+                      //   title: Text(
+                      //       "تضخم في الغدة الدرقية ( انتفاخ بارز أسفل عنقك مباشرة تحت تفاحة آدم )",
+                      //       style: FlutterFlowTheme.of(context).title1.override(
+                      //             fontFamily: 'Tajawal',
+                      //             color: Color.fromRGBO(0, 114, 130, 100),
+                      //             fontSize: 15,
+                      //             fontWeight: FontWeight.bold,
+                      //           ),
+                      //       textAlign: TextAlign.right),
+                      //   value: "enlarged_thyroid",
+                      //   groupValue: sym,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       sym = value.toString();
+                      //     });
+                      //   },
+                      // ),
                       Divider(
                         color: Colors.black,
                         //height: 36,
