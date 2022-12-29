@@ -2817,7 +2817,7 @@ else if(symptopms[80]==0 &&symptopms[79]==0 &&symptopms[78]==0 &&symptopms[77]==
 }
 }
 
-if(Questions.depth==80){ // loss_of_apetite  79
+if(Questions.depth==80){ // loss_of_apetite  80
 
 if(symptopms[80]==1 &&symptopms[79]==0 &&symptopms[78]==0 &&symptopms[77]==0 &&symptopms[76]==0 &&symptopms[75]==1 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==1 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==1 &&symptopms[31]==0 &&symptopms[30]==1 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
 symptopms[6]==0 && symptopms[5]==0 && 
@@ -2829,10 +2829,10 @@ symptomp ="finish" ;
 else if(symptopms[80]==0 &&symptopms[79]==0 &&symptopms[78]==0 &&symptopms[77]==0 &&symptopms[76]==0 &&symptopms[75]==1 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==1 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==1 &&symptopms[31]==0  &&symptopms[30]==1 && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]== 0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
   symptopms[6]==0 && symptopms[5]==0 && 
   symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
-  symptomp ="finish" ;  //loss_of_apetite  79
+  symptomp ="finish" ;  //loss_of_apetite  80
 }
 }
-if(Questions.depth==80){ // loss_of_apetite  79
+if(Questions.depth==80){ // loss_of_apetite  80
 
 if(symptopms[80]==1 &&symptopms[79]==0 &&symptopms[78]==0 &&symptopms[77]==0 &&symptopms[76]==0 &&symptopms[75]==0 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==1 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==1 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
 symptopms[6]==0 && symptopms[5]==0 && 
@@ -2847,7 +2847,7 @@ else if(symptopms[80]==0 &&symptopms[79]==0 &&symptopms[78]==0 &&symptopms[77]==
   symptomp ="finish" ;  //loss_of_apetite  79
 }
 }
-if(Questions.depth==80){ // loss_of_apetite  79
+if(Questions.depth==80){ // loss_of_apetite 80
 
 if(symptopms[80]==1 &&symptopms[79]==0 &&symptopms[78]==0 &&symptopms[77]==0 &&symptopms[76]==0 &&symptopms[75]==1 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==0 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==1 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
 symptopms[6]==0 && symptopms[5]==0 && 
@@ -2894,6 +2894,22 @@ else if(symptopms[80]==0 &&symptopms[79]==0 &&symptopms[78]==0 &&symptopms[77]==
 }
 if(Questions.depth==80){ // loss_of_apetite  79
 
+if(symptopms[80]==1 &&symptopms[79]==0 &&symptopms[78]==0 &&symptopms[77]==0 &&symptopms[76]==0 &&symptopms[75]==1 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==1 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==1 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
+symptopms[6]==0 && symptopms[5]==0 && 
+symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+symptomp ="finish" ; 
+}
+// dont forget case 69=0 and 32 = 0 
+
+else if(symptopms[80]==0 &&symptopms[79]==0 &&symptopms[78]==0 &&symptopms[77]==0 &&symptopms[76]==0 &&symptopms[75]==1 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==1 &&symptopms[68]==0 &&symptopms[67]==0 &&symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0&&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[41]==0 && symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==1 && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]== 0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+  symptopms[6]==0 && symptopms[5]==0 && 
+  symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
+  symptomp ="finish" ;  //loss_of_apetite  79
+}
+}
+
+if(Questions.depth==80){ // loss_of_apetite  79
+
 if(symptopms[80]==1 &&symptopms[79]==0 &&symptopms[78]==0 &&symptopms[77]==0 &&symptopms[76]==0 &&symptopms[75]==0 &&symptopms[74]==0 &&symptopms[73]==0 &&symptopms[72]==0 && symptopms[71]==0 &&symptopms[70]==0 &&symptopms[69]==1 &&symptopms[68]==0 &&symptopms[67]==0 && symptopms[66]==0 &&symptopms[65]==0 &&symptopms[64]==0 &&symptopms[63]==0 &&symptopms[62]==0 &&symptopms[61]==0 &&symptopms[60]==0 &&symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==1 &&symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 &&symptopms[50]==0 &&symptopms[49]==0 && symptopms[48]==0 &&symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 && symptopms[43]==0 &&symptopms[42]==0 &&symptopms[41]==0 &&symptopms[40]==0 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==0 && symptopms[34]==0 && symptopms[33]==0 &&symptopms[32]==0 &&symptopms[31]==0 &&symptopms[30]==0 && symptopms[29]==0 &&symptopms[28]==0 && symptopms[27]==0 && symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==0 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 &&symptopms[15]==0 &&symptopms[14]==0 && symptopms[13]==0 &&symptopms[12]==0 && symptopms[11]==0 && symptopms[10]==0 &&symptopms[9]==0 && symptopms[8]==0 &&symptopms[7]==0 &&
 symptopms[6]==0 && symptopms[5]==0 && 
 symptopms[4]== 0 && symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==1 && symptopms[0]==0){
@@ -2922,6 +2938,7 @@ else if(symptopms[80]==0 &&symptopms[79]==0 &&symptopms[78]==0 &&symptopms[77]==
   symptomp ="finish" ;  //loss_of_apetite  79
 }
 }
+
 //silver_like_dusting
 if(Questions.depth==81){ // silver_like_dusting  80
 
