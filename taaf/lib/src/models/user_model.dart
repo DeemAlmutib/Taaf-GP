@@ -1,11 +1,11 @@
 class UserModel {
   String? id;
   String? phone;
+  String? phoneCode;
   String? name;
   String? birthDate;
   String? gender;
   String? created_at = "";
-  String? phoneCode;
 
   // const UserModel(
   //   String s,
@@ -29,6 +29,7 @@ class UserModel {
 
     id = map['id'];
     phone = map['phone'];
+    phoneCode = map['phoneCode'];
     name = map['name'];
     birthDate = map['birthDate'];
     gender = map['gender'];
@@ -39,7 +40,8 @@ class UserModel {
   toJson() {
     return {
       "id": id,
-      "Phone": phone,
+      "phone": phone,
+      "phoneCode": phoneCode,
       "name": name,
       "birthDate": birthDate,
       "gender": gender,
