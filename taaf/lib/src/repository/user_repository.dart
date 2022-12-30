@@ -26,11 +26,12 @@ class UserRepository {
     gender,
 
 */
-  Future<void> updateUserInfoFireStore({required String id, required String name, required String phone,
-     required  String birthDate, required String gender}) async {
+  Future<void> updateUserInfoFireStore({required String id, required String name, required String phone, required String phoneCode
+     ,required  String birthDate, required String gender}) async {
     return await _userCollectionRef.doc(id).update({
       "name": name,
       "phone": phone,
+      "phoneCode":phoneCode,
       "birthDate": birthDate,
       "gender": gender
     });
@@ -44,6 +45,17 @@ UserID
   Future<List<QueryDocumentSnapshot>> getUser(String? UserID) async {
     var response =
         await _userCollectionRef.where('id', isEqualTo: UserID).get();
+    return response.docs;
+  }
+
+  /*
+to get single  user 
+accept : 
+UserID
+ */
+  Future<List<QueryDocumentSnapshot>> getUserByPhoneNumber(String? phoneNumber , String phoneCode) async {
+    var response =
+        await _userCollectionRef.where('phone', isEqualTo: phoneNumber).where('phoneCode',isEqualTo: phoneCode).get();
     return response.docs;
   }
 

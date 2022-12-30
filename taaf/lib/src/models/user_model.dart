@@ -5,6 +5,7 @@ class UserModel {
   String? birthDate;
   String? gender;
   String? created_at = "";
+  String? phoneCode;
 
   // const UserModel(
   //   String s,
@@ -13,12 +14,13 @@ class UserModel {
   //   required this.phone,
   // });
   UserModel(
-      { this.id,
-       this.phone,
-       this.name,
-       this.birthDate,
-       this.gender,
-       this.created_at});
+      {this.id,
+      this.phone,
+      this.name,
+      this.birthDate,
+      this.gender,
+      this.created_at,
+      this.phoneCode});
 
   UserModel.fromJson(Map<dynamic, dynamic> map) {
     if (map == null) {
@@ -31,6 +33,7 @@ class UserModel {
     birthDate = map['birthDate'];
     gender = map['gender'];
     created_at = map['created_at'] ?? "";
+    phoneCode = map['phoneCode'];
   }
 
   toJson() {
@@ -41,6 +44,7 @@ class UserModel {
       "birthDate": birthDate,
       "gender": gender,
       "created_at": created_at,
+      "phoneCode": phoneCode
     };
   }
 }
