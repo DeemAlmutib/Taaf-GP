@@ -14,6 +14,7 @@ import 'package:taaf/src/views/widgets/AppSmallTextWidget.dart';
 
 import '../../../flutter_flow/flutter_flow_theme.dart';
 import '../../../flutter_flow/flutter_flow_widgets.dart';
+import '../../../homePage.dart';
 import '../../../login/loginPage.dart';
 import '../../../welcomePage.dart';
 import '../widgets/AppLargTextWidget.dart';
@@ -60,7 +61,7 @@ class _ProfilePageState extends State<ProfilePage> {
           color: Color.fromARGB(189, 248, 252, 255),
           onPressed: () {
             Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => WelcomePage()));
+                MaterialPageRoute(builder: (context) => HompageWidget()));
           },
         ),
       ),
