@@ -1,6 +1,7 @@
 class UserModel {
   String? id;
   String? phone;
+  String? phoneCode;
   String? name;
   String? birthDate;
   String? gender;
@@ -13,12 +14,13 @@ class UserModel {
   //   required this.phone,
   // });
   UserModel(
-      { this.id,
-       this.phone,
-       this.name,
-       this.birthDate,
-       this.gender,
-       this.created_at});
+      {this.id,
+      this.phone,
+      this.name,
+      this.birthDate,
+      this.gender,
+      this.phoneCode,
+      this.created_at});
 
   UserModel.fromJson(Map<dynamic, dynamic> map) {
     if (map == null) {
@@ -27,6 +29,7 @@ class UserModel {
 
     id = map['id'];
     phone = map['phone'];
+    phoneCode = map['phoneCode'];
     name = map['name'];
     birthDate = map['birthDate'];
     gender = map['gender'];
@@ -36,7 +39,8 @@ class UserModel {
   toJson() {
     return {
       "id": id,
-      "Phone": phone,
+      "phone": phone,
+      "phoneCode": phoneCode,
       "name": name,
       "birthDate": birthDate,
       "gender": gender,

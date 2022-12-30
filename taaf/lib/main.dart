@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:taaf/src/views/user/profilePage.dart';
 import 'package:taaf/welcomePage.dart';
+import 'src/views/user/editProfile.dart';
 import 'src/base/globals.dart';
+import 'src/helper/userSharedPreferences.dart';
 import 'welcomePage.dart';
 import 'firebase_options.dart';
 
@@ -13,12 +17,13 @@ import 'package:ffi/ffi.dart';
 
 import 'login/loginPage.dart';
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  await UserSharedPreferences.init();
   runApp(MyApp());
   print("object");
 }
@@ -29,15 +34,35 @@ class MyApp extends StatelessWidget {
 // of your application.
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
+       localizationsDelegates: [
+         GlobalMaterialLocalizations.delegate
+       ],
+       supportedLocales: [
+         const Locale('en'),
+         const Locale('ar')
+       ],
       debugShowCheckedModeBanner: false,
       title: 'Firebase',
-      scaffoldMessengerKey: snackbarKey,
-      home: WelcomePage(),
+      // scaffoldMessengerKey: snackbarKey,
+      home: checkLogin(),
     );
   }
 }
 
+Widget checkLogin() {
+  
+ var userID = UserSharedPreferences.getUserID();
+
+  print(userID);
+
+  if (userID == null) {
+    return LoginPageWidget();
+  } else {
+   return ProfilePage();
+  }
+}
 
 // method for getting the symptopms , it should take the first symptomp
 Future<http.Response> getSym(String symptomp) {
