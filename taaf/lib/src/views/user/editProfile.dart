@@ -318,7 +318,7 @@ class _editProfileWidgetState extends State<editProfile> {
               return WillPopScope(
                 onWillPop: () async {
                   return false;
-                },
+                },/* */
                 child: AlertDialog(
                   title: AppSmallTextWidget(
                       text: "تغيير رقم الهاتف", size: dimensions.font18),
@@ -367,13 +367,13 @@ class _editProfileWidgetState extends State<editProfile> {
                                 //
                               ]
                             : [
-                                AppTextFormField(
+                            /*    AppTextFormField(
                                     hintText: "رمز التحقق",
                                     onSave: () {},
                                     validator: () {},
                                     textInputType: TextInputType.number,
                                     textEditingController: editProfileController
-                                        .otpEditingController)
+                                        .otpEditingController)*/
                               ]),
                   ),
                   actions: [
