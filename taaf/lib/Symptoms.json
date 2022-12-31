@@ -242,8 +242,131 @@
     {
         "NameEn":"abnormal_menstruation",
         "NameAr":"عدم انتظام في الدورة الشهرية "
-    }
+    },
+    {
+        "NameEn": "spinning_movements" ,
+        "NameAr":"إحساس بالدوران"
+    },
+    {
+        "NameEn": "extra_marital_contacts" ,
+        "NameAr":"إرتفاع في درجة الحرارة بعد أي إتصال خارج إطار الزوجية "
+    },
+    {
+        "NameEn": "mucoid_sputum" ,
+        "NameAr":" بلغم مخاطي (بلغم أكثر سمكا وغالبا ما يكون أكثر لزوجة من البلغم العادي ) "
+    },
+
+    {
+        "NameEn": "loss_of_smell" ,
+        "NameAr":"عدم القدرة على شم الرائحة "
+    },
+    {
+        "NameEn": "throat_irritation" ,
+        "NameAr":"ألم في الحلق أو جفاف خاصة عند البلع  "
+    },
+    {
+        "NameEn": "weakness_of_one_body_side" ,
+        "NameAr":"ضعف أو خدر في الجزء الأيسر أو الأيمين من الجسم"
+    },
+    {
+        "NameEn": "sinus_pressure" ,
+        "NameAr":"ضغط في الجيوب الأنفية ( ضغط مؤلم حول أنفك ) "
+    },
+    {
+        "NameEn": "shivering" ,
+        "NameAr":"رجفة أو رعشة "
+    },
+    {
+        "NameEn": "rusty_sputum" ,
+        "NameAr":"بلغم صدئ لونه أصفر "
+    },
+    {
+        "NameEn": "red_sore_around_nose" ,
+        "NameAr":" قرحة أو حبوب حمراء حول الأنف"
+    },
+    {
+        "NameEn": "yellow_crust_ooze" ,
+        "NameAr":"طفح جلدي متقيِح - لونه أًصفر "
+    },
+    {
+        "NameEn": "visual_disturbances" ,
+        "NameAr":"  اضطراب في الرؤية أو زيادة في الصداع عند رؤية الأضواء الساطعة"
+    },
+    {
+        "NameEn": "red_spots_over_body" ,
+        "NameAr":"  حبوب حمراء على الجسم"
+    },
+    {
+        "NameEn": "sweating" ,
+        "NameAr":" زيادة في التعرق "
+    },
+    {
+        "NameEn": "receiving_blood_transfusion" ,
+        "NameAr":" ذلك بعد تلقي نقل للدم مؤخرا "
+    },
+    {
+        "NameEn": "dehydration" ,
+        "NameAr":"جفاف ( لا تشرب كميات كافية من السوائل يوميا)  "
+    },
+    {
+        "NameEn": "dizziness" ,
+        "NameAr":"دوخة  "
+    },
+
+    {
+        "NameEn": "blood_in_sputum" ,
+        "NameAr":" دم في البلغم أو اللعاب"
+    },
+    {
+        "NameEn": "swelled_lymph_nodes" ,
+        "NameAr":"تضخم في الغدد اللمفاوية ( انتفاخ بحجم حبة البزيلاء أسفل الأذن ) "
+    },
+    {
+        "NameEn": "swelled_lymph_nodes" ,
+        "NameAr":"تضخم في الغدد اللمفاوية ( انتفاخ بحجم حبة الفول أسفل الأذن ) "
+    },
+    {
+        "NameEn": "watering_from_eyes" ,
+        "NameAr":"  دموع لا إرادية "
+    },
+    {
+        "NameEn": "congestion" ,
+        "NameAr":" احتقان في الحلق ( شعور بكتلة في الحلق )  "
+    },
+    {
+        "NameEn": "fast_heart_rate" ,
+        "NameAr":" تسارع في ضربات القلب "
+    },
     
+    {
+        "NameEn": "pus_filled_pimples" ,
+        "NameAr":"بثور أو حبوب مملوءة بالصديد ( سائل أصفر )"
+    },
+    {
+        "NameEn": "loss_of_appetite" ,
+        "NameAr":" انسداد في الشهية ( عدم الرغبة في تناول الطعام مؤخرا ) "
+    },
+    {
+        "NameEn": "silver_like_dusting" ,
+        "NameAr":"بقع فضية على الجلد شبيهة بالغبار "
+    },
+    {
+        "NameEn": "painful_walking" ,
+        "NameAr":"ألم أثناء المشي  "
+    },
+    {
+        "NameEn": "dischromic _patches" ,
+        "NameAr":"بقع على شكل دوائر متفرقة في الجسم "
+    },
+    {
+        "NameEn": "hip_joint_pain" ,
+        "NameAr":"آلام في الورك  "
+    },
+    {
+        "NameEn": "blurred_and_distorted_vision" ,
+        "NameAr": "رؤية ضبابية غير واضحة "
+    }
+
 
 
 
