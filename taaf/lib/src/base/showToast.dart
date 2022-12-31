@@ -9,3 +9,12 @@ void AppShowToast(
       backgroundColor: Colors.black.withOpacity(0.8),
       gravity: position);
 }
+
+void appShowSnackBar(BuildContext context, String text) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(text,
+          style: TextStyle(fontSize: 18), textAlign: TextAlign.right),
+    ),
+  );
+}

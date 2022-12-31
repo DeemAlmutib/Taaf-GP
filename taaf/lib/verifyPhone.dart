@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taaf/src/base/showToast.dart';
 import 'package:taaf/src/controllers/AuthController.dart';
+import 'package:taaf/src/views/user/profilePage.dart';
 
 import 'homePage.dart';
 import 'login/loginPage.dart';
@@ -190,11 +191,19 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                                 .verfiyOTP(OTPController.text.toString().trim(),
                                     context);
                             if (allGood) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text("تم تسجيل الدخول بنجاح "),
-                                ),
-                              );
+                              appShowSnackBar(
+                                  context, "تم تسجيل الدخول بنجاح ");
+                              // ScaffoldMessenger.of(context).showSnackBar(
+                              //   const SnackBar(
+                              //     content: Text("تم تسجيل الدخول بنجاح ",
+                              //         style: TextStyle(fontSize: 18),
+                              //         textAlign: TextAlign.right),
+                              //   ),
+                              // );
+
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (context) => ProfilePage()));
 
                               Navigator.of(context).pushReplacement(
                                   MaterialPageRoute(
