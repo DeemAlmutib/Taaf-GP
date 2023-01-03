@@ -16,10 +16,11 @@ class Navigation extends StatefulWidget {
 class _NavigationState extends State<Navigation> {
    final pages = [
     const HompageWidget(),
-    const HistoryWidget(),
     ProfilePage(),
+    const HistoryWidget(),
+    
   ];
-  
+
   int Index = 0;
   
   @override
