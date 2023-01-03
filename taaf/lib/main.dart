@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Firebase',
       // scaffoldMessengerKey: snackbarKey,
-      home: Navigation(),
+      home: WelcomePageWidget(),
     );
   }
 }

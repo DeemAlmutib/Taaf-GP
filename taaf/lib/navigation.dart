@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:taaf/homepage.dart';
+import 'package:taaf/report.dart';
 import 'package:taaf/src/views/user/profilePage.dart';
+
+import 'history.dart';
 
 class Navigation extends StatefulWidget {
   const Navigation({super.key});
@@ -13,10 +16,10 @@ class Navigation extends StatefulWidget {
 class _NavigationState extends State<Navigation> {
    final pages = [
     const HompageWidget(),
-    const HompageWidget(),
+    const HistoryWidget(),
     ProfilePage(),
-    
   ];
+  
   int Index = 0;
   
   @override

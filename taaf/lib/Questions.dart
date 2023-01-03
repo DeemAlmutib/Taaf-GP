@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
@@ -79,6 +81,27 @@ Future<http.Response> getDiseasePrecaution(String disease) {
   );
 }
 
+final _firestore = FirebaseFirestore.instance;
+final _auth = FirebaseAuth.instance;
+String userId = "";
+late User loggedInUser;
+
+@override
+  void initState() {
+    getCurrentUser();
+  }
+
+void getCurrentUser() async {
+    try {
+      final user = await _auth.currentUser;
+      if (user != null) {
+        loggedInUser = user;
+        userId = loggedInUser.uid;
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 
 
 
@@ -4981,6 +5004,19 @@ SizedBox(height: 5,),
           ),
           onPressed: () { // deem and aljoharah here you are going to use firebase 
           // Yes_Symptoms , disease , description and  are the 2 vari
+          
+           _firestore
+          .collection('report')
+          .doc(disease + userId)
+          .set({
+            'date': DateTime.now().toString(),
+            'user': userId,
+            'disease': disease,
+            'description': description,
+            'precaution':precaution
+          });
+
+          print('report added');
         
              Questions.allSymptompsArray =  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0
  ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0,0,0,0,

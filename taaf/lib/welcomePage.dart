@@ -38,7 +38,7 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> {
             image: DecorationImage(
               fit: BoxFit.cover,
               image: Image.asset(
-                'assets/Images/first_page.png',
+                'assets/images/first_page.png',
               ).image,
             ),
           ),
