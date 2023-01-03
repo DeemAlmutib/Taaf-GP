@@ -26,7 +26,6 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< Updated upstream
         body: Container(
       decoration: BoxDecoration(
           image: DecorationImage(
@@ -49,6 +48,7 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> {
                       //fontStyle: FontStyle.italic,
                       color: Color.fromARGB(255, 225, 234, 239),
                       fontWeight: FontWeight.bold,
+<<<<<<< HEAD
 =======
       key: scaffoldKey,
       backgroundColor: Color(0xFF14181B),
@@ -86,6 +86,8 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> {
                             fontWeight: FontWeight.bold,
                           ),
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 1598156 (history)
                     ),
                   ),
                 ),

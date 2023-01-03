@@ -191,7 +191,6 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                                 .verfiyOTP(OTPController.text.toString().trim(),
                                     context);
                             if (allGood) {
-<<<<<<< Updated upstream
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text("تم تسجيل الدخول بنجاح "),
@@ -200,6 +199,7 @@ class _verifyLoginPageState extends State<verifyloginPage> {
 
                               // Navigator.of(context).pushReplacement(
                               // MaterialPageRoute(builder: (context) => homePage()));
+<<<<<<< HEAD
 =======
                               appShowSnackBar(
                                   context, "تم تسجيل الدخول بنجاح ");
@@ -223,6 +223,8 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                                       builder: (context) => Navigation()));
 >>>>>>> Stashed changes
 >>>>>>> parent of f4ab123 (history)
+=======
+>>>>>>> parent of 1598156 (history)
                             } else {
                               // AppShowToast(text: "error");
                             }
