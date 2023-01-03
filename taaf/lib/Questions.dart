@@ -34,7 +34,7 @@ var symp = Questions.nextSymp ;
 Future<http.Response> PredictDisease(List<String> symptomp) {
 
   return http.post(
-    Uri.parse('http://3.83.132.184:5001/DiseaseApi'),
+    Uri.parse('http://10.0.2.2:5000/DiseaseApi'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -47,7 +47,7 @@ Future<http.Response> PredictDisease(List<String> symptomp) {
 // as enhancement of the app we could ask the user (from how many days you have been sick?) in order to use this method
 Future<http.Response> getDiseaseSeverity(exp, days) {
   return http.post(
-    Uri.parse('http://3.83.132.184:5001/SeverityApi'),
+    Uri.parse('http://10.0.2.2:5000/SeverityApi'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -57,7 +57,7 @@ Future<http.Response> getDiseaseSeverity(exp, days) {
 // method that takes the disease name and get its description
 Future<http.Response> getDiseaseDescription(String disease) {
   return http.post(
-    Uri.parse('http://3.83.132.184:5001/DescriptionApi'),
+    Uri.parse('http://10.0.2.2:5000/DescriptionApi'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -69,7 +69,7 @@ Future<http.Response> getDiseaseDescription(String disease) {
 // method that takes the disease name and returns the the of advices 
 Future<http.Response> getDiseasePrecaution(String disease) {
   return http.post(
-    Uri.parse('http://3.83.132.184:5001/PrecautionApi'),
+    Uri.parse('http://10.0.2.2:5000/PrecautionApi'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -4862,30 +4862,27 @@ width: 500,
                Column(children: [ 
              Align(alignment: Alignment.centerRight,
             child: Text("   1-" + jsonDecode((snapshot2.data)!.body)['result'][0].toString() +"                   ",  style: const TextStyle(
-            color:  Color.fromARGB(225, 11, 11, 11),
+            color:  Color(0xFF636366),
             fontSize: 12,
             
             fontWeight: FontWeight.w600,
           ),),),
-         SizedBox(height : 10),
+         SizedBox(height : 5),
           Align(alignment: Alignment.centerRight,
           child: Text("   2-" + jsonDecode((snapshot2.data)!.body)['result'][1].toString() + "                    ",  style: const TextStyle(
-            color:  Color.fromARGB(225, 8, 8, 8),
+            color:  Color(0xFF636366),
             fontSize: 12,
             
             fontWeight: FontWeight.w600,
           ),),),
-          SizedBox(height : 10),
+          SizedBox(height : 5),
            Align(alignment: Alignment.centerRight,
          child: Text("   3-" + jsonDecode((snapshot2.data)!.body)['result'][2].toString() + "                      ",  style: const TextStyle(
-            color:  Color.fromARGB(225, 12, 12, 12),
+            color:  Color(0xFF636366),
             fontSize: 12,
             
             fontWeight: FontWeight.w600,
           ),),)
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
           
           ]),
           
@@ -4991,8 +4988,15 @@ SizedBox(height: 5,),
               Questions.nextSymp = widget.sympController ;
                // coming from the model // 
                Questions.comingFromModel = true;
+               print(Yes_Symptoms); 
+              print(jsonDecode(disease.body)['result'][0].toString()); 
+               print(jsonDecode(description.body)['result'].toString()); 
+               print(jsonDecode(precaution.body)['result'][0].toString()); // at index zero is the first advice so you can store 3 in the firebase [1] and [2]
+               
               Navigator.of(context).pushReplacement(
                              MaterialPageRoute(builder: (context) => Navigation()));
+
+
           },
         ),
         ]);
@@ -5075,9 +5079,6 @@ SizedBox(height: 5,),
                   ),
                 ),
         style: OutlinedButton.styleFrom(
->>>>>>> Stashed changes
-=======
->>>>>>> parent of 1598156 (history)
           
          side: BorderSide(width: 3.0, color: Color.fromRGBO(0, 114, 130, 30)),
          //shadowColor: Colors.transparent,

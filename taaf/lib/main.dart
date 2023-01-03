@@ -1,20 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-=======
-import 'package:taaf/homepage.dart';
->>>>>>> parent of f4ab123 (history)
+import 'package:taaf/homePage.dart';
 import 'package:taaf/humanModel.dart';
 import 'package:taaf/login.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:taaf/navigation.dart';
 import 'package:taaf/src/views/user/profilePage.dart';
->>>>>>> Stashed changes
-=======
->>>>>>> parent of 1598156 (history)
 import 'package:taaf/welcomePage.dart';
 import 'src/views/user/editProfile.dart';
 import 'src/base/globals.dart';
@@ -47,12 +39,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Firebase',
-      scaffoldMessengerKey: snackbarKey,
-      home: LoginPageWidget(),
-<<<<<<< HEAD
-=======
        localizationsDelegates: [
          GlobalMaterialLocalizations.delegate
        ],
@@ -63,14 +49,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Firebase',
       // scaffoldMessengerKey: snackbarKey,
-<<<<<<< HEAD
-      home: checkLogin(),
-=======
-      home: WelcomePageWidget(),
->>>>>>> Stashed changes
->>>>>>> parent of f4ab123 (history)
-=======
->>>>>>> parent of 1598156 (history)
+      home: Navigation(),
     );
   }
 }

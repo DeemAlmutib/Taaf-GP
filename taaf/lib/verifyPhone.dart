@@ -50,7 +50,7 @@ class _verifyLoginPageState extends State<verifyloginPage> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/images/background_(1).png',
+                  'assets/Images/background_(1).png',
                 ).image,
               ),
             ),
@@ -191,16 +191,6 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                                 .verfiyOTP(OTPController.text.toString().trim(),
                                     context);
                             if (allGood) {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text("تم تسجيل الدخول بنجاح "),
-                                ),
-                              );
-
-                              // Navigator.of(context).pushReplacement(
-                              // MaterialPageRoute(builder: (context) => homePage()));
-<<<<<<< HEAD
-=======
                               appShowSnackBar(
                                   context, "تم تسجيل الدخول بنجاح ");
                               // ScaffoldMessenger.of(context).showSnackBar(
@@ -209,22 +199,15 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                               //         style: TextStyle(fontSize: 18),
                               //         textAlign: TextAlign.right),
                               //   ),
-                              // );
+                              // // );
+
+                              // Navigator.of(context).pushReplacement(
+                              //     MaterialPageRoute(
+                              //         builder: (context) => ProfilePage()));
 
                               Navigator.of(context).pushReplacement(
                                   MaterialPageRoute(
-                                      builder: (context) => ProfilePage()));
-
-                              Navigator.of(context).pushReplacement(
-                                  MaterialPageRoute(
-<<<<<<< HEAD
                                       builder: (context) => HompageWidget()));
-=======
-                                      builder: (context) => Navigation()));
->>>>>>> Stashed changes
->>>>>>> parent of f4ab123 (history)
-=======
->>>>>>> parent of 1598156 (history)
                             } else {
                               // AppShowToast(text: "error");
                             }

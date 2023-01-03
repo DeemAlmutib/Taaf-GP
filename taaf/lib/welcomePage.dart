@@ -26,30 +26,6 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/images/background_(1).png'),
-              fit: BoxFit.fill)),
-      child: SingleChildScrollView(
-          child: Container(
-              margin: EdgeInsets.all(100),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: 80,
-                  ),
-                  Text(
-                    "  !مرحبًا بـك ",
-                    style: GoogleFonts.tajawal(
-                      fontSize: 35,
-                      //fontStyle: FontStyle.italic,
-                      color: Color.fromARGB(255, 225, 234, 239),
-                      fontWeight: FontWeight.bold,
-<<<<<<< HEAD
-=======
       key: scaffoldKey,
       backgroundColor: Color(0xFF14181B),
       body: GestureDetector(
@@ -85,9 +61,6 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> {
                             fontSize: 36,
                             fontWeight: FontWeight.bold,
                           ),
->>>>>>> Stashed changes
-=======
->>>>>>> parent of 1598156 (history)
                     ),
                   ),
                 ),
