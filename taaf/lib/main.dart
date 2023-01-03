@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:taaf/homepage.dart';
 import 'package:taaf/humanModel.dart';
 import 'package:taaf/login.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -42,13 +41,13 @@ class MyApp extends StatelessWidget {
          GlobalMaterialLocalizations.delegate
        ],
        supportedLocales: [
-         Locale('en'),
-         Locale('ar')
+         const Locale('en'),
+         const Locale('ar')
        ],
       debugShowCheckedModeBanner: false,
       title: 'Firebase',
       // scaffoldMessengerKey: snackbarKey,
-      home: WelcomePageWidget(),
+      home: checkLogin(),
     );
   }
 }
