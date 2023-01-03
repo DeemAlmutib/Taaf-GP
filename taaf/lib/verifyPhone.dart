@@ -9,6 +9,7 @@ import 'package:taaf/src/views/user/profilePage.dart';
 
 import 'homePage.dart';
 import 'login/loginPage.dart';
+import 'navigation.dart';
 
 class verifyloginPage extends StatefulWidget {
   AuthController authController;
@@ -201,13 +202,13 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                               //   ),
                               // );
 
-                              Navigator.of(context).pushReplacement(
-                                  MaterialPageRoute(
-                                      builder: (context) => ProfilePage()));
+                              // Navigator.of(context).pushReplacement(
+                              //     MaterialPageRoute(
+                              //         builder: (context) => ProfilePage()));
 
                               Navigator.of(context).pushReplacement(
                                   MaterialPageRoute(
-                                      builder: (context) => HompageWidget()));
+                                      builder: (context) => Navigation()));
                             } else {
                               // AppShowToast(text: "error");
                             }

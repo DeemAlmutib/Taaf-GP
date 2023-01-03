@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
@@ -43,6 +45,29 @@ Future<http.Response> PredictDisease(List<String> symptomp) {
     }),
   );
 }
+
+final _firestore = FirebaseFirestore.instance;
+final _auth = FirebaseAuth.instance;
+String userId = "";
+late User loggedInUser;
+
+@override
+  void initState() {
+    getCurrentUser();
+  }
+
+void getCurrentUser() async {
+    try {
+      final user = await _auth.currentUser;
+      if (user != null) {
+        loggedInUser = user;
+        userId = loggedInUser.uid;
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
 // method to see if you should go to the doctor or not / takes the array of symptopms and the number of days the user has been sick 
 // as enhancement of the app we could ask the user (from how many days you have been sick?) in order to use this method
 Future<http.Response> getDiseaseSeverity(exp, days) {
@@ -4896,6 +4921,208 @@ width: 500,
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 10),
+                child: Text('Error: ${snapshot2.error}'),
+              ),
+            ];
+          } else {
+            children = const <Widget>[
+              SizedBox(
+                //width: 60,
+                //height: 60,
+                child: CircularProgressIndicator(),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 10),
+                child: Text('Awaiting result...'),
+              ),
+            ];
+          }
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: children,
+            ),
+          );
+        },
+      ),
+             
+            ];
+          } else if (snapshot1.hasError) {
+            children = <Widget>[
+              const Icon(
+                Icons.error_outline,
+                color: Colors.red,
+                size: 60,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: Text('Error: ${snapshot1.error}'),
+              ),
+            ];
+          } else {
+            children = const <Widget>[
+              SizedBox(
+               // width: 60,
+               // height: 60,
+                child: CircularProgressIndicator(),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 10),
+                child: Text('Awaiting result...'),
+              ),
+            ];
+          }
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: children,
+            ),
+          );
+        },
+      ),
+         
+          
+         ),
+        ]),
+SizedBox(height: 5,),
+        ElevatedButton(
+          child: Text('                      جفظ                          ',
+          style: GoogleFonts.tajawal(
+                    fontSize: 15,
+                    //fontStyle: FontStyle.italic,
+                    
+                    color: Color.fromARGB(255, 255, 253, 253),
+                    fontWeight: FontWeight.bold,
+                  ),),
+          style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+        backgroundColor: MaterialStateProperty.all<Color>(Color.fromRGBO(0, 114, 130, 30)),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(18),
+            //side: BorderSide(color: Colors.red)
+          ),
+        ),
+          ),
+          onPressed: () { // deem and aljoharah here you are going to use firebase 
+          // Yes_Symptoms , disease , description and  are the 2 vari
+          _firestore
+          .collection('report')
+          .doc(disease + userId)
+          .set({
+            'date': DateTime.now().toString(),
+            'user': userId,
+            'disease': disease,
+            'description': description,
+            'precaution':precaution
+          });
+
+          print('report added');
+
+
+             Questions.allSymptompsArray =  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0
+ ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0,0,0,0,
+ 0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0,0,0,00,0,0,0,0,0,0,0,0,0];
+              Questions.nextSymp = widget.sympController ;
+               // coming from the model // 
+               Questions.comingFromModel = true;
+              Navigator.of(context).pushReplacement(
+                             MaterialPageRoute(builder: (context) => Navigation()));
+          },
+        ),
+        ]);
+
+
+    
+    }
+    else{
+  
+    Questions.nextSymp = symp ; 
+   // Questions.nextSymp = symp ; 
+    //return Row(
+     //children:[
+      return  Container(
+        height:100,
+              child: PhysicalModel(
+                borderRadius: BorderRadius.circular(30),
+                color: Colors.white,
+                elevation: 18,
+                shadowColor: Colors.black,
+                child: Container(
+                  height: 90,
+                  width: 350,
+                
+              
+        
+     child: Center(
+     child: Text(
+                  " هل تعاني من ${symp} ?",
+                  style: GoogleFonts.tajawal(
+                    fontSize: 20,
+                    //fontStyle: FontStyle.italic,
+                    color: Color.fromARGB(255, 65, 66, 66),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),),)),);
+
+   // ]);
+  }
+
+  }
+  
+
+
+
+
+
+  Widget _answerButton() {
+    //bool isSelected = answer == "Yes";
+    //bool show = false ; 
+    if(Questions.nextSymp=="finish"){
+      return Text(""); 
+    }
+   else{
+    return Column(
+      children:[
+  // DecoratedBox(
+  //   decoration: BoxDecoration(
+  //   gradient:LinearGradient(colors: [Color.fromRGBO(0, 114, 130, 30) , Color.fromARGB(255, 248, 246, 246) , Colors.transparent]),
+  //   borderRadius: BorderRadius.circular(30),
+  //   boxShadow: <BoxShadow>[
+  //     BoxShadow(
+  //       color: Color.fromRGBO(0,0,0,0.57),
+  //       blurRadius: 5 ,
+
+  //     )
+
+  //   ]
+  //   ),
+    
+       OutlinedButton(
+        
+        child: Text(
+                 "          نعم          ",
+                  style: GoogleFonts.tajawal(
+                    fontSize: 20,
+                    //fontStyle: FontStyle.italic,
+                    color: Color.fromARGB(224, 74, 198, 74),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+        style: OutlinedButton.styleFrom(
+          
+          ]),
+          
+            ];
+          } else if (snapshot2.hasError) {
+            children = <Widget>[
+              const Icon(
+                Icons.error_outline,
+                color: Colors.red,
+                size: 60,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
                 child: Text('Error: ${snapshot2.error}'),
               ),
             ];

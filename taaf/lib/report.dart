@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -14,6 +17,28 @@ class ReportWidget extends StatefulWidget {
 class _ReportWidgetState extends State<ReportWidget> {
   final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final _firestore = FirebaseFirestore.instance;
+  final _auth = FirebaseAuth.instance;
+
+String userId = "";
+late User loggedInUser;
+
+@override
+  void initState() {
+    getCurrentUser();
+  }
+
+void getCurrentUser() async {
+    try {
+      final user = await _auth.currentUser;
+      if (user != null) {
+        loggedInUser = user;
+        userId = loggedInUser.uid;
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   void dispose() {
