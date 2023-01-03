@@ -8,6 +8,7 @@ import 'package:taaf/src/controllers/AuthController.dart';
 
 import 'homePage.dart';
 import 'login/loginPage.dart';
+import 'navigation.dart';
 
 class verifyloginPage extends StatefulWidget {
   AuthController authController;
@@ -185,6 +186,7 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                                 .verfiyOTP(OTPController.text.toString().trim(),
                                     context);
                             if (allGood) {
+<<<<<<< Updated upstream
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                   content: Text("تم تسجيل الدخول بنجاح "),
@@ -193,6 +195,25 @@ class _verifyLoginPageState extends State<verifyloginPage> {
 
                               // Navigator.of(context).pushReplacement(
                               // MaterialPageRoute(builder: (context) => homePage()));
+=======
+                              appShowSnackBar(
+                                  context, "تم تسجيل الدخول بنجاح ");
+                              // ScaffoldMessenger.of(context).showSnackBar(
+                              //   const SnackBar(
+                              //     content: Text("تم تسجيل الدخول بنجاح ",
+                              //         style: TextStyle(fontSize: 18),
+                              //         textAlign: TextAlign.right),
+                              //   ),
+                              // );
+
+                              // Navigator.of(context).pushReplacement(
+                              //     MaterialPageRoute(
+                              //         builder: (context) => ProfilePage()));
+
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (context) => Navigation()));
+>>>>>>> Stashed changes
                             } else {
                               // AppShowToast(text: "error");
                             }

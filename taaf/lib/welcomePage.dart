@@ -14,6 +14,7 @@ class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+<<<<<<< Updated upstream
         body: Container(
       decoration: BoxDecoration(
           image: DecorationImage(
@@ -36,6 +37,43 @@ class _WelcomePageState extends State<WelcomePage> {
                       //fontStyle: FontStyle.italic,
                       color: Color.fromARGB(255, 225, 234, 239),
                       fontWeight: FontWeight.bold,
+=======
+      key: scaffoldKey,
+      backgroundColor: Color(0xFF14181B),
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height * 1,
+          decoration: BoxDecoration(
+            color: Color(0xFF14181B),
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: Image.asset(
+                'assets/images/first_page.png',
+              ).image,
+            ),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Align(
+                alignment: AlignmentDirectional(-0.1, -0.55),
+                child: Container(
+                  width: 389.1,
+                  height: 355.1,
+                  decoration: BoxDecoration(),
+                  child: Align(
+                    alignment: AlignmentDirectional(0, 0.35),
+                    child: Text(
+                      'مرحبًا بك!',
+                      style: FlutterFlowTheme.of(context).title1.override(
+                            fontFamily: 'Tajawal',
+                            color: FlutterFlowTheme.of(context).primaryBtnText,
+                            fontSize: 36,
+                            fontWeight: FontWeight.bold,
+                          ),
+>>>>>>> Stashed changes
                     ),
                   ),
                   SizedBox(
