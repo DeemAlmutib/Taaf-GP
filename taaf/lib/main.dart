@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
-<<<<<<< Updated upstream
-=======
 import 'package:taaf/homepage.dart';
 import 'package:taaf/humanModel.dart';
 import 'package:taaf/login.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:taaf/src/views/user/profilePage.dart';
->>>>>>> Stashed changes
 import 'package:taaf/welcomePage.dart';
 import 'src/base/globals.dart';
 import 'welcomePage.dart';
@@ -34,12 +31,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-<<<<<<< Updated upstream
-      debugShowCheckedModeBanner: false,
-      title: 'Firebase',
-      scaffoldMessengerKey: snackbarKey,
-      home: LoginPageWidget(),
-=======
        localizationsDelegates: [
          GlobalMaterialLocalizations.delegate
        ],
@@ -51,7 +42,6 @@ class MyApp extends StatelessWidget {
       title: 'Firebase',
       // scaffoldMessengerKey: snackbarKey,
       home: WelcomePageWidget(),
->>>>>>> Stashed changes
     );
   }
 }
