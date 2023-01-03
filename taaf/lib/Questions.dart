@@ -5007,13 +5007,14 @@ SizedBox(height: 5,),
           
            _firestore
           .collection('report')
-          .doc(disease + userId)
-          .set({
+          .doc(jsonDecode(disease.body)['result'][0].toString() + userId)
+          .set(
+            {
             'date': DateTime.now().toString(),
             'user': userId,
-            'disease': disease,
-            'description': description,
-            'precaution':precaution
+            'disease': jsonDecode(disease.body)['result'][0].toString() ,
+            'description':jsonDecode(description.body)['result'].toString(),
+            'precaution':jsonDecode(precaution.body)['result'].toString()
           });
 
           print('report added');
