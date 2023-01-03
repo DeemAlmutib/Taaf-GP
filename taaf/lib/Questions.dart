@@ -4862,27 +4862,47 @@ width: 500,
                Column(children: [ 
              Align(alignment: Alignment.centerRight,
             child: Text("   1-" + jsonDecode((snapshot2.data)!.body)['result'][0].toString() +"                   ",  style: const TextStyle(
+<<<<<<< Updated upstream
+            color:  Color.fromARGB(225, 11, 11, 11),
+=======
             color:  Color(0xFF636366),
+>>>>>>> Stashed changes
             fontSize: 12,
             
             fontWeight: FontWeight.w600,
           ),),),
+<<<<<<< Updated upstream
+         SizedBox(height : 10),
+          Align(alignment: Alignment.centerRight,
+          child: Text("   2-" + jsonDecode((snapshot2.data)!.body)['result'][1].toString() + "                    ",  style: const TextStyle(
+            color:  Color.fromARGB(225, 8, 8, 8),
+=======
          SizedBox(height : 5),
           Align(alignment: Alignment.centerRight,
           child: Text("   2-" + jsonDecode((snapshot2.data)!.body)['result'][1].toString() + "                    ",  style: const TextStyle(
             color:  Color(0xFF636366),
+>>>>>>> Stashed changes
             fontSize: 12,
             
             fontWeight: FontWeight.w600,
           ),),),
+<<<<<<< Updated upstream
+          SizedBox(height : 10),
+           Align(alignment: Alignment.centerRight,
+         child: Text("   3-" + jsonDecode((snapshot2.data)!.body)['result'][2].toString() + "                      ",  style: const TextStyle(
+            color:  Color.fromARGB(225, 12, 12, 12),
+=======
           SizedBox(height : 5),
            Align(alignment: Alignment.centerRight,
          child: Text("   3-" + jsonDecode((snapshot2.data)!.body)['result'][2].toString() + "                      ",  style: const TextStyle(
             color:  Color(0xFF636366),
+>>>>>>> Stashed changes
             fontSize: 12,
             
             fontWeight: FontWeight.w600,
           ),),)
+<<<<<<< Updated upstream
+=======
           
           ]),
           
@@ -5072,6 +5092,7 @@ SizedBox(height: 5,),
                   ),
                 ),
         style: OutlinedButton.styleFrom(
+>>>>>>> Stashed changes
           
          side: BorderSide(width: 3.0, color: Color.fromRGBO(0, 114, 130, 30)),
          //shadowColor: Colors.transparent,

@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+<<<<<<< Updated upstream
+=======
 import 'package:taaf/homepage.dart';
+<<<<<<< HEAD
+=======
+import 'package:taaf/report.dart';
+import 'src/views/user/profilePage.dart';
+>>>>>>> Stashed changes
+>>>>>>> parent of f4ab123 (history)
 
 class Navigation extends StatefulWidget {
   const Navigation({super.key});
@@ -10,6 +18,8 @@ class Navigation extends StatefulWidget {
 }
 
 class _NavigationState extends State<Navigation> {
+<<<<<<< Updated upstream
+=======
    final pages = [
     const HompageWidget(),
     const HompageWidget(),
@@ -18,6 +28,7 @@ class _NavigationState extends State<Navigation> {
   ];
   int Index = 0;
   
+>>>>>>> Stashed changes
   @override
   Widget build(BuildContext context) {
     
