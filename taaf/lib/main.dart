@@ -37,15 +37,9 @@ class MyApp extends StatelessWidget {
 // of your application.
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
-       localizationsDelegates: [
-         GlobalMaterialLocalizations.delegate
-       ],
-       supportedLocales: [
-         const Locale('en'),
-         const Locale('ar')
-       ],
+      localizationsDelegates: [GlobalMaterialLocalizations.delegate],
+      supportedLocales: [const Locale('en'), const Locale('ar')],
       debugShowCheckedModeBanner: false,
       title: 'Firebase',
       // scaffoldMessengerKey: snackbarKey,
@@ -55,15 +49,14 @@ class MyApp extends StatelessWidget {
 }
 
 Widget checkLogin() {
-  
- var userID = UserSharedPreferences.getUserID();
+  var userID = UserSharedPreferences.getUserID();
 
   print(userID);
 
   if (userID == null) {
     return LoginPageWidget();
   } else {
-   return ProfilePage();
+    return ProfilePage();
   }
 }
 
