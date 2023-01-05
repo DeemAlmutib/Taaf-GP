@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart';
@@ -10,6 +12,7 @@ import 'package:taaf/homepage.dart';
 import 'package:taaf/login.dart';
 import 'package:taaf/welcomePage.dart';
 
+import 'flutter_flow/flutter_flow_theme.dart';
 import 'navigation.dart';
 
 class Questions extends StatefulWidget {
@@ -27,7 +30,7 @@ class Questions extends StatefulWidget {
  static var expected ; 
 }
 
-class _QuestionsState extends State<Questions> {
+class _QuestionsState extends State<Questions> {//http://3.83.132.184:5001/
 var symp = Questions.nextSymp ;
 // method that will take the list of symptomps that the user has said yes to and return the final result 
 Future<http.Response> PredictDisease(List<String> symptomp) {
@@ -78,6 +81,27 @@ Future<http.Response> getDiseasePrecaution(String disease) {
   );
 }
 
+final _firestore = FirebaseFirestore.instance;
+final _auth = FirebaseAuth.instance;
+String userId = "";
+late User loggedInUser;
+
+@override
+  void initState() {
+    getCurrentUser();
+  }
+
+void getCurrentUser() async {
+    try {
+      final user = await _auth.currentUser;
+      if (user != null) {
+        loggedInUser = user;
+        userId = loggedInUser.uid;
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 
 
 
@@ -1665,12 +1689,13 @@ symptomp ="finish" ; // mucoid_sputum 59 // updated
 }
 
 
-else if(symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 && symptopms[40]==0 && symptopms[40]==1 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==1 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
+else if(symptopms[59]==0 &&symptopms[58]==0 &&symptopms[57]==0 &&symptopms[56]==0 &&symptopms[55]==0 &&symptopms[54]==0 && symptopms[53]==0 && symptopms[52]==0 &&symptopms[51]==0 && symptopms[50]==0 &&symptopms[49]==0 &&symptopms[48]==0 && symptopms[47]==0 &&symptopms[46]==0 && symptopms[45]==0 &&symptopms[44]==0 &&symptopms[43]==0 &&symptopms[42]==0 &&  symptopms[40]==1 && symptopms[39]==0 &&symptopms[38]==0 &&symptopms[37]==0 && symptopms[36]==0 &&symptopms[35]==1 && symptopms[34]==0 &&symptopms[33]==0  &&symptopms[32]==0 &&symptopms[31]==0  &&symptopms[30]==0  && symptopms[29]==0 &&symptopms[28]==0 &&  symptopms[27]==0&& symptopms[26]==0 && symptopms[25]==0 && symptopms[24]==0 && symptopms[23]==0 && symptopms[22]==0 && symptopms[21]==1 && symptopms[20]==0 && symptopms[19]==0 && symptopms[18]==0 && symptopms[17]==0 &&symptopms[16]==0 && symptopms[15]==0 &&symptopms[14]==0 &&symptopms[13]==0 &&symptopms[12]==0 &&symptopms[11]==0 &&symptopms[10]==0 &&symptopms[9]==0  && symptopms[8]==0 && symptopms[7]==0 && 
   symptopms[6]==0 && symptopms[5]==0 && symptopms[4]==0 && 
   symptopms[3]==0 && symptopms[2]==0 && symptopms[1]==0 && symptopms[0]==0){
   symptomp ="finish" ;  //mucoid_sputum
 }
 }
+
 
 
 
@@ -4453,11 +4478,11 @@ Questions.comingFromModel = false ;
       body: Container(
         width:500 ,
         
-         decoration:Questions.nextSymp!="finish"? BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/Images/Q2.jpeg' ), 
-            fit: BoxFit.fill
-             )): BoxDecoration(),
+        //  decoration:Questions.nextSymp!="finish"? BoxDecoration(
+        //   image: DecorationImage(
+        //       image: AssetImage('assets/Images/Q2.jpeg' ), 
+        //     fit: BoxFit.fill
+        //      )): BoxDecoration(),
           // decoration: BoxDecoration(
           // image: DecorationImage(
           //     image: AssetImage('assets/Images/background_(1).png'),
@@ -4478,32 +4503,95 @@ Questions.comingFromModel = false ;
                   ),
                 ),
                 if(Questions.nextSymp=="finish")
-                 Text(
-                  " تم التشخِيص",
-                  style: GoogleFonts.tajawal(
-                    fontSize: 23,
-                    //fontStyle: FontStyle.italic,
-                    color: Color(0xFF007282),
-                    fontWeight: FontWeight.bold,
+                  Container(
+                width: 389.9,
+                height: 120.7,
+                decoration: BoxDecoration(),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Align(
+                alignment: AlignmentDirectional(-0.1, -0.55),
+                child: Container(
+                  width: 389.1,
+                 // height: 100,
+                  decoration: BoxDecoration(),
+                  child: Align(
+                    alignment: AlignmentDirectional(0.9, 1),
+                    child: Text(
+                      DateTime.now().toString(),
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Tajawal',
+                            color: Color(0xFF8C8C8C),
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                          ),
+                    ),
                   ),
                 ),
-                SizedBox(height: 20,),
-                if(Questions.nextSymp != "finish")
-                Container(
+              ),
+                    Container(
+                      height: 45.6,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                      child: Align(
+                        alignment: AlignmentDirectional(0.9, 0),
+                        child: Text(
+                          'ملخص',
+                          textAlign: TextAlign.end,
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Tajawal',
+                                    color: Color(0xFF636366),
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 382,
+                      //height: 90.8,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                      child: Align(
+                        alignment: AlignmentDirectional(0.8, -1),
+                        child: Text(
+                          'ملاحظة: نتيجة هذا الإختبار هي فقط تشخيص أولي لا يغنيك عن زيارة الطبيب    ' ,
+                          textAlign: TextAlign.end,
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Tajawal',
+                                    color: Color(0xFF636366),
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+                //SizedBox(height: 20,),
+                // if(Questions.nextSymp != "finish")
+                // Container(
                
-                  child:Image.asset(
-                                    'assets/Images/q4.png',
-                                    width: 100,
-                                    height: 80,
-                                    fit: BoxFit.cover,
-                                  ),),
+                //   child:Image.asset(
+                //                     'assets/Images/q4.png',
+                //                     width: 100,
+                //                     height: 80,
+                //                     fit: BoxFit.cover,
+                //                   ),),
     
                 
 
           Column(children: [ 
-            SizedBox(height:35),
+            if(Questions.nextSymp!="finish")
+            SizedBox(height:80),
 // we have 2 widgets , questions widget will view the questions and the result - the answer widget will view yes no button , each button should contains a specific logic as will be shown below
-           _questionWidget(Questions.nextSymp),SizedBox(height: 30,),
+           _questionWidget(Questions.nextSymp),SizedBox(height: 60,),
           _answerButton(), ],
           )
          
@@ -4529,16 +4617,6 @@ Questions.comingFromModel = false ;
       
         
        
-                // shadowColor: Colors.black,
-                // child: Container(
-                //   height: 60,
-            Divider(
-thickness: 1,
-indent: 60,
-endIndent: 60,
-color: Color(0xFF007282),
-        ),     //   width: 350,
-      //SizedBox(height: 10,),
 
       Column(children: [
        FutureBuilder<Response>(
@@ -4550,35 +4628,48 @@ color: Color(0xFF007282),
           Questions.expected = jsonDecode((snapshot.data)!.body)['result'].toString() ;
 
             children = <Widget>[
-              Align(alignment: Alignment.center,
-              child: Column(children: [
-              
-              Align(alignment: Alignment.center,
-         child: Text(
-           "من المحتمل أنك تعاني من  "  ,
-         style: GoogleFonts.tajawal(
-                    fontSize: 18,
-                    //fontStyle: FontStyle.italic,
-                    color: Color.fromARGB(255, 60, 61, 61),
-                    fontWeight: FontWeight.bold,
-                  ),
-        ),),
-        Align(
-          alignment: Alignment.center,
-         child: Text(
-          (jsonDecode((snapshot.data)!.body)['result']).toString()  ,
-         style: GoogleFonts.tajawal(
-                    fontSize: 18,
-                    //fontStyle: FontStyle.italic,
-                    color: Color(0xFF007282),
-                    fontWeight: FontWeight.bold,
-                  ),
-                  
-
-        ),)
-
-              ],)
-              )
+              SizedBox(height:15),
+              Container(
+                      height: 40.1,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                      child: Align(
+                        alignment: AlignmentDirectional(0.9, -1),
+                        child: Text(
+                          'من المحتمل أنك تعاني من ',
+                          textAlign: TextAlign.end,
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Tajawal',
+                                    color: Color(0xFF636366),
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: 45.9,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                      child: Align(
+                        alignment: AlignmentDirectional(0.9, -1),
+                        child: Text(
+                          (jsonDecode((snapshot.data)!.body)['result'][0]).toString(),
+                          textAlign: TextAlign.end,
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Tajawal',
+                                    color: Color(0xFF007282),
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                        ),
+                      ),
+                    ),
+       
             ];
           } else if (snapshot.hasError) {
             children = <Widget>[
@@ -4619,54 +4710,28 @@ color: Color(0xFF007282),
 
       ],),
         
-        //SizedBox(height: 5,),
-        Divider(
-thickness: 1,
-indent: 60,
-endIndent: 60,
-color: Color(0xFF007282),
-        ),
-                
-        SizedBox(height: 3) ,
-         Align(
-          alignment: Alignment.centerRight,
-          child:  Text(
-        DateTime.now().toString() + "                   " ,
-         style: GoogleFonts.tajawal(
-                    fontSize: 12,
-                    //fontStyle: FontStyle.italic,
-                    
-                    color: Color.fromARGB(255, 116, 117, 117),
-                    fontWeight: FontWeight.bold,
-                  ),
-        ), 
-        ),
-      SizedBox(height: 5,),
-       
-        Align(
-          alignment: Alignment.centerRight,
-          child:  Text(
-        "ملخص              "  ,
-         style: GoogleFonts.tajawal(
-                    fontSize: 19,
-                    //fontStyle: FontStyle.italic,
-                    
-                    color: Color(0xFF007282),
-                    fontWeight: FontWeight.bold,
-                  ),
-        ), 
-        ),
-        SizedBox(height: 10,),
-        Align(
-          alignment: Alignment.centerRight,
-        child: Text(' :وصف المرض             ' , style: GoogleFonts.tajawal(
-                    fontSize: 15,
-                    //fontStyle: FontStyle.italic,
-                    
-                    color: Color.fromARGB(255, 152, 152, 152),
-                    fontWeight: FontWeight.bold,
-                  ),
-         ),),
+        
+        Container(
+                      width: 380,
+                      height: 35,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                      child: Align(
+                        alignment: AlignmentDirectional(0.95, -1),
+                        child: Text(
+                          'وصف المرض',
+                          textAlign: TextAlign.end,
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Tajawal',
+                                    color: Color(0xFF636366),
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                        ),
+                      ),
+                    ),
         // SizedBox(height: 5,),
         Column(children: [ Container(
 height:69,
@@ -4696,7 +4761,7 @@ width: 500,
                Align(
         alignment: Alignment.centerRight,
        child: Text(jsonDecode((snapshot2.data)!.body)['result'].toString() ,  style: const TextStyle(
-            color: Color.fromARGB(225, 8, 8, 8),
+            color: Color(0xFF636366),
             fontSize: 12,
             
             fontWeight: FontWeight.w600,
@@ -4776,16 +4841,27 @@ width: 500,
       ),
            SizedBox(height: 5,),
 
-           Align(alignment: Alignment.centerRight,
-       child :Text(': نصائح              ' , style: GoogleFonts.tajawal(
-                    fontSize: 15,
-                    //fontStyle: FontStyle.italic,
-                    
-                    color: Color.fromARGB(255, 152, 152, 152),
-                    fontWeight: FontWeight.bold,
-                  ),
-         ),
-           ),
+          Container(
+                      width: 380,
+                      height: 35,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                      child: Align(
+                        alignment: AlignmentDirectional(0.95, -1),
+                        child: Text(
+                          ' نصائح',
+                          textAlign: TextAlign.end,
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Tajawal',
+                                    color: Color(0xFF636366),
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                        ),
+                      ),
+                    ),
               SizedBox(height: 5,),
           Container(
           height:70,
@@ -4810,7 +4886,7 @@ width: 500,
                Column(children: [ 
              Align(alignment: Alignment.centerRight,
             child: Text("   1-" + jsonDecode((snapshot2.data)!.body)['result'][0].toString() +"                   ",  style: const TextStyle(
-            color:  Color.fromARGB(225, 11, 11, 11),
+            color:  Color(0xFF636366),
             fontSize: 12,
             
             fontWeight: FontWeight.w600,
@@ -4818,7 +4894,7 @@ width: 500,
          SizedBox(height : 5),
           Align(alignment: Alignment.centerRight,
           child: Text("   2-" + jsonDecode((snapshot2.data)!.body)['result'][1].toString() + "                    ",  style: const TextStyle(
-            color:  Color.fromARGB(225, 8, 8, 8),
+            color:  Color(0xFF636366),
             fontSize: 12,
             
             fontWeight: FontWeight.w600,
@@ -4826,7 +4902,7 @@ width: 500,
           SizedBox(height : 5),
            Align(alignment: Alignment.centerRight,
          child: Text("   3-" + jsonDecode((snapshot2.data)!.body)['result'][2].toString() + "                      ",  style: const TextStyle(
-            color:  Color.fromARGB(225, 12, 12, 12),
+            color:  Color(0xFF636366),
             fontSize: 12,
             
             fontWeight: FontWeight.w600,
@@ -4909,7 +4985,7 @@ width: 500,
         ]),
 SizedBox(height: 5,),
         ElevatedButton(
-          child: Text('                   خروج                 ',
+          child: Text('                      جفظ                          ',
           style: GoogleFonts.tajawal(
                     fontSize: 15,
                     //fontStyle: FontStyle.italic,
@@ -4929,6 +5005,20 @@ SizedBox(height: 5,),
           ),
           onPressed: () { // deem and aljoharah here you are going to use firebase 
           // Yes_Symptoms , disease , description and  are the 2 vari
+          
+           _firestore
+          .collection('report')
+          .doc(jsonDecode(disease.body)['result'][0].toString() + userId)
+          .set(
+            {
+            'date': DateTime.now().toString(),
+            'user': userId,
+            'disease': jsonDecode(disease.body)['result'][0].toString() ,
+            'description':jsonDecode(description.body)['result'].toString(),
+            'precaution':jsonDecode(precaution.body)['result'].toString()
+          });
+
+          print('report added');
         
              Questions.allSymptompsArray =  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0
  ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0,0,0,0,
@@ -4936,8 +5026,15 @@ SizedBox(height: 5,),
               Questions.nextSymp = widget.sympController ;
                // coming from the model // 
                Questions.comingFromModel = true;
+               print(Yes_Symptoms); 
+              print(jsonDecode(disease.body)['result'][0].toString()); 
+               print(jsonDecode(description.body)['result'].toString()); 
+               print(jsonDecode(precaution.body)['result'][0].toString()); // at index zero is the first advice so you can store 3 in the firebase [1] and [2]
+               
               Navigator.of(context).pushReplacement(
                              MaterialPageRoute(builder: (context) => Navigation()));
+
+
           },
         ),
         ]);
@@ -4952,6 +5049,7 @@ SizedBox(height: 5,),
     //return Row(
      //children:[
       return  Container(
+        height:100,
               child: PhysicalModel(
                 borderRadius: BorderRadius.circular(30),
                 color: Colors.white,
@@ -5010,7 +5108,7 @@ SizedBox(height: 5,),
        OutlinedButton(
         
         child: Text(
-                 "نعم",
+                 "          نعم          ",
                   style: GoogleFonts.tajawal(
                     fontSize: 20,
                     //fontStyle: FontStyle.italic,
@@ -6399,10 +6497,11 @@ if(Questions.nextSymp!="finish"){
 
         },
       ),
+      SizedBox(height:15),
       
        OutlinedButton(
         child: Text(
-                "لا" ,
+                "           لا             " ,
                   style: GoogleFonts.tajawal(
                     fontSize: 20,
                     //fontStyle: FontStyle.italic,

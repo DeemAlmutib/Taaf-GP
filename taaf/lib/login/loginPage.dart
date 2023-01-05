@@ -192,7 +192,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                     width: 70,
                                     child: TextFormField(
                                       controller: textController,
-                                      autofocus: true,
+                                      // autofocus: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         errorStyle:
@@ -258,14 +258,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       textController.text.toString().trim(),
                                       context);
                               if (allGood) {
-                                AppShowToast(text: "تم إرسال رمز التحقق");
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text('تم إرسال رمز التحقق',
-                                        style: TextStyle(fontSize: 18),
-                                        textAlign: TextAlign.right),
-                                  ),
-                                );
+                              //  AppShowToast(text: "تم إرسال رمز التحقق");
+                               appShowSnackBar(
+                                  context, 'تم إرسال رمز التحقق');
+                                // ScaffoldMessenger.of(context).showSnackBar(
+                                //   const SnackBar(
+                                //     content: Text('تم إرسال رمز التحقق',
+                                //         style: TextStyle(fontSize: 18),
+                                //         textAlign: TextAlign.right),
+                                //   ),
+                                // );
                                 Navigator.of(context)
                                     .pushReplacement(MaterialPageRoute(
                                         builder: (context) => verifyloginPage(

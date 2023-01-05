@@ -73,8 +73,8 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(80, 260, 80, 50),
                   child: FFButtonWidget(
                     onPressed: () {
-                      Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => LoginPageWidget()));
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => LoginPageWidget()));
                     },
                     text: 'تسجيل الدخول',
                     options: FFButtonOptions(

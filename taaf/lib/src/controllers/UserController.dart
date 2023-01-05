@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:taaf/src/controllers/AuthController.dart';
 import 'package:taaf/src/models/user_model.dart';
 import 'package:taaf/src/repository/user_repository.dart';
 
@@ -25,17 +26,21 @@ class UserController {
     }
   }
 
-  Future<bool> updateUser(BuildContext context) async {
+  Future<bool> updateUser() async {
     try {
+      print(userModel.toJson());
       await userRepo.updateUserInfoFireStore(
           id: userModel.id!,
           phone: userModel.phone!,
+          phoneCode: userModel.phoneCode!,
           name: userModel.name!,
           birthDate: userModel.birthDate!,
           gender: userModel.gender!);
 
       return true;
     } catch (e) {
+      print('********************************');
+      print(e.toString());
       return false;
     }
   }
@@ -52,7 +57,7 @@ class UserController {
         // convert json data to user object
         newUserModel = UserModel.fromJson(user);
         break;
-      }
+      } 
     });
     // return the user data
     //TODO: after get the data from this function i have to check if there is an id or not if the id = null or empty thats mean that we didn't get the data of the user
@@ -85,5 +90,9 @@ class UserController {
     } catch (e) {
       return false;
     }
+  }
+
+  Future<bool> userLogout() async {
+    return await AuthController().logout();
   }
 }
