@@ -47,6 +47,8 @@ class _humanModelPage extends State<humanModelPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+
       appBar: AppBar(
         title: Text(
           '  انقُر على المكان الذي تعاني منه  ',
@@ -58,7 +60,7 @@ class _humanModelPage extends State<humanModelPage> {
                 fontWeight: FontWeight.bold,
               ),
         ),
-        backgroundColor: Color.fromARGB(0, 255, 255, 255),
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         elevation: 0,
         automaticallyImplyLeading: true,
         leading: IconButton(
@@ -72,13 +74,14 @@ class _humanModelPage extends State<humanModelPage> {
       ),
 
       // key: scaffoldKey,
-      backgroundColor: Color(0xFF14181B),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
           child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * 1,
-            decoration: BoxDecoration(
+
+            /* decoration: BoxDecoration(
               color: Color(0xFF14181B),
               image: DecorationImage(
                 fit: BoxFit.cover,
@@ -86,15 +89,15 @@ class _humanModelPage extends State<humanModelPage> {
                   'assets/images/home.png',
                 ).image,
               ),
-            ),
+            ),*/
             //  child:FlipCardWidget(
             child: BodyPartSelectorTurnable(
               bodyParts: _bodyParts,
               onSelectionUpdated: (p) => setState(() => _bodyParts = p),
               labelData: const RotationStageLabelData(
                 front: 'أمام',
-                left: ' الايسر',
-                right: ' الايمن',
+                left: "يسار",
+                right: 'يمين ',
                 back: 'خلف',
               ),
             ),

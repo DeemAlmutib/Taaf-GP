@@ -49,7 +49,7 @@ class _muscle extends State<muscle> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/Images/home.png',
+                  'assets/images/home.png',
                 ).image,
               ),
             ),
@@ -160,10 +160,25 @@ class _muscle extends State<muscle> {
                               EdgeInsetsDirectional.fromSTEB(20, 25, 20, 5),
                           child: FFButtonWidget(
                             onPressed: () {
-                              Navigator.of(context).pushReplacement(
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          Questions(sympController: sym)));
+                              if (sym == null) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('الرجاء اختيار عارض صحي',
+                                        textAlign: TextAlign.right),
+                                    backgroundColor: Color(0xFF007282),
+                                  ),
+                                );
+                                print("ifnull");
+                                print(sym);
+                              } else {
+                                print("else");
+                                print(sym);
+
+                                Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            Questions(sympController: sym)));
+                              }
                             },
                             text: 'متابعة ',
                             options: FFButtonOptions(

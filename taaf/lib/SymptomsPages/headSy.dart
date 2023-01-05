@@ -50,7 +50,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/Images/home.png',
+                  'assets/images/home.png',
                 ).image,
               ),
             ),
@@ -59,7 +59,9 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      Text(" الرجاء اختيار العرَض الأكثر ظهورا عليك  ", // شدة *
+                      //
+                      Text(
+                          " الرجاء اختيار العارض الصحي الأكثر شده؟   ", // شدة *
                           style: FlutterFlowTheme.of(context).title1.override(
                                 fontFamily: 'Tajawal',
                                 color: Color.fromARGB(156, 0, 0, 0),
@@ -330,7 +332,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                       //   color: Colors.black,
                       //   //height: 36,
                       // ),
-                      
+
                       RadioListTile(
                         title: Text("   طفح جلدي  ",
                             style: FlutterFlowTheme.of(context).title1.override(
@@ -342,6 +344,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                             textAlign: TextAlign.right),
                         value: "nodal_skin_eruptions",
                         groupValue: sym,
+                        //selected: true,
                         onChanged: (value) {
                           setState(() {
                             sym = value.toString();
@@ -362,11 +365,26 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                               EdgeInsetsDirectional.fromSTEB(40, 25, 40, 5),
                           child: FFButtonWidget(
                             onPressed: () {
-                              print(sym);
-                              Navigator.of(context).pushReplacement(
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          Questions(sympController: sym)));
+                              if (sym == null) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('الرجاء اختيار عارض صحي',
+                                        textAlign: TextAlign.right),
+                                    backgroundColor: Color(0xFF007282),
+                                  ),
+                                );
+                                print("deem");
+
+                                print(sym);
+                              } else {
+                                print("else");
+                                print(sym);
+
+                                Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            Questions(sympController: sym)));
+                              }
                             },
                             text: 'متابعة ',
                             options: FFButtonOptions(

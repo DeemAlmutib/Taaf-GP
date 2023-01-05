@@ -49,22 +49,27 @@ class _upperBoday extends State<upperBoday> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/Images/home.png',
+                  'assets/images/home.png',
                 ).image,
               ),
             ),
             child: Container(
-                padding: EdgeInsets.only(top: 120),
+                padding: EdgeInsets.only(top: 150),
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      /*  Text(
-                    "من ماذا تعاني؟",
-                    style: TextStyle(fontSize: 18),
-                  ),*/
+                      Text(
+                          " الرجاء اختيار العارض الصحي الأكثر شده؟   ", // شدة *
+                          style: FlutterFlowTheme.of(context).title1.override(
+                                fontFamily: 'Tajawal',
+                                color: Color.fromARGB(156, 0, 0, 0),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                          textAlign: TextAlign.right),
                       Divider(
                         color: Colors.black,
-                        //height: 36,
+                        height: 36,
                       ),
                       RadioListTile(
                         title: Text("توعك أو ضيق أو شُعور بعدم الراحة",
@@ -305,10 +310,27 @@ class _upperBoday extends State<upperBoday> {
                               EdgeInsetsDirectional.fromSTEB(20, 25, 20, 5),
                           child: FFButtonWidget(
                             onPressed: () {
-                              Navigator.of(context).pushReplacement(
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          Questions(sympController: sym)));
+                              if (sym == null) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('الرجاء اختيار عارض صحي',
+                                        textAlign: TextAlign.right),
+                                    backgroundColor:
+                                        Color.fromARGB(255, 65, 7, 7),
+                                  ),
+                                );
+                                print("deem");
+
+                                print(sym);
+                              } else {
+                                print("else");
+                                print(sym);
+
+                                Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            Questions(sympController: sym)));
+                              }
                             },
                             text: 'متابعة ',
                             options: FFButtonOptions(

@@ -80,41 +80,13 @@ class BodyPartSelector extends StatelessWidget {
                   onSelectionUpdated
                       ?.call(bodyParts.withToggledId(s, mirror: mirrored));
 
-                  /* showAlertDialog(BuildContext context) {
-                    // set up the buttons
-                    Widget cancelButton = TextButton(
-                      child: Text(
-                        "لا",
-                        style: GoogleFonts.tajawal(fontWeight: FontWeight.bold),
-                      ),
-                      onPressed: () {
-                        Navigator.pop(context, false);
-                      },
-                    );
-                    Widget continueButton = TextButton(
-                      child: Text(
-                        "نعم ",
-                        style: GoogleFonts.tajawal(fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.right,
-                      ),
-                      onPressed: () async {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => HeadSymptoms()));
-                      },
-                    ); */
-                  // set up the AlertDialog
-                  // AlertDialog alert =
-                  // show the dialog
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
-                          title: Text(" هل عارضك الصحي بمنطقة الرأس؟ ",
+                          title: Text(" هل  تعاني من ألم في منطقة الرأس؟ ",
                               style: GoogleFonts.tajawal(
-                                fontWeight: FontWeight.bold,
-                              ),
+                                  fontWeight: FontWeight.bold, fontSize: 15),
                               textAlign: TextAlign.right),
                           actions: [
                             TextButton(
@@ -123,7 +95,8 @@ class BodyPartSelector extends StatelessWidget {
                               },
                               child: Text(
                                 "لا",
-                                style: GoogleFonts.tajawal(),
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
                               ),
                             ),
                             TextButton(
@@ -135,77 +108,584 @@ class BodyPartSelector extends StatelessWidget {
                               },
                               child: Text(
                                 "نعم",
-                                style: GoogleFonts.tajawal(),
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
                               ),
                             ),
-                          ]
-
-                          /*  actions: [
-                            cancelButton,
-                            continueButton,
-                          ],*/
-                          );
+                          ]);
                     },
                   );
-                  //  }
-
-                  // showAlertDialog(context);
-
-                  //Navigator.push(
-                  //    context,
-                  //    MaterialPageRoute(
-                  //      builder: (contex) => (HeadSymptoms()),
-                  //    ));
                 } else if (s == "neck") {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => (neckSymptoms()),
-                      ));
+                  onSelectionUpdated
+                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                          title: Text(" هل  تعاني من ألم في منطقة الرقبة ",
+                              style: GoogleFonts.tajawal(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                              textAlign: TextAlign.right),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                "لا",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => neckSymptoms()));
+                              },
+                              child: Text(
+                                "نعم",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                          ]);
+                    },
+                  );
                 } else if (s == "upperBody") {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => (upperBoday()),
-                      ));
+                  onSelectionUpdated
+                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                          title: Text(" هل تعاني من ألم في منطقة الصدر؟    ",
+                              style: GoogleFonts.tajawal(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                              textAlign: TextAlign.right),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                "لا",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => upperBoday()));
+                              },
+                              child: Text(
+                                "نعم",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                          ]);
+                    },
+                  );
                 } else if (s == "leftKnee" || s == "rightKnee") {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => (Knee()),
-                      ));
+                  onSelectionUpdated
+                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                          title: Text(" هل تعاني من ألم في ركبتك؟     ",
+                              style: GoogleFonts.tajawal(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                              textAlign: TextAlign.right),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                "لا",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Knee()));
+                              },
+                              child: Text(
+                                "نعم",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                          ]);
+                    },
+                  );
                 } else if (s == "abdomen") {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            (abdomen()), //abdomen under stomach
-                      ));
+                  onSelectionUpdated
+                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                          title: Text(
+                              " هل تعاني من ألم في أسفل منطقة البطن ؟     ",
+                              style: GoogleFonts.tajawal(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                              textAlign: TextAlign.right),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                "لا",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => abdomen()));
+                              },
+                              child: Text(
+                                "نعم",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                          ]);
+                    },
+                  );
                 } else if (s == "lowerBody") {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            (lowerBody()), //lower boday (stomach) i think
-                      ));
-                } //muscle
-                else if (s == "leftShoulder" ||
-                    s == "leftUpperArm" ||
-                    s == "rightShoulder" ||
-                    s == "rightLowerArm" ||
-                    s == "leftLowerArm" ||
-                    s == "leftElbow" ||
-                    s == "leftUpperLeg" ||
-                    s == "rightUpperArm" ||
-                    s == "leftLowerLeg" ||
-                    s == "rightUpperLeg" ||
-                    s == "rightLowerLeg") {
+                  onSelectionUpdated
+                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                          title: Text(" هل تعاني من ألم في بطنك  ؟     ",
+                              style: GoogleFonts.tajawal(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                              textAlign: TextAlign.right),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                "لا",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => lowerBody()));
+                              },
+                              child: Text(
+                                "نعم",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                          ]);
+                    },
+                  );
+                } else if (s == "leftShoulder" || s == "rightShoulder") {
+                  onSelectionUpdated
+                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                          title: Text(" هل تعاني من ألم في كتفك  ؟     ",
+                              style: GoogleFonts.tajawal(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                              textAlign: TextAlign.right),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                "لا",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => muscle()));
+                              },
+                              child: Text(
+                                "نعم",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                          ]);
+                    },
+                  );
+                } else if (s == "leftUpperArm" || s == "rightUpperArm") {
+                  onSelectionUpdated
+                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                          title: Text(
+                              " هل تعاني من ألم في الذراع العلوي  ؟     ",
+                              style: GoogleFonts.tajawal(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                              textAlign: TextAlign.right),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                "لا",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => muscle()));
+                              },
+                              child: Text(
+                                "نعم",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                          ]);
+                    },
+                  );
+                } else if (s == "rightLowerArm" || s == "leftLowerArm") {
+                  onSelectionUpdated
+                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                          title: Text(
+                              " هل تعاني من ألم في الذراع السفلي  ؟     ",
+                              style: GoogleFonts.tajawal(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                              textAlign: TextAlign.right),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                "لا",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => muscle()));
+                              },
+                              child: Text(
+                                "نعم",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                          ]);
+                    },
+                  );
+                } else if (s == "leftElbow" || s == "rightElbow") {
+                  onSelectionUpdated
+                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                          title: Text(" هل تعاني من ألم في  المرفق  ؟     ",
+                              style: GoogleFonts.tajawal(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                              textAlign: TextAlign.right),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                "لا",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => muscle()));
+                              },
+                              child: Text(
+                                "نعم",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                          ]);
+                    },
+                  );
+                } else if (s == "leftUpperLeg" || s == "rightUpperLeg") {
+                  onSelectionUpdated
+                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                          title: Text(
+                              " هل تعاني من ألم في الجزء العلوي من الساق (الفخذ) ؟     ",
+                              style: GoogleFonts.tajawal(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                              textAlign: TextAlign.right),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                "لا",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => muscle()));
+                              },
+                              child: Text(
+                                "نعم",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                          ]);
+                    },
+                  );
+                } else if (s == "leftLowerLeg" || s == "rightLowerLeg") {
+                  onSelectionUpdated
+                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                          title: Text(" هل تعاني من ألم في  الساق؟ ؟     ",
+                              style: GoogleFonts.tajawal(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                              textAlign: TextAlign.right),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                "لا",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => muscle()));
+                              },
+                              child: Text(
+                                "نعم",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                          ]);
+                    },
+                  );
+                } else if (s == "leftHand" || s == "rightHand") {
+                  onSelectionUpdated
+                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                          title: Text(" هل تعاني من ألم في  يدك ؟     ",
+                              style: GoogleFonts.tajawal(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                              textAlign: TextAlign.right),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                "لا",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => handFoot()));
+                              },
+                              child: Text(
+                                "نعم",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                          ]);
+                    },
+                  );
+                } else if (s == "leftFoot" || s == "rightFoot") {
+                  onSelectionUpdated
+                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                          title: Text(" هل تعاني من ألم في  قدمك ؟     ",
+                              style: GoogleFonts.tajawal(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                              textAlign: TextAlign.right),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                "لا",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => handFoot()));
+                              },
+                              child: Text(
+                                "نعم",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                          ]);
+                    },
+                  );
+                } else if (s == "back") {
+                  onSelectionUpdated
+                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                          title: Text(" هل تعاني من ألم في  ظهرك ؟     ",
+                              style: GoogleFonts.tajawal(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                              textAlign: TextAlign.right),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: Text(
+                                "لا",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => back()));
+                              },
+                              child: Text(
+                                "نعم",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                          ]);
+                    },
+                  );
+                }
+                //muscle
+                /* else if (
+                    //s == "leftShoulder" ||
+                    // s == "leftUpperArm" ||
+                    // s == "rightShoulder" ||
+                    // s == "rightLowerArm" ||
+                    //   s == "leftLowerArm" ||
+                    // s == "leftElbow" ||
+                    //   s == "leftUpperLeg" ||
+                    // s == "rightUpperArm" ||
+                 //   s == "leftLowerLeg" ||
+                        //    s == "rightUpperLeg" ||
+                      //  s == "rightLowerLeg") {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => (muscle()), //all muscles
                       ));
-                } else if (s == "leftHand" ||
+                }
+                else if (s == "leftHand" ||
                     s == "leftFoot" ||
                     s == "rightFoot" ||
                     s == "rightHand") {
@@ -214,13 +694,7 @@ class BodyPartSelector extends StatelessWidget {
                       MaterialPageRoute(
                         builder: (context) => (handFoot()), //hand and foot only
                       ));
-                } else {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => (success2(title: "title"))),
-                  );
-                }
+                }*/
               },
               context: context,
               selectedColor: selectedColor ?? colorScheme.inversePrimary,
