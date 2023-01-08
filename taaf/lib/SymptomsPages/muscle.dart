@@ -58,10 +58,20 @@ class _muscle extends State<muscle> {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      /*  Text(
-                    "من ماذا تعاني؟",
-                    style: TextStyle(fontSize: 18),
-                  ),*/
+                      //
+                      Text(
+                          " الرجاء اختيار العارض الصحي الأكثر شدة؟   ", //  *
+                          style: FlutterFlowTheme.of(context).title1.override(
+                                fontFamily: 'Tajawal',
+                                color: Color.fromARGB(156, 0, 0, 0),
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                          textAlign: TextAlign.right),
+                      Divider(
+                        color: Colors.black,
+                        height: 36,
+                      ),
                       Divider(
                         color: Colors.black,
                         //height: 36,

@@ -61,7 +61,7 @@ class _HeadSymptoms extends State<HeadSymptoms> {
                     children: [
                       //
                       Text(
-                          " الرجاء اختيار العارض الصحي الأكثر شده؟   ", // شدة *
+                          " الرجاء اختيار العارض الصحي الأكثر شدة؟   ", // شدة *
                           style: FlutterFlowTheme.of(context).title1.override(
                                 fontFamily: 'Tajawal',
                                 color: Color.fromARGB(156, 0, 0, 0),
