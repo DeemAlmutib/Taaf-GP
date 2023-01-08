@@ -24,9 +24,11 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../src/base/showToast.dart';
 import '../../../../verifyPhone.dart';
 import '../../../../welcomePage.dart';
+//import 'navigation.dart';
 import 'dart:ui' as ui;
 
 import '../../../homePage.dart';
+import '../../../navigation.dart';
 import '../../controllers/user/editProfileController.dart';
 import '../widgets/AppDateFormField.dart';
 import '../widgets/AppPhoneWithContryCodeWeight.dart';
@@ -82,7 +84,7 @@ class _editProfileWidgetState extends State<editProfile> {
               await showAlertDialogg(context);
             } else {
               Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => ProfilePage()));
+                  MaterialPageRoute(builder: (context) =>  Navigation()));
             }
           },
         ),
@@ -367,13 +369,13 @@ class _editProfileWidgetState extends State<editProfile> {
                                 //
                               ]
                             : [
-                            /*    AppTextFormField(
+                                AppTextFormField(
                                     hintText: "رمز التحقق",
                                     onSave: () {},
                                     validator: () {},
                                     textInputType: TextInputType.number,
                                     textEditingController: editProfileController
-                                        .otpEditingController)*/
+                                        .otpEditingController)
                               ]),
                   ),
                   actions: [
