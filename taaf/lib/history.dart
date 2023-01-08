@@ -85,11 +85,55 @@ void getCurrentUser() async {
                     if(snapshot.hasData){
                       return ListView.builder(
                         itemCount: snapshot.data!.docs.length,
-                        itemBuilder: (context, index)=> Container(
-                          child: Text(
-                            snapshot.data?.docs[index]['disease']
+                        itemBuilder: (context, index)=> 
+                        userId == snapshot.data?.docs[index]['user']?
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 70,
+                            decoration: BoxDecoration(
+                              color: Colors.grey.shade200,
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Row(
+                              children: [
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                Container(
+                                  width: 200,
+                                  child: Text(
+                                    snapshot.data?.docs[index]['date']
+                                    ,
+                                    style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Tajawal',
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xFF007282) ,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  child: Text(
+                                    snapshot.data?.docs[index]['disease']
+                                    ,
+                                    style: FlutterFlowTheme.of(context)
+                                    .bodyText1
+                                    .override(
+                                      fontFamily: 'Tajawal',
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color(0xFF007282) ,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
+                        ):
+                        Container(),
                       );
 
                     }else{
