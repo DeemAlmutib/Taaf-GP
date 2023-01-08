@@ -187,8 +187,10 @@ class _HompageWidgetState extends State<HompageWidget> {
                                           0, 0, 0, 30),
                                       child: FFButtonWidget(
                                         onPressed: () {
-                                           Navigator.of(context).pushReplacement(
-                                           MaterialPageRoute(builder: (context) => humanModel()));
+                                          Navigator.of(context).pushReplacement(
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      humanModel()));
                                           print('Button pressed ...');
                                         },
                                         text: 'ابدأ',
@@ -209,8 +211,7 @@ class _HompageWidgetState extends State<HompageWidget> {
                                             color: Colors.transparent,
                                             width: 1,
                                           ),
-                                          borderRadius:
-                                              15,
+                                          borderRadius: 15,
                                         ),
                                       ),
                                     ),
