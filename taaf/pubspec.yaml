@@ -121,6 +121,7 @@ flutter:
     - packages/body_part_selector/m_left.svg
     - packages/body_part_selector/m_back.svg
     - packages/body_part_selector/m_right.svg
+    - lib/Translation/SymptomsData.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

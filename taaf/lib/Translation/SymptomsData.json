@@ -365,7 +365,33 @@
     {
         "NameEn": "blurred_and_distorted_vision" ,
         "NameAr": "رؤية ضبابية غير واضحة "
+    },
+    {
+        "NameEn": "irritation_in_anus" ,
+        "NameAr": "حكة أو تهيج في منطقة الشرج"
+    },
+    {
+        "NameEn": "bloody_stool" ,
+        "NameAr": "دم في البراز"
+    },
+    {
+        "NameEn": "lethargy" ,
+        "NameAr": "خمول"
+    },
+    {
+        "NameEn": "puffy_face_and_eyes" ,
+        "NameAr": "انتفاخ الوجه والعينين"
+    },
+    {
+        "NameEn": "excessive_hunger" ,
+        "NameAr": "زيادة الشهية"
+    },
+    {
+        "NameEn": "continuous_feel_of_urine" ,
+        "NameAr": "رغبة ملحة في التبول لا تزول"
     }
+
+
 
 
 
