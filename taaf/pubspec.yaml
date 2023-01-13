@@ -116,12 +116,14 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
 
+    - assets/Images/
     - assets/images/
     - packages/body_part_selector/m_front.svg
     - packages/body_part_selector/m_left.svg
     - packages/body_part_selector/m_back.svg
     - packages/body_part_selector/m_right.svg
-    - lib/Translation/SymptomsData.json
+    - lib/Translation/Symptoms/SymptomsData.json
+    - lib/Translation/Diseases/DiseasesData.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

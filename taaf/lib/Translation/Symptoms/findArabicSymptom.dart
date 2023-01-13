@@ -12,7 +12,7 @@ class findArabicSymptom  {
   
    Future<List<Symptoms>> ReadJsonData() async {
     //read json file
-    final jsondata = await rootBundle.loadString('lib/Translation/SymptomsData.json');
+    final jsondata = await rootBundle.loadString('lib/Translation/Symptoms/SymptomsData.json');
     //decode json data as list
     final list = json.decode(jsondata) as List<dynamic>;
 

@@ -11,7 +11,8 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:taaf/homepage.dart';
 import 'package:taaf/login.dart';
 import 'package:taaf/welcomePage.dart';
-import 'Translation/findArabicSymptom.dart';
+import 'Translation/Symptoms/findArabicSymptom.dart';
+import 'Translation/Diseases/findArabicDisease.dart';
 
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'navigation.dart';
@@ -5298,8 +5299,45 @@ Questions.comingFromModel = false ;
     print("Questions.nextSymp");
     print(Questions.nextSymp);
 
+   
+ 
 
     if(symp =="finish"){ // means that we have reached an end and the diagnosis should appear
+
+         Future<String> getArabicDisease(String name, String type) async {
+       findArabicDisease arabicDiseaseClass = new findArabicDisease();
+        await arabicDiseaseClass.findDisease(name, type);
+      String arabicData = "";
+
+         switch (type) {
+    case "disease":
+     arabicData = arabicDiseaseClass.foundDisease[0].nameAr!;
+      break;
+
+    case "description": 
+     arabicData = arabicDiseaseClass.foundDisease[0].descriptionAr!;
+      break;
+
+    case "advice1": 
+      arabicData = arabicDiseaseClass.foundDisease[0].advice1Ar!;
+      break;
+
+    case "advice2": 
+      arabicData = arabicDiseaseClass.foundDisease[0].advice2Ar!;
+      break;
+
+    case "advice3": 
+      arabicData = arabicDiseaseClass.foundDisease[0].advice3Ar!;
+      break;
+
+    case "advice4": 
+      arabicData = arabicDiseaseClass.foundDisease[0].advice4Ar!;
+      break;
+
+  }
+      
+       return arabicData;
+  }
        
       return Column(
      children:[
@@ -5344,10 +5382,28 @@ Questions.comingFromModel = false ;
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
-                      child: Align(
+                      child:  FutureBuilder(
+                          future: getArabicDisease(jsonDecode((snapshot.data)!.body)['result'][0].toString(), "disease"),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.done) {
+                              // If we got an error
+                              if (snapshot.hasError) {
+                                return Center(
+                                  child: Text(
+                                    '${snapshot.error} occurred',
+                                    style: TextStyle(fontSize: 18),
+                                  ),
+                                );
+
+                                // if we got our data
+                              } else if (snapshot.hasData) {
+                                // Extracting data from snapshot object
+                                final arabicDisease = snapshot.data as String;
+                        return Align(
                         alignment: AlignmentDirectional(0.9, -1),
                         child: Text(
-                          (jsonDecode((snapshot.data)!.body)['result'][0]).toString(),
+                         arabicDisease,
                           textAlign: TextAlign.end,
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
@@ -5357,7 +5413,15 @@ Questions.comingFromModel = false ;
                                     fontWeight: FontWeight.bold,
                                   ),
                         ),
-                      ),
+                      );
+                              }
+                            }
+
+                            return SizedBox();
+                          },
+
+                          
+                        ),
                     ),
        
             ];
@@ -5447,15 +5511,41 @@ width: 500,
             print(jsonDecode((snapshot2.data)!.body)['result'][0].toString()); 
             print("snapshots");
             children = <Widget>[
+          FutureBuilder(
+                          future: getArabicDisease(jsonDecode((snapshot2.data)!.body)['result'].toString(), "description"),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.done) {
+                              // If we got an error
+                              if (snapshot.hasError) {
+                                return Center(
+                                  child: Text(
+                                    '${snapshot.error} occurred',
+                                    style: TextStyle(fontSize: 18),
+                                  ),
+                                );
 
-               Align(
-        alignment: Alignment.centerRight,
-       child: Text(jsonDecode((snapshot2.data)!.body)['result'].toString() ,  style: const TextStyle(
-            color: Color(0xFF636366),
-            fontSize: 12,
+                                // if we got our data
+                              } else if (snapshot.hasData) {
+                                // Extracting data from snapshot object
+                                final arabicDiscription = snapshot.data as String;
+                          return   Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Text(arabicDiscription ,  style: const TextStyle(
+                                  color: Color(0xFF636366),
+                                  fontSize: 12,
             
-            fontWeight: FontWeight.w600,
-          ),))
+                                  fontWeight: FontWeight.w600,
+                                  ),));
+                              }
+                            }
+
+                            return SizedBox();
+                          },
+
+                          
+                        ),
+         
             ];
           } else if (snapshot2.hasError) {
             children = <Widget>[
@@ -5574,29 +5664,114 @@ width: 500,
             print("snapshots");
             children = <Widget>[
                Column(children: [ 
-             Align(alignment: Alignment.centerRight,
-            child: Text("   1-" + jsonDecode((snapshot2.data)!.body)['result'][0].toString() +"                   ",  style: const TextStyle(
-            color:  Color(0xFF636366),
-            fontSize: 12,
+              //advice1 future FutureBuilder
+              FutureBuilder(
+                          future: getArabicDisease(jsonDecode((snapshot2.data)!.body)['result'][0].toString(), "advice1"),
+                          builder: (context, snapshot3) {
+                            if (snapshot3.connectionState ==
+                                ConnectionState.done) {
+                              // If we got an error
+                              if (snapshot3.hasError) {
+                                return Center(
+                                  child: Text(
+                                    '${snapshot3.error} occurred',
+                                    style: TextStyle(fontSize: 18),
+                                  ),
+                                );
+
+                                // if we got our data
+                              } else if (snapshot3.hasData) {
+                                // Extracting data from snapshot object
+                                final arabicAdvice = snapshot3.data as String;
+                             return  Align(alignment: Alignment.centerRight,
+                             child: Text("   1-" + arabicAdvice +"                   ",  style: const TextStyle(
+                             color:  Color(0xFF636366),
+                             fontSize: 12,
             
-            fontWeight: FontWeight.w600,
-          ),),),
+                             fontWeight: FontWeight.w600,
+                             ),),);  
+                              }
+                            }
+
+                            return SizedBox();
+                          },
+
+                          
+                        ),
+        
          SizedBox(height : 5),
-          Align(alignment: Alignment.centerRight,
-          child: Text("   2-" + jsonDecode((snapshot2.data)!.body)['result'][1].toString() + "                    ",  style: const TextStyle(
-            color:  Color(0xFF636366),
-            fontSize: 12,
+
+        //advice2 future FutureBuilder
+              FutureBuilder(
+                          future: getArabicDisease(jsonDecode((snapshot2.data)!.body)['result'][1].toString(), "advice2"),
+                          builder: (context, snapshot4) {
+                            if (snapshot4.connectionState ==
+                                ConnectionState.done) {
+                              // If we got an error
+                              if (snapshot4.hasError) {
+                                return Center(
+                                  child: Text(
+                                    '${snapshot4.error} occurred',
+                                    style: TextStyle(fontSize: 18),
+                                  ),
+                                );
+
+                                // if we got our data
+                              } else if (snapshot4.hasData) {
+                                // Extracting data from snapshot object
+                                final arabicAdvice = snapshot4.data as String;
+                             return  Align(alignment: Alignment.centerRight,
+                             child: Text("   2-" + arabicAdvice +"                   ",  style: const TextStyle(
+                             color:  Color(0xFF636366),
+                             fontSize: 12,
             
-            fontWeight: FontWeight.w600,
-          ),),),
+                             fontWeight: FontWeight.w600,
+                             ),),);  
+                              }
+                            }
+
+                            return SizedBox();
+                          },
+
+                          
+                        ),
+
           SizedBox(height : 5),
-           Align(alignment: Alignment.centerRight,
-         child: Text("   3-" + jsonDecode((snapshot2.data)!.body)['result'][2].toString() + "                      ",  style: const TextStyle(
-            color:  Color(0xFF636366),
-            fontSize: 12,
+
+         //advice3 future FutureBuilder
+              FutureBuilder(
+                          future: getArabicDisease(jsonDecode((snapshot2.data)!.body)['result'][2].toString(), "advice3"),
+                          builder: (context, snapshot5) {
+                            if (snapshot5.connectionState ==
+                                ConnectionState.done) {
+                              // If we got an error
+                              if (snapshot5.hasError) {
+                                return Center(
+                                  child: Text(
+                                    '${snapshot5.error} occurred',
+                                    style: TextStyle(fontSize: 18),
+                                  ),
+                                );
+
+                                // if we got our data
+                              } else if (snapshot5.hasData) {
+                                // Extracting data from snapshot object
+                                final arabicAdvice = snapshot5.data as String;
+                             return  Align(alignment: Alignment.centerRight,
+                             child: Text("   3-" + arabicAdvice +"                   ",  style: const TextStyle(
+                             color:  Color(0xFF636366),
+                             fontSize: 12,
             
-            fontWeight: FontWeight.w600,
-          ),),)
+                             fontWeight: FontWeight.w600,
+                             ),),);  
+                              }
+                            }
+
+                            return SizedBox();
+                          },
+
+                          
+                        ),
           
           ]),
           

@@ -1,0 +1,18 @@
+[
+
+    {
+        "Name": "Heart attack",
+        "NameAr": "سكتة قلبية",
+        "Description": "The death of heart muscle due to the loss of blood supply. The loss of blood supply is usually caused by a complete blockage of a coronary artery, one of the arteries that supplies blood to the heart muscle.",
+        "DescriptionAr": "موت عضلة القلب نتيجة فقدان تدفق الدم. عادة ما يكون فقدان تدفق الدم ناتجًا عن انسداد كامل للشريان التاجي، وهو أحد الشرايين التي تمد عضلة القلب بالدم.",
+        "Advice1": "call ambulance",
+        "Advice1Ar": "قم بالاتصال بالإسعاف",
+        "Advice2": "chew or swallow asprin",
+        "Advice2Ar": "قم بمضغ الأسبرين ثم ابلعه أثناء انتظارك للإسعاف",
+        "Advice3": "keep calm",
+        "Advice3Ar": "حاول الحفاظ على هدوئك خلال فترة انتظار الإسعاف",
+        "Advice4": "",
+        "Advice4Ar": ""
+    }
+
+]
