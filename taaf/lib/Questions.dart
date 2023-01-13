@@ -6,6 +6,7 @@ import 'package:http/http.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:ffi/ffi.dart';
+import 'package:intl/intl.dart';
 import 'package:loading_animations/loading_animations.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:taaf/homepage.dart';
@@ -38,7 +39,7 @@ var symp = Questions.nextSymp ;
 Future<http.Response> PredictDisease(List<String> symptomp) {
 
   return http.post(
-    Uri.parse('http://18.212.48.165:5001/DiseaseApi'),
+    Uri.parse('http://10.0.2.2:5000/DiseaseApi'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -52,7 +53,7 @@ Future<http.Response> PredictDisease(List<String> symptomp) {
 // as enhancement of the app we could ask the user (from how many days you have been sick?) in order to use this method
 Future<http.Response> getDiseaseSeverity(exp, days) {
   return http.post(
-    Uri.parse('http://18.212.48.165:5001/SeverityApi'),
+    Uri.parse('http://10.0.2.2:5000/SeverityApi'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -62,7 +63,7 @@ Future<http.Response> getDiseaseSeverity(exp, days) {
 // method that takes the disease name and get its description
 Future<http.Response> getDiseaseDescription(String disease) {
   return http.post(
-    Uri.parse('http://18.212.48.165:5001/DescriptionApi'),
+    Uri.parse('http://10.0.2.2:5000/DescriptionApi'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -74,7 +75,7 @@ Future<http.Response> getDiseaseDescription(String disease) {
 // method that takes the disease name and returns the the of advices 
 Future<http.Response> getDiseasePrecaution(String disease) {
   return http.post(
-    Uri.parse('http://18.212.48.165:5001/PrecautionApi'),
+    Uri.parse('http://10.0.2.2:5000/PrecautionApi'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',
     },
@@ -5210,7 +5211,7 @@ Questions.comingFromModel = false ;
                   child: Align(
                     alignment: AlignmentDirectional(0.9, 1),
                     child: Text(
-                      DateTime.now().toString(),
+                      DateFormat('MM/dd/yyyy').format(DateTime.now()).toString(),
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Tajawal',
                             color: Color(0xFF8C8C8C),
@@ -5242,7 +5243,7 @@ Questions.comingFromModel = false ;
                       ),
                     ),
                     Container(
-                      width: 382,
+                     width: 372,
                       //height: 90.8,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -5255,7 +5256,7 @@ Questions.comingFromModel = false ;
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Tajawal',
-                                    color: Color(0xFF636366),
+                                    color: Color.fromARGB(255, 189, 60, 60),
                                     fontSize: 15,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -5529,14 +5530,20 @@ width: 500,
                               } else if (snapshot.hasData) {
                                 // Extracting data from snapshot object
                                 final arabicDiscription = snapshot.data as String;
-                          return   Align(
-                                  alignment: Alignment.centerRight,
-                                  child: Text(arabicDiscription ,  style: const TextStyle(
-                                  color: Color(0xFF636366),
-                                  fontSize: 12,
-            
-                                  fontWeight: FontWeight.w600,
-                                  ),));
+                          return Container( 
+                            width: 372,
+                            child: Align(
+                        alignment: AlignmentDirectional(0.8, -1),
+                                  child: Text(arabicDiscription , 
+                                
+                                   textAlign: TextAlign.end,
+                                   style:  GoogleFonts.tajawal(
+                    fontSize: 13,
+                    height: 1.5,
+                    //fontStyle: FontStyle.italic,
+                    color: Color.fromARGB(255, 65, 66, 66).withOpacity(0.65),
+                    fontWeight: FontWeight.bold,
+                  ),)));
                               }
                             }
 
@@ -5683,13 +5690,16 @@ width: 500,
                               } else if (snapshot3.hasData) {
                                 // Extracting data from snapshot object
                                 final arabicAdvice = snapshot3.data as String;
-                             return  Align(alignment: Alignment.centerRight,
-                             child: Text("   1-" + arabicAdvice +"                   ",  style: const TextStyle(
-                             color:  Color(0xFF636366),
-                             fontSize: 12,
-            
-                             fontWeight: FontWeight.w600,
-                             ),),);  
+                             return Container( width: 372, child: Align(alignment: AlignmentDirectional(0.95, -1),
+                             child: Text("   " + arabicAdvice +" - ",  
+                             textAlign: TextAlign.end,
+                             style: GoogleFonts.tajawal(
+                    fontSize: 13,
+                    height: 1.5,
+                    //fontStyle: FontStyle.italic,
+                    color: Color.fromARGB(255, 65, 66, 66).withOpacity(0.65),
+                    fontWeight: FontWeight.bold,
+                  ),),),);  
                               }
                             }
 
@@ -5720,13 +5730,16 @@ width: 500,
                               } else if (snapshot4.hasData) {
                                 // Extracting data from snapshot object
                                 final arabicAdvice = snapshot4.data as String;
-                             return  Align(alignment: Alignment.centerRight,
-                             child: Text("   2-" + arabicAdvice +"                   ",  style: const TextStyle(
-                             color:  Color(0xFF636366),
-                             fontSize: 12,
-            
-                             fontWeight: FontWeight.w600,
-                             ),),);  
+                             return  Container( width: 372, child: Align(alignment: AlignmentDirectional(0.95, -1),
+                             child: Text(" " + arabicAdvice +" - ",   
+                             textAlign: TextAlign.end,
+                             style: GoogleFonts.tajawal(
+                    fontSize: 13,
+                    height: 1.5,
+                    //fontStyle: FontStyle.italic,
+                    color: Color.fromARGB(255, 65, 66, 66).withOpacity(0.65),
+                    fontWeight: FontWeight.bold,
+                  ),),),);  
                               }
                             }
 
@@ -5757,13 +5770,16 @@ width: 500,
                               } else if (snapshot5.hasData) {
                                 // Extracting data from snapshot object
                                 final arabicAdvice = snapshot5.data as String;
-                             return  Align(alignment: Alignment.centerRight,
-                             child: Text("   3-" + arabicAdvice +"                   ",  style: const TextStyle(
-                             color:  Color(0xFF636366),
-                             fontSize: 12,
-            
-                             fontWeight: FontWeight.w600,
-                             ),),);  
+                             return  Container( width: 372 ,child: Align(alignment: AlignmentDirectional(0.95, -1),
+                             child: Text(" " + arabicAdvice +" - ", 
+                                textAlign: TextAlign.end,
+                             style: GoogleFonts.tajawal(
+                    fontSize: 13,
+                    height: 1.5,
+                    //fontStyle: FontStyle.italic,
+                    color: Color.fromARGB(255, 65, 66, 66).withOpacity(0.65),
+                    fontWeight: FontWeight.bold,
+                  ),), ),);  
                               }
                             }
 
@@ -5848,7 +5864,7 @@ width: 500,
           
          ),
         ]),
-SizedBox(height: 5,),
+SizedBox(height: 20),
         ElevatedButton(
           child: Text('                      حفظ                          ',
           style: GoogleFonts.tajawal(
@@ -5958,10 +5974,11 @@ SizedBox(height: 5,),
         
      child: Center(
      child: Text(
-                  " هل تعاني من ${arabicSymp}؟ ",
+                  " هل تعاني من ${arabicSymp} ؟  ",
                   textAlign: TextAlign.center,
                   style: GoogleFonts.tajawal(
-                    fontSize: 20,
+                    fontSize: 17,
+                    height: 1.5,
                     //fontStyle: FontStyle.italic,
                     color: Color.fromARGB(255, 65, 66, 66),
                     fontWeight: FontWeight.bold,
@@ -6017,7 +6034,7 @@ SizedBox(height: 5,),
                   style: GoogleFonts.tajawal(
                     fontSize: 20,
                     //fontStyle: FontStyle.italic,
-                    color: Color.fromARGB(224, 74, 198, 74),
+                    color: Color.fromARGB(223, 140, 235, 14),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -6025,7 +6042,7 @@ SizedBox(height: 5,),
           
          side: BorderSide(width: 3.0, color: Color.fromRGBO(0, 114, 130, 30)),
          //shadowColor: Colors.transparent,
-         backgroundColor:  Colors.white,
+         backgroundColor:  Color.fromRGBO(0, 114, 130, 30),
          shape: RoundedRectangleBorder(
          borderRadius: BorderRadius.circular(20)
        // )
@@ -7531,13 +7548,13 @@ if(Questions.nextSymp!="finish"){
                   style: GoogleFonts.tajawal(
                     fontSize: 20,
                     //fontStyle: FontStyle.italic,
-                    color: Color.fromARGB(225, 230, 41, 28),
+                    color: Color.fromARGB(255, 248, 62, 49),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
         style: OutlinedButton.styleFrom(
           side: BorderSide(width: 3.0, color: Color.fromRGBO(0, 114, 130, 30)),
-          backgroundColor: Colors.white,
+          backgroundColor:Color.fromRGBO(0, 114, 130, 30),
          // backgroundColor:  Color.fromRGBO(0, 114, 130, 30),
           shape: const StadiumBorder(),
         ),
