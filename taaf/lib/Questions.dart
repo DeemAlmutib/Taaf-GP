@@ -5942,6 +5942,7 @@ SizedBox(height: 20),
      //children:[
       return  Container(
         height:100,
+       // width: 300,
               child:
               FutureBuilder(
                           future: getArabicSymp(symp),
@@ -5968,16 +5969,17 @@ SizedBox(height: 20),
                 shadowColor: Colors.black,
                 child: Container(
                   height: 90,
-                  width: 350,
+                  width: 380,
                 
               
         
      child: Center(
      child: Text(
-                  " هل تعاني من ${arabicSymp} ؟  ",
+                  "  هل تعاني من ${arabicSymp} ؟  ",
                   textAlign: TextAlign.center,
+                  
                   style: GoogleFonts.tajawal(
-                    fontSize: 17,
+                    fontSize: 16,
                     height: 1.5,
                     //fontStyle: FontStyle.italic,
                     color: Color.fromARGB(255, 65, 66, 66),
@@ -6034,7 +6036,7 @@ SizedBox(height: 20),
                   style: GoogleFonts.tajawal(
                     fontSize: 20,
                     //fontStyle: FontStyle.italic,
-                    color: Color.fromARGB(223, 140, 235, 14),
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -7548,7 +7550,7 @@ if(Questions.nextSymp!="finish"){
                   style: GoogleFonts.tajawal(
                     fontSize: 20,
                     //fontStyle: FontStyle.italic,
-                    color: Color.fromARGB(255, 248, 62, 49),
+                    color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
