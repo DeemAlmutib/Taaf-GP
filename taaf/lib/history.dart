@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:taaf/report.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -100,22 +101,47 @@ void getCurrentUser() async {
                                 SizedBox(
                                   width: 10,
                                 ),
-                                Container(
-                                  width: 200,
-                                  child: Text(
-                                    snapshot.data?.docs[index]['date']
-                                    ,
-                                    style: FlutterFlowTheme.of(context)
-                                    .bodyText1
-                                    .override(
-                                      fontFamily: 'Tajawal',
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: Color(0xFF007282) ,
+                                IconButton(
+                                  onPressed: () {
+                                     Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => ReportWidget(
+                                        date: snapshot.data?.docs[index]['date'] ,
+                                        disease: snapshot.data?.docs[index]['disease'] ,
+                                        description: snapshot.data?.docs[index]['description'],
+                                        precaution: snapshot.data?.docs[index]['precaution'],
+                                      )));
+                                    print('button');
+                                  }, 
+                                  icon: const Icon(
+                                    Icons.arrow_back_ios_new, 
+                                    color: Color(0xFF007282) ,
+                                    size: 25
+                                    ,)
                                     ),
-                                  ),
-                                ),
-                                Container(
+                                    SizedBox(
+                                      width: 100,
+                                     ),
+                                Column(
+                                  children: [
+                                     SizedBox(
+                                      height: 10,
+                                     ),
+                                    Container(
+                                      width: 210,
+                                      child: Text(
+                                        snapshot.data?.docs[index]['date']
+                                        ,
+                                        style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Tajawal',
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.grey.shade600,
+                                        ),
+                                      ),
+                                    ),
+                                  Container(
                                   child: Text(
                                     snapshot.data?.docs[index]['disease']
                                     ,
@@ -123,12 +149,15 @@ void getCurrentUser() async {
                                     .bodyText1
                                     .override(
                                       fontFamily: 'Tajawal',
-                                      fontSize: 16,
+                                      fontSize: 18,
                                       fontWeight: FontWeight.bold,
                                       color: Color(0xFF007282) ,
                                     ),
                                   ),
                                 ),
+                                  ],
+                                ),
+                                
                               ],
                             ),
                           ),

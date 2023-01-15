@@ -106,7 +106,7 @@ class _editProfileWidgetState extends State<editProfile> {
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: Image.asset(
-                    'assets/Images/backgroundEdit.jpg',
+                    'assets/images/edit_profile.png',
                   ).image,
                 ),
               ),
