@@ -77,7 +77,7 @@ class _ProfilePageState extends State<ProfilePage> {
               image: AssetImage(
                 'assets/Images/home.png',
               ),
-              fit: BoxFit.fill,
+              fit: BoxFit.cover,
             ),
           ),
           child: SingleChildScrollView(
