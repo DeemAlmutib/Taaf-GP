@@ -1,7 +1,7 @@
 [
     {
      "Name": "Drug Reaction",
-     "NameAr": "تفاعل الدواء - Drug Reaction",
+     "NameAr": "Drug Reaction - تفاعل الدواء ",
      "Description": "An adverse drug reaction (ADR) is an injury caused by taking medication. ADRs may occur following a single dose or prolonged administration of a drug or result from the combination of two or more drugs.",
      "DescriptionAr": "التفاعل الدوائي الضار (ADR) هو إصابة ناتجة عن تناول الدواء. قد تحدث التفاعلات الدوائية الضائرة بعد تناول جرعة واحدة أو تناول الدواء لفترات طويلة أو نتيجة الجمع بين عقارين أو أكثر.",
      "Advice1": "stop irritation",
@@ -15,7 +15,7 @@
     },
     {
      "Name": "Malaria",
-     "NameAr": "ملاريا - Malaria",
+     "NameAr": "Malaria - ملاريا",
      "Description": "An infectious disease caused by protozoan parasites from the Plasmodium family that can be transmitted by the bite of the Anopheles mosquito or by a contaminated needle or transfusion. Falciparum malaria is the most deadly type.",
      "DescriptionAr": "مرض معدي تسببه طفيليات من عائلة  (Plasmodium) ويمكن أن تنتقل عن طريق لدغة بعوضة الأنوفيلة أو عن طريق إبرة ملوثة أو نقل الدم. الملاريا المنجلية هي النوع الأكثر قوة وتأثير.",
      "Advice1": "Consult nearest hospital",
@@ -29,7 +29,7 @@
     },
     {
      "Name": "Allergy",
-     "NameAr": "حساسية - Allergy",
+     "NameAr": "Allergy - حساسية",
      "Description": "An allergy is an immune system response to a foreign substance that's not typically harmful to your body.They can include certain foods, pollen, or pet dander. Your immune system's job is to keep you healthy by fighting harmful pathogens.",
      "DescriptionAr": "الحساسية هي استجابة الجهاز المناعي لمادة غريبة لا تضر بجسمك عادةً ، ويمكن أن تشمل بعض الأطعمة أو حبوب اللقاح أو وبر الحيوانات الأليفة حيث أن تتمثل وظيفة جهاز المناعة لديك في الحفاظ على صحتك من خلال مكافحة مسببات الأمراض الضارة.",
      "Advice1": "apply calamine",
@@ -41,7 +41,7 @@
     },
     {
      "Name": "Hypothyroidism",
-     "NameAr": "قصور الغدة الدرقية - Hypothyroidism",
+     "NameAr": "Hypothyroidism - قصور الغدة الدرقية ",
      "Description": "Hypothyroidism, also called underactive thyroid or low thyroid, is a disorder of the endocrine system in which the thyroid gland does not produce enough thyroid hormone.",
      "DescriptionAr": "قصور الغدة الدرقية ، المعروف أيضًا باسم خمول الغدة الدرقية أو انخفاض نشاط الغدة الدرقية ، هو اضطراب في نظام الغدد الصماء حيث لا تنتج الغدة الدرقية ما يكفي من هرمون الغدة الدرقية.",
      "Advice1": "reduce stress",
@@ -55,7 +55,7 @@
     },
     {
      "Name": "Psoriasis",
-     "NameAr": "صدفية - Psoriasis",
+     "NameAr": "Psoriasis - صدفية",
      "Description": "Psoriasis is a common skin disorder that forms thick, red, bumpy patches covered with silvery scales. They can pop up anywhere, but most appear on the scalp, elbows, knees, and lower back. Psoriasis can't be passed from person to person. It does sometimes happen in members of the same family.",
      "DescriptionAr": "الصدفية هي اضطراب جلدي شائع يتكون من بقع سميكة حمراء ووعرة مغطاة بقشور فضية. يمكن أن تظهر في أي مكان ، ولكن معظمها يظهر على فروة الرأس والمرفقين والركبتين وأسفل الظهر. لا يمكن أن تنتقل الصدفية من شخص لآخر. يحدث ذلك أحيانًا في أفراد من نفس العائلة.",
      "Advice1": "wash hands with warm soapy water",
@@ -69,7 +69,7 @@
     },
     {
      "Name": "GERD",
-     "NameAr": "ارتجاع المريء - GERD",
+     "NameAr": "GERD - ارتجاع المريء",
      "Description": "Gastroesophageal reflux disease, or GERD, is a digestive disorder that affects the lower esophageal sphincter (LES), the ring of muscle between the esophagus and stomach. Many people, including pregnant women, suffer from heartburn or acid indigestion caused by GERD.",
      "DescriptionAr": "مرض الارتجاع المعدي المريئي هو اضطراب في الجهاز الهضمي يؤثر على العضلة العاصرة للمريء السفلية (LES) ، وهي الحلقة العضلية الواقعة بين المريء والمعدة. يعاني الكثير من الناس ، بما في ذلك النساء الحوامل ، من حرقة في المعدة أو عسر هضم حمضي ناجم عن ارتجاع المريء.",
      "Advice1": "avoid fatty spicy food",
@@ -83,7 +83,7 @@
     },
     {
      "Name": "Chronic cholestasis",
-     "NameAr": "ركود صفراوي مزمن - Chronic cholestasis",
+     "NameAr": "Chronic cholestasis - ركود صفراوي مزمن",
      "Description": "Chronic cholestatic diseases, whether occurring in infancy, childhood or adulthood, are characterized by defective bile acid transport from the liver to the intestine, which is caused by primary damage to the biliary epithelium in most cases",
      "DescriptionAr": "تتميز أمراض الركود الصفراوية المزمنة ، سواء التي تحدث في مرحلة الطفولة أو الطفولة أو البلوغ ، بنقل حمض الصفراء المعيب من الكبد إلى الأمعاء ، والذي ينتج عن تلف أولي في الظهارة الصفراوية في معظم الحالات",
      "Advice1": "cold baths",
@@ -97,7 +97,7 @@
     },
     {
      "Name": "hepatitis A",
-     "NameAr": "إلتهاب الكبد أ - Hepatitis A",
+     "NameAr": "Hepatitis A - التهاب الكبد أ",
      "Description": "Hepatitis A is a highly contagious liver infection caused by the hepatitis A virus. The virus is one of several types of hepatitis viruses that cause inflammation and affect your liver's ability to function.",
      "DescriptionAr": "التهاب الكبد (أ) هو مرض شديد العدوى في الكبد و يسببها فيروس التهاب الكبد (أ). يعد الفيروس من أحد أنواع فيروسات التهاب الكبد العديدة التي تسبب الالتهاب وتؤثر على قدرة الكبد على العمل.",
      "Advice1": "Consult nearest hospital",
@@ -111,7 +111,7 @@
     },
     {
      "Name": "Osteoarthristis",
-     "NameAr": "هشاشة العظام - Osteoarthristis",
+     "NameAr": "Osteoarthristis - هشاشة العظام",
      "Description": "Osteoarthritis is the most common form of arthritis, affecting millions of people worldwide. It occurs when the protective cartilage that cushions the ends of your bones wears down over time.",
      "DescriptionAr": "هشاشة العظام هي الشكل الأكثر شيوعًا لالتهاب المفاصل ، حيث تصيب ملايين الأشخاص في جميع أنحاء العالم. يحدث ذلك عندما يتآكل الغضروف الواقي الذي يغطي أطراف عظامك مع مرورالوقت.",
      "Advice1": "acetaminophen",
@@ -125,7 +125,7 @@
     },
     {
      "Name": "(vertigo) Paroymsal  Positional Vertigo",
-     "NameAr": "دوار (Paroymsal Positional Vertigo)",
+     "NameAr": "(Paroymsal Positional Vertigo) - دوار",
      "Description": "Benign paroxysmal positional vertigo (BPPV) is one of the most common causes of vertigo â€” the sudden sensation that you're spinning or that the inside of your head is spinning. Benign paroxysmal positional vertigo causes brief episodes of mild to intense dizziness.",
      "DescriptionAr": "دوار الوضعة الانتيابي الحميد (BPPV) هو أحد الأسباب الأكثر شيوعًا للدوار ويمكن وصفه بأنه الإحساس المفاجئ بأنك تدور أو أن الجزء الداخلي من رأسك يدور. حيث أن يسبب دوار الوضعة الانتيابي الحميد نوبات قصيرة من الدوخة الخفيفة إلى الشديدة.",
      "Advice1": "lie down",
@@ -139,7 +139,7 @@
     },
     {
      "Name": "Hypoglycemia",
-     "NameAr": "نقص سكر الدم - Hypoglycemia",
+     "NameAr": "Hypoglycemia - نقص سكر الدم",
      "Description": "Hypoglycemia is a condition in which your blood sugar (glucose) level is lower than normal. Glucose is your body's main energy source. Hypoglycemia is often related to diabetes treatment. But other drugs and a variety of conditions â€” many rare â€” can cause low blood sugar in people who don't have diabetes.",
      "DescriptionAr": "حالة مَرَضية ينخفض فيها مستوى السكر في الدم (الجلوكوز) عن معدله القياسي. الجلوكوز هو مصدر الطاقة الرئيسي لجسمك. وغالبًا ما يكون نقص السكر في الدم مرتبطًا بعلاج السكري. لكن نادرًا  قد تسبب أدوية أخرى وعدد من الحالات المَرَضية  في انخفاض السكر في الدم لدى الأشخاص غير المصابين بالسكري.",
      "Advice1": "lie down on side",
@@ -153,7 +153,7 @@
     },
     {
      "Name": "Acne",
-     "NameAr": "حب الشباب - Acne",
+     "NameAr": "Acne - حب الشباب",
      "Description": "Acne vulgaris is the formation of comedones, papules, pustules, nodules, and\/or cysts as a result of obstruction and inflammation of pilosebaceous units (hair follicles and their accompanying sebaceous gland). Acne develops on the face and upper trunk. It most often affects adolescents.",
      "DescriptionAr": "حالة جلدية تظهر عند انسداد جُريبات شعرك بالزيوت وخلايا الجلد الميتة. فتظهر الرؤوس البيضاء أو السوداء أو البثور. يشيع حب الشباب أكثر بين المراهقين وإن كان يُصيب الأشخاص من جميع الأعمار.",
      "Advice1": "bath twice",
@@ -167,7 +167,7 @@
     },
     {
      "Name": "Diabetes",
-     "NameAr": "داء السكري - Diabetes",
+     "NameAr": "Diabetes - داء السكري",
      "Description": "Diabetes is a disease that occurs when your blood glucose, also called blood sugar, is too high. Blood glucose is your main source of energy and comes from the food you eat. Insulin, a hormone made by the pancreas, helps glucose from food get into your cells to be used for energy.",
      "DescriptionAr": "داء مزمن يؤثر على طريقة استقبال خلايا الجسم للجلوكوز أو كمية الأنسولين التي يفرزها البنكرياس، مما يؤدي إلى حدوث ارتفاع أو انخفاض غير طبيعي في مستوى السكر بالدم.",
      "Advice1": "have balanced diet",
@@ -181,7 +181,7 @@
     },
     {
      "Name": "Impetigo",
-     "NameAr": "القوباء - Impetigo",
+     "NameAr": "Impetigo - القوباء",
      "Description": "Impetigo (im-puh-TIE-go) is a common and highly contagious skin infection that mainly affects infants and children. Impetigo usually appears as red sores on the face, especially around a child's nose and mouth, and on hands and feet. The sores burst and develop honey-colored crusts.",
      "DescriptionAr": "عدوى جلدية شائعة وشديدة العدوى تصيب الرضع والأطفال بشكل رئيسي. تظهر القوباء عادة على شكل تقرحات حمراء على الوجه، خاصة حول أنف وفم الطفل، وعلى اليدين والقدمين. تنفجر القروح وتكون قشور بلون العسل.",
      "Advice1": "soak affected area in warm water",
@@ -195,7 +195,7 @@
     },
     {
      "Name": "Hypertension",
-     "NameAr": "ارتفاع ضغط الدم - Hypertension",
+     "NameAr": "Hypertension - ارتفاع ضغط الدم ",
      "Description": "Hypertension (HTN or HT), also known as high blood pressure (HBP), is a long-term medical condition in which the blood pressure in the arteries is persistently elevated. High blood pressure typically does not cause symptoms.",
      "DescriptionAr": "حالة شائعة تؤثر على شرايين الجسم، ويُطلَق عليها أيضًا فرط ضغط الدم. في حال الإصابة بارتفاع ضغط الدم، تكون قوة دفع الدم باتجاه جدران الشرايين عالية للغاية باستمرار. ويجعل هذا القلب يعمل بجهد أكبر لضخ الدم.",
      "Advice1": "meditation",
@@ -223,7 +223,7 @@
     },
     {
      "Name": "Dimorphic hemmorhoids(piles)",
-     "NameAr": "البواسير ثنائية الشكل - Dimorphic hemorrhoids (piles)",
+     "NameAr": "Dimorphic hemorrhoids (piles) - البواسير ثنائية الشكل",
      "Description": "Hemorrhoids, also spelled haemorrhoids, are vascular structures in the anal canal. In their ... Other names, Haemorrhoids, piles, hemorrhoidal disease .",
      "DescriptionAr": "أوردة متورمة في الشرج والمستقيم السفلي، تشبه الدوالي الوريدية. قد تنشأ البواسير داخل المستقيم (بواسير داخلية) أو تحت الجلد حول الشرج (بواسير خارجية).",
      "Advice1": "avoid fatty spicy food",
@@ -251,7 +251,7 @@
     },
     {
      "Name": "Chicken pox",
-     "NameAr": "جدري الماء - Chickenpox",
+     "NameAr": "Chickenpox - جدري الماء",
      "Description": "Chickenpox is a highly contagious disease caused by the varicella-zoster virus (VZV). It can cause an itchy, blister-like rash. The rash first appears on the chest, back, and face, and then spreads over the entire body, causing between 250 and 500 itchy blisters.",
      "DescriptionAr": "عدوى فيروسية ينتقل عن طريق الجهاز التنفسي، ويسبب حكة وطفحًا جلديًّا مع بثور صغيرة مملوءة بالسوائل. كما ينتقل بسهولة من شخص إلى آخر، وعادة ما يستمر نحو خمسة أيام إلى عشرة أيام.",
      "Advice1": "use neem in bathing",
@@ -265,7 +265,7 @@
     },
     {
      "Name": "Cervical spondylosis",
-     "NameAr": "داء الفقار الرقبية - Cervical spondylosis",
+     "NameAr": "Cervical spondylosis - داء الفقار الرقبية",
      "Description": "Cervical spondylosis is a general term for age-related wear and tear affecting the spinal disks in your neck. As the disks dehydrate and shrink, signs of osteoarthritis develop, including bony projections along the edges of bones (bone spurs).",
      "DescriptionAr": "تلف وتمزق مرتبط بالعمر يؤثر على أقراص العمود الفقري في رقبتك. عندما تجف الأقراص وتنكمش، تظهر علامات هشاشة العظام، بما في ذلك النتوءات العظمية على طول حواف العظام",
      "Advice1": "use heating pad or cold pack",
@@ -279,7 +279,7 @@
     },
     {
      "Name": "Hyperthyroidism",
-     "NameAr": "فرط في نشاط الغدة الدرقية - Hyperthyroidism",
+     "NameAr": "Hyperthyroidism - فرط في نشاط الغدة الدرقية",
      "Description": "Hyperthyroidism (overactive thyroid) occurs when your thyroid gland produces too much of the hormone thyroxine. Hyperthyroidism can accelerate your body's metabolism, causing unintentional weight loss and a rapid or irregular heartbeat.",
      "DescriptionAr": "يحدث فرط نشاط الغدة الدرقية عندما تفرز الغدة الدرقية الكثير من هرمون التيروكسين. يمكن أن يؤدي فرط نشاط الغدة الدرقية إلى تسريع عملية التمثيل الغذائي في الجسم ، مما يتسبب في فقدان الوزن غير المقصود وسرعة ضربات القلب أو عدم انتظامها",
      "Advice1": "eat healthy",
@@ -293,7 +293,7 @@
     },
     {
      "Name": "Urinary tract infection",
-     "NameAr": "التهاب في المسالك البولية - Urinary tract infection",
+     "NameAr": "Urinary tract infection - التهاب في المسالك البولية",
      "Description": "Urinary tract infection: An infection of the kidney, ureter, bladder, or urethra. Abbreviated UTI. Not everyone with a UTI has symptoms, but common symptoms include a frequent urge to urinate and pain or burning when urinating.",
      "DescriptionAr": "عدوى المسالك البولية: عدوى تصيب الكلى أو الحالب أو المثانة أو الإحليل. لا تظهر الأعراض على كل من يعاني من عدوى المسالك البولية ، ولكن الأعراض الشائعة تشمل الرغبة المستمرة في التبول والألم أو الحرقان عند التبول",
      "Advice1": "drink plenty of water",
@@ -307,7 +307,7 @@
     },
     {
      "Name": "Varicose veins",
-     "NameAr": "توسع في الأوردة  أو الدوالي - Varicose veins",
+     "NameAr": "Varicose veins - توسع في الأوردة  أو الدوالي",
      "Description": "A vein that has enlarged and twisted, often appearing as a bulging, blue blood vessel that is clearly visible through the skin. Varicose veins are most common in older adults, particularly women, and occur especially on the legs.",
      "DescriptionAr": " توسع الأوردة أو ما يعرف بالدوالي غالبًا ما يظهر على شكل وعاء دموي أزرق منتفخ يمكن رؤيته بوضوح من خلال الجلد. تكون الدوالي الوريدية أكثر شيوعًا عند كبار السن ، وخاصة النساء ، وتحدث بشكل خاص على الساقين",
      "Advice1": "lie down flat and raise the leg high",
@@ -321,7 +321,7 @@
     },
     {
      "Name": "AIDS",
-     "NameAr": "مرض فقدان المناعة المكتسبة - AIDS",
+     "NameAr": "AIDS - مرض فقدان المناعة المكتسبة",
      "Description": "Acquired immunodeficiency syndrome (AIDS) is a chronic, potentially life-threatening condition caused by the human immunodeficiency virus (HIV). By damaging your immune system, HIV interferes with your body's ability to fight infection and disease.",
      "DescriptionAr": "متلازمة نقص المناعة المكتسب (الإيدز) هي حالة مزمنة تهدد الحياة بسبب فيروس نقص المناعة البشرية (HIV). من خلال إتلاف جهاز المناعة ، يتدخل فيروس نقص المناعة البشرية في قدرة الجسم على مكافحة العدوى والمرض",
      "Advice1": "avoid open cuts",
@@ -349,7 +349,7 @@
     },
     {
      "Name": "Typhoid",
-     "NameAr": "التيفوئيد - Typhoid",
+     "NameAr": "Typhoid - التيفوئيد",
      "Description": "An acute illness characterized by fever caused by infection with the bacterium Salmonella typhi. Typhoid fever has an insidious onset, with fever, headache, constipation, malaise, chills, and muscle pain. Diarrhea is uncommon, and vomiting is not usually severe.",
      "DescriptionAr": "مرض حاد يتسم بالحمى الناجم عن الإصابة بجرثومة السالمونيلا التيفية. حمى التيفوئيد لها بداية خبيثة ، مصحوبة بحمى وصداع وإمساك وتوعك وقشعريرة وألم عضلي. الإسهال غير شائع ، والقيء ليس شديدًا في العادة",
      "Advice1": "eat high calorie vegitables",
@@ -363,7 +363,7 @@
     },
     {
      "Name": "Hepatitis B",
-     "NameAr": "التهاب الكبد ب - Hepatitis B",
+     "NameAr": "Hepatitis B - التهاب الكبد ب ",
      "Description": "Hepatitis B is an infection of your liver. It can cause scarring of the organ, liver failure, and cancer. It can be fatal if it isn't treated. It's spread when people come in contact with the blood, open sores, or body fluids of someone who has the hepatitis B virus.",
      "DescriptionAr": "التهاب الكبد ب هو عدوى تصيب الكبد. يمكن أن يسبب فشل الكبد والسرطان. يمكن أن يكون قاتل إذا لم يتم علاجه  ينتشر عندما يتلامس الأشخاص مع الدم أو القروح المفتوحة أو سوائل الجسم لشخص مصاب بفيروس التهاب الكبد ب",
      "Advice1": "consult nearest hospital",
@@ -377,7 +377,7 @@
     },
     {
      "Name": "Fungal infection",
-     "NameAr": "العدوى الفطرية - Fungal infection",
+     "NameAr": "Fungal infection - العدوى الفطرية",
      "Description": "In humans, fungal infections occur when an invading fungus takes over an area of the body and is too much for the immune system to handle. Fungi can live in the air, soil, water, and plants. There are also some fungi that live naturally in the human body. Like many microbes, there are helpful fungi and harmful fungi.",
      "DescriptionAr": "تحدث الالتهابات الفطرية عند البشر عندما يستولي فطر غازي على منطقة من الجسم ويكون الجهاز المناعي أكبر من أن يتعامل معه. يمكن أن تعيش الفطريات في الهواء والتربة والماء والنباتات. كما توجد بعض الفطريات التي تعيش بشكل طبيعي في جسم الإنسان",
      "Advice1": "bath twice",
@@ -391,7 +391,7 @@
     },
     {
      "Name": "Hepatitis C",
-     "NameAr": "التهاب الكبد سي  - Hepatitis C",
+     "NameAr": "Hepatitis C - التهاب الكبد ج",
      "Description": "Inflammation of the liver due to the hepatitis C virus (HCV), which is usually spread via blood transfusion (rare), hemodialysis, and needle sticks. The damage hepatitis C does to the liver can lead to cirrhosis and its complications as well as cancer.",
      "DescriptionAr": "التهاب الكبد الناجم عن فيروس التهاب الكبد الوبائي سي (HCV) ، والذي ينتشر عادة عن طريق نقل الدم (نادرًا) وغسيل الدم وعصا الإبر. يمكن أن يؤدي الضرر الذي يلحقه التهاب الكبد C بالكبد إلى تليف الكبد ومضاعفاته بالإضافة إلى السرطان",
      "Advice1": "Consult nearest hospital",
@@ -405,7 +405,7 @@
     },
     {
      "Name": "Migraine",
-     "NameAr": "صداع نصفي - Migraine",
+     "NameAr": "Migraine - صداع نصفي",
      "Description": "A migraine can cause severe throbbing pain or a pulsing sensation, usually on one side of the head. It's often accompanied by nausea, vomiting, and extreme sensitivity to light and sound. Migraine attacks can last for hours to days, and the pain can be so severe that it interferes with your daily activities.",
      "DescriptionAr": "يمكن أن يسبب الصداع النصفي ألمًا شديدًا فيو إحساسًا بالنبض عادةً في جانب واحد من الرأس. غالبًا ما يكون مصحوبًا بالغثيان والقيء والحساسية الشديدة للضوء والصوت. يمكن أن تستمر نوبات الصداع النصفي من ساعات إلى أيام ",
      "Advice1": "meditation",
