@@ -9,7 +9,7 @@ import '../Questions.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main.dart';
-
+import 'package:taaf/navigator_keys.dart'; 
 class handFoot extends StatefulWidget {
   const handFoot({Key? key}) : super(key: key);
 
@@ -33,8 +33,9 @@ class _handFoot extends State<handFoot> {
             icon: Icon(Icons.arrow_back_ios),
             color: Color.fromRGBO(0, 114, 130, 100),
             onPressed: () {
-              Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => humanModel()));
+              // Navigator.of(context).pushReplacement(
+              //     MaterialPageRoute(builder: (context) => humanModel()));
+              Navigation.mainNavigation.currentState!.pushNamed("/main/2");
             },
           ),
         ),
@@ -50,7 +51,7 @@ class _handFoot extends State<handFoot> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/images/home.png',
+                  'assets/Images/home.png',
                 ).image,
               ),
             ),
@@ -157,10 +158,11 @@ class _handFoot extends State<handFoot> {
                                 print("else");
                                 print(sym);
 
-                                Navigator.of(context).pushReplacement(
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            Questions(sympController: sym)));
+                                // Navigator.of(context).pushReplacement(
+                                //     MaterialPageRoute(
+                                //         builder: (context) =>
+                                //             Questions(sympController: sym)));
+                                 Navigation.mainNavigation.currentState!.pushNamed(sym!);
                               }
                             },
                             text: 'متابعة ',

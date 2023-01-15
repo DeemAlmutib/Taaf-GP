@@ -78,6 +78,8 @@ dependencies:
   body_part_selector:
    path: ./body_part_selector
   google_nav_bar: ^5.0.6
+  persistent_bottom_nav_bar: ^5.0.2
+  persistent_bottom_nav_bar_v2: ^4.2.6
 
 dev_dependencies:
   flutter_test:
@@ -117,7 +119,7 @@ flutter:
   assets:
 
     - assets/Images/
-    - assets/images/
+  
     - packages/body_part_selector/m_front.svg
     - packages/body_part_selector/m_left.svg
     - packages/body_part_selector/m_back.svg

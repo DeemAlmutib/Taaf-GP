@@ -3,13 +3,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:taaf/n.dart';
 import 'package:taaf/src/base/showToast.dart';
 import 'package:taaf/src/controllers/AuthController.dart';
 import 'package:taaf/src/views/user/profilePage.dart';
 
 import 'homePage.dart';
 import 'login/loginPage.dart';
-import 'navigation.dart';
+// import 'navigation.dart';
+import 'navigator_keys.dart';
 
 class verifyloginPage extends StatefulWidget {
   AuthController authController;
@@ -51,7 +53,7 @@ class _verifyLoginPageState extends State<verifyloginPage> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/images/background_(1).png',
+                  'assets/Images/background_(1).png',
                 ).image,
               ),
             ),
@@ -208,7 +210,8 @@ class _verifyLoginPageState extends State<verifyloginPage> {
 
                               Navigator.of(context).pushReplacement(
                                   MaterialPageRoute(
-                                      builder: (context) => Navigation()));
+                                      builder: (context) => MainPage()));
+                               //Navigation.mainNavigation.currentState!.pushNamed("/");
                             } else {
                               // AppShowToast(text: "error");
                             }

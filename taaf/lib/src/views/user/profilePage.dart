@@ -19,6 +19,7 @@ import '../../../login/loginPage.dart';
 import '../../../welcomePage.dart';
 import '../widgets/AppLargTextWidget.dart';
 import '../widgets/AppLoadingIndicator.dart';
+import 'package:taaf/navigator_keys.dart';
 
 class ProfilePage extends StatefulWidget {
   ProfilePage({Key? key}) : super(key: key);
@@ -75,7 +76,7 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
             Center(
               child: Image.asset(
-                'assets/images/taaf.jpg',
+                'assets/Images/taaf.jpg',
                 fit: BoxFit.cover,
                 width: dimensions.width10 * 12,
                 // height: Dimensions.height120 * 4,
@@ -142,6 +143,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                     editProfileController:
                                                         editProfileController,
                                                   )));
+                                      // Navigation.mainNavigation.currentState!.pushNamed("/main/15");
                                     },
                                     child: Padding(
                                       padding: const EdgeInsets.all(8.0),
@@ -208,7 +210,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           child: CircleAvatar(
                             backgroundColor: Color.fromARGB(255, 225, 221, 221),
                             child: Image.asset(
-                              'assets/images/user.png',
+                              'assets/Images/user.png',
                               fit: BoxFit.cover,
                               width: dimensions.width10 * 15,
                               // height: Dimensions.height120 * 4,

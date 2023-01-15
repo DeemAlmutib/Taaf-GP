@@ -5,9 +5,11 @@ import 'package:taaf/homePage.dart';
 import 'package:taaf/humanModel.dart';
 import 'package:taaf/login.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:taaf/myApp.dart';
 import 'package:taaf/navigation.dart';
 import 'package:taaf/src/views/user/profilePage.dart';
 import 'package:taaf/welcomePage.dart';
+import 'navigator_keys.dart';
 import 'src/views/user/editProfile.dart';
 import 'src/base/globals.dart';
 import 'src/helper/userSharedPreferences.dart';
@@ -27,7 +29,7 @@ void main() async {
   );
 
   await UserSharedPreferences.init();
-  runApp(MyApp());
+  runApp(MyApp2());
   print("object");
 }
 
@@ -43,7 +45,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Firebase',
       // scaffoldMessengerKey: snackbarKey,
-      home: WelcomePageWidget(),
+      home: HompageWidget(),
+      
+      //navigatorKey: NavigatorKeys.navigatorKeyMain,
     );
   }
 }
