@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:taaf/n.dart';
+import 'package:taaf/newNavigation.dart';
 import 'package:taaf/src/base/showToast.dart';
 import 'package:taaf/src/controllers/AuthController.dart';
 import 'package:taaf/src/views/user/profilePage.dart';

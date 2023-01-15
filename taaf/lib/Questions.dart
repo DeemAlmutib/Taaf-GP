@@ -17,7 +17,7 @@ import 'Translation/Diseases/findArabicDisease.dart';
 
 import 'flutter_flow/flutter_flow_theme.dart';
 // import 'navigation.dart';
-import 'n.dart';
+import 'newNavigation.dart';
 import 'navigator_keys.dart';
 
 class Questions extends StatefulWidget {

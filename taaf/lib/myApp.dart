@@ -5,7 +5,7 @@ import 'package:taaf/homePage.dart';
 import 'package:taaf/humanModel.dart';
 import 'package:taaf/login.dart';
 import 'package:taaf/login/loginPage.dart';
-import 'package:taaf/n.dart';
+import 'package:taaf/newNavigation.dart';
 
 class MyApp2 extends StatelessWidget {
   const MyApp2({Key? key}) : super(key: key);
