@@ -51,190 +51,205 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     Dimensions dimensions = Dimensions(context);
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        automaticallyImplyLeading: true,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
-          color: Color.fromARGB(189, 248, 252, 255),
-          onPressed: () {
-            Navigator.of(context).pushReplacement(
-                MaterialPageRoute(builder: (context) => HompageWidget()));
-          },
+    return SafeArea(
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          automaticallyImplyLeading: true,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios),
+            color: Color.fromARGB(189, 248, 252, 255),
+            onPressed: () {
+              Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(builder: (context) => HompageWidget()));
+            },
+          ),
         ),
-      ),
-      key: scaffoldKey,
-      backgroundColor: Color.fromARGB(247, 253, 253, 253),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: dimensions.height20,
-            ),
-            Center(
-              child: Image.asset(
-                'assets/Images/taaf.jpg',
-                fit: BoxFit.cover,
-                width: dimensions.width10 * 12,
-                // height: Dimensions.height120 * 4,
+        key: scaffoldKey,
+        backgroundColor: Color.fromARGB(247, 253, 253, 253),
+        body: Container(
+          width: double.maxFinite,
+          height: dimensions.screenHeigh,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                'assets/Images/home.png',
               ),
+              fit: BoxFit.fill,
             ),
-            SizedBox(
-              height: dimensions.height25 * 3,
-            ),
-            editProfileController.isProfileLoading
-                ? AppLoadingIndicator()
-                : Container(
-                    width: dimensions.width10 * 32,
-                    height: dimensions.height10 * 25,
-                    alignment: Alignment.center,
-                    child: Stack(
-                      alignment: AlignmentDirectional.center,
-                      children: <Widget>[
-                        /** Positioned WIdget **/
-                        Positioned(
-                          top: dimensions.height55,
-                          child: Container(
-                            width: dimensions.width10 * 30,
-                            height: dimensions.height10 * 19,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: dimensions.width10 * 3,
-                                  color: Color(0xD78D8989),
-                                  offset: Offset(0, 2),
-                                )
-                              ],
-                              borderRadius:
-                                  BorderRadius.circular(dimensions.width10 * 3),
-                            ),
-                            child: Column(children: [
-                              SizedBox(
-                                height: dimensions.height10 * 6,
-                              ),
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: AppLargTextWidget(
-                                      text: editProfileController
-                                                      .userModel.name !=
-                                                  null &&
-                                              editProfileController
-                                                  .userModel.name!.isNotEmpty
-                                          ? editProfileController
-                                              .userModel.name!
-                                          : "حساب جديد",
-                                      size: dimensions.font10 * 2,
-                                    ),
-                                  ),
+          ),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                // SizedBox(
+                //   height: dimensions.height20,
+                // ),
+                SizedBox(
+                  height: dimensions.height25 * 7,
+                ),
+                editProfileController.isProfileLoading
+                    ? AppLoadingIndicator()
+                    : Container(
+                        width: dimensions.width10 * 32,
+                        height: dimensions.height10 * 25,
+                        alignment: Alignment.center,
+                        child: Stack(
+                          alignment: AlignmentDirectional.center,
+                          children: <Widget>[
+                            /** Positioned WIdget **/
+                            Positioned(
+                              top: dimensions.height55,
+                              child: Container(
+                                width: dimensions.width10 * 30,
+                                height: dimensions.height10 * 19,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: dimensions.width10 * 3,
+                                      color: Color(0xD78D8989),
+                                      offset: Offset(0, 2),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(
+                                      dimensions.width10 * 3),
+                                ),
+                                child: Column(children: [
                                   SizedBox(
-                                    width: dimensions.width15,
+                                    height: dimensions.height10 * 6,
                                   ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.of(context)
-                                          .pushReplacement(MaterialPageRoute(
-                                              builder: (context) => editProfile(
-                                                    editProfileController:
-                                                        editProfileController,
-                                                  )));
-                                      // Navigation.mainNavigation.currentState!.pushNamed("/main/15");
-                                    },
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Icon(
-                                        Icons.edit,
-                                        size: dimensions.icon25,
-                                        color: Colors.grey,
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        child: AppLargTextWidget(
+                                          text: editProfileController
+                                                          .userModel.name !=
+                                                      null &&
+                                                  editProfileController
+                                                      .userModel
+                                                      .name!
+                                                      .isNotEmpty
+                                              ? editProfileController
+                                                  .userModel.name!
+                                              : "حساب جديد",
+                                          size: dimensions.font10 * 2,
+                                        ),
                                       ),
-                                    ),
+                                      SizedBox(
+                                        width: dimensions.width15,
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.of(context).pushReplacement(
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      editProfile(
+                                                        editProfileController:
+                                                            editProfileController,
+                                                      )));
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Icon(
+                                            Icons.edit,
+                                            size: dimensions.icon25,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: dimensions.width15,
+                                      ),
+                                    ],
+                                  ),
+                                  AppSmallTextWidget(
+                                    text:
+                                        editProfileController.userModel.phone !=
+                                                    null &&
+                                                editProfileController
+                                                        .userModel.phoneCode !=
+                                                    null
+                                            ? (editProfileController
+                                                    .userModel.phoneCode! +
+                                                editProfileController
+                                                    .userModel.phone!)
+                                            : "حساب جديد",
+                                    size: dimensions.font10 * 2,
+                                    textAlign: TextAlign.center,
                                   ),
                                   SizedBox(
-                                    width: dimensions.width15,
+                                    height: dimensions.height5,
                                   ),
-                                ],
-                              ),
-                              AppSmallTextWidget(
-                                text: editProfileController.userModel.phone !=
-                                            null &&
-                                        editProfileController
-                                                .userModel.phoneCode !=
-                                            null
-                                    ? (editProfileController
-                                            .userModel.phoneCode! +
-                                        editProfileController.userModel.phone!)
-                                    : "حساب جديد",
-                                size: dimensions.font10 * 2,
-                                textAlign: TextAlign.center,
-                              ),
-                              SizedBox(
-                                height: dimensions.height5,
-                              ),
-                              AppSmallTextWidget(
-                                text: editProfileController.userModel.gender !=
-                                            null &&
-                                        editProfileController
-                                            .userModel.gender!.isNotEmpty
-                                    ? editProfileController.userModel.gender!
-                                    : " ",
-                                size: dimensions.font10 * 2,
-                                textAlign: TextAlign.center,
-                              ),
-                              SizedBox(
-                                height: dimensions.height5,
-                              ),
-                              AppSmallTextWidget(
-                                text: editProfileController
-                                                .userModel.birthDate !=
-                                            null &&
-                                        editProfileController
-                                            .userModel.birthDate!.isNotEmpty
-                                    ? editProfileController.userModel.birthDate!
-                                    : " ",
-                                size: dimensions.font10 * 2,
-                                textAlign: TextAlign.center,
-                              )
-                            ]),
-                          ), //Icon
-                        ), //Positioned
-                        /** Positioned WIdget **/
+                                  AppSmallTextWidget(
+                                    text: editProfileController
+                                                    .userModel.gender !=
+                                                null &&
+                                            editProfileController
+                                                .userModel.gender!.isNotEmpty
+                                        ? editProfileController
+                                            .userModel.gender!
+                                        : " ",
+                                    size: dimensions.font10 * 2,
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  SizedBox(
+                                    height: dimensions.height5,
+                                  ),
+                                  AppSmallTextWidget(
+                                    text: editProfileController
+                                                    .userModel.birthDate !=
+                                                null &&
+                                            editProfileController
+                                                .userModel.birthDate!.isNotEmpty
+                                        ? editProfileController
+                                            .userModel.birthDate!
+                                        : " ",
+                                    size: dimensions.font10 * 2,
+                                    textAlign: TextAlign.center,
+                                  )
+                                ]),
+                              ), //Icon
+                            ), //Positioned
+                            /** Positioned WIdget **/
 
-                        Positioned(
-                          top: 0,
-                          right: dimensions.width10 * 11,
-                          child: CircleAvatar(
-                            backgroundColor: Color.fromARGB(255, 225, 221, 221),
-                            child: Image.asset(
-                              'assets/Images/user.png',
-                              fit: BoxFit.cover,
-                              width: dimensions.width10 * 15,
-                              // height: Dimensions.height120 * 4,
-                            ),
-                            radius: dimensions.font10 * 5,
-                          ), //CircularAvatar
-                        ), //Positioned
-                      ], //<Widget>[]
-                    ),
-                  ),
-            SizedBox(
-              height: dimensions.height25,
+                            Positioned(
+                              top: 0,
+                              right: dimensions.width10 * 11,
+                              child: CircleAvatar(
+                                backgroundColor:
+                                    Color.fromARGB(255, 236, 236, 236),
+                                child: Image.asset(
+                                  editProfileController.getProfileImage(
+                                      editProfileController.userModel.gender),
+                                  fit: BoxFit.fill,
+                                  width: dimensions.width10 * 8,
+                                  // height: dimensions.height10 * 10,
+                                ),
+                                radius: dimensions.font10 * 5,
+                              ), //CircularAvatar
+                            ), //Positioned
+                          ], //<Widget>[]
+                        ),
+                      ),
+                SizedBox(
+                  height: dimensions.height25,
+                ),
+                AppButtonWithIconWeiget(
+                  text: "تسجيل الخروج",
+                  icon: Icons.logout,
+                  iconColor: Colors.white,
+                  iconSize: dimensions.icon25,
+                  onPressed: () async {
+                    print('hi');
+                    showAlertDialogg(context);
+                  },
+                ),
+              ],
             ),
-            AppButtonWithIconWeiget(
-              text: "تسجيل الخروج",
-              icon: Icons.logout,
-              iconColor: Colors.white,
-              iconSize: dimensions.icon25,
-              onPressed: () async {
-                print('hi');
-                showAlertDialogg(context);
-              },
-            ),
-          ],
+          ),
         ),
       ),
     );
