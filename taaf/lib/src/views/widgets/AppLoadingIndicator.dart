@@ -5,7 +5,7 @@ import 'package:taaf/src/views/widgets/AppSmallTextWidget.dart';
 class AppLoadingIndicator extends StatelessWidget {
   AppLoadingIndicator({
     Key? key,
-    this.text = "جاري جلب البيانات ..."
+    this.text = "... جاري جلب البيانات"
   }) : super(key: key);
 
   String text;
