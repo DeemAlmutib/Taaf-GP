@@ -9,7 +9,7 @@ import 'package:ffi/ffi.dart';
 import 'package:intl/intl.dart';
 import 'package:loading_animations/loading_animations.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:taaf/homepage.dart';
+import 'package:taaf/homePage.dart';
 import 'package:taaf/login.dart';
 import 'package:taaf/welcomePage.dart';
 import 'Translation/Symptoms/findArabicSymptom.dart';
@@ -5586,7 +5586,7 @@ Questions.comingFromModel = false ;
               ),
               Padding(
                 padding: EdgeInsets.only(top: 10),
-                child: Text('Awaiting result...'),
+                child: Text('... جاري جلب البيانات'),
               ),
             ];
           }
@@ -5714,7 +5714,7 @@ width: 500,
               ),
               Padding(
                 padding: EdgeInsets.only(top: 10),
-                child: Text('Awaiting result...'),
+                child: Text('... جاري جلب البيانات'),
               ),
             ];
           }
@@ -5751,7 +5751,7 @@ width: 500,
               ),
               Padding(
                 padding: EdgeInsets.only(top: 10),
-                child: Text('Awaiting result...'),
+                child: Text('... جاري جلب البيانات'),
               ),
             ];
           }
@@ -5952,7 +5952,7 @@ width: 500,
               ),
               Padding(
                 padding: EdgeInsets.only(top: 10),
-                child: Text('Awaiting result...'),
+                child: Text('... جاري جلب البيانات'),
               ),
             ];
           }
@@ -5987,7 +5987,7 @@ width: 500,
               ),
               Padding(
                 padding: EdgeInsets.only(top: 10),
-                child: Text('Awaiting result...'),
+                child: Text('... جاري جلب البيانات'),
               ),
             ];
           }
