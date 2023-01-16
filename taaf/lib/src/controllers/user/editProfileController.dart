@@ -71,13 +71,13 @@ class EditProfileController {
   }
 
   String getProfileImage(String? gender) {
-    String imagePath = 'assets/Images/taaf.jpg';
+    String imagePath = 'assets/images/taaf.jpg';
 
     if (gender != null) {
       if (gender == "ذكر") {
-        return 'assets/Images/man.png';
+        return 'assets/images/man.png';
       } else if (gender == "انثى") {
-        return 'assets/Images/woman.png';
+        return 'assets/images/woman.png';
       }
     }
     return imagePath;

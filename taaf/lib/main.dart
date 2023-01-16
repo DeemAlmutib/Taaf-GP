@@ -29,7 +29,7 @@ void main() async {
   );
 
   await UserSharedPreferences.init();
-  runApp(MyApp2());
+  runApp(MyApp());
   print("object");
 }
 
@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Firebase',
       // scaffoldMessengerKey: snackbarKey,
-      home: HompageWidget(),
+      home: WelcomePageWidget(),
       
       //navigatorKey: NavigatorKeys.navigatorKeyMain,
     );

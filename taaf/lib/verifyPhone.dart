@@ -53,7 +53,7 @@ class _verifyLoginPageState extends State<verifyloginPage> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/Images/background_(1).png',
+                  'assets/images/background_(1).png',
                 ).image,
               ),
             ),

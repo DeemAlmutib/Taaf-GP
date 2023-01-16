@@ -1,3 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -5,7 +8,18 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ReportWidget extends StatefulWidget {
-  const ReportWidget({Key? key}) : super(key: key);
+  final String date;
+  final String disease;
+  final String description;
+  final String precaution;
+  const ReportWidget(
+    {Key? key,
+    required this.date,
+    required this.disease,
+    required this.description,
+    required this.precaution
+    })
+     : super(key: key);
 
   @override
   _ReportWidgetState createState() => _ReportWidgetState();
@@ -14,6 +28,29 @@ class ReportWidget extends StatefulWidget {
 class _ReportWidgetState extends State<ReportWidget> {
   final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final _firestore = FirebaseFirestore.instance;
+  final _auth = FirebaseAuth.instance;
+  String userId = "";
+  late User loggedInUser;
+
+@override
+  void initState() {
+    getCurrentUser();
+  }
+
+void getCurrentUser() async {
+    try {
+      final user = await _auth.currentUser;
+      if (user != null) {
+        loggedInUser = user;
+        userId = loggedInUser.uid;
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
+
 
   @override
   void dispose() {
@@ -51,7 +88,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                   child: Align(
                     alignment: AlignmentDirectional(0.9, 1),
                     child: Text(
-                      '31/10/2022',
+                      widget.date,
                       style: FlutterFlowTheme.of(context).bodyText1.override(
                             fontFamily: 'Tajawal',
                             color: Color(0xFF8C8C8C),
@@ -98,7 +135,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                       child: Align(
                         alignment: AlignmentDirectional(0.8, -1),
                         child: Text(
-                          'يجب عليك تلقي رعاية طبية ومتابعة طبيب',
+                          widget.description,
                           textAlign: TextAlign.end,
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
@@ -148,7 +185,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                       child: Align(
                         alignment: AlignmentDirectional(0.9, -1),
                         child: Text(
-                          'جرثومة المعدة',
+                          widget.disease,
                           textAlign: TextAlign.end,
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
@@ -190,7 +227,7 @@ class _ReportWidgetState extends State<ReportWidget> {
                       child: Align(
                         alignment: AlignmentDirectional(0.9, -1),
                         child: Text(
-                          '1- توجه إلى أقرب مركز صحي',
+                          widget.precaution,
                           textAlign: TextAlign.end,
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
@@ -205,39 +242,14 @@ class _ReportWidgetState extends State<ReportWidget> {
                   ],
                 ),
               ),
-              Container(
-                width: 378.2,
-                height: 100,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                ),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(50, 25, 50, 25),
-                  child: FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
-                    },
-                    text: 'حفظ',
-                    options: FFButtonOptions(
-                      width: 130,
-                      height: 40,
-                      color: Color(0xFF007282),
-                      textStyle:
-                          FlutterFlowTheme.of(context).subtitle2.override(
-                                fontFamily: 'Tajawal',
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                        width: 1,
-                      ),
-                      borderRadius: 30,
-                    ),
-                  ),
-                ),
-              ),
+              // Container(
+              //   width: 378.2,
+              //   height: 100,
+              //   decoration: BoxDecoration(
+              //     color: FlutterFlowTheme.of(context).secondaryBackground,
+              //   ),
+                
+              // ),
             ],
           ),
         ),
