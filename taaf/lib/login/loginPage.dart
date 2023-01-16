@@ -258,9 +258,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                       textController.text.toString().trim(),
                                       context);
                               if (allGood) {
-                              //  AppShowToast(text: "تم إرسال رمز التحقق");
-                               appShowSnackBar(
-                                  context, 'تم إرسال رمز التحقق');
+                                //  AppShowToast(text: "تم إرسال رمز التحقق");
+                                appShowSnackBar(context, 'تم إرسال رمز التحقق');
                                 // ScaffoldMessenger.of(context).showSnackBar(
                                 //   const SnackBar(
                                 //     content: Text('تم إرسال رمز التحقق',
@@ -305,7 +304,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               color: Colors.transparent,
                               width: 1,
                             ),
-                            borderRadius:30, //BorderRadius.circular(30),
+                            borderRadius: 30, //BorderRadius.circular(30),
                           ),
                         ),
                       ),

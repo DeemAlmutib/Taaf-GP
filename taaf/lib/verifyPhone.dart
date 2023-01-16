@@ -149,13 +149,15 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                                           widget.authController.phoneNumber,
                                           context);
                                   if (allGood) {
-                                    AppShowToast(text: "check your phone");
+                                  appShowSnackBar(context,
+                    "تم إرسال الرقم مرةً أخرى ");
                                     // Navigator.of(context).pushReplacement(MaterialPageRoute(
                                     //     builder: (context) => verifyloginPage(
                                     //           authController: _authController,
                                     //         )));
                                   } else {
-                                    AppShowToast(text: "error");
+                                    appShowSnackBar(context,
+                    "حصل أمر خاطى، يرجى اعادة المحاولة ");
                                   }
 
                                   // Navigator.of(context).pushReplacement(

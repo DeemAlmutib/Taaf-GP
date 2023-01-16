@@ -70,8 +70,8 @@ class _ProfilePageState extends State<ProfilePage> {
         key: scaffoldKey,
         backgroundColor: Color.fromARGB(247, 253, 253, 253),
         body: Container(
-          width: double.maxFinite,
-          height: dimensions.screenHeigh,
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height * 1,
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
@@ -244,46 +244,49 @@ class _ProfilePageState extends State<ProfilePage> {
                   iconSize: dimensions.icon25,
                   onPressed: () async {
                     print('hi');
-                   // showAlertDialogg(context);
+                    // showAlertDialogg(context);
                     showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                          title: Text(
-                             "هل أنت متأكد من رغبتك في تسجيل الخروج؟ ",
-                              style: GoogleFonts.tajawal(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
-                              textAlign: TextAlign.right),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                               // Navigator.pop(context);
-                                Navigation.mainNavigation.currentState!.pushNamed("/main/4");
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                            title: Text(
+                                "هل أنت متأكد من رغبتك في تسجيل الخروج؟ ",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                                textAlign: TextAlign.right),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  // Navigator.pop(context);
+                                  Navigation.mainNavigation.currentState!
+                                      .pushNamed("/main/4");
                                   Navigator.of(context).pop();
-                              },
-                              child: Text(
-                                "لا",
-                                style: GoogleFonts.tajawal(
-                                    fontWeight: FontWeight.bold, fontSize: 15),
+                                },
+                                child: Text(
+                                  "لا",
+                                  style: GoogleFonts.tajawal(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15),
+                                ),
                               ),
-                            ),
-                            TextButton(
-                              onPressed: ()async {
-                              
-                               
-                             await AuthController().logout();
-        Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (context) => LoginPageWidget()));
-                              },
-                              child: Text(
-                                "نعم",
-                                style: GoogleFonts.tajawal(
-                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              TextButton(
+                                onPressed: () async {
+                                  await AuthController().logout();
+                                  Navigator.of(context).pushReplacement(
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              LoginPageWidget()));
+                                },
+                                child: Text(
+                                  "نعم",
+                                  style: GoogleFonts.tajawal(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15),
+                                ),
                               ),
-                            ),
-                          ]);
-                    },
-                  );
+                            ]);
+                      },
+                    );
                   },
                 ),
               ],
@@ -302,8 +305,8 @@ class _ProfilePageState extends State<ProfilePage> {
         style: GoogleFonts.tajawal(fontWeight: FontWeight.bold),
       ),
       onPressed: () {
-       //  Navigation.mainNavigation.currentState!.pushNamed("/main/");
-                                  Navigator.of(context).pop();
+        //  Navigation.mainNavigation.currentState!.pushNamed("/main/");
+        Navigator.of(context).pop();
       },
     );
     Widget continueButton = TextButton(
