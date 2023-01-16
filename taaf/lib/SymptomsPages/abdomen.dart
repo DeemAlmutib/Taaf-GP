@@ -8,6 +8,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main.dart';
 import 'package:taaf/Questions.dart';
+import 'package:taaf/navigator_keys.dart';
 
 class abdomen extends StatefulWidget {
   const abdomen({Key? key}) : super(key: key);
@@ -32,8 +33,10 @@ class _abdomen extends State<abdomen> {
             icon: Icon(Icons.arrow_back_ios),
             color: Color.fromRGBO(0, 114, 130, 100),
             onPressed: () {
-              Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => humanModel()));
+              // Navigator.of(context).pushReplacement(
+              //     MaterialPageRoute(builder: (context) => humanModel()));
+
+              Navigation.mainNavigation.currentState!.pushNamed("/main/2");
             },
           ),
         ),
@@ -49,7 +52,7 @@ class _abdomen extends State<abdomen> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/images/home.png',
+                  'assets/Images/home.png',
                 ).image,
               ),
             ),
@@ -132,27 +135,27 @@ class _abdomen extends State<abdomen> {
                           });
                         },
                       ),
-                      Divider(
-                        color: Colors.black,
-                        //height: 36,
-                      ),
-                      RadioListTile(
-                        title: Text("  ألم أثناء التبرز    ",
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Tajawal',
-                                  color: Color.fromRGBO(0, 114, 130, 100),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            textAlign: TextAlign.right),
-                        value: "pain_during_bowel_movements",
-                        groupValue: sym,
-                        onChanged: (value) {
-                          setState(() {
-                            sym = value.toString();
-                          });
-                        },
-                      ),
+                      // Divider(
+                      //   color: Colors.black,
+                      //   //height: 36,
+                      // ),
+                      // RadioListTile(
+                      //   title: Text("  ألم أثناء التبرز    ",
+                      //       style: FlutterFlowTheme.of(context).title1.override(
+                      //             fontFamily: 'Tajawal',
+                      //             color: Color.fromRGBO(0, 114, 130, 100),
+                      //             fontSize: 15,
+                      //             fontWeight: FontWeight.bold,
+                      //           ),
+                      //       textAlign: TextAlign.right),
+                      //   value: "pain_during_bowel_movements",
+                      //   groupValue: sym,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       sym = value.toString();
+                      //     });
+                      //   },
+                      // ),
                       Divider(
                         color: Colors.black,
                         //height: 36,
@@ -174,27 +177,27 @@ class _abdomen extends State<abdomen> {
                           });
                         },
                       ),
-                      Divider(
-                        color: Colors.black,
-                        //height: 36,
-                      ),
-                      RadioListTile(
-                        title: Text("  حرقة أثناء التبول",
-                            style: FlutterFlowTheme.of(context).title1.override(
-                                  fontFamily: 'Tajawal',
-                                  color: Color.fromRGBO(0, 114, 130, 100),
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                            textAlign: TextAlign.right),
-                        value: "burning_micturition",
-                        groupValue: sym,
-                        onChanged: (value) {
-                          setState(() {
-                            sym = value.toString();
-                          });
-                        },
-                      ),
+                      // Divider(
+                      //   color: Colors.black,
+                      //   //height: 36,
+                      // ),
+                      // RadioListTile(
+                      //   title: Text("  حرقة أثناء التبول",
+                      //       style: FlutterFlowTheme.of(context).title1.override(
+                      //             fontFamily: 'Tajawal',
+                      //             color: Color.fromRGBO(0, 114, 130, 100),
+                      //             fontSize: 15,
+                      //             fontWeight: FontWeight.bold,
+                      //           ),
+                      //       textAlign: TextAlign.right),
+                      //   value: "burning_micturition",
+                      //   groupValue: sym,
+                      //   onChanged: (value) {
+                      //     setState(() {
+                      //       sym = value.toString();
+                      //     });
+                      //   },
+                      // ),
                       // Divider(
                       //   color: Colors.black,
                       //   //height: 36,
@@ -270,10 +273,11 @@ class _abdomen extends State<abdomen> {
                                 print("else");
                                 print(sym);
 
-                                Navigator.of(context).pushReplacement(
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            Questions(sympController: sym)));
+                                // Navigator.of(context).pushReplacement(
+                                //     MaterialPageRoute(
+                                //         builder: (context) =>
+                                //             Questions(sympController: sym)));
+                                 Navigation.mainNavigation.currentState!.pushNamed(sym!);
                               }
                             },
                             text: 'متابعة ',

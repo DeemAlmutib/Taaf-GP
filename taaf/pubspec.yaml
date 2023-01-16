@@ -80,6 +80,8 @@ dependencies:
   google_nav_bar: ^5.0.6
   #rotation_stage: 
    #path: ../rotation_stage
+  persistent_bottom_nav_bar: ^5.0.2
+  persistent_bottom_nav_bar_v2: ^4.2.6
 
 dev_dependencies:
   flutter_test:
@@ -119,10 +121,13 @@ flutter:
   assets:
 
     - assets/images/
+  
     - packages/body_part_selector/m_front.svg
     - packages/body_part_selector/m_left.svg
     - packages/body_part_selector/m_back.svg
     - packages/body_part_selector/m_right.svg
+    - lib/Translation/Symptoms/SymptomsData.json
+    - lib/Translation/Diseases/DiseasesData.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

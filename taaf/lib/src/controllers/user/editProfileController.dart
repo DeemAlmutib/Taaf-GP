@@ -59,7 +59,6 @@ class EditProfileController {
   }
 
   bool checkChanges() {
-    
     if (userModel.name != nameEditingController.text ||
         userModel.phone != phoneEditingController.text ||
         userModel.birthDate != birthDateEditingController.text ||
@@ -69,5 +68,18 @@ class EditProfileController {
     } else {
       return false;
     }
+  }
+
+  String getProfileImage(String? gender) {
+    String imagePath = 'assets/images/taaf.jpg';
+
+    if (gender != null) {
+      if (gender == "ذكر") {
+        return 'assets/images/man.png';
+      } else if (gender == "انثى") {
+        return 'assets/images/woman.png';
+      }
+    }
+    return imagePath;
   }
 }

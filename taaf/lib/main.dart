@@ -5,9 +5,11 @@ import 'package:taaf/homePage.dart';
 import 'package:taaf/humanModel.dart';
 import 'package:taaf/login.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:taaf/myApp.dart';
 import 'package:taaf/navigation.dart';
 import 'package:taaf/src/views/user/profilePage.dart';
 import 'package:taaf/welcomePage.dart';
+import 'navigator_keys.dart';
 import 'src/views/user/editProfile.dart';
 import 'src/base/globals.dart';
 import 'src/helper/userSharedPreferences.dart';
@@ -44,6 +46,8 @@ class MyApp extends StatelessWidget {
       title: 'Firebase',
       // scaffoldMessengerKey: snackbarKey,
       home: WelcomePageWidget(),
+      
+      //navigatorKey: NavigatorKeys.navigatorKeyMain,
     );
   }
 }

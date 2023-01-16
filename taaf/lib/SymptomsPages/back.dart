@@ -8,6 +8,7 @@ import '../Questions.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main.dart';
+import 'package:taaf/navigator_keys.dart';
 
 class back extends StatefulWidget {
   const back({Key? key}) : super(key: key);
@@ -32,8 +33,9 @@ class _back extends State<back> {
             icon: Icon(Icons.arrow_back_ios),
             color: Color.fromRGBO(0, 114, 130, 100),
             onPressed: () {
-              Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => MyApp()));
+              // Navigator.of(context).pushReplacement(
+              //     MaterialPageRoute(builder: (context) => MyApp()));
+              Navigation.mainNavigation.currentState!.pushNamed("/main/2");
             },
           ),
         ),
@@ -49,7 +51,7 @@ class _back extends State<back> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/images/home.png',
+                  'assets/Images/home.png',
                 ).image,
               ),
             ),
@@ -101,33 +103,15 @@ class _back extends State<back> {
                               EdgeInsetsDirectional.fromSTEB(20, 25, 20, 5),
                           child: FFButtonWidget(
                             onPressed: () {
-                              if (sym == null) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text('الرجاء اختيار عارض صحي',
-                                        style: TextStyle(
-                                            fontFamily: 'Tajawal',
-                                            // fontStyle: FontStyle.italic,
-                                            color: Colors.red),
-                                        textAlign: TextAlign.right),
-                                    backgroundColor:
-                                        Color.fromARGB(255, 255, 255, 255),
-                                  ),
-                                );
-                                print("deem");
-
-                                print(sym);
-                              } else {
-                                print("else");
-                                print(sym);
-
-                                Navigator.of(context).pushReplacement(
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            Questions(sympController: sym)));
-                              }
+                              // Navigator.of(context)
+                              //     .pushReplacement(MaterialPageRoute(
+                              //         builder: (context) => Questions(
+                              //               sympController: sym,
+                              //             )));
+                              Navigation.mainNavigation.currentState!
+                                  .pushNamed(sym!);
                             },
-                            text: 'متابعة ',
+                            text: 'متابعة',
                             options: FFButtonOptions(
                               width: 10,
                               height: 10,

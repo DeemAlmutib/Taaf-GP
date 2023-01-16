@@ -10,6 +10,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taaf/SymptomsPages/headSy.dart';
 import 'package:taaf/SymptomsPages/neckSy.dart';
+import 'package:taaf/navigator_keys.dart';
 import 'package:touchable/touchable.dart';
 import 'package:taaf/SymptomsPages/upperBoday.dart';
 import 'package:taaf/SymptomsPages/Knee.dart';
@@ -103,10 +104,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => HeadSymptoms()));
+                                // Navigator.pushReplacement(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => HeadSymptoms()));
+                                  Navigation.mainNavigation.currentState!.pushNamed("/main/7");
+                                        Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -142,10 +145,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => neckSymptoms()));
+                                // Navigator.pushReplacement(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => neckSymptoms()));
+                                  Navigation.mainNavigation.currentState!.pushNamed("/main/8");
+                                        Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -181,10 +186,13 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => upperBoday()));
+                                //Navigator.pushReplacement(
+                                    //context,
+                                    // MaterialPageRoute(
+                                    //     builder: (context) => upperBoday()));
+                                        //Navigation.mainNavigation
+                                        Navigation.mainNavigation.currentState!.pushNamed("/main/6");
+                                        Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -220,10 +228,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Knee()));
+                                // Navigator.pushReplacement(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => Knee()));
+                                          Navigation.mainNavigation.currentState!.pushNamed("/main/9");
+                                        Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -260,10 +270,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => abdomen()));
+                                // Navigator.pushReplacement(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => abdomen()));
+                                  Navigation.mainNavigation.currentState!.pushNamed("/main/10");
+                                        Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -299,10 +311,13 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => lowerBody()));
+                                // Navigator.pushReplacement(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => lowerBody()));
+                                 Navigation.mainNavigation.currentState!.pushNamed("/main/11");
+                                  Navigator.of(context).pop();
+                                
                               },
                               child: Text(
                                 "نعم",
@@ -338,10 +353,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => muscle()));
+                                // Navigator.pushReplacement(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => muscle()));
+                                Navigation.mainNavigation.currentState!.pushNamed("/main/12");
+                                  Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -378,10 +395,14 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => muscle()));
+                                // Navigator.pushReplacement(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => muscle()));
+                                Navigation.mainNavigation.currentState!.pushNamed("/main/12");
+                                  Navigator.of(context).pop();
+
+
                               },
                               child: Text(
                                 "نعم",
@@ -418,10 +439,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => muscle()));
+                                // Navigator.pushReplacement(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => muscle()));
+                                Navigation.mainNavigation.currentState!.pushNamed("/main/12");
+                                  Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -457,10 +480,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => muscle()));
+                                // Navigator.pushReplacement(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => muscle()));
+                                Navigation.mainNavigation.currentState!.pushNamed("/main/12");
+                                  Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -497,10 +522,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => muscle()));
+                                // Navigator.pushReplacement(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => muscle()));
+                                Navigation.mainNavigation.currentState!.pushNamed("/main/12");
+                                  Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -536,10 +563,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => muscle()));
+                                // Navigator.pushReplacement(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => muscle()));
+                                Navigation.mainNavigation.currentState!.pushNamed("/main/12");
+                                  Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -575,10 +604,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => handFoot()));
+                                // Navigator.pushReplacement(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => handFoot()));
+                                 Navigation.mainNavigation.currentState!.pushNamed("/main/13");
+                                  Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -614,10 +645,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => handFoot()));
+                                // Navigator.pushReplacement(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => handFoot()));
+                                 Navigation.mainNavigation.currentState!.pushNamed("/main/13");
+                                  Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -653,10 +686,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => back()));
+                                // Navigator.pushReplacement(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => back()));
+                                 Navigation.mainNavigation.currentState!.pushNamed("/main/14");
+                                  Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",

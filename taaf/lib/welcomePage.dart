@@ -54,7 +54,7 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> {
                   child: Align(
                     alignment: AlignmentDirectional(0, 0.35),
                     child: Text(
-                      'مرحبًا بك!',
+                      '!مرحبًا بك',
                       style: FlutterFlowTheme.of(context).title1.override(
                             fontFamily: 'Tajawal',
                             color: FlutterFlowTheme.of(context).primaryBtnText,

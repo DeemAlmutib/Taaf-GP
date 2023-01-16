@@ -8,6 +8,7 @@ import 'package:taaf/humanModel.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../main.dart';
+import '../navigator_keys.dart';
 
 class upperBoday extends StatefulWidget {
   const upperBoday({Key? key}) : super(key: key);
@@ -32,8 +33,11 @@ class _upperBoday extends State<upperBoday> {
             icon: Icon(Icons.arrow_back_ios),
             color: Color.fromRGBO(0, 114, 130, 100),
             onPressed: () {
-              Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => humanModel()));
+              // Navigator.of(context).pushReplacement(
+              //     MaterialPageRoute(builder: (context) => humanModel()));
+
+              ///main/2
+              Navigation.mainNavigation.currentState!.pushNamed("/main/2");
             },
           ),
         ),
@@ -49,7 +53,7 @@ class _upperBoday extends State<upperBoday> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/images/home.png',
+                  'assets/Images/home.png',
                 ).image,
               ),
             ),
@@ -323,13 +327,17 @@ class _upperBoday extends State<upperBoday> {
 
                                 print(sym);
                               } else {
+                                 //Navigation.mainNavigation.currentState!.pushNamed("/");
                                 print("else");
                                 print(sym);
 
-                                Navigator.of(context).pushReplacement(
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            Questions(sympController: sym)));
+                                // Navigator.of(context).pushReplacement(
+                                //     MaterialPageRoute(
+                                //         builder: (context) =>
+                                //             Questions(sympController: sym)));
+
+                              Navigation.mainNavigation.currentState!.pushNamed(sym!);
+                                //Navigation.mainNavigation.currentState!.pushNamed("/main/3");
                               }
                             },
                             text: 'متابعة ',

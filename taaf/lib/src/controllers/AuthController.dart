@@ -83,7 +83,7 @@ class AuthController {
             context, 'رمز التحقق المدخل غير صحيح يرجى إعادة المحاولة ');
       } else if (e.code == 'session-expired') {
         appShowSnackBar(
-            context, "انتخت الجلسة الخاصة بك : يرجى طلب رمز تحقق جديد");
+            context, "انتهت الجلسة الخاصة بك : يرجى طلب رمز تحقق جديد");
       }
     } catch (e) {
       print(e);
@@ -192,7 +192,7 @@ class AuthController {
             context, 'رمز التحقق المدخل غير صحيح يرجى إعادة المحاولة ');
       } else if (e.code == 'session-expired') {
         appShowSnackBar(
-            context, "انتخت الجلسة الخاصة بك : يرجى طلب رمز تحقق جديد");
+            context, "انتهت الجلسة الخاصة بك : يرجى طلب رمز تحقق جديد");
       }
       allGood = false;
     } catch (e) {
