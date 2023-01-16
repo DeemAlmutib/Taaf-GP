@@ -82,7 +82,7 @@ class _Knee extends State<Knee> {
                                   fontWeight: FontWeight.bold,
                                 ),
                             textAlign: TextAlign.right),
-                        value: "knee_pain",
+                        value: "joint_pain",
                         groupValue: sym,
                         onChanged: (value) {
                           setState(() {
