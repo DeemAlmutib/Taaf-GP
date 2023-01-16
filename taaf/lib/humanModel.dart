@@ -88,10 +88,8 @@ class _humanModelPage extends State<humanModelPage> {
           elevation: 0.0,
           centerTitle: true,
           backgroundColor: Colors.white,
-          title: Image.asset(
-              '/Users/deemalmutib/Desktop/Taaf/taaf/assets/TAAFLOGO.jpg',
-              height: 90,
-              alignment: FractionalOffset.center),
+          title: Image.asset('assets/images/TAAFLOGO.jpg',
+              height: 90, alignment: FractionalOffset.center),
           toolbarHeight: 100,
         ),
         // key: scaffoldKey,
