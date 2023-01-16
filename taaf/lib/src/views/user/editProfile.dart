@@ -82,7 +82,42 @@ class _editProfileWidgetState extends State<editProfile> {
           color: Color.fromARGB(255, 248, 252, 255),
           onPressed: () async {
             if (widget.editProfileController.checkChanges()) {
-              await showAlertDialogg(context);
+              //await showAlertDialogg(context);
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                          title: Text(
+                             "هل أنت متأكد من العوده دون حفظ التغيرات ؟ ",
+                              style: GoogleFonts.tajawal(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                              textAlign: TextAlign.right),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                               // Navigator.pop(context);
+                              Navigator.pop(context);
+                              },
+                              child: Text(
+                                "لا",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+  Navigation.mainNavigation.currentState!.pushNamed("/main/4");
+                                  Navigator.of(context).pop();
+      },
+                              child: Text(
+                                "نعم",
+                                style: GoogleFonts.tajawal(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                            ),
+                          ]);
+                    },
+                  );
             } else {
               // Navigator.of(context).pushReplacement(
               //     MaterialPageRoute(builder: (context) =>  Navigation()));
