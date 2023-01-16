@@ -168,8 +168,13 @@ class _lowerBody extends State<lowerBody> {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
                                     content: Text('الرجاء اختيار عارض صحي',
+                                        style: TextStyle(
+                                            fontFamily: 'Tajawal',
+                                            // fontStyle: FontStyle.italic,
+                                            color: Colors.red),
                                         textAlign: TextAlign.right),
-                                    backgroundColor: Color(0xFF007282),
+                                    backgroundColor:
+                                        Color.fromARGB(255, 255, 255, 255),
                                   ),
                                 );
                                 print("deem");

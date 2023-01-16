@@ -59,8 +59,7 @@ class _muscle extends State<muscle> {
                   child: Column(
                     children: [
                       //
-                      Text(
-                          " الرجاء اختيار العارض الصحي الأكثر شدة؟   ", //  *
+                      Text(" الرجاء اختيار العارض الصحي الأكثر شدة؟   ", //  *
                           style: FlutterFlowTheme.of(context).title1.override(
                                 fontFamily: 'Tajawal',
                                 color: Color.fromARGB(156, 0, 0, 0),
@@ -68,10 +67,10 @@ class _muscle extends State<muscle> {
                                 fontWeight: FontWeight.bold,
                               ),
                           textAlign: TextAlign.right),
-                      Divider(
+                      /*     Divider(
                         color: Colors.black,
                         height: 36,
-                      ),
+                      ),*/
                       Divider(
                         color: Colors.black,
                         //height: 36,
@@ -174,8 +173,13 @@ class _muscle extends State<muscle> {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
                                     content: Text('الرجاء اختيار عارض صحي',
+                                        style: TextStyle(
+                                            fontFamily: 'Tajawal',
+                                            // fontStyle: FontStyle.italic,
+                                            color: Colors.red),
                                         textAlign: TextAlign.right),
-                                    backgroundColor: Color(0xFF007282),
+                                    backgroundColor:
+                                        Color.fromARGB(255, 255, 255, 255),
                                   ),
                                 );
                                 print("ifnull");

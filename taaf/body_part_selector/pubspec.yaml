@@ -19,6 +19,9 @@ dependencies:
   google_fonts: ^3.0.1
   taaf:
    path: ../
+  arrow_pad: ^0.1.4
+  #rotation_stage: 
+   #path: /Users/deemalmutib/Desktop/Taaf/taaf/rotation_stage/rotation_stage
 
 dev_dependencies:
   flutter_test:

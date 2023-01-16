@@ -10,6 +10,7 @@ import 'flutter_flow/flutter_flow_theme.dart';
 import 'homepage.dart';
 import 'login/loginPage.dart';
 import 'navigation.dart';
+import 'package:arrow_pad/arrow_pad.dart';
 
 //test
 class humanModel extends StatelessWidget {

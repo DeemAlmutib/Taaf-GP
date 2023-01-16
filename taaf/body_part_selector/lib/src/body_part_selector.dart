@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:arrow_pad/arrow_pad.dart';
 import 'package:body_part_selector/src/model/body_parts.dart';
 import 'package:body_part_selector/src/model/body_side.dart';
 import 'package:body_part_selector/src/service/successSave.dart';
@@ -29,6 +30,7 @@ class BodyPartSelector extends StatelessWidget {
     this.unselectedColor,
     this.selectedOutlineColor,
     this.unselectedOutlineColor,
+    //required ArrowPad arrow,
   });
 
   final BodySide side;

@@ -101,13 +101,33 @@ class _back extends State<back> {
                               EdgeInsetsDirectional.fromSTEB(20, 25, 20, 5),
                           child: FFButtonWidget(
                             onPressed: () {
-                              Navigator.of(context)
-                                  .pushReplacement(MaterialPageRoute(
-                                      builder: (context) => Questions(
-                                            sympController: sym,
-                                          )));
+                              if (sym == null) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('الرجاء اختيار عارض صحي',
+                                        style: TextStyle(
+                                            fontFamily: 'Tajawal',
+                                            // fontStyle: FontStyle.italic,
+                                            color: Colors.red),
+                                        textAlign: TextAlign.right),
+                                    backgroundColor:
+                                        Color.fromARGB(255, 255, 255, 255),
+                                  ),
+                                );
+                                print("deem");
+
+                                print(sym);
+                              } else {
+                                print("else");
+                                print(sym);
+
+                                Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            Questions(sympController: sym)));
+                              }
                             },
-                            text: 'متابعة',
+                            text: 'متابعة ',
                             options: FFButtonOptions(
                               width: 10,
                               height: 10,
