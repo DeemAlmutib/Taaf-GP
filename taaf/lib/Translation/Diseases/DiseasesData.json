@@ -338,7 +338,7 @@
     {
      "Name": "Paralysis (brain hemorrhage)",
      "NameAr": "Paralysis (brain hemorrhage) -  شلل دماغي أو نزيف المخ",
-     "Description": "Intracerebral hemorrhage (ICH) is when blood suddenly bursts into brain tissue, causing damage to your brain. Symptoms usually appear suddenly during ICH. They include headache, weakness, confusion, and paralysis, particularly on one side of your body.",
+     "Description": "Intracerebral hemorrhage (ICH) is when blood suddenly bursts into brain tissue, causing damage to your brain. Symptoms usually appear suddenly during ICH. They include headache, weakness, confusion, and paralysis, particularly on one side of your body",
      "DescriptionAr": "يحدث النزف داخل المخ عندما ينفجر الدم فجأة في أنسجة المخ ، مما يتسبب في تلف الدماغ. تظهر الأعراض عادة فجأة. وتشمل الصداع والضعف والارتباك والشلل ، وخاصة في جانب واحد من الجسم",
      "Advice1": "massage",
      "Advice1Ar": "قم بتدليك الجسم",
@@ -352,7 +352,7 @@
     {
      "Name": "Typhoid",
      "NameAr": "Typhoid - التيفوئيد",
-     "Description": "An acute illness characterized by fever caused by infection with the bacterium Salmonella typhi. Typhoid fever has an insidious onset, with fever, headache, constipation, malaise, chills, and muscle pain. Diarrhea is uncommon, and vomiting is not usually severe.",
+     "Description": "An acute illness characterized by fever caused by infection with the bacterium Salmonella typhi. Typhoid fever has an insidious onset, with fever, headache, constipation, malaise, chills, and muscle pain. Diarrhea is uncommon, and vomiting is not usually severe",
      "DescriptionAr": "مرض حاد يتسم بالحمى الناجم عن الإصابة بجرثومة السالمونيلا التيفية. حمى التيفوئيد لها بداية خبيثة ، مصحوبة بحمى وصداع وإمساك وتوعك وقشعريرة وألم عضلي. الإسهال غير شائع ، والقيء ليس شديدًا في العادة",
      "Advice1": "eat high calorie vegitables",
      "Advice1Ar": "قم بتناول خضراوات مليئة بالسعرات الحرارية ",
@@ -409,7 +409,7 @@
      "Name": "Migraine",
      "NameAr": "Migraine - صداع نصفي",
      "Description": "A migraine can cause severe throbbing pain or a pulsing sensation, usually on one side of the head. It's often accompanied by nausea, vomiting, and extreme sensitivity to light and sound. Migraine attacks can last for hours to days, and the pain can be so severe that it interferes with your daily activities.",
-     "DescriptionAr": "يمكن أن يسبب الصداع النصفي ألمًا شديدًا فيو إحساسًا بالنبض عادةً في جانب واحد من الرأس. غالبًا ما يكون مصحوبًا بالغثيان والقيء والحساسية الشديدة للضوء والصوت. يمكن أن تستمر نوبات الصداع النصفي من ساعات إلى أيام ",
+     "DescriptionAr": "يمكن أن يسبب الصداع النصفي ألمًا شديدًا فيوحي إحساسًا بالنبض عادةً في جانب واحد من الرأس. غالبًا ما يكون مصحوبًا بالغثيان والقيء والحساسية الشديدة للضوء والصوت. يمكن أن تستمر نوبات الصداع النصفي من ساعات إلى أيام ",
      "Advice1": "meditation",
      "Advice1Ar": "تناول الأدوية بوصفة طبيب ",
      "Advice2": "reduce stress",
