@@ -76,12 +76,23 @@ void getCurrentUser() async {
                   decoration: BoxDecoration(),
                 ),
               ),
+             Center(
+                             child: Text(
+          ' تشخيصك السابق ',
+          //textAlign: TextAlign.end,
+          style: FlutterFlowTheme.of(context).title1.override(
+                    fontFamily: 'Tajawal',
+                    color: Color(0xFF007282),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),),
+                           ),
               Container(
                 width: 389.9,
                 height: 645.8,
                 decoration: BoxDecoration(),
                 child: StreamBuilder(
-                  stream: FirebaseFirestore.instance.collection('report').snapshots(),
+                  stream: FirebaseFirestore.instance.collection('report').orderBy('date', descending:true ).snapshots(),
                   builder:(context, AsyncSnapshot<QuerySnapshot> snapshot){
                     if(snapshot.hasData){
                       return ListView.builder(
@@ -160,7 +171,9 @@ void getCurrentUser() async {
                                 ),
                                   ],
                                 ),
-                                
+                                SizedBox(
+                                  width: 10,
+                                ),
                               ],
                             ),
                           ),
