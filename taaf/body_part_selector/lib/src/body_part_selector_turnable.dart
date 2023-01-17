@@ -3,7 +3,7 @@ import 'package:body_part_selector/src/model/body_parts.dart';
 import 'package:body_part_selector/src/model/body_side.dart';
 import 'package:flutter/material.dart';
 import 'package:rotation_stage/rotation_stage.dart';
-import 'package:arrow_pad/arrow_pad.dart';
+// import 'package:arrow_pad/arrow_pad.dart';
 export 'package:rotation_stage/rotation_stage.dart';
 
 class BodyPartSelectorTurnable extends StatelessWidget {
