@@ -33,11 +33,13 @@
      "Description": "An allergy is an immune system response to a foreign substance that's not typically harmful to your body.They can include certain foods, pollen, or pet dander. Your immune system's job is to keep you healthy by fighting harmful pathogens.",
      "DescriptionAr": "الحساسية هي استجابة الجهاز المناعي لمادة غريبة لا تضر بجسمك عادةً ، ويمكن أن تشمل بعض الأطعمة أو حبوب اللقاح أو وبر الحيوانات الأليفة حيث أن تتمثل وظيفة جهاز المناعة لديك في الحفاظ على صحتك من خلال مكافحة مسببات الأمراض الضارة.",
      "Advice1": "apply calamine",
-     "Advice1Ar": "إدهن (calamine) على الجسم لتخفيف الحكة و تلطيف تهيج الجلد الطفيف",
+     "Advice1Ar": "قم باستخدام لوشن الكلامين للتخفيف من الحكة",
      "Advice2": "cover area with bandage",
      "Advice2Ar": "غطي مكان الحساسية بضمادة ",
-     "Advice4": "use ice to compress itching",
-     "Advice4Ar": "ضع ثلج على المناطق التي تشعر بها بالحكة  "
+     "Advice3": "use ice to compress itching",
+     "Advice3Ar": "ضع ثلج على المناطق التي تشعر بها بالحكة",
+     "Advice4": " ",
+     "Advice4Ar": " "
     },
     {
      "Name": "Hypothyroidism",
@@ -126,7 +128,7 @@
     {
      "Name": "(vertigo) Paroymsal  Positional Vertigo",
      "NameAr": "(Paroymsal Positional Vertigo) - دوار",
-     "Description": "Benign paroxysmal positional vertigo (BPPV) is one of the most common causes of vertigo â€” the sudden sensation that you're spinning or that the inside of your head is spinning. Benign paroxysmal positional vertigo causes brief episodes of mild to intense dizziness.",
+     "Description": "Benign paroxysmal positional vertigo (BPPV) is one of the most common causes of vertigo the sudden sensation that you're spinning or that the inside of your head is spinning. Benign paroxysmal positional vertigo causes brief episodes of mild to intense dizziness.",
      "DescriptionAr": "دوار الوضعة الانتيابي الحميد (BPPV) هو أحد الأسباب الأكثر شيوعًا للدوار ويمكن وصفه بأنه الإحساس المفاجئ بأنك تدور أو أن الجزء الداخلي من رأسك يدور. حيث أن يسبب دوار الوضعة الانتيابي الحميد نوبات قصيرة من الدوخة الخفيفة إلى الشديدة.",
      "Advice1": "lie down",
      "Advice1Ar": "إستلقى في الفراش",
@@ -140,7 +142,7 @@
     {
      "Name": "Hypoglycemia",
      "NameAr": "Hypoglycemia - نقص سكر الدم",
-     "Description": "Hypoglycemia is a condition in which your blood sugar (glucose) level is lower than normal. Glucose is your body's main energy source. Hypoglycemia is often related to diabetes treatment. But other drugs and a variety of conditions â€” many rare â€” can cause low blood sugar in people who don't have diabetes.",
+     "Description": "Hypoglycemia is a condition in which your blood sugar (glucose) level is lower than normal. Glucose is your body's main energy source. Hypoglycemia is often related to diabetes treatment. But other drugs and a variety of conditions many rare can cause low blood sugar in people who don't have diabetes.",
      "DescriptionAr": "حالة مَرَضية ينخفض فيها مستوى السكر في الدم (الجلوكوز) عن معدله القياسي. الجلوكوز هو مصدر الطاقة الرئيسي لجسمك. وغالبًا ما يكون نقص السكر في الدم مرتبطًا بعلاج السكري. لكن نادرًا  قد تسبب أدوية أخرى وعدد من الحالات المَرَضية  في انخفاض السكر في الدم لدى الأشخاص غير المصابين بالسكري.",
      "Advice1": "lie down on side",
      "Advice1Ar": "قم بالاستلقاء على الجانب",
@@ -224,7 +226,7 @@
     {
      "Name": "Dimorphic hemmorhoids(piles)",
      "NameAr": "Dimorphic hemorrhoids (piles) - البواسير ثنائية الشكل",
-     "Description": "Hemorrhoids, also spelled haemorrhoids, are vascular structures in the anal canal. In their ... Other names, Haemorrhoids, piles, hemorrhoidal disease .",
+     "Description": "Hemorrhoids are vascular structures in the anal canal.",
      "DescriptionAr": "أوردة متورمة في الشرج والمستقيم السفلي، تشبه الدوالي الوريدية. قد تنشأ البواسير داخل المستقيم (بواسير داخلية) أو تحت الجلد حول الشرج (بواسير خارجية).",
      "Advice1": "avoid fatty spicy food",
      "Advice1Ar": "تجنب الأطعمة الغنية بالتوابل",
@@ -476,7 +478,7 @@
     {
      "Name": "Dengue",
      "NameAr": "Dengue - حمى الضنك",
-     "Description": "an acute infectious disease caused by a flavivirus (species Dengue virus of the genus Flavivirus), transmitted by aedes mosquitoes, and characterized by headache, severe joint pain, and a rash. â€” called also breakbone fever, dengue fever.",
+     "Description": "an acute infectious disease caused by a flavivirus (species Dengue virus of the genus Flavivirus), transmitted by aedes mosquitoes, and characterized by headache, severe joint pain, and a rash. called also breakbone fever, dengue fever.",
      "DescriptionAr": "عدوى فيروسية تنتقل بواسطة لدغة البعوض، وتنتشر غالبًا في المناطق الاستوائية وشبه الاستوائية، وهي سريعة الانتشار خاصة في المناطق الحضرية الفقيرة والضواحي والمناطق الريفية.",
      "Advice1": "drink papaya leaf juice",
      "Advice1Ar": "اشرب عصير أوراق البابايا",
