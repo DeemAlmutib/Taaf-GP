@@ -34,7 +34,7 @@ class BodyPartSelectorTurnable extends StatelessWidget {
       contentBuilder: (index, side, page) => Padding(
         padding: padding,
         child: Padding(
-          padding: const EdgeInsets.only(top: 190.0, bottom: 20),
+          padding: const EdgeInsets.only(top: 170.0, bottom: 50),
           child: BodyPartSelector(
             side: side.map(
               front: BodySide.front,

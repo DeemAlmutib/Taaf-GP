@@ -140,7 +140,7 @@ class _humanModelPage extends State<humanModelPage> {
               Stack(
                 children: [
                   Container(
-                    height: 780,
+                    height: 700,
                     child: BodyPartSelectorTurnable(
                       bodyParts: _bodyParts,
                       onSelectionUpdated: (p) => setState(() => _bodyParts = p),
@@ -153,7 +153,7 @@ class _humanModelPage extends State<humanModelPage> {
                     ),
                   ),
                   Positioned(
-                    top: 150,
+                    top: 100,
                     left: 55,
                     child: Center(
                       child: Text(
