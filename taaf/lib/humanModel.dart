@@ -11,6 +11,7 @@ import 'homepage.dart';
 import 'login/loginPage.dart';
 //import 'navigation.dart';
 import 'navigator_keys.dart';
+
 //test
 class humanModel extends StatelessWidget {
   const humanModel({Key? key}) : super(key: key);
@@ -47,48 +48,51 @@ class _humanModelPage extends State<humanModelPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
+        extendBodyBehindAppBar: true,
 
-      // appBar: AppBar(
-      //   title: Text(
-      //     '  انقُر على المكان الذي تعاني منه  ',
-      //     //textAlign: TextAlign.end,
-      //     style: FlutterFlowTheme.of(context).title1.override(
-      //           fontFamily: 'Tajawal',
-      //           color: Color(0xFF007282),
-      //           fontSize: 20,
-      //           fontWeight: FontWeight.bold,
-      //         ),
-      //   ),
-      //   backgroundColor: Color.fromARGB(255, 255, 255, 255),
-      //   elevation: 0,
-      //   automaticallyImplyLeading: true,
-      //   leading: IconButton(
-      //     icon: Icon(Icons.arrow_back_ios),
-      //     color: Color(0xFF007282),
-      //     onPressed: () {
-      //       Navigator.of(context).pushReplacement(
-      //           MaterialPageRoute(builder: (context) => Navigation()));
-      //     },
-      //   ),
-      // ),
-              appBar: AppBar(
-        leading:IconButton(icon: Icon(Icons.arrow_back , size: 35,), color:  Color(0xFF007282), 
-         onPressed: () => // Navigator.of(context).pushReplacement(
-        //         MaterialPageRoute(builder: (context) => Navigation()))
-           Navigation.mainNavigation.currentState!.pushNamed("/")
-     
-         
-        
+        // appBar: AppBar(
+        //   title: Text(
+        //     '  انقُر على المكان الذي تعاني منه  ',
+        //     //textAlign: TextAlign.end,
+        //     style: FlutterFlowTheme.of(context).title1.override(
+        //           fontFamily: 'Tajawal',
+        //           color: Color(0xFF007282),
+        //           fontSize: 20,
+        //           fontWeight: FontWeight.bold,
+        //         ),
+        //   ),
+        //   backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        //   elevation: 0,
+        //   automaticallyImplyLeading: true,
+        //   leading: IconButton(
+        //     icon: Icon(Icons.arrow_back_ios),
+        //     color: Color(0xFF007282),
+        //     onPressed: () {
+        //       Navigator.of(context).pushReplacement(
+        //           MaterialPageRoute(builder: (context) => Navigation()));
+        //     },
+        //   ),
+        // ),
+        appBar: AppBar(
+          leading: IconButton(
+              icon: Icon(
+                Icons.arrow_back,
+                size: 35,
+              ),
+              color: Color(0xFF007282),
+              onPressed: () => // Navigator.of(context).pushReplacement(
+                  //         MaterialPageRoute(builder: (context) => Navigation()))
+                  Navigation.mainNavigation.currentState!.pushNamed("/")),
+          // backgroundColor: Colors.transparent,
+          bottomOpacity: 0.0,
+          elevation: 0.0,
+          centerTitle: true,
+          backgroundColor: Colors.white,
+          title: Image.asset('assets/images/TAAFLOGO.jpg',
+              height: 90, alignment: FractionalOffset.center),
+          toolbarHeight: 100,
         ),
        // backgroundColor: Colors.transparent,
-        bottomOpacity: 0.0,
-         elevation: 0.0,
-        centerTitle: true,
-      backgroundColor: Colors.white,
-       title: Image.asset('assets/images/taaf.jpg' , height: 90, alignment: FractionalOffset.center), 
-       toolbarHeight: 100,
-      ),
       // key: scaffoldKey,
       backgroundColor: Color.fromARGB(255, 255, 255, 255),
       // body: Column(
@@ -109,7 +113,20 @@ class _humanModelPage extends State<humanModelPage> {
             //width: 
             //height: 600,
 
-            /* decoration: BoxDecoration(
+        //     Text(
+        //     '  انقُر على المكان الذي تعاني منه  ',
+        //     //textAlign: TextAlign.end,
+        //     style: FlutterFlowTheme.of(context).title1.override(
+        //           fontFamily: 'Tajawal',
+        //           color: Color(0xFF007282),
+        //           fontSize: 20,
+        //           fontWeight: FontWeight.bold,
+        //         ),),
+ 
+              //width:
+              //height: 600,
+
+              /* decoration: BoxDecoration(
               color: Color(0xFF14181B),
               image: DecorationImage(
                 fit: BoxFit.cover,

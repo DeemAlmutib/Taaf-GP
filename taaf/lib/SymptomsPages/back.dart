@@ -108,7 +108,8 @@ class _back extends State<back> {
                               //         builder: (context) => Questions(
                               //               sympController: sym,
                               //             )));
-                               Navigation.mainNavigation.currentState!.pushNamed(sym!);
+                              Navigation.mainNavigation.currentState!
+                                  .pushNamed(sym!);
                             },
                             text: 'متابعة',
                             options: FFButtonOptions(
