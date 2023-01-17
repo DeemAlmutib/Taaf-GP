@@ -86,7 +86,7 @@ class _humanModelPage extends State<humanModelPage> {
          elevation: 0.0,
         centerTitle: true,
       backgroundColor: Colors.white,
-       title: Image.asset('assets/Images/taaf.jpg' , height: 90, alignment: FractionalOffset.center), 
+       title: Image.asset('assets/images/taaf.jpg' , height: 90, alignment: FractionalOffset.center), 
        toolbarHeight: 100,
       ),
       // key: scaffoldKey,
@@ -103,8 +103,7 @@ class _humanModelPage extends State<humanModelPage> {
       //           fontSize: 20,
       //           fontWeight: FontWeight.bold,
       //         ),),
-         body: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
+         body: SingleChildScrollView(
           child: 
             Container(
             //width: 
@@ -121,17 +120,43 @@ class _humanModelPage extends State<humanModelPage> {
             ),*/
             //  child:FlipCardWidget(
            child:
-              BodyPartSelectorTurnable(
-              bodyParts: _bodyParts,
-              onSelectionUpdated: (p) => setState(() => _bodyParts = p),
-              labelData: const RotationStageLabelData(
-                front: 'أمام',
-                left: "يسار",
-                right: 'يمين ',
-                back: 'خلف',
+              Column(
+                children: [
+                  Stack(
+                    children: [
+                      Container(
+                        height: 700,
+                        child: BodyPartSelectorTurnable(
+                        bodyParts: _bodyParts,
+                        onSelectionUpdated: (p) => setState(() => _bodyParts = p),
+                        labelData: const RotationStageLabelData(
+                          front: 'أمام',
+                          left: "يسار",
+                          right: 'يمين ',
+                          back: 'خلف',
              ),
-              
-          )),)
+                        
+          ),
+                      ),
+                      Positioned(
+                        top: 100,
+                        left: 55,
+                         child: Center(
+                             child: Text(
+          '  انقُر على المكان الذي تعاني منه  ',
+          //textAlign: TextAlign.end,
+          style: FlutterFlowTheme.of(context).title1.override(
+                    fontFamily: 'Tajawal',
+                    color: Color(0xFF007282),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),),
+                           ),
+                       ),
+                    ],
+                  ),
+                ],
+              )),)
       //  ])
     );
   }

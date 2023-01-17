@@ -6,18 +6,23 @@ import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'navigator_keys.dart';
 
 class ReportWidget extends StatefulWidget {
   final String date;
   final String disease;
   final String description;
   final String precaution;
+  final String precaution2;
+  final String precaution3;
   const ReportWidget(
     {Key? key,
     required this.date,
     required this.disease,
     required this.description,
-    required this.precaution
+    required this.precaution,
+    required this.precaution2,
+    required this.precaution3
     })
      : super(key: key);
 
@@ -61,29 +66,37 @@ void getCurrentUser() async {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+        leading:IconButton(icon: Icon(Icons.arrow_back , size: 35,), 
+        color:  Color(0xFF007282), 
+         onPressed: () => // Navigator.of(context).pushReplacement(
+        //         MaterialPageRoute(builder: (context) => Navigation()))
+           Navigation.mainNavigation.currentState!.pushNamed("/main/3")
+        
+        ),
+       // backgroundColor: Colors.transparent,
+        bottomOpacity: 0.0,
+         elevation: 0.0,
+        centerTitle: true,
+      backgroundColor:Color.fromARGB(255, 255, 255, 255),
+       title: Image.asset('assets/images/taaf.jpg' , 
+       height: 90, 
+       alignment: FractionalOffset.center), 
+       toolbarHeight: 100,
+      ),
       key: scaffoldKey,
-      backgroundColor: Color(0xFF14181B),
-      body: SingleChildScrollView(
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height * 1,
-          decoration: BoxDecoration(
-            color: Color(0xFF14181B),
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: Image.asset(
-                'assets/images/home.png',
-              ).image,
-            ),
-          ),
+      backgroundColor: Colors.white,
+      body: Container(
+        width: 500,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
+              SizedBox(height: 30,),
               Align(
                 alignment: AlignmentDirectional(-0.1, -0.55),
                 child: Container(
                   width: 389.1,
-                  height: 243.8,
+                  //height: 243.8,
                   decoration: BoxDecoration(),
                   child: Align(
                     alignment: AlignmentDirectional(0.9, 1),
@@ -99,15 +112,8 @@ void getCurrentUser() async {
                   ),
                 ),
               ),
-              Container(
-                width: 389.9,
-                height: 158.7,
-                decoration: BoxDecoration(),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
                     Container(
-                      height: 55.6,
+                      height: 45.6,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -127,38 +133,31 @@ void getCurrentUser() async {
                       ),
                     ),
                     Container(
-                      width: 382,
-                      height: 107.8,
+                     width: 372,
+                      //height: 90.8,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
                       child: Align(
                         alignment: AlignmentDirectional(0.8, -1),
                         child: Text(
-                          widget.description,
+                          'ملاحظة: نتيجة هذا الإختبار هي فقط تشخيص أولي لا يغنيك عن زيارة الطبيب    ' ,
                           textAlign: TextAlign.end,
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Tajawal',
-                                    color: Color(0xFF636366),
-                                    fontSize: 16,
+                                    color: Color.fromARGB(255, 189, 60, 60),
+                                    fontSize: 15,
                                     fontWeight: FontWeight.w500,
                                   ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
+                    
               ),
+
+             SizedBox(height:30),
               Container(
-                width: 385.3,
-                height: 246.1,
-                decoration: BoxDecoration(),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Container(
-                      height: 50.1,
+                      height: 40.1,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -178,7 +177,7 @@ void getCurrentUser() async {
                       ),
                     ),
                     Container(
-                      height: 52.9,
+                      height: 45.9,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -197,9 +196,48 @@ void getCurrentUser() async {
                         ),
                       ),
                     ),
+                            
+        Container(
+                      width: 380,
+                      height: 35,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                      child: Align(
+                        alignment: AlignmentDirectional(0.95, -1),
+                        child: Text(
+                          'وصف المرض',
+                          textAlign: TextAlign.end,
+                          style:
+                              FlutterFlowTheme.of(context).bodyText1.override(
+                                    fontFamily: 'Tajawal',
+                                    color: Color(0xFF636366),
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                        ),
+                      ),
+                    ),
+                    Container( 
+                            width: 372,
+                            child: Align(
+                        alignment: AlignmentDirectional(0.8, -1),
+                                  child: Text(widget.description , 
+                                
+                                   textAlign: TextAlign.end,
+                                   style:  GoogleFonts.tajawal(
+                    fontSize: 13,
+                    height: 1.5,
+                    //fontStyle: FontStyle.italic,
+                    color: Color.fromARGB(255, 65, 66, 66).withOpacity(0.65),
+                    fontWeight: FontWeight.bold,
+                  ),))),
+                  SizedBox(
+                    height: 5,
+                  ),
                     Container(
                       width: 380,
-                      height: 44,
+                      height: 35,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                       ),
@@ -218,30 +256,52 @@ void getCurrentUser() async {
                         ),
                       ),
                     ),
-                    Container(
-                      width: 396.9,
-                      height: 100,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                      ),
-                      child: Align(
-                        alignment: AlignmentDirectional(0.9, -1),
-                        child: Text(
-                          widget.precaution,
-                          textAlign: TextAlign.end,
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Tajawal',
-                                    color: Color(0xFF636366),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ),
-                      ),
+                    SizedBox(
+                      height: 5,
                     ),
-                  ],
-                ),
-              ),
+                    Container( 
+                      width: 372, 
+                      child: Align(alignment: AlignmentDirectional(0.95, -1),
+                             child: Text("   " + widget.precaution +" - ",  
+                             textAlign: TextAlign.end,
+                             style: GoogleFonts.tajawal(
+                    fontSize: 13,
+                    height: 1.5,
+                    //fontStyle: FontStyle.italic,
+                    color: Color.fromARGB(255, 65, 66, 66).withOpacity(0.65),
+                    fontWeight: FontWeight.bold,
+                  ),),),),
+                  SizedBox(
+                    height: 5,
+                  ),
+                   Container( 
+                      width: 372, 
+                      child: Align(alignment: AlignmentDirectional(0.95, -1),
+                             child: Text("   " + widget.precaution2 +" - ",  
+                             textAlign: TextAlign.end,
+                             style: GoogleFonts.tajawal(
+                    fontSize: 13,
+                    height: 1.5,
+                    //fontStyle: FontStyle.italic,
+                    color: Color.fromARGB(255, 65, 66, 66).withOpacity(0.65),
+                    fontWeight: FontWeight.bold,
+                  ),),),),
+                   SizedBox(
+                    height: 5,
+                  ),
+                   Container( 
+                      width: 372, 
+                      child: Align(alignment: AlignmentDirectional(0.95, -1),
+                             child: Text("   " + widget.precaution3 +" - ",  
+                             textAlign: TextAlign.end,
+                             style: GoogleFonts.tajawal(
+                    fontSize: 13,
+                    height: 1.5,
+                    //fontStyle: FontStyle.italic,
+                    color: Color.fromARGB(255, 65, 66, 66).withOpacity(0.65),
+                    fontWeight: FontWeight.bold,
+                  ),),),),
+
               // Container(
               //   width: 378.2,
               //   height: 100,
@@ -252,8 +312,7 @@ void getCurrentUser() async {
               // ),
             ],
           ),
-        ),
-      ),
+           ),
     );
   }
 }

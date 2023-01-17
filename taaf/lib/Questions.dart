@@ -110,7 +110,11 @@ void getCurrentUser() async {
   }
 
 
-
+late final arabicAdvice;
+late final arabicAdvice2;
+late final arabicAdvice3;
+late final arabicDiscription;
+late final arabicDisease;
 var symptomp ; // important attribute 
 // this method has been created manually to get the next symptopm to ask the user about based on his answer // to view the question in a way like a tree ! 
 String getSymp(List<dynamic> symptopms){
@@ -5301,7 +5305,7 @@ Questions.comingFromModel = false ;
          elevation: 0.0,
         centerTitle: true,
       backgroundColor: Colors.white,
-       title: Image.asset('assets/Images/taaf.jpg' , height: 90, alignment: FractionalOffset.center), 
+       title: Image.asset('assets/images/taaf.jpg' , height: 90, alignment: FractionalOffset.center), 
        toolbarHeight: 100,
       ),
       backgroundColor: Colors.white,
@@ -5539,7 +5543,7 @@ Questions.comingFromModel = false ;
                                 // if we got our data
                               } else if (snapshot.hasData) {
                                 // Extracting data from snapshot object
-                                final arabicDisease = snapshot.data as String;
+                                 arabicDisease = snapshot.data as String;
                         return Align(
                         alignment: AlignmentDirectional(0.9, -1),
                         child: Text(
@@ -5668,7 +5672,7 @@ width: 500,
                                 // if we got our data
                               } else if (snapshot.hasData) {
                                 // Extracting data from snapshot object
-                                final arabicDiscription = snapshot.data as String;
+                                 arabicDiscription = snapshot.data as String;
                           return Container( 
                             width: 372,
                             child: Align(
@@ -5828,7 +5832,7 @@ width: 500,
                                 // if we got our data
                               } else if (snapshot3.hasData) {
                                 // Extracting data from snapshot object
-                                final arabicAdvice = snapshot3.data as String;
+                              arabicAdvice = snapshot3.data as String;
                              return Container( width: 372, child: Align(alignment: AlignmentDirectional(0.95, -1),
                              child: Text("   " + arabicAdvice +" - ",  
                              textAlign: TextAlign.end,
@@ -5868,9 +5872,9 @@ width: 500,
                                 // if we got our data
                               } else if (snapshot4.hasData) {
                                 // Extracting data from snapshot object
-                                final arabicAdvice = snapshot4.data as String;
+                                arabicAdvice2 = snapshot4.data as String;
                              return  Container( width: 372, child: Align(alignment: AlignmentDirectional(0.95, -1),
-                             child: Text(" " + arabicAdvice +" - ",   
+                             child: Text(" " + arabicAdvice2 +" - ",   
                              textAlign: TextAlign.end,
                              style: GoogleFonts.tajawal(
                     fontSize: 13,
@@ -5908,9 +5912,9 @@ width: 500,
                                 // if we got our data
                               } else if (snapshot5.hasData) {
                                 // Extracting data from snapshot object
-                                final arabicAdvice = snapshot5.data as String;
+                               arabicAdvice3 = snapshot5.data as String;
                              return  Container( width: 372 ,child: Align(alignment: AlignmentDirectional(0.95, -1),
-                             child: Text(" " + arabicAdvice +" - ", 
+                             child: Text(" " + arabicAdvice3 +" - ", 
                                 textAlign: TextAlign.end,
                              style: GoogleFonts.tajawal(
                     fontSize: 13,
@@ -6030,11 +6034,13 @@ SizedBox(height: 20),
           .doc(jsonDecode(disease.body)['result'][0].toString() + userId)
           .set(
             {
-            'date': DateTime.now().toString(),
+            'date': DateFormat('MM/dd/yyyy').format(DateTime.now()).toString(),
             'user': userId,
-            'disease': jsonDecode(disease.body)['result'][0].toString() ,
-            'description':jsonDecode(description.body)['result'].toString(),
-            'precaution':jsonDecode(precaution.body)['result'].toString()
+            'disease': arabicDisease ,
+            'description':arabicDiscription,
+            'precaution':arabicAdvice,
+            'precaution2':arabicAdvice2,
+            'precaution3':arabicAdvice3,
           });
 
           print('report added');

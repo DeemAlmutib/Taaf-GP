@@ -97,10 +97,11 @@ void getCurrentUser() async {
                               borderRadius: BorderRadius.circular(15),
                             ),
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                SizedBox(
-                                  width: 10,
-                                ),
+                                // SizedBox(
+                                //   width: 10,
+                                // ),
                                 IconButton(
                                   onPressed: () {
                                      Navigator.of(context).push(MaterialPageRoute(
@@ -109,6 +110,8 @@ void getCurrentUser() async {
                                         disease: snapshot.data?.docs[index]['disease'] ,
                                         description: snapshot.data?.docs[index]['description'],
                                         precaution: snapshot.data?.docs[index]['precaution'],
+                                        precaution2: snapshot.data?.docs[index]['precaution2'],
+                                        precaution3: snapshot.data?.docs[index]['precaution3'],
                                       )));
                                     print('button');
                                   }, 
@@ -118,16 +121,16 @@ void getCurrentUser() async {
                                     size: 25
                                     ,)
                                     ),
-                                    SizedBox(
-                                      width: 100,
-                                     ),
+                                    // SizedBox(
+                                    //   width: 30,
+                                    //  ),
                                 Column(
                                   children: [
                                      SizedBox(
                                       height: 10,
                                      ),
                                     Container(
-                                      width: 210,
+                                      // width: 210,
                                       child: Text(
                                         snapshot.data?.docs[index]['date']
                                         ,
@@ -149,7 +152,7 @@ void getCurrentUser() async {
                                     .bodyText1
                                     .override(
                                       fontFamily: 'Tajawal',
-                                      fontSize: 18,
+                                      fontSize: 16,
                                       fontWeight: FontWeight.bold,
                                       color: Color(0xFF007282) ,
                                     ),
