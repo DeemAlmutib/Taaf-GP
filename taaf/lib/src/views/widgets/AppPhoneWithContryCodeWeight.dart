@@ -83,7 +83,7 @@ class AppPhoneWithContryCodeWeight extends StatelessWidget {
             width: dimensions.width10 * 7,
             child: TextFormField(
               controller: textEditingController,
-              
+
               // autofocus: true,
               obscureText: false,
               decoration: InputDecoration(
@@ -117,6 +117,7 @@ class AppPhoneWithContryCodeWeight extends StatelessWidget {
                   return null;
                 }
               },
+              
             ),
           ),
         ],

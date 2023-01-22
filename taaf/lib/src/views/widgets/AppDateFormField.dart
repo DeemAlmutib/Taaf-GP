@@ -23,12 +23,15 @@ class AppDateFormField extends StatelessWidget {
   final Function onSave;
   final Function validator;
   TextEditingController textEditingController;
+  var nowDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
     Dimensions dimensions = Dimensions(context);
 
-    if (initialValue != null && initialValue!.isNotEmpty && textEditingController.text.isEmpty) {
+    if (initialValue != null &&
+        initialValue!.isNotEmpty &&
+        textEditingController.text.isEmpty) {
       textEditingController.text = initialValue!;
     }
     return Container(
@@ -72,9 +75,9 @@ class AppDateFormField extends StatelessWidget {
                 context: context,
                 initialDate: textEditingController.text.isEmpty != true
                     ? DateTime.parse(textEditingController.text)
-                    : DateTime.now(),
+                    : DateTime(nowDate.year - 18, 12, 31),
                 firstDate: DateTime(1900),
-                lastDate: DateTime.now(),
+                lastDate: DateTime(nowDate.year - 18, 12, 31),
                 builder: (context, child) => Theme(
                   data: ThemeData().copyWith(
                       colorScheme:
@@ -133,7 +136,7 @@ class AppDateFormField extends StatelessWidget {
                 ),
                 controller: textEditingController,
                 validator: (value) {
-                  validator(value);
+                  return validator(value);
                 },
                 onSaved: (value) {
                   onSave(value);
@@ -148,9 +151,10 @@ class AppDateFormField extends StatelessWidget {
                     context: context,
                     initialDate: textEditingController.text.isEmpty != true
                         ? DateTime.parse(textEditingController.text)
-                        : DateTime.now(),
+                        : DateTime(
+                            nowDate.year - 18, nowDate.month, nowDate.day),
                     firstDate: DateTime(1900),
-                    lastDate: DateTime.now(),
+                    lastDate: DateTime(nowDate.year - 18, 12, 31),
                     builder: (context, child) => Theme(
                       data: ThemeData().copyWith(
                           colorScheme:

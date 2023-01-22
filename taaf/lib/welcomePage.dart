@@ -1,3 +1,6 @@
+import 'package:taaf/src/helper/Dimensions.dart';
+import 'package:taaf/src/views/user/SignUpPage.dart';
+
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -25,16 +28,18 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    Dimensions dimensions = Dimensions(context);
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color(0xFF14181B),
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height * 1,
+          width: dimensions.screenWidth,
+          height: dimensions.screenHeigh,
           decoration: BoxDecoration(
-            color: Color(0xFF14181B),
+            color: Color.fromARGB(255, 197, 217, 232),
             image: DecorationImage(
               fit: BoxFit.cover,
               image: Image.asset(
@@ -42,44 +47,35 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> {
               ).image,
             ),
           ),
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Align(
-                alignment: AlignmentDirectional(-0.1, -0.55),
-                child: Container(
-                  width: 389.1,
-                  height: 355.1,
-                  decoration: BoxDecoration(),
-                  child: Align(
-                    alignment: AlignmentDirectional(0, 0.35),
-                    child: Text(
-                      '!مرحبًا بك',
-                      style: FlutterFlowTheme.of(context).title1.override(
-                            fontFamily: 'Tajawal',
-                            color: FlutterFlowTheme.of(context).primaryBtnText,
-                            fontSize: 36,
-                            fontWeight: FontWeight.bold,
-                          ),
-                    ),
+          child: SafeArea(
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  SizedBox(
+                    height: dimensions.screenHeigh * 0.1,
                   ),
-                ),
-              ),
-              Container(
-                width: 389.9,
-                height: 364.8,
-                decoration: BoxDecoration(),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(80, 260, 80, 50),
-                  child: FFButtonWidget(
+                  Text(
+                    '!مرحبًا بك',
+                    style: FlutterFlowTheme.of(context).title1.override(
+                          fontFamily: 'Tajawal',
+                          color: FlutterFlowTheme.of(context).primaryBtnText,
+                          fontSize: 36,
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                  SizedBox(
+                    height: dimensions.screenHeigh * 0.55,
+                  ),
+                  FFButtonWidget(
                     onPressed: () {
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
                           builder: (context) => LoginPageWidget()));
                     },
                     text: 'تسجيل الدخول',
                     options: FFButtonOptions(
-                      width: 163,
-                      height: 44,
+                      width: dimensions.width10 * 22,
+                      height: dimensions.height10 * 6,
                       color: Color(0xFF007282),
                       textStyle:
                           FlutterFlowTheme.of(context).subtitle2.override(
@@ -95,9 +91,34 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> {
                       borderRadius: 30,
                     ),
                   ),
-                ),
+                  SizedBox(height: dimensions.height10),
+                  FFButtonWidget(
+                    onPressed: () {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => SignUpPage()));
+                    },
+                    text: 'تسجيل حساب',
+                    options: FFButtonOptions(
+                      width: dimensions.width10 * 22,
+                      height: dimensions.height10 * 6,
+                      color: Color(0xFF007282),
+                      textStyle:
+                          FlutterFlowTheme.of(context).subtitle2.override(
+                                fontFamily: 'Tajawal',
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                              ),
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1,
+                      ),
+                      borderRadius: 30,
+                    ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),

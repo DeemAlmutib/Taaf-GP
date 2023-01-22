@@ -256,10 +256,20 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               bool allGood =
                                   await _authController.phoneAuthentication(
                                       textController.text.toString().trim(),
-                                      context);
+                                      scaffoldKey.currentState!.context);
                               if (allGood) {
                                 //  AppShowToast(text: "تم إرسال رمز التحقق");
-                                appShowSnackBar(context, 'تم إرسال رمز التحقق');
+                                appShowSnackBar(
+                                        context,
+                                        'تم إرسال رمز التحقق',
+                                        false)
+                                    .then((value) {
+                                  Navigator.of(context)
+                                      .pushReplacement(MaterialPageRoute(
+                                          builder: (context) => verifyloginPage(
+                                                authController: _authController,
+                                              )));
+                                });
                                 // ScaffoldMessenger.of(context).showSnackBar(
                                 //   const SnackBar(
                                 //     content: Text('تم إرسال رمز التحقق',
@@ -267,13 +277,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                 //         textAlign: TextAlign.right),
                                 //   ),
                                 // );
-                                Navigator.of(context)
-                                    .pushReplacement(MaterialPageRoute(
-                                        builder: (context) => verifyloginPage(
-                                              authController: _authController,
-                                            )));
+
                               } else {
-                                AppShowToast(text: "error");
+                                // AppShowToast(text: "error");
                               }
                               // AppShowToast(text: "all good");
                             }

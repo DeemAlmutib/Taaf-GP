@@ -149,15 +149,17 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                                           widget.authController.phoneNumber,
                                           context);
                                   if (allGood) {
-                                  appShowSnackBar(context,
-                    "تم إرسال الرقم مرةً أخرى ");
+                                    appShowSnackBar(context,
+                                        "تم إرسال الرقم مرةً أخرى ", false);
                                     // Navigator.of(context).pushReplacement(MaterialPageRoute(
                                     //     builder: (context) => verifyloginPage(
                                     //           authController: _authController,
                                     //         )));
                                   } else {
-                                    appShowSnackBar(context,
-                    "حصل أمر خاطى، يرجى اعادة المحاولة ");
+                                    appShowSnackBar(
+                                        context,
+                                        "حصل أمر خاطى، يرجى اعادة المحاولة ",
+                                        true);
                                   }
 
                                   // Navigator.of(context).pushReplacement(
@@ -197,7 +199,12 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                                     context);
                             if (allGood) {
                               appShowSnackBar(
-                                  context, "تم تسجيل الدخول بنجاح ");
+                                      context, "تم تسجيل الدخول بنجاح ", true)
+                                  .then((value) {
+                                Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(
+                                        builder: (context) => MainPage()));
+                              });
                               // ScaffoldMessenger.of(context).showSnackBar(
                               //   const SnackBar(
                               //     content: Text("تم تسجيل الدخول بنجاح ",
@@ -210,10 +217,7 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                               //     MaterialPageRoute(
                               //         builder: (context) => ProfilePage()));
 
-                              Navigator.of(context).pushReplacement(
-                                  MaterialPageRoute(
-                                      builder: (context) => MainPage()));
-                               //Navigation.mainNavigation.currentState!.pushNamed("/");
+                              //Navigation.mainNavigation.currentState!.pushNamed("/");
                             } else {
                               // AppShowToast(text: "error");
                             }
