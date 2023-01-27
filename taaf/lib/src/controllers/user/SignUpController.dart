@@ -55,16 +55,16 @@ class SignUpController {
   Future<String> validateSignUpForm(BuildContext context) async {
     String validationMessage = "";
     if (userModel.name!.isEmpty) {
-      validationMessage += "الاسم ,";
+      validationMessage += " , الاسم ";
     }
     if (userModel.phoneCode!.isEmpty || userModel.phone!.isEmpty) {
-      validationMessage += "رقم الهاتف  ,";
+      validationMessage += "  , رقم الهاتف";
     }
     if (userModel.birthDate!.isEmpty) {
-      validationMessage += "تاريخ الميلاد ,";
+      validationMessage += " , تاريخ الميلاد";
     }
     if (userModel.gender!.isEmpty) {
-      validationMessage += "الجنس ,";
+      validationMessage += ", الجنس";
     }
 
     if (userModel.name!.isEmpty ||
@@ -72,11 +72,14 @@ class SignUpController {
         userModel.phone!.isEmpty ||
         userModel.gender!.isEmpty ||
         userModel.birthDate!.isEmpty) {
-      validationMessage = "هذه الحقول مطلوبه " + validationMessage;
+      validationMessage = "يرجى ملء هذه الحقول  " + validationMessage;
       return validationMessage;
     }
     if (userModel.phone!.length != 9) {
       return "رقم الهاتف يجب ان يتكون من 9 ارقام ";
+    }
+    if (userModel.name!.length < 2 || userModel.name!.length > 20) {
+      return "اسم المستخدم يجب أن لا يقل عن حرفين ولا يتجاوز 20 حرف ";
     }
     if (await userRepo.checkIfUserExisset(
         userModel.phone!, userModel.phoneCode!)) {

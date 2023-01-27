@@ -179,7 +179,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                 if (validationStatus == "") {
                                   appShowSnackBar(
                                           context,
-                                          "تم ارسال كود التحقق الى هاتفك",
+                                          "تم ارسال رمز التحقق الى هاتفك",
                                           false)
                                       .then((value) async {
                                     await showChangeNumberDialog(
