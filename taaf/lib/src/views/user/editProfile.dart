@@ -24,7 +24,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../src/base/showToast.dart';
 import '../../../../verifyPhone.dart';
 import '../../../../welcomePage.dart';
-import 'package:taaf/navigator_keys.dart'; 
+import 'package:taaf/navigator_keys.dart';
 //import 'navigation.dart';
 import 'dart:ui' as ui;
 
@@ -83,47 +83,46 @@ class _editProfileWidgetState extends State<editProfile> {
           onPressed: () async {
             if (widget.editProfileController.checkChanges()) {
               //await showAlertDialogg(context);
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                          title: Text(
-                             "هل أنت متأكد من العوده دون حفظ التغيرات ؟ ",
-                              style: GoogleFonts.tajawal(
-                                  fontWeight: FontWeight.bold, fontSize: 15),
-                              textAlign: TextAlign.right),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                               // Navigator.pop(context);
-                              Navigator.pop(context);
-                              },
-                              child: Text(
-                                "لا",
-                                style: GoogleFonts.tajawal(
-                                    fontWeight: FontWeight.bold, fontSize: 15),
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: () {
-  Navigation.mainNavigation.currentState!.pushNamed("/main/4");
-                                  Navigator.of(context).pop();
-      },
-                              child: Text(
-                                "نعم",
-                                style: GoogleFonts.tajawal(
-                                    fontWeight: FontWeight.bold, fontSize: 15),
-                              ),
-                            ),
-                          ]);
-                    },
-                  );
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                      title: Text("هل أنت متأكد من العوده دون حفظ التغيرات ؟ ",
+                          style: GoogleFonts.tajawal(
+                              fontWeight: FontWeight.bold, fontSize: 15),
+                          textAlign: TextAlign.right),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+                            // Navigator.pop(context);
+                            Navigator.pop(context);
+                          },
+                          child: Text(
+                            "لا",
+                            style: GoogleFonts.tajawal(
+                                fontWeight: FontWeight.bold, fontSize: 15),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigation.mainNavigation.currentState!
+                                .pushNamed("/main/4");
+                            Navigator.of(context).pop();
+                          },
+                          child: Text(
+                            "نعم",
+                            style: GoogleFonts.tajawal(
+                                fontWeight: FontWeight.bold, fontSize: 15),
+                          ),
+                        ),
+                      ]);
+                },
+              );
             } else {
               // Navigator.of(context).pushReplacement(
               //     MaterialPageRoute(builder: (context) =>  Navigation()));
 
               Navigation.mainNavigation.currentState!.pushNamed("/main/4");
-              
             }
           },
         ),
@@ -237,8 +236,8 @@ class _editProfileWidgetState extends State<editProfile> {
                                     .trim()
                                     .length <
                                 9) {
-                              appShowSnackBar(
-                                  context, "رقم الهاتف يجب ان يكون 9 ارقام ");
+                              appShowSnackBar(context,
+                                  "رقم الهاتف يجب ان يكون 9 ارقام ", true);
                               return;
                             }
 
@@ -359,7 +358,8 @@ class _editProfileWidgetState extends State<editProfile> {
               return WillPopScope(
                 onWillPop: () async {
                   return false;
-                },/* */
+                },
+                /* */
                 child: AlertDialog(
                   title: AppSmallTextWidget(
                       text: "تغيير رقم الهاتف", size: dimensions.font18),

@@ -24,29 +24,49 @@ class AuthController {
     return this.countryPhoneCode + this.phoneNumber;
   }
 
-  Future<bool> phoneAuthentication(String phone, BuildContext context) async {
+  Future<bool> phoneAuthentication(String phone, BuildContext context,
+      {UserModel? userModel}) async {
     bool allGood = true;
     String phoneNumber = getPhoneWithCountryCode(phone);
-    print(phoneNumber);
+
+    if (!await userRepo.checkIfUserExisset(phone, this.countryPhoneCode) &&
+        userModel == null) {
+      return appShowSnackBar(
+              context,
+              "رقم الهاتف الذي قمت بادخاله لا يطابق سجلاتنا , يرجى التاكد من صحة الرقم",
+              true)
+          .then((value) {
+        return false;
+      });
+    }
     // return true;
     return await _auth
         .verifyPhoneNumber(
             phoneNumber: phoneNumber,
             timeout: const Duration(minutes: 1),
             verificationCompleted: (credentials) async {
-              await _auth.signInWithCredential(credentials);
+              if (userModel == null) {
+                await _auth.signInWithCredential(credentials);
+              }
               allGood = true;
             },
             verificationFailed: (e) {
               if (e.code == "invalid=phone=number") {
-                appShowSnackBar(context,
-                    "رقم الهاتف المدخل غير صحيح يرجى التاكد من رقم الهاتف والمحاولة مره اخرى ");
+                appShowSnackBar(
+                        context,
+                        "رقم الهاتف المدخل غير صحيح يرجى التاكد من رقم الهاتف والمحاولة مره اخرى ",
+                        true)
+                    .then((value) {
+                  allGood = false;
+                });
               } else {
                 appShowSnackBar(
-                    context, "حصل شيء خاطئ . يرجى المحاولة مره اخرى");
+                        context, "حصل شيء خاطئ . يرجى المحاولة مره اخرى", true)
+                    .then((value) {
+                  allGood = false;
+                });
               }
-              allGood = false;
-              // print(e.code);
+              print(e.code);
             },
             codeSent: (String verificationId, int? resendToken) {
               this.verificationId = verificationId;
@@ -63,51 +83,80 @@ class AuthController {
     // return allGood;
   }
 
-  Future<bool> verfiyOTP(String otp, BuildContext context) async {
+  Future<bool> verfiyOTP(String otp, BuildContext context,
+      {UserModel? userModel}) async {
+    bool allGood = false;
+    print(otp);
+    print(this.verificationId);
+
     try {
       UserCredential credential = await _auth.signInWithCredential(
           PhoneAuthProvider.credential(
               verificationId: this.verificationId, smsCode: otp));
       if (credential != null) {
-        await saveUserData(credential);
-        return true;
+        await saveUserData(credential, userModel: userModel);
+        allGood = true;
       } else {
-        return false;
+        allGood = false;
       }
       // return credential.user != null ? true : false;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'invalid-verification-id') {
-        appShowSnackBar(context, 'تم إرسال الرمز الى رقم الجوال المدخل ');
+        appShowSnackBar(
+                context, 'يرجى التحقق من رقم الهاتف dوالمحالة مره اخرى', true)
+            .then((value) {
+          allGood = false;
+        });
       } else if (e.code == 'invalid-verification-code') {
-        appShowSnackBar(
-            context, 'رمز التحقق المدخل غير صحيح يرجى إعادة المحاولة ');
+        appShowSnackBar(context,
+                'رمز التحقق المدخل غير صحيح يرجى إعادة المحاولة ', true)
+            .then((value) {
+          allGood = false;
+        });
       } else if (e.code == 'session-expired') {
-        appShowSnackBar(
-            context, "انتهت الجلسة الخاصة بك : يرجى طلب رمز تحقق جديد");
+        appShowSnackBar(context,
+                "انتهت الجلسة الخاصة بك : يرجى طلب رمز تحقق جديد", true)
+            .then((value) {
+          allGood = false;
+        });
       }
     } catch (e) {
       print(e);
     }
-    return false;
+    return allGood;
   }
 
 /*
   function to Save the user data into firebase 
   accept user Credential
  */
-  Future<void> saveUserData(UserCredential credential) async {
+  Future<void> saveUserData(UserCredential credential,
+      {UserModel? userModel}) async {
     //get the user based on his/her ID
     await userRepo.getUser(credential.user!.uid).then((value) async {
       //check if the returned data from firebase is = 0 that means this user is not inserted in our table
+
       if (value.length == 0) {
-        //insert the new user into our table (Users)
-        await userRepo.addUserToFireStore(UserModel(
-            id: credential.user!.uid,
-            phone: phoneNumber,
-            phoneCode: countryPhoneCode,
-            name: "",
-            gender: "",
-            birthDate: ""));
+        if (userModel == null) {
+          print("model null ");
+          //insert the new user into our table (Users)
+          await userRepo.addUserToFireStore(UserModel(
+              id: credential.user!.uid,
+              phone: phoneNumber,
+              phoneCode: countryPhoneCode,
+              name: "",
+              gender: "",
+              birthDate: ""));
+        } else {
+          //insert the new user into our table (Users)
+          await userRepo.addUserToFireStore(UserModel(
+              id: credential.user!.uid,
+              phone: userModel.phone,
+              phoneCode: userModel.phoneCode,
+              name: userModel.name,
+              gender: userModel.gender,
+              birthDate: userModel.birthDate));
+        }
       } else {
         // if i want to update somthing in user table put it here .
       }
@@ -144,13 +193,20 @@ class AuthController {
             },
             verificationFailed: (e) {
               if (e.code == "invalid=phone=number") {
-                appShowSnackBar(context,
-                    "رقم الهاتف المدخل غير صحيح يرجى التاكد من رقم الهاتف والمحاولة مره اخرى ");
+                appShowSnackBar(
+                        context,
+                        "رقم الهاتف المدخل غير صحيح يرجى التاكد من رقم الهاتف والمحاولة مره اخرى ",
+                        true)
+                    .then((value) {
+                  allGood = false;
+                });
               } else {
                 appShowSnackBar(
-                    context, "حصل شيء خاطئ . يرجى المحاولة مره اخرى");
+                        context, "حصل شيء خاطئ . يرجى المحاولة مره اخرى", true)
+                    .then((value) {
+                  allGood = false;
+                });
               }
-              allGood = false;
               // print(e.code);
             },
             codeSent: (String verificationId, int? resendToken) {
@@ -186,15 +242,23 @@ class AuthController {
       });
     } on FirebaseAuthException catch (e) {
       if (e.code == 'invalid-verification-id') {
-        appShowSnackBar(context, 'تم إرسال الرمز الى رقم الجوال المدخل ');
+        appShowSnackBar(context, 'تم إرسال الرمز الى رقم الجوال المدخل ', true)
+            .then((value) {
+          allGood = false;
+        });
       } else if (e.code == 'invalid-verification-code') {
-        appShowSnackBar(
-            context, 'رمز التحقق المدخل غير صحيح يرجى إعادة المحاولة ');
+        appShowSnackBar(context,
+                'رمز التحقق المدخل غير صحيح يرجى إعادة المحاولة ', true)
+            .then((value) {
+          allGood = false;
+        });
       } else if (e.code == 'session-expired') {
-        appShowSnackBar(
-            context, "انتهت الجلسة الخاصة بك : يرجى طلب رمز تحقق جديد");
+        appShowSnackBar(context,
+                "انتهت الجلسة الخاصة بك : يرجى طلب رمز تحقق جديد", true)
+            .then((value) {
+          allGood = false;
+        });
       }
-      allGood = false;
     } catch (e) {
       print(e);
       allGood = false;

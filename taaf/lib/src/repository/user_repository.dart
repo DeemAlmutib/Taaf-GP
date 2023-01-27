@@ -26,12 +26,17 @@ class UserRepository {
     gender,
 
 */
-  Future<void> updateUserInfoFireStore({required String id, required String name, required String phone, required String phoneCode
-     ,required  String birthDate, required String gender}) async {
+  Future<void> updateUserInfoFireStore(
+      {required String id,
+      required String name,
+      required String phone,
+      required String phoneCode,
+      required String birthDate,
+      required String gender}) async {
     return await _userCollectionRef.doc(id).update({
       "name": name,
       "phone": phone,
-      "phoneCode":phoneCode,
+      "phoneCode": phoneCode,
       "birthDate": birthDate,
       "gender": gender
     });
@@ -53,9 +58,12 @@ to get single  user
 accept : 
 UserID
  */
-  Future<List<QueryDocumentSnapshot>> getUserByPhoneNumber(String? phoneNumber , String phoneCode) async {
-    var response =
-        await _userCollectionRef.where('phone', isEqualTo: phoneNumber).where('phoneCode',isEqualTo: phoneCode).get();
+  Future<List<QueryDocumentSnapshot>> getUserByPhoneNumber(
+      String? phoneNumber, String phoneCode) async {
+    var response = await _userCollectionRef
+        .where('phone', isEqualTo: phoneNumber)
+        .where('phoneCode', isEqualTo: phoneCode)
+        .get();
     return response.docs;
   }
 
@@ -81,5 +89,15 @@ to update sengle property in users collection (table)
     return await _userCollectionRef
         .doc(userID)
         .update({property.toString(): value});
+  }
+
+  Future<bool> checkIfUserExisset(String phone, String code) async {
+    return getUserByPhoneNumber(phone, code).then((value) {
+      if (value.length == 0) {
+        return false;
+      } else {
+        return true;
+      }
+    });
   }
 }

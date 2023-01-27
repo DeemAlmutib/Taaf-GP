@@ -41,7 +41,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   void initPage() async {
     editProfileController.getProfileData().then((value) {
-      print(value.phone);
+      print(value.toJson());
       setState(() {
         editProfileController.isProfileLoading = false;
       });

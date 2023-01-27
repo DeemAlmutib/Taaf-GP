@@ -3,14 +3,17 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:taaf/Questions.dart';
 import 'package:taaf/homePage.dart';
+import 'package:taaf/homepage.dart';
 import 'package:taaf/humanModel.dart';
 import 'package:taaf/login.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:taaf/myApp.dart';
 import 'package:taaf/navigation.dart';
+import 'package:taaf/src/views/user/SignUpPage.dart';
 import 'package:taaf/src/views/user/profilePage.dart';
 import 'package:taaf/welcomePage.dart';
 import 'navigator_keys.dart';
+import 'newNavigation.dart';
 import 'src/views/user/editProfile.dart';
 import 'src/base/globals.dart';
 import 'src/helper/userSharedPreferences.dart';
@@ -46,7 +49,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Firebase',
       // scaffoldMessengerKey: snackbarKey,
-      home: WelcomePageWidget(),
+      home: checkLogin(),
 
       //navigatorKey: NavigatorKeys.navigatorKeyMain,
     );
@@ -59,9 +62,9 @@ Widget checkLogin() {
   print(userID);
 
   if (userID == null) {
-    return LoginPageWidget();
+    return WelcomePageWidget();
   } else {
-    return ProfilePage();
+    return MainPage();
   }
 }
 
