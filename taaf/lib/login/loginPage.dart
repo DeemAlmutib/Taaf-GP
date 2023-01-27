@@ -226,7 +226,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         if (value!.length == 0) {
                                           return "يجب ملء هذا الحقل";
                                         } else if (value.length != 9) {
-                                          return "الرجاء إدخال رقم الهاتف صحيح";
+                                          return " رقم الهاتف يجب ان يتكون من 9 أرقام";
                                         } else {
                                           return null;
                                         }
