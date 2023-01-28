@@ -3,7 +3,6 @@ import 'dart:math';
 // import 'package:arrow_pad/arrow_pad.dart';
 import 'package:body_part_selector/src/model/body_parts.dart';
 import 'package:body_part_selector/src/model/body_side.dart';
-import 'package:body_part_selector/src/service/successSave.dart';
 import 'package:body_part_selector/src/service/svg_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -20,35 +19,44 @@ import 'package:taaf/SymptomsPages/lowerBody.dart';
 import 'package:taaf/SymptomsPages/muscle.dart';
 import 'package:taaf/SymptomsPages/handFoot.dart';
 
-class BodyPartSelector extends StatelessWidget {
+class BodyPartSelector extends StatefulWidget {
   BodyPartSelector({
     super.key,
     required this.side,
     required this.bodyParts,
     required this.onSelectionUpdated,
-    this.mirrored = false,
+    this.mirrored = true,
     this.selectedColor,
     this.unselectedColor,
     this.selectedOutlineColor,
     this.unselectedOutlineColor,
+    required this.flag,
     //required ArrowPad arrow,
   });
 
   final BodySide side;
   final BodyParts bodyParts;
-  final void Function(BodyParts bodyParts)? onSelectionUpdated;
+  final void Function(BodyParts bodyParts, bool flag)? onSelectionUpdated;
 
   final bool mirrored;
-
+  bool flag = true;
   final Color? selectedColor;
   final Color? unselectedColor;
   final Color? selectedOutlineColor;
   final Color? unselectedOutlineColor;
+
+  @override
+  State<BodyPartSelector> createState() => _BodyPartSelectorState();
+}
+
+class _BodyPartSelectorState extends State<BodyPartSelector> {
+  bool _flag = true;
+
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
-    final notifier = SvgService.instance.getSide(side);
+    final notifier = SvgService.instance.getSide(widget.side);
     return ValueListenableBuilder<DrawableRoot?>(
         valueListenable: notifier,
         builder: (context, value, _) {
@@ -71,17 +79,22 @@ class BodyPartSelector extends StatelessWidget {
       switchInCurve: Curves.easeOutCubic,
       switchOutCurve: Curves.easeOutCubic,
       child: SizedBox.expand(
-        key: ValueKey(bodyParts),
+        key: ValueKey(widget.bodyParts),
         child: CanvasTouchDetector(
           gesturesToOverride: const [GestureType.onTapDown],
           builder: (context) => CustomPaint(
             painter: _BodyPainter(
               root: drawable,
-              bodyParts: bodyParts,
+              bodyParts: widget.bodyParts,
               onTap: (s) {
                 if (s == "head") {
-                  onSelectionUpdated
-                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+                  setState(() {
+                    _flag = true;
+                    widget.onSelectionUpdated?.call(
+                        widget.bodyParts
+                            .withToggledId(s, mirror: widget.mirrored),
+                        _flag);
+                  });
 
                   showDialog(
                     context: context,
@@ -94,7 +107,13 @@ class BodyPartSelector extends StatelessWidget {
                           actions: [
                             TextButton(
                               onPressed: () {
+                                setState(() {
+                                  _flag = false;
+                                });
                                 Navigator.pop(context);
+
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/2");
                               },
                               child: Text(
                                 "لا",
@@ -104,12 +123,14 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                // Navigator.pushReplacement(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => HeadSymptoms()));
-                                  Navigation.mainNavigation.currentState!.pushNamed("/main/7");
-                                        Navigator.of(context).pop();
+                                setState(() {
+                                  _flag = true;
+                                });
+
+                                Navigator.pop(context);
+
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/7");
                               },
                               child: Text(
                                 "نعم",
@@ -120,9 +141,16 @@ class BodyPartSelector extends StatelessWidget {
                           ]);
                     },
                   );
+                  /*  setState(() {
+                    _flag = false;
+                  });*/
                 } else if (s == "neck") {
-                  onSelectionUpdated
-                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+                  _flag = true;
+
+                  widget.onSelectionUpdated?.call(
+                      widget.bodyParts
+                          .withToggledId(s, mirror: widget.mirrored),
+                      _flag);
 
                   showDialog(
                     context: context,
@@ -135,7 +163,13 @@ class BodyPartSelector extends StatelessWidget {
                           actions: [
                             TextButton(
                               onPressed: () {
-                                Navigator.pop(context);
+                                setState(() {
+                                  _flag = false;
+                                });
+                                //  Navigator.pop(context);
+
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/2");
                               },
                               child: Text(
                                 "لا",
@@ -145,12 +179,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                // Navigator.pushReplacement(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => neckSymptoms()));
-                                  Navigation.mainNavigation.currentState!.pushNamed("/main/8");
-                                        Navigator.of(context).pop();
+                                setState(() {
+                                  _flag = true;
+                                });
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/8");
+                                Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -162,8 +196,12 @@ class BodyPartSelector extends StatelessWidget {
                     },
                   );
                 } else if (s == "upperBody") {
-                  onSelectionUpdated
-                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+                  _flag = true;
+
+                  widget.onSelectionUpdated?.call(
+                      widget.bodyParts
+                          .withToggledId(s, mirror: widget.mirrored),
+                      _flag);
 
                   showDialog(
                     context: context,
@@ -176,7 +214,13 @@ class BodyPartSelector extends StatelessWidget {
                           actions: [
                             TextButton(
                               onPressed: () {
+                                setState(() {
+                                  _flag = false;
+                                });
                                 Navigator.pop(context);
+
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/2");
                               },
                               child: Text(
                                 "لا",
@@ -186,13 +230,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                //Navigator.pushReplacement(
-                                    //context,
-                                    // MaterialPageRoute(
-                                    //     builder: (context) => upperBoday()));
-                                        //Navigation.mainNavigation
-                                        Navigation.mainNavigation.currentState!.pushNamed("/main/6");
-                                        Navigator.of(context).pop();
+                                setState(() {
+                                  _flag = true;
+                                });
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/6");
+                                Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -204,8 +247,12 @@ class BodyPartSelector extends StatelessWidget {
                     },
                   );
                 } else if (s == "leftKnee" || s == "rightKnee") {
-                  onSelectionUpdated
-                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+                  _flag = true;
+
+                  widget.onSelectionUpdated?.call(
+                      widget.bodyParts
+                          .withToggledId(s, mirror: widget.mirrored),
+                      _flag);
 
                   showDialog(
                     context: context,
@@ -218,7 +265,13 @@ class BodyPartSelector extends StatelessWidget {
                           actions: [
                             TextButton(
                               onPressed: () {
+                                setState(() {
+                                  _flag = false;
+                                });
                                 Navigator.pop(context);
+
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/2");
                               },
                               child: Text(
                                 "لا",
@@ -228,12 +281,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                // Navigator.pushReplacement(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => Knee()));
-                                          Navigation.mainNavigation.currentState!.pushNamed("/main/9");
-                                        Navigator.of(context).pop();
+                                setState(() {
+                                  _flag = true;
+                                });
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/9");
+                                Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -245,8 +298,12 @@ class BodyPartSelector extends StatelessWidget {
                     },
                   );
                 } else if (s == "abdomen") {
-                  onSelectionUpdated
-                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+                  _flag = true;
+
+                  widget.onSelectionUpdated?.call(
+                      widget.bodyParts
+                          .withToggledId(s, mirror: widget.mirrored),
+                      _flag);
 
                   showDialog(
                     context: context,
@@ -260,7 +317,13 @@ class BodyPartSelector extends StatelessWidget {
                           actions: [
                             TextButton(
                               onPressed: () {
+                                setState(() {
+                                  _flag = false;
+                                });
                                 Navigator.pop(context);
+
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/2");
                               },
                               child: Text(
                                 "لا",
@@ -270,12 +333,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                // Navigator.pushReplacement(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => abdomen()));
-                                  Navigation.mainNavigation.currentState!.pushNamed("/main/10");
-                                        Navigator.of(context).pop();
+                                setState(() {
+                                  _flag = true;
+                                });
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/10");
+                                Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -287,8 +350,12 @@ class BodyPartSelector extends StatelessWidget {
                     },
                   );
                 } else if (s == "lowerBody") {
-                  onSelectionUpdated
-                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+                  _flag = true;
+
+                  widget.onSelectionUpdated?.call(
+                      widget.bodyParts
+                          .withToggledId(s, mirror: widget.mirrored),
+                      _flag);
 
                   showDialog(
                     context: context,
@@ -301,7 +368,13 @@ class BodyPartSelector extends StatelessWidget {
                           actions: [
                             TextButton(
                               onPressed: () {
+                                setState(() {
+                                  _flag = false;
+                                });
                                 Navigator.pop(context);
+
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/2");
                               },
                               child: Text(
                                 "لا",
@@ -311,13 +384,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                // Navigator.pushReplacement(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => lowerBody()));
-                                 Navigation.mainNavigation.currentState!.pushNamed("/main/11");
-                                  Navigator.of(context).pop();
-                                
+                                setState(() {
+                                  _flag = true;
+                                });
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/11");
+                                Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -329,8 +401,12 @@ class BodyPartSelector extends StatelessWidget {
                     },
                   );
                 } else if (s == "leftShoulder" || s == "rightShoulder") {
-                  onSelectionUpdated
-                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+                  _flag = true;
+
+                  widget.onSelectionUpdated?.call(
+                      widget.bodyParts
+                          .withToggledId(s, mirror: widget.mirrored),
+                      _flag);
 
                   showDialog(
                     context: context,
@@ -343,7 +419,13 @@ class BodyPartSelector extends StatelessWidget {
                           actions: [
                             TextButton(
                               onPressed: () {
+                                setState(() {
+                                  _flag = false;
+                                });
                                 Navigator.pop(context);
+
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/2");
                               },
                               child: Text(
                                 "لا",
@@ -353,12 +435,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                // Navigator.pushReplacement(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => muscle()));
-                                Navigation.mainNavigation.currentState!.pushNamed("/main/12");
-                                  Navigator.of(context).pop();
+                                setState(() {
+                                  _flag = true;
+                                });
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/12");
+                                Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -370,8 +452,12 @@ class BodyPartSelector extends StatelessWidget {
                     },
                   );
                 } else if (s == "leftUpperArm" || s == "rightUpperArm") {
-                  onSelectionUpdated
-                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+                  _flag = true;
+
+                  widget.onSelectionUpdated?.call(
+                      widget.bodyParts
+                          .withToggledId(s, mirror: widget.mirrored),
+                      _flag);
 
                   showDialog(
                     context: context,
@@ -385,7 +471,13 @@ class BodyPartSelector extends StatelessWidget {
                           actions: [
                             TextButton(
                               onPressed: () {
+                                setState(() {
+                                  _flag = false;
+                                });
                                 Navigator.pop(context);
+
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/2");
                               },
                               child: Text(
                                 "لا",
@@ -395,14 +487,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                // Navigator.pushReplacement(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => muscle()));
-                                Navigation.mainNavigation.currentState!.pushNamed("/main/12");
-                                  Navigator.of(context).pop();
-
-
+                                setState(() {
+                                  _flag = true;
+                                });
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/12");
+                                Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -414,8 +504,12 @@ class BodyPartSelector extends StatelessWidget {
                     },
                   );
                 } else if (s == "rightLowerArm" || s == "leftLowerArm") {
-                  onSelectionUpdated
-                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+                  _flag = true;
+
+                  widget.onSelectionUpdated?.call(
+                      widget.bodyParts
+                          .withToggledId(s, mirror: widget.mirrored),
+                      _flag);
 
                   showDialog(
                     context: context,
@@ -429,7 +523,13 @@ class BodyPartSelector extends StatelessWidget {
                           actions: [
                             TextButton(
                               onPressed: () {
+                                setState(() {
+                                  _flag = false;
+                                });
                                 Navigator.pop(context);
+
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/2");
                               },
                               child: Text(
                                 "لا",
@@ -439,12 +539,13 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                // Navigator.pushReplacement(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => muscle()));
-                                Navigation.mainNavigation.currentState!.pushNamed("/main/12");
-                                  Navigator.of(context).pop();
+                                setState(() {
+                                  _flag = true;
+                                });
+
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/12");
+                                Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -456,8 +557,12 @@ class BodyPartSelector extends StatelessWidget {
                     },
                   );
                 } else if (s == "leftElbow" || s == "rightElbow") {
-                  onSelectionUpdated
-                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+                  _flag = true;
+
+                  widget.onSelectionUpdated?.call(
+                      widget.bodyParts
+                          .withToggledId(s, mirror: widget.mirrored),
+                      _flag);
 
                   showDialog(
                     context: context,
@@ -470,7 +575,13 @@ class BodyPartSelector extends StatelessWidget {
                           actions: [
                             TextButton(
                               onPressed: () {
+                                setState(() {
+                                  _flag = false;
+                                });
                                 Navigator.pop(context);
+
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/2");
                               },
                               child: Text(
                                 "لا",
@@ -480,12 +591,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                // Navigator.pushReplacement(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => muscle()));
-                                Navigation.mainNavigation.currentState!.pushNamed("/main/12");
-                                  Navigator.of(context).pop();
+                                setState(() {
+                                  _flag = true;
+                                });
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/12");
+                                Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -497,8 +608,12 @@ class BodyPartSelector extends StatelessWidget {
                     },
                   );
                 } else if (s == "leftUpperLeg" || s == "rightUpperLeg") {
-                  onSelectionUpdated
-                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+                  _flag = true;
+
+                  widget.onSelectionUpdated?.call(
+                      widget.bodyParts
+                          .withToggledId(s, mirror: widget.mirrored),
+                      _flag);
 
                   showDialog(
                     context: context,
@@ -512,7 +627,13 @@ class BodyPartSelector extends StatelessWidget {
                           actions: [
                             TextButton(
                               onPressed: () {
+                                setState(() {
+                                  _flag = false;
+                                });
                                 Navigator.pop(context);
+
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/2");
                               },
                               child: Text(
                                 "لا",
@@ -522,12 +643,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                // Navigator.pushReplacement(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => muscle()));
-                                Navigation.mainNavigation.currentState!.pushNamed("/main/12");
-                                  Navigator.of(context).pop();
+                                setState(() {
+                                  _flag = true;
+                                });
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/12");
+                                Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -539,8 +660,12 @@ class BodyPartSelector extends StatelessWidget {
                     },
                   );
                 } else if (s == "leftLowerLeg" || s == "rightLowerLeg") {
-                  onSelectionUpdated
-                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+                  _flag = true;
+
+                  widget.onSelectionUpdated?.call(
+                      widget.bodyParts
+                          .withToggledId(s, mirror: widget.mirrored),
+                      _flag);
 
                   showDialog(
                     context: context,
@@ -553,7 +678,13 @@ class BodyPartSelector extends StatelessWidget {
                           actions: [
                             TextButton(
                               onPressed: () {
+                                setState(() {
+                                  _flag = false;
+                                });
                                 Navigator.pop(context);
+
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/2");
                               },
                               child: Text(
                                 "لا",
@@ -563,12 +694,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                // Navigator.pushReplacement(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => muscle()));
-                                Navigation.mainNavigation.currentState!.pushNamed("/main/12");
-                                  Navigator.of(context).pop();
+                                setState(() {
+                                  _flag = true;
+                                });
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/12");
+                                Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -580,8 +711,12 @@ class BodyPartSelector extends StatelessWidget {
                     },
                   );
                 } else if (s == "leftHand" || s == "rightHand") {
-                  onSelectionUpdated
-                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+                  _flag = true;
+
+                  widget.onSelectionUpdated?.call(
+                      widget.bodyParts
+                          .withToggledId(s, mirror: widget.mirrored),
+                      _flag);
 
                   showDialog(
                     context: context,
@@ -594,7 +729,13 @@ class BodyPartSelector extends StatelessWidget {
                           actions: [
                             TextButton(
                               onPressed: () {
+                                setState(() {
+                                  _flag = false;
+                                });
                                 Navigator.pop(context);
+
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/2");
                               },
                               child: Text(
                                 "لا",
@@ -604,12 +745,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                // Navigator.pushReplacement(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => handFoot()));
-                                 Navigation.mainNavigation.currentState!.pushNamed("/main/13");
-                                  Navigator.of(context).pop();
+                                setState(() {
+                                  _flag = true;
+                                });
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/13");
+                                Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -621,9 +762,11 @@ class BodyPartSelector extends StatelessWidget {
                     },
                   );
                 } else if (s == "leftFoot" || s == "rightFoot") {
-                  onSelectionUpdated
-                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
-
+                  _flag = true;
+                  widget.onSelectionUpdated?.call(
+                      widget.bodyParts
+                          .withToggledId(s, mirror: widget.mirrored),
+                      _flag);
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
@@ -635,7 +778,13 @@ class BodyPartSelector extends StatelessWidget {
                           actions: [
                             TextButton(
                               onPressed: () {
+                                setState(() {
+                                  _flag = false;
+                                });
                                 Navigator.pop(context);
+
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/2");
                               },
                               child: Text(
                                 "لا",
@@ -645,12 +794,13 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                // Navigator.pushReplacement(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => handFoot()));
-                                 Navigation.mainNavigation.currentState!.pushNamed("/main/13");
-                                  Navigator.of(context).pop();
+                                setState(() {
+                                  _flag = true;
+                                });
+
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/13");
+                                Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -662,8 +812,12 @@ class BodyPartSelector extends StatelessWidget {
                     },
                   );
                 } else if (s == "back") {
-                  onSelectionUpdated
-                      ?.call(bodyParts.withToggledId(s, mirror: mirrored));
+                  _flag = true;
+
+                  widget.onSelectionUpdated?.call(
+                      widget.bodyParts
+                          .withToggledId(s, mirror: widget.mirrored),
+                      _flag);
 
                   showDialog(
                     context: context,
@@ -676,7 +830,13 @@ class BodyPartSelector extends StatelessWidget {
                           actions: [
                             TextButton(
                               onPressed: () {
+                                setState(() {
+                                  _flag = false;
+                                });
                                 Navigator.pop(context);
+
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/2");
                               },
                               child: Text(
                                 "لا",
@@ -686,12 +846,12 @@ class BodyPartSelector extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                // Navigator.pushReplacement(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //         builder: (context) => back()));
-                                 Navigation.mainNavigation.currentState!.pushNamed("/main/14");
-                                  Navigator.of(context).pop();
+                                setState(() {
+                                  _flag = true;
+                                });
+                                Navigation.mainNavigation.currentState!
+                                    .pushNamed("/main/14");
+                                Navigator.of(context).pop();
                               },
                               child: Text(
                                 "نعم",
@@ -703,43 +863,16 @@ class BodyPartSelector extends StatelessWidget {
                     },
                   );
                 }
-                //muscle
-                /* else if (
-                    //s == "leftShoulder" ||
-                    // s == "leftUpperArm" ||
-                    // s == "rightShoulder" ||
-                    // s == "rightLowerArm" ||
-                    //   s == "leftLowerArm" ||
-                    // s == "leftElbow" ||
-                    //   s == "leftUpperLeg" ||
-                    // s == "rightUpperArm" ||
-                 //   s == "leftLowerLeg" ||
-                        //    s == "rightUpperLeg" ||
-                      //  s == "rightLowerLeg") {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => (muscle()), //all muscles
-                      ));
-                }
-                else if (s == "leftHand" ||
-                    s == "leftFoot" ||
-                    s == "rightFoot" ||
-                    s == "rightHand") {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => (handFoot()), //hand and foot only
-                      ));
-                }*/
               },
               context: context,
-              selectedColor: selectedColor ?? colorScheme.inversePrimary,
+              selectedColor: widget.selectedColor ?? colorScheme.inversePrimary,
               unselectedColor:
-                  unselectedColor ?? Color.fromARGB(255, 155, 155, 155),
-              selectedOutlineColor: selectedOutlineColor ?? colorScheme.primary,
+                  widget.unselectedColor ?? Color.fromARGB(255, 155, 155, 155),
+              selectedOutlineColor:
+                  widget.selectedOutlineColor ?? colorScheme.primary,
               unselectedOutlineColor:
-                  unselectedOutlineColor ?? colorScheme.onInverseSurface,
+                  widget.unselectedOutlineColor ?? colorScheme.onInverseSurface,
+              flag: _flag,
             ),
           ),
         ),
@@ -749,16 +882,16 @@ class BodyPartSelector extends StatelessWidget {
 }
 
 class _BodyPainter extends CustomPainter {
-  _BodyPainter({
-    required this.root,
-    required this.bodyParts,
-    required this.onTap,
-    required this.context,
-    required this.selectedColor,
-    required this.unselectedColor,
-    required this.unselectedOutlineColor,
-    required this.selectedOutlineColor,
-  });
+  _BodyPainter(
+      {required this.root,
+      required this.bodyParts,
+      required this.onTap,
+      required this.context,
+      required this.selectedColor,
+      required this.unselectedColor,
+      required this.unselectedOutlineColor,
+      required this.selectedOutlineColor,
+      required this.flag});
 
   final DrawableRoot root;
   final BuildContext context;
@@ -767,7 +900,7 @@ class _BodyPainter extends CustomPainter {
   final Color selectedColor;
   final Color unselectedColor;
   final Color unselectedOutlineColor;
-
+  final bool flag;
   final Color selectedOutlineColor;
 
   bool isSelected(String key) {
@@ -794,15 +927,17 @@ class _BodyPainter extends CustomPainter {
       touchyCanvas.drawPath(
         (element as DrawableShape).path.transform(fittingMatrix.storage),
         Paint()
-          ..color = isSelected(id) ? selectedColor : unselectedColor
+          ..color =
+              isSelected(id) && (flag == true) ? selectedColor : unselectedColor
           ..style = PaintingStyle.fill,
         onTapDown: (_) => onTap(id),
       );
       plainCanvas.drawPath(
         element.path.transform(fittingMatrix.storage),
         Paint()
-          ..color =
-              isSelected(id) ? selectedOutlineColor : unselectedOutlineColor
+          ..color = isSelected(id) && (flag == true)
+              ? selectedOutlineColor
+              : unselectedOutlineColor
           ..strokeWidth = 2
           ..style = PaintingStyle.stroke,
       );

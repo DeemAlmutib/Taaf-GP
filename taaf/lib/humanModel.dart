@@ -140,10 +140,12 @@ class _humanModelPage extends State<humanModelPage> {
               Stack(
                 children: [
                   Container(
-                    height: 700,
+                    height: 780,
                     child: BodyPartSelectorTurnable(
                       bodyParts: _bodyParts,
-                      onSelectionUpdated: (p) => setState(() => _bodyParts = p),
+                      onSelectionUpdated: (p, b) => setState(
+                        () => _bodyParts = p,
+                      ),
                       labelData: const RotationStageLabelData(
                         front: 'أمام',
                         left: "يسار",
@@ -153,7 +155,7 @@ class _humanModelPage extends State<humanModelPage> {
                     ),
                   ),
                   Positioned(
-                    top: 100,
+                    top: 150,
                     left: 55,
                     child: Center(
                       child: Text(
