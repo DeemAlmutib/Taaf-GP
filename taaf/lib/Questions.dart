@@ -12,6 +12,7 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:taaf/homePage.dart';
 import 'package:taaf/login.dart';
 import 'package:taaf/welcomePage.dart';
+import 'Translation/Diseases/Diseases.dart';
 import 'Translation/Symptoms/findArabicSymptom.dart';
 import 'Translation/Diseases/findArabicDisease.dart';
 
@@ -110,11 +111,17 @@ void getCurrentUser() async {
   }
 
 
-late final arabicAdvice;
-late final arabicAdvice2;
-late final arabicAdvice3;
-late final arabicDiscription;
-late final arabicDisease;
+//late final arabicAdvice;
+String arabicAdvice = "";
+//late final arabicAdvice2;
+String arabicAdvice2 = "";
+//late final arabicAdvice3;
+String arabicAdvice3 = "";
+//late final arabicDiscription;
+String arabicDiscription = "";
+//late final arabicDisease;
+String arabicDisease = "";
+
 var symptomp ; // important attribute 
 // this method has been created manually to get the next symptopm to ask the user about based on his answer // to view the question in a way like a tree ! 
 String getSymp(List<dynamic> symptopms){
@@ -5339,8 +5346,8 @@ Questions.comingFromModel = false ;
                 ),
                 if(Questions.nextSymp=="finish")
                   Container(
-                width: 389.9,
-                height: 120.7,
+                //width: 350.9,
+                height: 115.7,
                 decoration: BoxDecoration(),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -5348,7 +5355,7 @@ Questions.comingFromModel = false ;
                     Align(
                 alignment: AlignmentDirectional(-0.1, -0.55),
                 child: Container(
-                  width: 389.1,
+                 // width: 389.1,
                  // height: 100,
                   decoration: BoxDecoration(),
                   child: Align(
@@ -5424,9 +5431,9 @@ Questions.comingFromModel = false ;
 
           Column(children: [ 
             if(Questions.nextSymp!="finish")
-            SizedBox(height:80),
+            SizedBox(height:70),
 // we have 2 widgets , questions widget will view the questions and the result - the answer widget will view yes no button , each button should contains a specific logic as will be shown below
-           _questionWidget(Questions.nextSymp),SizedBox(height: 60,),
+           _questionWidget(Questions.nextSymp),SizedBox(height: 50,),
           _answerButton(), ],
           )
          
@@ -5448,622 +5455,330 @@ Questions.comingFromModel = false ;
 
     if(symp =="finish"){ // means that we have reached an end and the diagnosis should appear
 
-         Future<String> getArabicDisease(String name, String type) async {
+         Future<Diseases> getArabicDisease(String name) async {
        findArabicDisease arabicDiseaseClass = new findArabicDisease();
-        await arabicDiseaseClass.findDisease(name, type);
-      String arabicData = "";
+        await arabicDiseaseClass.findDisease(name);
 
-         switch (type) {
-    case "disease":
-     arabicData = arabicDiseaseClass.foundDisease[0].nameAr!;
-      break;
+       var arabicData;
+       arabicData = arabicDiseaseClass.foundDisease[0];
 
-    case "description": 
-     arabicData = arabicDiseaseClass.foundDisease[0].descriptionAr!;
-      break;
-
-    case "advice1": 
-      arabicData = arabicDiseaseClass.foundDisease[0].advice1Ar!;
-      break;
-
-    case "advice2": 
-      arabicData = arabicDiseaseClass.foundDisease[0].advice2Ar!;
-      break;
-
-    case "advice3": 
-      arabicData = arabicDiseaseClass.foundDisease[0].advice3Ar!;
-      break;
-
-    case "advice4": 
-      arabicData = arabicDiseaseClass.foundDisease[0].advice4Ar!;
-      break;
-
-  }
+        arabicAdvice3 = arabicData.advice3Ar;
+        arabicAdvice2 = arabicData.advice2Ar;
+        arabicAdvice = arabicData.advice1Ar;
+        arabicDiscription = arabicData.descriptionAr;
+        arabicDisease = arabicData.nameAr;
+    
       
        return arabicData;
   }
        
-      return Column(
+      return
+      
+       SingleChildScrollView(
+         child: Column(
      children:[
 
       
-        
-       
+          
+         
 
       Column(children: [
-       FutureBuilder<Response>(
-        future: predict(Yes_Symptoms), // a previously-obtained Future<String> or null
-        builder: (BuildContext context, AsyncSnapshot<Response> snapshot)  {
-          List<Widget> children;
-          if (snapshot.hasData) {
-            //var x = await PredictDisease(Yes_Symptoms);
-          Questions.expected = jsonDecode((snapshot.data)!.body)['result'].toString() ;
+         FutureBuilder<Response>(
+          future: predict(Yes_Symptoms), // a previously-obtained Future<String> or null
+          builder: (BuildContext context, AsyncSnapshot<Response> snapshot)  {
+            List<Widget> children;
+            if (snapshot.hasData) {
+              //var x = await PredictDisease(Yes_Symptoms);
+            Questions.expected = jsonDecode((snapshot.data)!.body)['result'].toString() ;
 
-            children = <Widget>[
-              SizedBox(height:15),
-              Container(
-                      height: 40.1,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                      ),
-                      child: Align(
-                        alignment: AlignmentDirectional(0.9, -1),
-                        child: Text(
-                          'من المحتمل أنك تعاني من ',
-                          textAlign: TextAlign.end,
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Tajawal',
-                                    color: Color(0xFF636366),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+              children = <Widget>[
+                SizedBox(height:5),
+                Container(
+                        height: 30,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).secondaryBackground,
+                        ),
+                        child: Align(
+                          alignment: AlignmentDirectional(0.9, -1),
+                          child: Text(
+                            'من المحتمل أنك تعاني من ',
+                            textAlign: TextAlign.end,
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Tajawal',
+                                      color: Color(0xFF636366),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                          ),
                         ),
                       ),
-                    ),
-                    Container(
-                      height: 45.9,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                      ),
-                      child:  FutureBuilder(
-                          future: getArabicDisease(jsonDecode((snapshot.data)!.body)['result'][0].toString(), "disease"),
-                          builder: (context, snapshot) {
-                            if (snapshot.connectionState ==
-                                ConnectionState.done) {
-                              // If we got an error
-                              if (snapshot.hasError) {
-                                return Center(
-                                  child: Text(
-                                    '${snapshot.error} occurred',
-                                    style: TextStyle(fontSize: 18),
-                                  ),
-                                );
-
-                                // if we got our data
-                              } else if (snapshot.hasData) {
-                                // Extracting data from snapshot object
-                                 arabicDisease = snapshot.data as String;
-                        return Align(
-                        alignment: AlignmentDirectional(0.9, -1),
-                        child: Text(
-                         arabicDisease,
-                          textAlign: TextAlign.end,
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Tajawal',
-                                    color: Color(0xFF007282),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                      Container(
+                        // height: 45.9,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).secondaryBackground,
                         ),
-                      );
-                              }
-                            }
+                        child:  FutureBuilder(
+                            future: getArabicDisease(jsonDecode((snapshot.data)!.body)['result'][0].toString()),
+                            builder: (context, snapshot2) {
+                              if (snapshot2.connectionState ==
+                                  ConnectionState.done) {
+                                // If we got an error
+                                if (snapshot2.hasError) {
+                                  return Center(
+                                    child: Text(
+                                      '${snapshot2.error} occurred',
+                                      style: TextStyle(fontSize: 18),
+                                    ),
+                                  );
 
-                            return SizedBox();
-                          },
-
+                                  // if we got our data
+                                } else if (snapshot2.hasData) {
+                                  // Extracting data from snapshot object
+                          return
                           
-                        ),
-                    ),
-       
-            ];
-          } else if (snapshot.hasError) {
-            children = <Widget>[
-              const Icon(
-                Icons.error_outline,
-                color: Colors.red,
-                size: 60,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16),
-                child: Text('Error: ${snapshot.error}'),
-              ),
-            ];
-          } else {
-            children = const <Widget>[
-              SizedBox(
-                // width: 60,
-                // height: 60,
-                child: CircularProgressIndicator(),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 10),
-                child: Text('... جاري جلب البيانات'),
-              ),
-            ];
-          }
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: children,
-            ),
-          );
-        },
-      ),
-
-       
-        
-
-      ],),
-        
-        
-        Container(
-                      width: 380,
-                      height: 35,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                      ),
-                      child: Align(
-                        alignment: AlignmentDirectional(0.95, -1),
-                        child: Text(
-                          'وصف المرض',
-                          textAlign: TextAlign.end,
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Tajawal',
-                                    color: Color(0xFF636366),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                        ),
-                      ),
-                    ),
-        // SizedBox(height: 5,),
-        Column(children: [ Container(
-height:69,
-width: 500,
-
-
-       child: 
-       FutureBuilder<Response>(
-        future: predict(Yes_Symptoms), // a previously-obtained Future<String> or null
-        builder: (BuildContext context, AsyncSnapshot<Response> snapshot1) {
-          List<Widget> children;
-          if (snapshot1.hasData) {
-
-            children = <Widget>[
-
-        FutureBuilder<Response>(
-          
-        future: predictD(jsonDecode((snapshot1.data)!.body)['result'][0].toString()), // a previously-obtained Future<String> or null
-        builder: (BuildContext context, AsyncSnapshot<Response> snapshot2) {
-          List<Widget> children;
-          if (snapshot2.hasData) {
-            print(jsonDecode((snapshot1.data)!.body)['result'][0].toString());
-            print(jsonDecode((snapshot2.data)!.body)['result'][0].toString()); 
-            print("snapshots");
-            children = <Widget>[
-          FutureBuilder(
-                          future: getArabicDisease(jsonDecode((snapshot2.data)!.body)['result'].toString(), "description"),
-                          builder: (context, snapshot) {
-                            if (snapshot.connectionState ==
-                                ConnectionState.done) {
-                              // If we got an error
-                              if (snapshot.hasError) {
-                                return Center(
-                                  child: Text(
-                                    '${snapshot.error} occurred',
-                                    style: TextStyle(fontSize: 18),
-                                  ),
-                                );
-
-                                // if we got our data
-                              } else if (snapshot.hasData) {
-                                // Extracting data from snapshot object
-                                 arabicDiscription = snapshot.data as String;
-                          return Container( 
-                            width: 372,
-                            child: Align(
-                        alignment: AlignmentDirectional(0.8, -1),
-                                  child: Text(arabicDiscription , 
-                                
-                                   textAlign: TextAlign.end,
-                                   style:  GoogleFonts.tajawal(
-                    fontSize: 13,
-                    height: 1.5,
-                    //fontStyle: FontStyle.italic,
-                    color: Color.fromARGB(255, 65, 66, 66).withOpacity(0.65),
-                    fontWeight: FontWeight.bold,
-                  ),)));
-                              }
-                            }
-
-                            return SizedBox();
-                          },
-
-                          
-                        ),
-         
-            ];
-          } else if (snapshot2.hasError) {
-            children = <Widget>[
-              const Icon(
-                Icons.error_outline,
-                color: Colors.red,
-                size: 60,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16),
-                child: Text('Error: ${snapshot2.error}'),
-              ),
-            ];
-          } else {
-            children = const <Widget>[
-              SizedBox(
-               // width: 60,
-               // height: 60,
-                child: CircularProgressIndicator(),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 10),
-                child: Text('... جاري جلب البيانات'),
-              ),
-            ];
-          }
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: children,
-            ),
-          );
-        },
-      ),
-
-
-             
-            ];
-          } else if (snapshot1.hasError) {
-            children = <Widget>[
-              const Icon(
-                Icons.error_outline,
-                color: Colors.red,
-                size: 60,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16),
-                child: Text('Error: ${snapshot1.error}'),
-              ),
-            ];
-          } else {
-            children = const <Widget>[
-              SizedBox(
-               // width: 60,
-               // height: 60,
-                child: CircularProgressIndicator(),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 10),
-                child: Text('... جاري جلب البيانات'),
-              ),
-            ];
-          }
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: children,
-            ),
-          );
-        },
-      ),
-       
-      ),
-           SizedBox(height: 5,),
-
-          Container(
-                      width: 380,
-                      height: 35,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                      ),
-                      child: Align(
-                        alignment: AlignmentDirectional(0.95, -1),
-                        child: Text(
-                          ' نصائح',
-                          textAlign: TextAlign.end,
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Tajawal',
-                                    color: Color(0xFF636366),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                        ),
-                      ),
-                    ),
-              SizedBox(height: 5,),
-          Container(
-          height:70,
-          width: 500,
-
-          child:
-          FutureBuilder<Response>(
-        future: predict(Yes_Symptoms), // a previously-obtained Future<String> or null
-        builder: (BuildContext context, AsyncSnapshot<Response> snapshot1) {
-          List<Widget> children;
-          if (snapshot1.hasData) {
-            children = <Widget>[
-               FutureBuilder<Response>(
-        future: predictA(jsonDecode((snapshot1.data)!.body)['result'][0].toString()), // a previously-obtained Future<String> or null
-        builder: (BuildContext context, AsyncSnapshot<Response> snapshot2) {
-          List<Widget> children;
-          if (snapshot2.hasData) {
-            print(jsonDecode((snapshot1.data)!.body)['result'][0].toString());
-            print(jsonDecode((snapshot2.data)!.body)['result'][0].toString()); 
-            print("snapshots");
-            children = <Widget>[
-               Column(children: [ 
-              //advice1 future FutureBuilder
-              FutureBuilder(
-                          future: getArabicDisease(jsonDecode((snapshot2.data)!.body)['result'][0].toString(), "advice1"),
-                          builder: (context, snapshot3) {
-                            if (snapshot3.connectionState ==
-                                ConnectionState.done) {
-                              // If we got an error
-                              if (snapshot3.hasError) {
-                                return Center(
-                                  child: Text(
-                                    '${snapshot3.error} occurred',
-                                    style: TextStyle(fontSize: 18),
-                                  ),
-                                );
-
-                                // if we got our data
-                              } else if (snapshot3.hasData) {
-                                // Extracting data from snapshot object
-                              arabicAdvice = snapshot3.data as String;
-                             return Container( width: 372, child: Align(alignment: AlignmentDirectional(0.95, -1),
-                             child: Text("   " + arabicAdvice +" - ",  
-                             textAlign: TextAlign.end,
-                             style: GoogleFonts.tajawal(
-                    fontSize: 13,
-                    height: 1.5,
-                    //fontStyle: FontStyle.italic,
-                    color: Color.fromARGB(255, 65, 66, 66).withOpacity(0.65),
-                    fontWeight: FontWeight.bold,
-                  ),),),);  
-                              }
-                            }
-
-                            return SizedBox();
-                          },
-
-                          
-                        ),
-        
-         SizedBox(height : 5),
-
-        //advice2 future FutureBuilder
-              FutureBuilder(
-                          future: getArabicDisease(jsonDecode((snapshot2.data)!.body)['result'][1].toString(), "advice2"),
-                          builder: (context, snapshot4) {
-                            if (snapshot4.connectionState ==
-                                ConnectionState.done) {
-                              // If we got an error
-                              if (snapshot4.hasError) {
-                                return Center(
-                                  child: Text(
-                                    '${snapshot4.error} occurred',
-                                    style: TextStyle(fontSize: 18),
-                                  ),
-                                );
-
-                                // if we got our data
-                              } else if (snapshot4.hasData) {
-                                // Extracting data from snapshot object
-                                arabicAdvice2 = snapshot4.data as String;
-                             return  Container( width: 372, child: Align(alignment: AlignmentDirectional(0.95, -1),
-                             child: Text(" " + arabicAdvice2 +" - ",   
-                             textAlign: TextAlign.end,
-                             style: GoogleFonts.tajawal(
-                    fontSize: 13,
-                    height: 1.5,
-                    //fontStyle: FontStyle.italic,
-                    color: Color.fromARGB(255, 65, 66, 66).withOpacity(0.65),
-                    fontWeight: FontWeight.bold,
-                  ),),),);  
-                              }
-                            }
-
-                            return SizedBox();
-                          },
-
-                          
-                        ),
-
-          SizedBox(height : 5),
-
-         //advice3 future FutureBuilder
-              FutureBuilder(
-                          future: getArabicDisease(jsonDecode((snapshot2.data)!.body)['result'][2].toString(), "advice3"),
-                          builder: (context, snapshot5) {
-                            if (snapshot5.connectionState ==
-                                ConnectionState.done) {
-                              // If we got an error
-                              if (snapshot5.hasError) {
-                                return Center(
-                                  child: Text(
-                                    '${snapshot5.error} occurred',
-                                    style: TextStyle(fontSize: 18),
-                                  ),
-                                );
-
-                                // if we got our data
-                              } else if (snapshot5.hasData) {
-                                // Extracting data from snapshot object
-                               arabicAdvice3 = snapshot5.data as String;
-                             return  Container( width: 372 ,child: Align(alignment: AlignmentDirectional(0.95, -1),
-                             child: Text(" " + arabicAdvice3 +" - ", 
+                           Column(
+                             children: [
+                               Align(
+                          alignment: AlignmentDirectional(0.9, -1),
+                          child: Text(
+                               arabicDisease,
                                 textAlign: TextAlign.end,
-                             style: GoogleFonts.tajawal(
-                    fontSize: 13,
-                    height: 1.5,
-                    //fontStyle: FontStyle.italic,
-                    color: Color.fromARGB(255, 65, 66, 66).withOpacity(0.65),
-                    fontWeight: FontWeight.bold,
-                  ),), ),);  
-                              }
-                            }
-
-                            return SizedBox();
-                          },
-
-                          
+                                style:
+                                    FlutterFlowTheme.of(context).bodyText1.override(
+                                          fontFamily: 'Tajawal',
+                                          color: Color(0xFF007282),
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                          ),
                         ),
-          
-          ]),
-          
-            ];
-          } else if (snapshot2.hasError) {
-            children = <Widget>[
-              const Icon(
-                Icons.error_outline,
-                color: Colors.red,
-                size: 60,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: Text('Error: ${snapshot2.error}'),
-              ),
-            ];
-          } else {
-            children = const <Widget>[
-              SizedBox(
-                //width: 60,
-                //height: 60,
-                child: CircularProgressIndicator(),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 10),
-                child: Text('... جاري جلب البيانات'),
-              ),
-            ];
-          }
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: children,
-            ),
-          );
-        },
-      ),
-             
-            ];
-          } else if (snapshot1.hasError) {
-            children = <Widget>[
-              const Icon(
-                Icons.error_outline,
-                color: Colors.red,
-                size: 60,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16),
-                child: Text('Error: ${snapshot1.error}'),
-              ),
-            ];
-          } else {
-            children = const <Widget>[
-              SizedBox(
-               // width: 60,
-               // height: 60,
-                child: CircularProgressIndicator(),
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 10),
-                child: Text('... جاري جلب البيانات'),
-              ),
-            ];
-          }
-          return Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: children,
-            ),
-          );
-        },
-      ),
-         
-          
-         ),
-        ]),
-SizedBox(height: 20),
-        ElevatedButton(
-          child: Text('                      حفظ                          ',
-          style: GoogleFonts.tajawal(
-                    fontSize: 15,
-                    //fontStyle: FontStyle.italic,
-                    
-                    color: Color.fromARGB(255, 255, 253, 253),
-                    fontWeight: FontWeight.bold,
-                  ),),
-          style: ButtonStyle(
-        foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-        backgroundColor: MaterialStateProperty.all<Color>(Color.fromRGBO(0, 114, 130, 30)),
-        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(18),
-            //side: BorderSide(color: Colors.red)
-          ),
-        ),
-          ),
-          onPressed: () { // deem and aljoharah here you are going to use firebase 
-          // Yes_Symptoms , disease , description and  are the 2 vari
-              _firestore
-          .collection('report')
-          .doc(jsonDecode(disease.body)['result'][0].toString() + userId)
-          .set(
-            {
-            'date': DateFormat('MM/dd/yyyy').format(DateTime.now()).toString(),
-            'user': userId,
-            'disease': arabicDisease ,
-            'description':arabicDiscription,
-            'precaution':arabicAdvice,
-            'precaution2':arabicAdvice2,
-            'precaution3':arabicAdvice3,
-          });
 
-          print('report added');
-        
-             Questions.allSymptompsArray =  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0
+                        
+                         SizedBox(height: 14,),
+                        
+
+                            Container(
+                      
+                        height: 24,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).secondaryBackground,
+                        ),
+                        child: Align(
+                          alignment: AlignmentDirectional(0.95, -1),
+                          child: Text(
+                            'وصف المرض',
+                            textAlign: TextAlign.end,
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Tajawal',
+                                      color: Color(0xFF636366),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                          ),
+                        ),
+                      ),
+
+                        Container(
+                        height:80,
+
+                       child: Container( 
+                              width: 386,
+                              child: Align(
+                          alignment: AlignmentDirectional(0.8, -1),
+                                    child: Text(arabicDiscription , 
+                                  
+                                     textAlign: TextAlign.end,
+                                     style:  GoogleFonts.tajawal(
+                      fontSize: 13,
+                      height: 1.5,
+                      //fontStyle: FontStyle.italic,
+                      color: Color.fromARGB(255, 65, 66, 66).withOpacity(0.65),
+                      fontWeight: FontWeight.bold,
+                    ),)))
+         
+      
+         
+      ),
+             SizedBox(height: 12,),
+
+            Container(
+                       
+                        height: 32,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).secondaryBackground,
+                        ),
+                        child: Align(
+                          alignment: AlignmentDirectional(0.95, -1),
+                          child: Text(
+                            ' نصائح',
+                            textAlign: TextAlign.end,
+                            style:
+                                FlutterFlowTheme.of(context).bodyText1.override(
+                                      fontFamily: 'Tajawal',
+                                      color: Color(0xFF636366),
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                          ),
+                        ),
+                      ),
+                SizedBox(height: 1,),
+
+           Container(child: Align(alignment: AlignmentDirectional(0.95, -1),
+                               child: Text(" " + arabicAdvice +" - ",   
+                               textAlign: TextAlign.end,
+                               style: GoogleFonts.tajawal(
+                      fontSize: 13,
+                      height: 1,
+                      //fontStyle: FontStyle.italic,
+                      color: Color.fromARGB(255, 65, 66, 66).withOpacity(0.65),
+                      fontWeight: FontWeight.bold,
+                    ),),),),
+
+           Container(child: Align(alignment: AlignmentDirectional(0.95, -1),
+                               child: Text(" " + arabicAdvice2 +" - ",   
+                               textAlign: TextAlign.end,
+                               style: GoogleFonts.tajawal(
+                      fontSize: 13,
+                      height: 2,
+                      //fontStyle: FontStyle.italic,
+                      color: Color.fromARGB(255, 65, 66, 66).withOpacity(0.65),
+                      fontWeight: FontWeight.bold,
+                    ),),),),
+
+           Container(child: Align(alignment: AlignmentDirectional(0.95, -1),
+                               child: Text(" " + arabicAdvice3 +" - ",   
+                               textAlign: TextAlign.end,
+                               style: GoogleFonts.tajawal(
+                      fontSize: 13,
+                      height: 2,
+                      //fontStyle: FontStyle.italic,
+                      color: Color.fromARGB(255, 65, 66, 66).withOpacity(0.65),
+                      fontWeight: FontWeight.bold,
+                    ),),),),
+
+              
+          SizedBox(height: 7),
+
+                    ElevatedButton(
+            child: Text('                      حفظ                          ',
+            style: GoogleFonts.tajawal(
+                      fontSize: 15,
+                      //fontStyle: FontStyle.italic,
+                      
+                      color: Color.fromARGB(255, 255, 253, 253),
+                      fontWeight: FontWeight.bold,
+                    ),),
+            style: ButtonStyle(
+          foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+          backgroundColor: MaterialStateProperty.all<Color>(Color.fromRGBO(0, 114, 130, 30)),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(18),
+              //side: BorderSide(color: Colors.red)
+            ),
+          ),
+            ),
+            onPressed: () { // deem and aljoharah here you are going to use firebase 
+            // Yes_Symptoms , disease , description and  are the 2 vari
+                _firestore
+            .collection('report')
+            .doc(jsonDecode(disease.body)['result'][0].toString() + userId)
+            .set(
+              {
+              'date': DateFormat('MM/dd/yyyy').format(DateTime.now()).toString(),
+              'user': userId,
+              'disease': arabicDisease ,
+              'description':arabicDiscription,
+              'precaution':arabicAdvice,
+              'precaution2':arabicAdvice2,
+              'precaution3':arabicAdvice3,
+            });
+
+            print('report added');
+          
+               Questions.allSymptompsArray =  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0
  ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0,0,0,0, 0, 0, 0, 0, 0, 0, 0,0,0,0,
  0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0,0,0,0,0,0,0,0,00,0,0,0,0,0,0,0,0,0];
-              Questions.nextSymp = widget.sympController ;
-               // coming from the model // 
-               Questions.comingFromModel = true;
-                  print(Yes_Symptoms); 
-              print(jsonDecode(disease.body)['result'][0].toString()); 
-               print(jsonDecode(description.body)['result'].toString()); 
-               print(jsonDecode(precaution.body)['result'][0].toString()); // at index zero is the first advice so you can store 3 in the firebase [1] and [2]
-               
-              // Navigator.of(context).pushReplacement(
-              //                MaterialPageRoute(builder: (context) => Navigation()));
-               Navigation.mainNavigation.currentState!.pushNamed("/main/3");
+                Questions.nextSymp = widget.sympController ;
+                 // coming from the model // 
+                 Questions.comingFromModel = true;
+                    print(Yes_Symptoms); 
+                print(jsonDecode(disease.body)['result'][0].toString()); 
+                 print(jsonDecode(description.body)['result'].toString()); 
+                 print(jsonDecode(precaution.body)['result'][0].toString()); // at index zero is the first advice so you can store 3 in the firebase [1] and [2]
+                 
+                // Navigator.of(context).pushReplacement(
+                //                MaterialPageRoute(builder: (context) => Navigation()));
+                 Navigation.mainNavigation.currentState!.pushNamed("/main/3");
 
 
+            },
+          ),
+
+                             ],
+
+                             
+                           );
+                                }
+                              }
+
+                              return SizedBox();
+                            },
+
+                            
+                          ),
+                      ),
+         
+              ];
+            } else if (snapshot.hasError) {
+              children = <Widget>[
+                const Icon(
+                  Icons.error_outline,
+                  color: Colors.red,
+                  size: 60,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 16),
+                  child: Text('Error: ${snapshot.error}'),
+                ),
+              ];
+            } else {
+              children = const <Widget>[
+                SizedBox(
+                  // width: 60,
+                  // height: 60,
+                  child: CircularProgressIndicator(),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(top: 10),
+                  child: Text('... جاري جلب البيانات'),
+                ),
+              ];
+            }
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: children,
+              ),
+            );
           },
-        ),
-        ]);
+      ),
+
+         
+          
+
+      ],),
+          
+          
+    
+      
+
+          
+          ]),
+       );
 
 
     
@@ -6199,8 +5914,8 @@ SizedBox(height: 20),
         onPressed: () async{
 if(Questions.nextSymp =="finish"){
 disease = await PredictDisease(Yes_Symptoms); 
-description = await getDiseaseDescription(jsonDecode(disease).body['result'][0]);
-precaution = await getDiseasePrecaution(jsonDecode(disease).body['result'][0]);
+//description = await getDiseaseDescription(jsonDecode(disease).body['result'][0]);
+//precaution = await getDiseasePrecaution(jsonDecode(disease).body['result'][0]);
 print(disease);
 print("D1");
                           
