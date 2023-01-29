@@ -44,7 +44,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      localizationsDelegates: [GlobalMaterialLocalizations.delegate],
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate, // Here !
+        DefaultWidgetsLocalizations.delegate,
+      ],
       supportedLocales: [const Locale('en'), const Locale('ar')],
       debugShowCheckedModeBanner: false,
       title: 'Firebase',

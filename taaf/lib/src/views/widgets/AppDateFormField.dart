@@ -75,9 +75,9 @@ class AppDateFormField extends StatelessWidget {
                 context: context,
                 initialDate: textEditingController.text.isEmpty != true
                     ? DateTime.parse(textEditingController.text)
-                    : DateTime(nowDate.year - 18, 12, 31),
+                    : nowDate,
                 firstDate: DateTime(1900),
-                lastDate: DateTime(nowDate.year - 18, 12, 31),
+                lastDate: nowDate,
                 builder: (context, child) => Theme(
                   data: ThemeData().copyWith(
                       colorScheme:
@@ -151,10 +151,9 @@ class AppDateFormField extends StatelessWidget {
                     context: context,
                     initialDate: textEditingController.text.isEmpty != true
                         ? DateTime.parse(textEditingController.text)
-                        : DateTime(
-                            nowDate.year - 18, nowDate.month, nowDate.day),
+                        : nowDate,
                     firstDate: DateTime(1900),
-                    lastDate: DateTime(nowDate.year - 18, 12, 31),
+                    lastDate: nowDate,
                     builder: (context, child) => Theme(
                       data: ThemeData().copyWith(
                           colorScheme:
@@ -178,4 +177,5 @@ class AppDateFormField extends StatelessWidget {
       ),
     );
   }
+  
 }

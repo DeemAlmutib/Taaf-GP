@@ -73,6 +73,7 @@ class _editProfileWidgetState extends State<editProfile> {
     Dimensions dimensions = Dimensions(context);
     return Scaffold(
       extendBodyBehindAppBar: true,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -100,7 +101,11 @@ class _editProfileWidgetState extends State<editProfile> {
                           child: Text(
                             "لا",
                             style: GoogleFonts.tajawal(
-                                fontWeight: FontWeight.bold, fontSize: 15),
+                              fontSize: 15,
+                              //fontStyle: FontStyle.italic,
+                              color: Color(0xFF007282),
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                         TextButton(
@@ -112,7 +117,11 @@ class _editProfileWidgetState extends State<editProfile> {
                           child: Text(
                             "نعم",
                             style: GoogleFonts.tajawal(
-                                fontWeight: FontWeight.bold, fontSize: 15),
+                              fontSize: 15,
+                              //fontStyle: FontStyle.italic,
+                              color: Color(0xFF007282),
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ),
                       ]);
@@ -129,218 +138,282 @@ class _editProfileWidgetState extends State<editProfile> {
       ),
       key: scaffoldKey,
       backgroundColor: Color(0xFF14181B),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: dimensions.screenHeigh,
-              decoration: BoxDecoration(
-                color: Color(0xFF14181B),
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: Image.asset(
-                    'assets/images/edit_profile.png',
-                  ).image,
-                ),
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: dimensions.screenHeigh,
+        decoration: BoxDecoration(
+          color: Color(0xFF14181B),
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: Image.asset(
+              'assets/images/edit_profile.png',
+            ).image,
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 120,
               ),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  SizedBox(
-                    height: 120,
-                  ),
-                  AppTextWeight(
-                      text: "تعديل الملف الشخصي", fontSize: dimensions.font36),
-                  SizedBox(
-                    height: 100,
-                  ),
-                  AppTextFormField(
-                      hintText: "الاسم",
-                      onSave: (value) {},
-                      initialValue:
-                          widget.editProfileController.userModel.name ?? "",
-                      validator: (value) {
-                        if (value == null || value.isEmpty)
-                          return "يجب ملء هذا الحقل";
-                        String pattern =
-                            r'^(?=.{2,20}$)[\u0621-\u064Aa-zA-Z\d\-_\s]+$';
-                        RegExp regex = RegExp(pattern);
-                        if (!regex.hasMatch(value.trim()))
-                          return '  يجب أن يحتوي اسم المستخدم على حرفين على الاقل وأن لايتجاوز ٢٠حرف ';
-                        return null;
-                      },
-                      textEditingController:
-                          widget.editProfileController.nameEditingController),
-                  SizedBox(
-                    height: dimensions.height20,
-                  ),
-                  AppPhoneWithContryCodeWeight(
-                    countryCode:
-                        widget.editProfileController.userModel.phoneCode ??
-                            "+966",
-                    textEditingController:
-                        widget.editProfileController.phoneEditingController,
-                    onSave: (value) {
-                      widget.editProfileController.phoneCode = value;
-                    },
-                  ),
-                  SizedBox(
-                    height: dimensions.height20,
-                  ),
-                  AppDateFormField(
-                    hintText: "تاريخ الميلاد",
-                    initialValue:
-                        widget.editProfileController.userModel.birthDate !=
-                                    null &&
-                                widget.editProfileController.userModel
-                                    .birthDate!.isNotEmpty
-                            ? widget.editProfileController.userModel.birthDate
-                            : "",
-                    textEditingController:
-                        widget.editProfileController.birthDateEditingController,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return "يجب ملء هذا الحقل";
-                      } else {
-                        return null;
-                      }
-                    },
-                    onSave: (value) {},
-                  ),
-                  SizedBox(
-                    height: dimensions.height20,
-                  ),
-                  AppDropDownFormField(
-                      hintText: "الجنس",
-                      onChanged: (value) {
-                        print(value);
-                        setState(() {
-                          widget.editProfileController.gender = value;
-                        });
-                      },
-                      items: widget.editProfileController.genderItems,
-                      initialValue: widget.editProfileController.gender),
-                  SizedBox(
-                    height: dimensions.height20,
-                  ),
-                  widget.editProfileController.isEditProfileLoading
-                      ? AppLoadingIndicator(
-                          text: "جاري ارسال البيانات",
-                        )
-                      : AppButtonWeiget(
-                          text: "حفظ",
-                          onPressed: () async {
-                            if (widget.editProfileController
-                                    .phoneEditingController.text
+              AppTextWeight(
+                  text: "تعديل الملف الشخصي", fontSize: dimensions.font36),
+              SizedBox(
+                height: 100,
+              ),
+              AppTextFormField(
+                  hintText: "الاسم",
+                  onSave: (value) {},
+                  initialValue:
+                      widget.editProfileController.userModel.name ?? "",
+                  validator: (value) {
+                    if (value == null || value.isEmpty)
+                      return "يجب ملء هذا الحقل";
+                    String pattern =
+                        r'^(?=.{2,20}$)[\u0621-\u064Aa-zA-Z\d\-_\s]+$';
+                    RegExp regex = RegExp(pattern);
+                    if (!regex.hasMatch(value.trim()))
+                      return '  يجب أن يحتوي اسم المستخدم على حرفين على الاقل وأن لايتجاوز ٢٠حرف ';
+                    return null;
+                  },
+                  textEditingController:
+                      widget.editProfileController.nameEditingController),
+              SizedBox(
+                height: dimensions.height20,
+              ),
+              AppPhoneWithContryCodeWeight(
+                countryCode:
+                    widget.editProfileController.userModel.phoneCode ?? "+966",
+                textEditingController:
+                    widget.editProfileController.phoneEditingController,
+                onSave: (value) {
+                  widget.editProfileController.phoneCode = value;
+                },
+              ),
+              SizedBox(
+                height: dimensions.height20,
+              ),
+              AppDateFormField(
+                hintText: "تاريخ الميلاد",
+                initialValue:
+                    widget.editProfileController.userModel.birthDate != null &&
+                            widget.editProfileController.userModel.birthDate!
+                                .isNotEmpty
+                        ? widget.editProfileController.userModel.birthDate
+                        : "",
+                textEditingController:
+                    widget.editProfileController.birthDateEditingController,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "يجب ملء هذا الحقل";
+                  } else {
+                    return null;
+                  }
+                },
+                onSave: (value) {},
+              ),
+              SizedBox(
+                height: dimensions.height20,
+              ),
+              AppDropDownFormField(
+                  hintText: "الجنس",
+                  onChanged: (value) {
+                    print(value);
+                    setState(() {
+                      widget.editProfileController.gender = value;
+                    });
+                  },
+                  items: widget.editProfileController.genderItems,
+                  initialValue: widget.editProfileController.gender),
+              SizedBox(
+                height: dimensions.height20,
+              ),
+              widget.editProfileController.isEditProfileLoading
+                  ? AppLoadingIndicator(
+                      text: "جاري ارسال البيانات",
+                    )
+                  : AppButtonWeiget(
+                      text: "حفظ",
+                      onPressed: () async {
+                        if (widget.editProfileController.phoneEditingController
+                                .text
+                                .trim()
+                                .length <
+                            9) {
+                          appShowSnackBar(
+                              context, "رقم الهاتف يجب ان يكون 9 ارقام ", true);
+                          return null;
+                        }
+                        String validationMessage = "";
+                        if (widget
+                            .editProfileController.nameEditingController.text
+                            .trim()
+                            .isEmpty) {
+                          validationMessage += "الاسم , ";
+                        }
+                        if (widget.editProfileController.phoneCode.isEmpty ||
+                            widget.editProfileController.phoneEditingController
+                                .text
+                                .trim()
+                                .isEmpty) {
+                          validationMessage += "رقم الهاتف , ";
+                        }
+                        if (widget.editProfileController
+                            .birthDateEditingController.text
+                            .trim()
+                            .isEmpty) {
+                          validationMessage += "تاريخ الميلاد , ";
+                        }
+                        if (widget.editProfileController.gender.isEmpty) {
+                          validationMessage += " الجنس , ";
+                        }
+                        if (widget.editProfileController.nameEditingController
+                                .text
+                                .trim()
+                                .isEmpty ||
+                            widget.editProfileController.phoneCode.isEmpty ||
+                            widget.editProfileController.phoneEditingController
+                                .text
+                                .trim()
+                                .isEmpty ||
+                            widget.editProfileController.gender.isEmpty ||
+                            widget.editProfileController
+                                .birthDateEditingController.text
+                                .trim()
+                                .isEmpty) {
+                          appShowSnackBar(
+                              context,
+                              "يرجى ملء هذه الحقول  " + validationMessage,
+                              true);
+                          return null;
+                        }
+
+                        if (widget.editProfileController.nameEditingController
+                                    .text
                                     .trim()
                                     .length <
-                                9) {
-                              appShowSnackBar(context,
-                                  "رقم الهاتف يجب ان يكون 9 ارقام ", true);
-                              return;
-                            }
+                                2 ||
+                            widget.editProfileController.nameEditingController
+                                    .text
+                                    .trim()
+                                    .length >
+                                20) {
+                          //   return "اسم المستخدم يجب أن لا يقل عن حرفين وأن لا يتجاوز عن 20 حرف ";
+                          appShowSnackBar(
+                              context,
+                              "اسم المستخدم يجب أن لا يقل عن حرفين وأن لا يتجاوز عن 20 حرف",
+                              true);
+                          return null;
+                        }
+                        if (widget.editProfileController
+                            .birthDateEditingController.text
+                            .trim()
+                            .isNotEmpty) {
+                          if (await isUnderage(widget.editProfileController
+                              .birthDateEditingController.text)) {
+                            appShowSnackBar(context,
+                                "يجب ان يكون العمر على الاقل 7 سنوات", true);
+                            return null;
+                          }
+                        }
 
-                            if (widget.editProfileController.userModel.phone ==
-                                    widget.editProfileController
-                                        .phoneEditingController.text
-                                        .trim() &&
-                                widget.editProfileController.userModel
-                                        .phoneCode ==
-                                    widget.editProfileController.phoneCode) {
-                              newPhoneNumberVerifed = true;
-                            } else {
-                              bool phoneAvailability = await authController
-                                  .checkPhoneNumberAvailability(
-                                      phoneNumber: widget.editProfileController
-                                          .phoneEditingController.text
-                                          .trim(),
-                                      phoneCode: widget
-                                          .editProfileController.phoneCode);
-                              if (phoneAvailability) {
+                        if (widget.editProfileController.userModel.phone ==
                                 widget.editProfileController
-                                    .verficationDialogStep = 0;
-                                newPhoneNumberVerifed = false;
-                                widget.editProfileController
-                                    .otpEditingController.text = "";
-                                widget.editProfileController.isSendOtpLoading =
-                                    false;
-                                widget.editProfileController
-                                    .isOTPVerficationLoading = false;
-                                await showChangeNumberDialog(
-                                    dimensions, widget.editProfileController);
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text(
-                                        'رقم الهاتف المدخل مستخدم بالفعل !',
-                                        style: TextStyle(fontSize: 18),
-                                        textAlign: TextAlign.right),
-                                  ),
-                                );
-                                return;
-                              }
-                            }
+                                    .phoneEditingController.text
+                                    .trim() &&
+                            widget.editProfileController.userModel.phoneCode ==
+                                widget.editProfileController.phoneCode) {
+                          newPhoneNumberVerifed = true;
+                        } else {
+                          bool phoneAvailability =
+                              await authController.checkPhoneNumberAvailability(
+                                  phoneNumber: widget.editProfileController
+                                      .phoneEditingController.text
+                                      .trim(),
+                                  phoneCode:
+                                      widget.editProfileController.phoneCode);
+                          if (phoneAvailability) {
+                            widget.editProfileController.verficationDialogStep =
+                                0;
+                            newPhoneNumberVerifed = false;
+                            widget.editProfileController.otpEditingController
+                                .text = "";
+                            widget.editProfileController.isSendOtpLoading =
+                                false;
+                            widget.editProfileController
+                                .isOTPVerficationLoading = false;
+                            await showChangeNumberDialog(
+                                dimensions, widget.editProfileController);
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                    'رقم الهاتف المدخل مستخدم بالفعل !',
+                                    style: TextStyle(fontSize: 18),
+                                    textAlign: TextAlign.right),
+                              ),
+                            );
+                            return "";
+                          }
+                        }
 
-                            if (newPhoneNumberVerifed) {
-                              setState(() {
-                                widget.editProfileController
-                                    .isEditProfileLoading = true;
-                              });
-                              await widget.editProfileController
-                                  .updateUserData()
-                                  .then((value) {
-                                if (value) {
-                                  widget.editProfileController
-                                      .isEditProfileLoading = false;
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                      content: Text(
-                                          'تم تعديل الملف الشخصي بنجاح',
-                                          style: TextStyle(fontSize: 18),
-                                          textAlign: TextAlign.right),
-                                    ),
-                                  );
-                                  Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                          builder: (context) => ProfilePage()));
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                      content: Text(
-                                          'حصل خطأ اثناء تعديل الملف الشخصي يرجى المحاولة مره اخرى !',
-                                          style: TextStyle(fontSize: 18),
-                                          textAlign: TextAlign.right),
-                                    ),
-                                  );
-                                  setState(() {
-                                    widget.editProfileController
-                                        .isEditProfileLoading = false;
-                                  });
-                                }
-                              });
-                            } else {
+                        if (newPhoneNumberVerifed) {
+                          setState(() {
+                            widget.editProfileController.isEditProfileLoading =
+                                true;
+                          });
+                          await widget.editProfileController
+                              .updateUserData()
+                              .then((value) {
+                            if (value) {
+                              widget.editProfileController
+                                  .isEditProfileLoading = false;
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
-                                  content: Text('يرجى تاكيد رقم الهاتف الجديد',
+                                  content: Text('تم تعديل الملف الشخصي بنجاح',
                                       style: TextStyle(fontSize: 18),
                                       textAlign: TextAlign.right),
                                 ),
                               );
+                              Navigator.of(context).pushReplacement(
+                                  MaterialPageRoute(
+                                      builder: (context) => ProfilePage()));
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                  content: Text(
+                                      'حصل خطأ اثناء تعديل الملف الشخصي يرجى المحاولة مره اخرى !',
+                                      style: TextStyle(fontSize: 18),
+                                      textAlign: TextAlign.right),
+                                ),
+                              );
+                              setState(() {
+                                widget.editProfileController
+                                    .isEditProfileLoading = false;
+                              });
                             }
-                            // return;
+                          });
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('يرجى تاكيد رقم الهاتف الجديد',
+                                  style: TextStyle(fontSize: 18),
+                                  textAlign: TextAlign.right),
+                            ),
+                          );
+                        }
+                        // return;
 
-                            // Timer(Duration(seconds: 10), () {
-                            //   setState(() {
-                            //     widget.editProfileController
-                            //         .isEditProfileLoading = false;
-                            //   });
-                            // });
-                          }),
-                ],
-              ),
-            ),
-          ],
+                        // Timer(Duration(seconds: 10), () {
+                        //   setState(() {
+                        //     widget.editProfileController
+                        //         .isEditProfileLoading = false;
+                        //   });
+                        // });
+                      },
+                    ),
+            ],
+          ),
         ),
       ),
     );
@@ -524,6 +597,11 @@ class _editProfileWidgetState extends State<editProfile> {
                                 });
                               }
                             });
+                          } else {
+                            appShowSnackBar(
+                                context,
+                                "رمز التحقق يجب ان يكون 6 ارقام , يرجى التاكد من رمز التحقق والمحاولة مره اخرى",
+                                true);
                           }
                         },
                       ),
@@ -583,5 +661,15 @@ class _editProfileWidgetState extends State<editProfile> {
         return alert;
       },
     );
+  }
+
+  Future<bool> isUnderage(String date) async {
+    DateTime newDate = DateTime.parse(date);
+
+    return (DateTime(DateTime.now().year, newDate.month, newDate.day)
+                .isAfter(DateTime.now())
+            ? DateTime.now().year - newDate.year - 1
+            : DateTime.now().year - newDate.year) <
+        7;
   }
 }

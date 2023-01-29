@@ -85,6 +85,9 @@ class SignUpController {
         userModel.phone!, userModel.phoneCode!)) {
       return "رقم الهاتف المدخل  مستخدم مسبقًا ";
     }
+    if (await isUnderage(userModel.birthDate!)) {
+      return "يجب ان يكون العمر على الاقل 7 سنوات";
+    }
     authController.countryPhoneCode = userModel.phoneCode!;
     if (!await authController.phoneAuthentication(userModel.phone!, context,
         userModel: userModel)) {
@@ -97,9 +100,14 @@ class SignUpController {
       String otp, BuildContext context, UserModel userModel) async {
     return await authController.verfiyOTP(otp, context, userModel: userModel);
   }
+
+  Future<bool> isUnderage(String date) async {
+    DateTime newDate = DateTime.parse(date);
+
+    return (DateTime(DateTime.now().year, newDate.month, newDate.day)
+                .isAfter(DateTime.now())
+            ? DateTime.now().year - newDate.year - 1
+            : DateTime.now().year - newDate.year) <
+        7;
+  }
 }
-
-
-
-
-

@@ -199,7 +199,7 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                                     context);
                             if (allGood) {
                               appShowSnackBar(
-                                      context, "تم تسجيل الدخول بنجاح ", true)
+                                      context, "تم تسجيل الدخول بنجاح ", false)
                                   .then((value) {
                                 Navigator.of(context).pushReplacement(
                                     MaterialPageRoute(

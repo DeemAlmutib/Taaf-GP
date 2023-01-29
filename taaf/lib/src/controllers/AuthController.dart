@@ -103,7 +103,7 @@ class AuthController {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'invalid-verification-id') {
         appShowSnackBar(
-                context, 'يرجى التحقق من رقم الهاتف dوالمحالة مره اخرى', true)
+                context, 'يرجى التحقق من رقم الهاتف و المحاولة مرة أخرى ', true)
             .then((value) {
           allGood = false;
         });

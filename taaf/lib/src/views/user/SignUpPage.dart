@@ -19,7 +19,6 @@ import '../widgets/AppPhoneWithContryCodeWeight.dart';
 import '../widgets/AppSmallTextWidget.dart';
 import '../widgets/AppTextFormField.dart';
 
-
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
 
@@ -315,6 +314,11 @@ class _SignUpPageState extends State<SignUpPage> {
                                 });
                               }
                             });
+                          } else {
+                            appShowSnackBar(
+                                context,
+                                "رمز التحقق يجب ان يكون 6 ارقام , يرجى التاكد من رمز التحقق والمحاولة مره اخرى",
+                                true);
                           }
                         },
                       ),

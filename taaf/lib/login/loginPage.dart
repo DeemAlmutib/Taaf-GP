@@ -1,6 +1,7 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:taaf/src/controllers/AuthController.dart';
+import 'package:taaf/src/helper/Dimensions.dart';
 
 import '../flutter_flow/flutter_flow_drop_down.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
@@ -43,8 +44,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    Dimensions dimensions = Dimensions(context);
     return Scaffold(
       extendBodyBehindAppBar: true,
+      // resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -60,62 +63,53 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
       ),
       key: scaffoldKey,
       backgroundColor: Color(0xFF14181B),
-      body: SingleChildScrollView(
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height * 1,
-          decoration: BoxDecoration(
-            color: Color(0xFF14181B),
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: Image.asset(
-                'assets/images/background_(1).png',
-              ).image,
-            ),
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: dimensions.screenHeigh,
+        decoration: BoxDecoration(
+          color: Color.fromARGB(255, 19, 20, 21),
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: Image.asset(
+              'assets/images/background_(1).png',
+            ).image,
           ),
+        ),
+        child: SingleChildScrollView(
           child: Column(
-            mainAxisSize: MainAxisSize.max,
+            // mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Align(
-                alignment: AlignmentDirectional(-0.1, -0.55),
-                child: Container(
-                  width: 389.1,
-                  height: 355.1,
-                  decoration: BoxDecoration(),
-                  child: Align(
-                    alignment: AlignmentDirectional(0, 0.35),
-                    child: Text(
-                      'تسجيل الدخول',
-                      style: FlutterFlowTheme.of(context).title1.override(
-                            fontFamily: 'Tajawal',
-                            color: FlutterFlowTheme.of(context).primaryBtnText,
-                            fontSize: 36,
-                            fontWeight: FontWeight.bold,
-                          ),
+              SizedBox(
+                height: dimensions.height10 * 10,
+              ),
+              Text(
+                'تسجيل الدخول',
+                style: FlutterFlowTheme.of(context).title1.override(
+                      fontFamily: 'Tajawal',
+                      color: FlutterFlowTheme.of(context).primaryBtnText,
+                      fontSize: 36,
+                      fontWeight: FontWeight.bold,
                     ),
-                  ),
-                ),
+              ),
+              SizedBox(
+                height: dimensions.screenHeigh / 2.5,
+              ),
+              Text(
+                'تسجيل الدخول برقم الهاتف',
+                style: FlutterFlowTheme.of(context).title1.override(
+                      fontFamily: 'Tajawal',
+                      color: Color(0xFF007282),
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+              ),
+              SizedBox(
+                height: dimensions.height20,
               ),
               Container(
-                width: 389.9,
-                height: 193.3,
-                decoration: BoxDecoration(),
-                child: Align(
-                  alignment: AlignmentDirectional(0, 0.85),
-                  child: Text(
-                    'تسجيل الدخول برقم الهاتف',
-                    style: FlutterFlowTheme.of(context).title1.override(
-                          fontFamily: 'Tajawal',
-                          color: Color(0xFF007282),
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                  ),
-                ),
-              ),
-              Container(
-                width: 385.3,
-                height: 150,
+                width: dimensions.screenWidth,
+                height: dimensions.height10 * 15,
                 decoration: BoxDecoration(),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -260,9 +254,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               if (allGood) {
                                 //  AppShowToast(text: "تم إرسال رمز التحقق");
                                 appShowSnackBar(
-                                        context,
-                                        'تم إرسال رمز التحقق',
-                                        false)
+                                        context, 'تم إرسال رمز التحقق', false)
                                     .then((value) {
                                   Navigator.of(context)
                                       .pushReplacement(MaterialPageRoute(

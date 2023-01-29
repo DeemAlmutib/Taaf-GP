@@ -265,8 +265,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                 child: Text(
                                   "لا",
                                   style: GoogleFonts.tajawal(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15),
+                                    fontSize: 15,
+                                    color: Color(0xFF007282),
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                               TextButton(
@@ -280,8 +282,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                 child: Text(
                                   "نعم",
                                   style: GoogleFonts.tajawal(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15),
+                                    fontSize: 15,
+                                    color: Color(0xFF007282),
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ]);
