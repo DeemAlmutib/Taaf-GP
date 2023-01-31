@@ -83,7 +83,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: dimensions.screenHeigh * 0.1,
                 ),
                 Text(
-                  'تسجيل حساب',
+                  'انشاء حساب',
                   style: FlutterFlowTheme.of(context).title1.override(
                         fontFamily: 'Tajawal',
                         color: FlutterFlowTheme.of(context).primaryBtnText,
@@ -197,7 +197,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                       context, validationStatus, true);
                                 }
                               },
-                              text: 'تسجيل حساب',
+                              text: 'انشاء حساب',
                               options: FFButtonOptions(
                                 width: dimensions.width10 * 22,
                                 height: dimensions.height10 * 6,

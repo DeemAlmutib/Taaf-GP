@@ -287,6 +287,15 @@ class _editProfileWidgetState extends State<editProfile> {
                               true);
                           return null;
                         }
+        RegExp nameReg = RegExp(r'^[a-zA-z ا-ي أإآىءئ]+$');
+                        if (!nameReg.hasMatch(widget
+                            .editProfileController.nameEditingController.text
+                            .trim()!)) {      appShowSnackBar(
+                              context,
+                              "اسم المستخدم يجب أن يحتوي على حروف فقط",
+                              true);
+                          return null;}
+//return "اسم المستخدم يجب ان يحتوي على حروف فقط";
 
                         if (widget.editProfileController.nameEditingController
                                     .text

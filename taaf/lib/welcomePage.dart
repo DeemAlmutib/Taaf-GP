@@ -97,7 +97,7 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> {
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
                           builder: (context) => SignUpPage()));
                     },
-                    text: 'تسجيل حساب',
+                    text: 'انشاء حساب',
                     options: FFButtonOptions(
                       width: dimensions.width10 * 22,
                       height: dimensions.height10 * 6,

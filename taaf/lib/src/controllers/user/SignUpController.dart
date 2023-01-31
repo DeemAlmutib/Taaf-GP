@@ -78,6 +78,10 @@ class SignUpController {
     if (userModel.phone!.length != 9) {
       return "رقم الهاتف يجب ان يتكون من 9 ارقام ";
     }
+    RegExp nameReg = RegExp(r'^[a-zA-z ا-ي أإآىءئ]+$');
+if(!nameReg.hasMatch(userModel.name!)){
+return "اسم المستخدم يجب ان يحتوي على حروف فقط";
+}
     if (userModel.name!.length < 2 || userModel.name!.length > 20) {
       return "اسم المستخدم يجب أن لا يقل عن حرفين وأن لا يتجاوز عن 20 حرف ";
     }

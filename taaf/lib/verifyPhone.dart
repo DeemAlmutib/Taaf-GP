@@ -166,7 +166,7 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                                   //     MaterialPageRoute(
                                   //         builder: (context) => homePage()));
                                 },
-                                child: const Text('اعادة ارسال رمز التحقق ',
+                                child: const Text('اعادة ارسال رمز التحقق',
                                     style: TextStyle(
                                       fontSize: 20,
                                       color: Color.fromARGB(255, 84, 139, 187),
