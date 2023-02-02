@@ -123,18 +123,22 @@ class _HompageWidgetState extends State<HompageWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Container(
-                      width: 260,
+                      width: double.infinity,
                       height: 170,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 30,
-                            color: Color(0xD78D8989),
-                            offset: Offset(0, 2),
-                          )
-                        ],
+                        // boxShadow: [
+                        //   BoxShadow(
+                        //     blurRadius: 30,
+                        //     color: Color(0xD78D8989),
+                        //     offset: Offset(0, 2),
+                        //   )
+                        // ],
                         borderRadius: BorderRadius.circular(30),
+                        border: Border.all(
+                          color: Color(0xFF007282),
+                          width: 6,
+                        ),
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
@@ -146,7 +150,7 @@ class _HompageWidgetState extends State<HompageWidget> {
                             child: Align(
                               alignment: AlignmentDirectional(0.95, 0.25),
                               child: Text(
-                                'هل تود البدء؟',
+                                'هل تود البدء في التشخيص؟',
                                 textAlign: TextAlign.end,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyText1
@@ -205,7 +209,7 @@ class _HompageWidgetState extends State<HompageWidget> {
                                                     fontFamily: 'Tajawal',
                                                     color: Colors.white,
                                                     fontSize: 20,
-                                                    fontWeight: FontWeight.w600,
+                                                    fontWeight: FontWeight.w700,
                                                   ),
                                           borderSide: BorderSide(
                                             color: Colors.transparent,

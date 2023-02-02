@@ -1,3 +1,4 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -53,7 +54,16 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Firebase',
       // scaffoldMessengerKey: snackbarKey,
-      home: checkLogin(),
+      home: AnimatedSplashScreen(
+        duration: 3000,
+        splashIconSize: 120,
+        splash: Container(
+          alignment: Alignment.center,
+          child: Image.asset('assets/images/taaf_zoomed.jpg',
+        ),),
+        splashTransition: SplashTransition.fadeTransition,
+        backgroundColor: const Color(0xFF007282),
+       nextScreen: checkLogin(),),
 
       //navigatorKey: NavigatorKeys.navigatorKeyMain,
     );
