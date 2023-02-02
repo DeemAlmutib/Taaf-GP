@@ -127,18 +127,18 @@ class _HompageWidgetState extends State<HompageWidget> {
                       height: 170,
                       decoration: BoxDecoration(
                         color: FlutterFlowTheme.of(context).secondaryBackground,
-                        // boxShadow: [
-                        //   BoxShadow(
-                        //     blurRadius: 30,
-                        //     color: Color(0xD78D8989),
-                        //     offset: Offset(0, 2),
-                        //   )
-                        // ],
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 30,
+                            color: Color.fromARGB(58, 141, 137, 137),
+                            offset: Offset(0, 2),
+                          )
+                        ],
                         borderRadius: BorderRadius.circular(30),
-                        border: Border.all(
-                          color: Color(0xFF007282),
-                          width: 6,
-                        ),
+                        // border: Border.all(
+                        //   color: Color(0xFF007282),
+                        //   width: 6,
+                        // ),
                       ),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
