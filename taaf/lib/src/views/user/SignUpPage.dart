@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
+import 'package:introduction_screen/introduction_screen.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taaf/homepage.dart';
@@ -18,6 +19,7 @@ import '../widgets/AppLoadingIndicator.dart';
 import '../widgets/AppPhoneWithContryCodeWeight.dart';
 import '../widgets/AppSmallTextWidget.dart';
 import '../widgets/AppTextFormField.dart';
+import 'instructions.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -43,6 +45,7 @@ class _SignUpPageState extends State<SignUpPage> {
   void dispose() {
     super.dispose();
   }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +73,7 @@ class _SignUpPageState extends State<SignUpPage> {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-              'assets/images/background_(1).png',
+              'assets/Images/background_(1).png',
             ),
             fit: BoxFit.cover,
           ),
@@ -83,7 +86,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   height: dimensions.screenHeigh * 0.1,
                 ),
                 Text(
-                  'انشاء حساب',
+                  'إنشاء حساب',
                   style: FlutterFlowTheme.of(context).title1.override(
                         fontFamily: 'Tajawal',
                         color: FlutterFlowTheme.of(context).primaryBtnText,
@@ -178,17 +181,22 @@ class _SignUpPageState extends State<SignUpPage> {
                                 if (validationStatus == "") {
                                   appShowSnackBar(
                                           context,
-                                          "تم ارسال رمز التحقق الى هاتفك",
+                                          "تم إرسال رمز التحقق إلى هاتفك",
                                           false)
                                       .then((value) async {
                                     await showChangeNumberDialog(
                                             dimensions, signUpController)
                                         .then((value) {
                                       if (newPhoneNumberVerifed == true) {
-                                        Navigator.of(context).pushReplacement(
+                                        // Navigator.of(context).pushReplacement(
+                                        //     MaterialPageRoute(
+                                        //         builder: (context) =>
+                                        //             MainPage()));
+                                                     Navigator.of(context).pushReplacement(
                                             MaterialPageRoute(
                                                 builder: (context) =>
-                                                    MainPage()));
+                                                    App()));
+                                                    
                                       }
                                     });
                                   });
