@@ -168,14 +168,14 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                                 },
                                 child: const Text('اعادة ارسال رمز التحقق',
                                     style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: 16,
                                       color: Color.fromARGB(255, 84, 139, 187),
                                       decoration: TextDecoration.underline,
                                     ))),
                             Text(
                               'لم يصلك رمز التفعيل؟',
                               style: GoogleFonts.tajawal(
-                                  fontSize: 17,
+                                  fontSize: 16,
                                   color: Color.fromARGB(157, 117, 156, 181),
                                   fontWeight: FontWeight.bold),
                             ),

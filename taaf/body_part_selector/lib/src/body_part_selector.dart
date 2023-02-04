@@ -812,12 +812,13 @@ class _BodyPartSelectorState extends State<BodyPartSelector> {
                     },
                   );
                 } else if (s == "back") {
-                  _flag = true;
-
-                  widget.onSelectionUpdated?.call(
-                      widget.bodyParts
-                          .withToggledId(s, mirror: widget.mirrored),
-                      _flag);
+                  setState(() {
+                    _flag = true;
+                    widget.onSelectionUpdated?.call(
+                        widget.bodyParts
+                            .withToggledId(s, mirror: widget.mirrored),
+                        _flag);
+                  });
 
                   showDialog(
                     context: context,

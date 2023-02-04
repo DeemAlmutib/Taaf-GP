@@ -145,7 +145,7 @@ class _HompageWidgetState extends State<HompageWidget> {
                         children: [
                           Container(
                             width: 244.9,
-                            height: 70.6,
+                            height: 60,
                             decoration: BoxDecoration(),
                             child: Align(
                               alignment: AlignmentDirectional(0.95, 0.25),

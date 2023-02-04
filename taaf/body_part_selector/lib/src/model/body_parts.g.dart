@@ -31,6 +31,7 @@ _$_BodyParts _$$_BodyPartsFromJson(Map<String, dynamic> json) => _$_BodyParts(
       rightFoot: json['rightFoot'] as bool? ?? false,
       abdomen: json['abdomen'] as bool? ?? false,
       vestibular: json['vestibular'] as bool? ?? false,
+      back: json['back'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$_BodyPartsToJson(_$_BodyParts instance) =>
@@ -59,4 +60,5 @@ Map<String, dynamic> _$$_BodyPartsToJson(_$_BodyParts instance) =>
       'rightFoot': instance.rightFoot,
       'abdomen': instance.abdomen,
       'vestibular': instance.vestibular,
+      'back': instance.back,
     };

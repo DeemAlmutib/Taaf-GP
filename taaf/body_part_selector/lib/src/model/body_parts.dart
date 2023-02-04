@@ -32,6 +32,7 @@ class BodyParts with _$BodyParts {
     @Default(false) bool rightFoot,
     @Default(false) bool abdomen,
     @Default(false) bool vestibular,
+    @Default(false) bool back,
   }) = _BodyParts;
 
   static const all = BodyParts(
@@ -59,6 +60,7 @@ class BodyParts with _$BodyParts {
     rightFoot: true,
     abdomen: true,
     vestibular: true,
+    back: true,
   );
 
   factory BodyParts.fromJson(Map<String, dynamic> json) =>

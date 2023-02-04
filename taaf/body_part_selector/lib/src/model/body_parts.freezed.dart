@@ -44,6 +44,7 @@ mixin _$BodyParts {
   bool get rightFoot => throw _privateConstructorUsedError;
   bool get abdomen => throw _privateConstructorUsedError;
   bool get vestibular => throw _privateConstructorUsedError;
+  bool get back => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -79,7 +80,8 @@ abstract class $BodyPartsCopyWith<$Res> {
       bool rightLowerLeg,
       bool rightFoot,
       bool abdomen,
-      bool vestibular});
+      bool vestibular,
+      bool back});
 }
 
 /// @nodoc
@@ -116,105 +118,106 @@ class _$BodyPartsCopyWithImpl<$Res> implements $BodyPartsCopyWith<$Res> {
     Object? rightFoot = freezed,
     Object? abdomen = freezed,
     Object? vestibular = freezed,
+    Object? back = freezed,
   }) {
     return _then(_value.copyWith(
-      head: head == freezed
-          ? _value.head
-          : head // ignore: cast_nullable_to_non_nullable
-              as bool,
-      neck: neck == freezed
-          ? _value.neck
-          : neck // ignore: cast_nullable_to_non_nullable
-              as bool,
-      leftShoulder: leftShoulder == freezed
-          ? _value.leftShoulder
-          : leftShoulder // ignore: cast_nullable_to_non_nullable
-              as bool,
-      leftUpperArm: leftUpperArm == freezed
-          ? _value.leftUpperArm
-          : leftUpperArm // ignore: cast_nullable_to_non_nullable
-              as bool,
-      leftElbow: leftElbow == freezed
-          ? _value.leftElbow
-          : leftElbow // ignore: cast_nullable_to_non_nullable
-              as bool,
-      leftLowerArm: leftLowerArm == freezed
-          ? _value.leftLowerArm
-          : leftLowerArm // ignore: cast_nullable_to_non_nullable
-              as bool,
-      leftHand: leftHand == freezed
-          ? _value.leftHand
-          : leftHand // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rightShoulder: rightShoulder == freezed
-          ? _value.rightShoulder
-          : rightShoulder // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rightUpperArm: rightUpperArm == freezed
-          ? _value.rightUpperArm
-          : rightUpperArm // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rightElbow: rightElbow == freezed
-          ? _value.rightElbow
-          : rightElbow // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rightLowerArm: rightLowerArm == freezed
-          ? _value.rightLowerArm
-          : rightLowerArm // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rightHand: rightHand == freezed
-          ? _value.rightHand
-          : rightHand // ignore: cast_nullable_to_non_nullable
-              as bool,
-      upperBody: upperBody == freezed
-          ? _value.upperBody
-          : upperBody // ignore: cast_nullable_to_non_nullable
-              as bool,
-      lowerBody: lowerBody == freezed
-          ? _value.lowerBody
-          : lowerBody // ignore: cast_nullable_to_non_nullable
-              as bool,
-      leftUpperLeg: leftUpperLeg == freezed
-          ? _value.leftUpperLeg
-          : leftUpperLeg // ignore: cast_nullable_to_non_nullable
-              as bool,
-      leftKnee: leftKnee == freezed
-          ? _value.leftKnee
-          : leftKnee // ignore: cast_nullable_to_non_nullable
-              as bool,
-      leftLowerLeg: leftLowerLeg == freezed
-          ? _value.leftLowerLeg
-          : leftLowerLeg // ignore: cast_nullable_to_non_nullable
-              as bool,
-      leftFoot: leftFoot == freezed
-          ? _value.leftFoot
-          : leftFoot // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rightUpperLeg: rightUpperLeg == freezed
-          ? _value.rightUpperLeg
-          : rightUpperLeg // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rightKnee: rightKnee == freezed
-          ? _value.rightKnee
-          : rightKnee // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rightLowerLeg: rightLowerLeg == freezed
-          ? _value.rightLowerLeg
-          : rightLowerLeg // ignore: cast_nullable_to_non_nullable
-              as bool,
-      rightFoot: rightFoot == freezed
-          ? _value.rightFoot
-          : rightFoot // ignore: cast_nullable_to_non_nullable
-              as bool,
-      abdomen: abdomen == freezed
-          ? _value.abdomen
-          : abdomen // ignore: cast_nullable_to_non_nullable
-              as bool,
-      vestibular: vestibular == freezed
-          ? _value.vestibular
-          : vestibular // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+        head: head == freezed
+            ? _value.head
+            : head // ignore: cast_nullable_to_non_nullable
+                as bool,
+        neck: neck == freezed
+            ? _value.neck
+            : neck // ignore: cast_nullable_to_non_nullable
+                as bool,
+        leftShoulder: leftShoulder == freezed
+            ? _value.leftShoulder
+            : leftShoulder // ignore: cast_nullable_to_non_nullable
+                as bool,
+        leftUpperArm: leftUpperArm == freezed
+            ? _value.leftUpperArm
+            : leftUpperArm // ignore: cast_nullable_to_non_nullable
+                as bool,
+        leftElbow: leftElbow == freezed
+            ? _value.leftElbow
+            : leftElbow // ignore: cast_nullable_to_non_nullable
+                as bool,
+        leftLowerArm: leftLowerArm == freezed
+            ? _value.leftLowerArm
+            : leftLowerArm // ignore: cast_nullable_to_non_nullable
+                as bool,
+        leftHand: leftHand == freezed
+            ? _value.leftHand
+            : leftHand // ignore: cast_nullable_to_non_nullable
+                as bool,
+        rightShoulder: rightShoulder == freezed
+            ? _value.rightShoulder
+            : rightShoulder // ignore: cast_nullable_to_non_nullable
+                as bool,
+        rightUpperArm: rightUpperArm == freezed
+            ? _value.rightUpperArm
+            : rightUpperArm // ignore: cast_nullable_to_non_nullable
+                as bool,
+        rightElbow: rightElbow == freezed
+            ? _value.rightElbow
+            : rightElbow // ignore: cast_nullable_to_non_nullable
+                as bool,
+        rightLowerArm: rightLowerArm == freezed
+            ? _value.rightLowerArm
+            : rightLowerArm // ignore: cast_nullable_to_non_nullable
+                as bool,
+        rightHand: rightHand == freezed
+            ? _value.rightHand
+            : rightHand // ignore: cast_nullable_to_non_nullable
+                as bool,
+        upperBody: upperBody == freezed
+            ? _value.upperBody
+            : upperBody // ignore: cast_nullable_to_non_nullable
+                as bool,
+        lowerBody: lowerBody == freezed
+            ? _value.lowerBody
+            : lowerBody // ignore: cast_nullable_to_non_nullable
+                as bool,
+        leftUpperLeg: leftUpperLeg == freezed
+            ? _value.leftUpperLeg
+            : leftUpperLeg // ignore: cast_nullable_to_non_nullable
+                as bool,
+        leftKnee: leftKnee == freezed
+            ? _value.leftKnee
+            : leftKnee // ignore: cast_nullable_to_non_nullable
+                as bool,
+        leftLowerLeg: leftLowerLeg == freezed
+            ? _value.leftLowerLeg
+            : leftLowerLeg // ignore: cast_nullable_to_non_nullable
+                as bool,
+        leftFoot: leftFoot == freezed
+            ? _value.leftFoot
+            : leftFoot // ignore: cast_nullable_to_non_nullable
+                as bool,
+        rightUpperLeg: rightUpperLeg == freezed
+            ? _value.rightUpperLeg
+            : rightUpperLeg // ignore: cast_nullable_to_non_nullable
+                as bool,
+        rightKnee: rightKnee == freezed
+            ? _value.rightKnee
+            : rightKnee // ignore: cast_nullable_to_non_nullable
+                as bool,
+        rightLowerLeg: rightLowerLeg == freezed
+            ? _value.rightLowerLeg
+            : rightLowerLeg // ignore: cast_nullable_to_non_nullable
+                as bool,
+        rightFoot: rightFoot == freezed
+            ? _value.rightFoot
+            : rightFoot // ignore: cast_nullable_to_non_nullable
+                as bool,
+        abdomen: abdomen == freezed
+            ? _value.abdomen
+            : abdomen // ignore: cast_nullable_to_non_nullable
+                as bool,
+        vestibular: vestibular == freezed
+            ? _value.vestibular
+            : vestibular // ignore: cast_nullable_to_non_nullable
+                as bool,
+        back: back == freezed ? _value.back : back as bool));
   }
 }
 
@@ -248,7 +251,8 @@ abstract class _$$_BodyPartsCopyWith<$Res> implements $BodyPartsCopyWith<$Res> {
       bool rightLowerLeg,
       bool rightFoot,
       bool abdomen,
-      bool vestibular});
+      bool vestibular,
+      bool back});
 }
 
 /// @nodoc
@@ -287,6 +291,7 @@ class __$$_BodyPartsCopyWithImpl<$Res> extends _$BodyPartsCopyWithImpl<$Res>
     Object? rightFoot = freezed,
     Object? abdomen = freezed,
     Object? vestibular = freezed,
+    Object? back = freezed,
   }) {
     return _then(_$_BodyParts(
       head: head == freezed
@@ -385,6 +390,10 @@ class __$$_BodyPartsCopyWithImpl<$Res> extends _$BodyPartsCopyWithImpl<$Res>
           ? _value.vestibular
           : vestibular // ignore: cast_nullable_to_non_nullable
               as bool,
+      back: back == freezed
+          ? _value.back
+          : back // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -416,7 +425,8 @@ class _$_BodyParts extends _BodyParts {
       this.rightLowerLeg = false,
       this.rightFoot = false,
       this.abdomen = false,
-      this.vestibular = false})
+      this.vestibular = false,
+      this.back = false})
       : super._();
 
   factory _$_BodyParts.fromJson(Map<String, dynamic> json) =>
@@ -494,10 +504,12 @@ class _$_BodyParts extends _BodyParts {
   @override
   @JsonKey()
   final bool vestibular;
+  @JsonKey()
+  final bool back;
 
   @override
   String toString() {
-    return 'BodyParts(head: $head, neck: $neck, leftShoulder: $leftShoulder, leftUpperArm: $leftUpperArm, leftElbow: $leftElbow, leftLowerArm: $leftLowerArm, leftHand: $leftHand, rightShoulder: $rightShoulder, rightUpperArm: $rightUpperArm, rightElbow: $rightElbow, rightLowerArm: $rightLowerArm, rightHand: $rightHand, upperBody: $upperBody, lowerBody: $lowerBody, leftUpperLeg: $leftUpperLeg, leftKnee: $leftKnee, leftLowerLeg: $leftLowerLeg, leftFoot: $leftFoot, rightUpperLeg: $rightUpperLeg, rightKnee: $rightKnee, rightLowerLeg: $rightLowerLeg, rightFoot: $rightFoot, abdomen: $abdomen, vestibular: $vestibular)';
+    return 'BodyParts(head: $head, neck: $neck, leftShoulder: $leftShoulder, leftUpperArm: $leftUpperArm, leftElbow: $leftElbow, leftLowerArm: $leftLowerArm, leftHand: $leftHand, rightShoulder: $rightShoulder, rightUpperArm: $rightUpperArm, rightElbow: $rightElbow, rightLowerArm: $rightLowerArm, rightHand: $rightHand, upperBody: $upperBody, lowerBody: $lowerBody, leftUpperLeg: $leftUpperLeg, leftKnee: $leftKnee, leftLowerLeg: $leftLowerLeg, leftFoot: $leftFoot, rightUpperLeg: $rightUpperLeg, rightKnee: $rightKnee, rightLowerLeg: $rightLowerLeg, rightFoot: $rightFoot, abdomen: $abdomen, vestibular: $vestibular, back: $back)';
   }
 
   @override
@@ -540,7 +552,8 @@ class _$_BodyParts extends _BodyParts {
             const DeepCollectionEquality().equals(other.rightFoot, rightFoot) &&
             const DeepCollectionEquality().equals(other.abdomen, abdomen) &&
             const DeepCollectionEquality()
-                .equals(other.vestibular, vestibular));
+                .equals(other.vestibular, vestibular) &&
+            const DeepCollectionEquality().equals(other.back, back));
   }
 
   @JsonKey(ignore: true)
@@ -570,7 +583,8 @@ class _$_BodyParts extends _BodyParts {
         const DeepCollectionEquality().hash(rightLowerLeg),
         const DeepCollectionEquality().hash(rightFoot),
         const DeepCollectionEquality().hash(abdomen),
-        const DeepCollectionEquality().hash(vestibular)
+        const DeepCollectionEquality().hash(vestibular),
+        const DeepCollectionEquality().hash(back)
       ]);
 
   @JsonKey(ignore: true)
@@ -609,7 +623,8 @@ abstract class _BodyParts extends BodyParts {
       final bool rightLowerLeg,
       final bool rightFoot,
       final bool abdomen,
-      final bool vestibular}) = _$_BodyParts;
+      final bool vestibular,
+      final bool back}) = _$_BodyParts;
   const _BodyParts._() : super._();
 
   factory _BodyParts.fromJson(Map<String, dynamic> json) =
@@ -663,6 +678,10 @@ abstract class _BodyParts extends BodyParts {
   bool get abdomen => throw _privateConstructorUsedError;
   @override
   bool get vestibular => throw _privateConstructorUsedError;
+
+  @override
+  bool get back => throw _privateConstructorUsedError;
+
   @override
   @JsonKey(ignore: true)
   _$$_BodyPartsCopyWith<_$_BodyParts> get copyWith =>
