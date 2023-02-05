@@ -130,7 +130,7 @@ class _HompageWidgetState extends State<HompageWidget> {
                         boxShadow: [
                           BoxShadow(
                             blurRadius: 30,
-                            color: Color.fromARGB(58, 141, 137, 137),
+                            color: Color.fromARGB(33, 141, 137, 137),
                             offset: Offset(0, 2),
                           )
                         ],
