@@ -79,7 +79,7 @@ void getCurrentUser() async {
          elevation: 0.0,
         centerTitle: true,
       backgroundColor:Color.fromARGB(255, 255, 255, 255),
-       title: Image.asset('assets/images/taaf.jpg' , 
+       title: Image.asset('assets/Images/taaf.jpg' , 
        height: 90, 
        alignment: FractionalOffset.center), 
        toolbarHeight: 100,
@@ -141,7 +141,7 @@ void getCurrentUser() async {
                       child: Align(
                         alignment: AlignmentDirectional(0.8, -1),
                         child: Text(
-                          'ملاحظة: نتيجة هذا الإختبار هي فقط تشخيص أولي لا يغنيك عن زيارة الطبيب    ' ,
+                          'تنويه: نتيجة هذا الإختبار هي فقط تشخيص مقترح لا يغنيك عن زيارة الطبيب    ' ,
                           textAlign: TextAlign.end,
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(

@@ -26,21 +26,32 @@ class _HompageWidgetState extends State<HompageWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       appBar: AppBar(
+        
+       // backgroundColor: Colors.transparent,
+        bottomOpacity: 0.0,
+         elevation: 0.0,
+        centerTitle: true,
+      backgroundColor: Color.fromARGB(0, 255, 255, 255),
+       title: Image.asset('assets/Images/taaf.jpg' , height: 90, alignment: FractionalOffset.center), 
+       toolbarHeight: 100,
+      ),
+      
       key: scaffoldKey,
-      backgroundColor: Color(0xFF14181B),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height * 1,
-          decoration: BoxDecoration(
-            color: Color(0xFF14181B),
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: Image.asset(
-                'assets/images/home.png',
-              ).image,
-            ),
-          ),
+          // decoration: BoxDecoration(
+          //   color: Color(0xFF14181B),
+          //   image: DecorationImage(
+          //     fit: BoxFit.cover,
+          //     image: Image.asset(
+          //       'assets/images/home.png',
+          //     ).image,
+          //   ),
+          // ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -48,14 +59,14 @@ class _HompageWidgetState extends State<HompageWidget> {
                 alignment: AlignmentDirectional(-0.1, -0.55),
                 child: Container(
                   width: 389.1,
-                  height: 355.1,
+                  height: 190.1,
                   decoration: BoxDecoration(),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Container(
                         width: 432.2,
-                        height: 295.6,
+                        height: 130.6,
                         decoration: BoxDecoration(),
                         child: Align(
                           alignment: AlignmentDirectional(0.15, 0.65),
@@ -174,7 +185,7 @@ class _HompageWidgetState extends State<HompageWidget> {
                                   height: 100,
                                   decoration: BoxDecoration(),
                                   child: Image.asset(
-                                    'assets/images/image_1.png',
+                                    'assets/Images/image_1.png',
                                     width: 100,
                                     height: 64.4,
                                     fit: BoxFit.cover,

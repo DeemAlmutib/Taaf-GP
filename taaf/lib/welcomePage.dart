@@ -31,8 +31,20 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> {
     Dimensions dimensions = Dimensions(context);
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      resizeToAvoidBottomInset: false,
+       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        toolbarHeight: 100,
+        centerTitle: true,
+        title: Image.asset('assets/Images/white_logo3.png',
+            height: 90, alignment: FractionalOffset.center),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      
+      ),
       key: scaffoldKey,
-      backgroundColor: Color(0xFF14181B),
+      backgroundColor: Colors.transparent,
       body: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
         child: Container(
@@ -43,7 +55,7 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> {
             image: DecorationImage(
               fit: BoxFit.cover,
               image: Image.asset(
-                'assets/images/first_page.png',
+                'assets/Images/welcomePage_noLogo.png',
               ).image,
             ),
           ),
@@ -65,7 +77,7 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> {
                         ),
                   ),
                   SizedBox(
-                    height: dimensions.screenHeigh * 0.55,
+                    height: dimensions.screenHeigh * 0.40,
                   ),
                   FFButtonWidget(
                     onPressed: () {
@@ -97,7 +109,7 @@ class _WelcomePageWidgetState extends State<WelcomePageWidget> {
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
                           builder: (context) => SignUpPage()));
                     },
-                    text: 'انشاء حساب',
+                    text: 'إنشاء حساب',
                     options: FFButtonOptions(
                       width: dimensions.width10 * 22,
                       height: dimensions.height10 * 6,

@@ -113,7 +113,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                                SizedBox(height: 20,),
                                 
                                 Text(
-                                " ملاحظة: تعاف يقدم لك تشخيص أولي فقط ولا يغنيك عن زيارة الطبيب ",
+                                " تنويه: تعاف يقدم لك تشخيص مقترح فقط ولا يغنيك عن زيارة الطبيب ",
                                 style: GoogleFonts.tajawal(
                                   height: 1.5,
                                   color: Color.fromARGB(255, 190, 57, 57) ,

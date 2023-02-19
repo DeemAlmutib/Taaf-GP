@@ -26,7 +26,11 @@ class _lowerBody extends State<lowerBody> {
   Widget build(BuildContext context) {
     return Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: AppBar(
+      appBar: AppBar(
+          bottomOpacity: 0.0,
+          centerTitle: true,
+          title: Image.asset('assets/Images/taaf.jpg' , height: 90, alignment: FractionalOffset.center), 
+          toolbarHeight: 100,
           backgroundColor: Color.fromARGB(0, 255, 255, 255),
           elevation: 0,
           automaticallyImplyLeading: true,
@@ -41,21 +45,21 @@ class _lowerBody extends State<lowerBody> {
           ),
         ),
         key: scaffoldKey,
-        backgroundColor: Color(0xFF14181B),
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         body: GestureDetector(
           onTap: () => FocusScope.of(context).unfocus(),
           child: Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * 1,
-            decoration: BoxDecoration(
-              color: Color(0xFF14181B),
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: Image.asset(
-                  'assets/images/home.png',
-                ).image,
-              ),
-            ),
+            // decoration: BoxDecoration(
+            //   color: Color(0xFF14181B),
+            //   image: DecorationImage(
+            //     fit: BoxFit.cover,
+            //     image: Image.asset(
+            //       'assets/images/home.png',
+            //     ).image,
+            //   ),
+            // ),
             child: Container(
                 padding: EdgeInsets.only(top: 150),
                 child: SingleChildScrollView(

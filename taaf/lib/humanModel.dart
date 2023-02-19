@@ -75,11 +75,11 @@ class _humanModelPage extends State<humanModelPage> {
         // ),
         appBar: AppBar(
           leading: IconButton(
-              icon: Icon(
-                Icons.arrow_back,
-                size: 35,
-              ),
-              color: Color(0xFF007282),
+              icon: 
+             Icon(Icons.arrow_back_ios),
+              //  size: 35,
+              
+              color: Color.fromRGBO(0, 114, 130, 100),
               onPressed: () => // Navigator.of(context).pushReplacement(
                   //         MaterialPageRoute(builder: (context) => Navigation()))
                   Navigation.mainNavigation.currentState!.pushNamed("/")),
@@ -88,8 +88,8 @@ class _humanModelPage extends State<humanModelPage> {
           elevation: 0.0,
           centerTitle: true,
           backgroundColor: Colors.white,
-          title: Image.asset('assets/images/TAAFLOGO.jpg',
-              height: 90, alignment: FractionalOffset.center),
+          title: Image.asset('assets/Images/TAAFLOGO.jpg',
+              height: 82, alignment: FractionalOffset.center),
           toolbarHeight: 100,
         ),
         // backgroundColor: Colors.transparent,
@@ -140,7 +140,7 @@ class _humanModelPage extends State<humanModelPage> {
               Stack(
                 children: [
                   Container(
-                    height: 780,
+                    height: 675,
                     child: BodyPartSelectorTurnable(
                       bodyParts: _bodyParts,
                       onSelectionUpdated: (p, b) => setState(
@@ -155,7 +155,7 @@ class _humanModelPage extends State<humanModelPage> {
                     ),
                   ),
                   Positioned(
-                    top: 150,
+                    top: 120,
                     left: 55,
                     child: Center(
                       child: Text(

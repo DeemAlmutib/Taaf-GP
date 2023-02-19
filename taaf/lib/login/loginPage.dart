@@ -1,5 +1,6 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
 import 'package:taaf/src/controllers/AuthController.dart';
 import 'package:taaf/src/helper/Dimensions.dart';
 
@@ -47,8 +48,12 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
     Dimensions dimensions = Dimensions(context);
     return Scaffold(
       extendBodyBehindAppBar: true,
-      // resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        toolbarHeight: 100,
+        centerTitle: true,
+        title: Image.asset('assets/Images/white_logo3.png',
+            height: 90, alignment: FractionalOffset.center),
         backgroundColor: Colors.transparent,
         elevation: 0,
         automaticallyImplyLeading: true,
@@ -71,7 +76,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
           image: DecorationImage(
             fit: BoxFit.cover,
             image: Image.asset(
-              'assets/images/background_(1).png',
+              'assets/Images/loginPage_noLogo3.png',
             ).image,
           ),
         ),
@@ -81,7 +86,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SizedBox(
-                height: dimensions.height10 * 10,
+                height: dimensions.height10 * 15,
               ),
               Text(
                 'تسجيل الدخول',
@@ -93,7 +98,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                     ),
               ),
               SizedBox(
-                height: dimensions.screenHeigh / 2.5,
+                height: dimensions.screenHeigh / 4,
               ),
               Text(
                 'تسجيل الدخول برقم الهاتف',
@@ -145,7 +150,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         .bodyText2
                                         .override(
                                           fontFamily: 'Tajawal',
-                                          color: Color(0xC157636C),
+                                          color: Color.fromARGB(193, 0, 0, 0),
                                           fontSize: 16,
                                           fontWeight: FontWeight.w600,
                                         ),
@@ -209,11 +214,17 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           .bodyText1
                                           .override(
                                             fontFamily: 'Tajawal',
-                                            color: Color(0xC157636C),
+                                            color: Color.fromARGB(193, 0, 0, 0),
                                             fontSize: 16,
                                             fontWeight: FontWeight.w600,
                                           ),
-                                      keyboardType: TextInputType.phone,
+                                       keyboardType:
+                                  TextInputType.numberWithOptions(signed: true),
+                              inputFormatters: [
+                                FilteringTextInputFormatter.digitsOnly,
+                                LengthLimitingTextInputFormatter(9)
+                              ],
+
                                       autovalidateMode:
                                           AutovalidateMode.disabled,
                                       validator: (value) {
@@ -286,7 +297,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             //     builder: (context) => verifyloginPage()));
                             print('Button pressed ...');
                           },
-                          text: 'تسجيل ',
+                          text: 'تسجيل الدخول ',
                           options: FFButtonOptions(
                             width: 10,
                             height: 10,

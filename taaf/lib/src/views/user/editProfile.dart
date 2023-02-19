@@ -72,9 +72,14 @@ class _editProfileWidgetState extends State<editProfile> {
     // print(editProfileController.userModel);
     Dimensions dimensions = Dimensions(context);
     return Scaffold(
+      
       extendBodyBehindAppBar: true,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        toolbarHeight: 100,
+        centerTitle: true,
+        title: Image.asset('assets/Images/white_logo3.png',
+            height: 90, alignment: FractionalOffset.center),
         backgroundColor: Colors.transparent,
         elevation: 0,
         automaticallyImplyLeading: true,
@@ -144,9 +149,9 @@ class _editProfileWidgetState extends State<editProfile> {
         decoration: BoxDecoration(
           color: Color(0xFF14181B),
           image: DecorationImage(
-            fit: BoxFit.cover,
+            fit: BoxFit.fill,
             image: Image.asset(
-              'assets/images/edit_profile.png',
+              'assets/Images/edit profile_no logo.png',
             ).image,
           ),
         ),
@@ -159,7 +164,7 @@ class _editProfileWidgetState extends State<editProfile> {
               AppTextWeight(
                   text: "تعديل الملف الشخصي", fontSize: dimensions.font36),
               SizedBox(
-                height: 100,
+                height: 133,
               ),
               AppTextFormField(
                   hintText: "الاسم",
@@ -191,7 +196,7 @@ class _editProfileWidgetState extends State<editProfile> {
                 },
               ),
               SizedBox(
-                height: dimensions.height20,
+                height: dimensions.height15,
               ),
               AppDateFormField(
                 hintText: "تاريخ الميلاد",
@@ -213,7 +218,7 @@ class _editProfileWidgetState extends State<editProfile> {
                 onSave: (value) {},
               ),
               SizedBox(
-                height: dimensions.height20,
+                height: dimensions.height15,
               ),
               AppDropDownFormField(
                   hintText: "الجنس",
@@ -225,9 +230,9 @@ class _editProfileWidgetState extends State<editProfile> {
                   },
                   items: widget.editProfileController.genderItems,
                   initialValue: widget.editProfileController.gender),
-              SizedBox(
-                height: dimensions.height20,
-              ),
+              // SizedBox(
+              //   height: dimensions.height15,
+              // ),
               widget.editProfileController.isEditProfileLoading
                   ? AppLoadingIndicator(
                       text: "جاري ارسال البيانات",
@@ -652,7 +657,7 @@ class _editProfileWidgetState extends State<editProfile> {
     AlertDialog alert = AlertDialog(
       title: Text(""),
       content: Text(
-        "هل أنت متأكد من العوده دون حفظ التغيرات ",
+        "هل أنت متأكد من العودة دون حفظ التغيرات ",
         style: GoogleFonts.tajawal(
           fontWeight: FontWeight.bold,
         ),

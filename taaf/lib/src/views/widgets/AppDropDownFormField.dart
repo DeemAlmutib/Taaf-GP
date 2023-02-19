@@ -31,7 +31,7 @@ class AppDropDownFormField extends StatelessWidget {
 
     return Container(
       width: dimensions.width300,
-      height: dimensions.height59_9,
+      height: dimensions.height55,
       margin: EdgeInsets.only(
           right: dimensions.width15 * 3, left: dimensions.width15 * 3),
       child: SingleChildScrollView(

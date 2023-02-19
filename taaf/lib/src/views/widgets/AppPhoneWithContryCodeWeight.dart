@@ -1,5 +1,6 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../../flutter_flow/flutter_flow_theme.dart';
 import '../../helper/Dimensions.dart';
@@ -22,7 +23,7 @@ class AppPhoneWithContryCodeWeight extends StatelessWidget {
 
     return Container(
       width: dimensions.width300,
-      height: dimensions.height59_9,
+      height: dimensions.height55,
       decoration: BoxDecoration(
         color: Color(0xFFECECEC),
         boxShadow: [
@@ -43,8 +44,8 @@ class AppPhoneWithContryCodeWeight extends StatelessWidget {
             child: CountryCodePicker(
               textStyle: FlutterFlowTheme.of(context).bodyText2.override(
                     fontFamily: 'Tajawal',
-                    color: Color(0xC157636C),
-                    fontSize: dimensions.font16 * 1.5,
+                    color: Color.fromARGB(193, 0, 0, 0),
+                    fontSize: dimensions.font16 * 1.7,
                     fontWeight: FontWeight.w600,
                   ),
               onChanged: (Object? object) {
@@ -80,7 +81,7 @@ class AppPhoneWithContryCodeWeight extends StatelessWidget {
             ),
           ),
           Container(
-            width: dimensions.width10 * 7,
+            width: dimensions.width10 * 18,
             child: TextFormField(
               controller: textEditingController,
 
@@ -92,7 +93,7 @@ class AppPhoneWithContryCodeWeight extends StatelessWidget {
                 hintStyle: FlutterFlowTheme.of(context).bodyText2.override(
                       fontFamily: 'Tajawal',
                       color: Color(0xC157636C),
-                      fontSize: dimensions.font16,
+                      fontSize: 13,
                       fontWeight: FontWeight.w600,
                     ),
                 enabledBorder: InputBorder.none,
@@ -102,11 +103,16 @@ class AppPhoneWithContryCodeWeight extends StatelessWidget {
               ),
               style: FlutterFlowTheme.of(context).bodyText1.override(
                     fontFamily: 'Tajawal',
-                    color: Color.fromARGB(193, 108, 99, 87),
-                    fontSize: dimensions.font16 * 1.5,
-                    fontWeight: FontWeight.w600,
+                    color: Color.fromARGB(193, 0, 0, 0),
+                    fontSize: dimensions.font16 * 1.9,
+                    fontWeight: FontWeight.normal,
                   ),
-              keyboardType: TextInputType.phone,
+                   keyboardType:
+                                  TextInputType.numberWithOptions(signed: true),
+                              inputFormatters: [
+                                FilteringTextInputFormatter.digitsOnly,
+                                LengthLimitingTextInputFormatter(9)
+                              ],
               autovalidateMode: AutovalidateMode.disabled,
               validator: (value) {
                 if (value!.length == 0) {

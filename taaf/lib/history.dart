@@ -50,21 +50,30 @@ void getCurrentUser() async {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+         appBar: AppBar(
+       // backgroundColor: Colors.transparent,
+        bottomOpacity: 0.0,
+         elevation: 0.0,
+        centerTitle: true,
+      backgroundColor: Color.fromARGB(0, 255, 255, 255),
+       title: Image.asset('assets/Images/taaf.jpg' , height: 90, alignment: FractionalOffset.center), 
+       toolbarHeight: 100,
+      ),
       key: scaffoldKey,
-      backgroundColor: Color(0xFF14181B),
+      backgroundColor: Color.fromARGB(0, 255, 255, 255),
       body: SingleChildScrollView(
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height * 1,
-          decoration: BoxDecoration(
-            color: Color(0xFF14181B),
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: Image.asset(
-                'assets/images/home.png',
-              ).image,
-            ),
-          ),
+          // decoration: BoxDecoration(
+          //   color: Color(0xFF14181B),
+          //   image: DecorationImage(
+          //     fit: BoxFit.cover,
+          //     image: Image.asset(
+          //       'assets/images/home.png',
+          //     ).image,
+          //   ),
+          // ),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -72,7 +81,7 @@ void getCurrentUser() async {
                 alignment: AlignmentDirectional(-0.1, -0.55),
                 child: Container(
                   width: 389.1,
-                  height: 148.8,
+                  height: 30.8,
                   decoration: BoxDecoration(),
                 ),
               ),
@@ -89,7 +98,7 @@ void getCurrentUser() async {
                            ),
               Container(
                 width: 389.9,
-                height: 645.8,
+                height: 500.8,
                 decoration: BoxDecoration(),
                 child: StreamBuilder(
                   stream: FirebaseFirestore.instance.collection('report').orderBy('date', descending:true ).snapshots(),
@@ -163,7 +172,7 @@ void getCurrentUser() async {
                                     .bodyText1
                                     .override(
                                       fontFamily: 'Tajawal',
-                                      fontSize: 16,
+                                      fontSize: 15,
                                       fontWeight: FontWeight.bold,
                                       color: Color(0xFF007282) ,
                                     ),

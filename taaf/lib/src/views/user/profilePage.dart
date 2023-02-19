@@ -55,31 +55,27 @@ class _ProfilePageState extends State<ProfilePage> {
       child: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          automaticallyImplyLeading: true,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios),
-            color: Color.fromARGB(189, 248, 252, 255),
-            onPressed: () {
-              Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => HompageWidget()));
-            },
-          ),
-        ),
+       // backgroundColor: Colors.transparent,
+        bottomOpacity: 0.0,
+         elevation: 0.0,
+        centerTitle: true,
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+       title: Image.asset('assets/Images/taaf.jpg' , height: 90, alignment: FractionalOffset.center), 
+       toolbarHeight: 100,
+      ),
         key: scaffoldKey,
-        backgroundColor: Color.fromARGB(247, 253, 253, 253),
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         body: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height * 1,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(
-                'assets/images/home.png',
-              ),
-              fit: BoxFit.cover,
-            ),
-          ),
+          // decoration: BoxDecoration(
+          //   image: DecorationImage(
+          //     image: AssetImage(
+          //       'assets/images/home.png',
+          //     ),
+          //     fit: BoxFit.cover,
+          //   ),
+          // ),
           child: SingleChildScrollView(
             child: Column(
               children: [

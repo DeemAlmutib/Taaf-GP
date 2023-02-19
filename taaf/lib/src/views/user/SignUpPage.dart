@@ -53,7 +53,12 @@ class _SignUpPageState extends State<SignUpPage> {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        toolbarHeight: 100,
+        centerTitle: true,
+        title: Image.asset('assets/Images/white_logo3.png',
+            height: 90, alignment: FractionalOffset.center),
         backgroundColor: Colors.transparent,
         elevation: 0,
         // automaticallyImplyLeading: true,
@@ -73,7 +78,7 @@ class _SignUpPageState extends State<SignUpPage> {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(
-              'assets/Images/background_(1).png',
+              'assets/Images/edit profile_no logo.png',
             ),
             fit: BoxFit.cover,
           ),
@@ -83,7 +88,7 @@ class _SignUpPageState extends State<SignUpPage> {
             child: Column(
               children: [
                 SizedBox(
-                  height: dimensions.screenHeigh * 0.1,
+                  height: dimensions.screenHeigh * 0.005,
                 ),
                 Text(
                   'إنشاء حساب',
@@ -95,7 +100,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                 ),
                 SizedBox(
-                  height: dimensions.height10 * 5,
+                  height: dimensions.height10 * 13,
                 ),
                 Form(
                   key: formKey,
@@ -113,7 +118,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               r'^(?=.{2,20}$)[\u0621-\u064Aa-zA-Z\d\-_\s]+$';
                           RegExp regex = RegExp(pattern);
                           if (!regex.hasMatch(value.trim()))
-                            return '  يجب أن يحتوي اسم المستخدم على حرفين على الاقل وأن لايتجاوز ٢٠حرف ';
+                            return '  يجب أن يحتوي اسم المستخدم على حرفين على الاقل وأن لايتجاوز ٢٠ حرف ';
                           return null;
                         },
                         textEditingController:
@@ -205,7 +210,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                       context, validationStatus, true);
                                 }
                               },
-                              text: 'انشاء حساب',
+                              text: 'إنشاء حساب',
                               options: FFButtonOptions(
                                 width: dimensions.width10 * 22,
                                 height: dimensions.height10 * 6,
@@ -325,7 +330,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           } else {
                             appShowSnackBar(
                                 context,
-                                "رمز التحقق يجب ان يكون 6 ارقام , يرجى التاكد من رمز التحقق والمحاولة مره اخرى",
+                                "رمز التحقق يجب ان يكون 6 ارقام , يرجى التأكد من رمز التحقق والمحاولة مرة أخرى",
                                 true);
                           }
                         },

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:taaf/newNavigation.dart';
 import 'package:taaf/src/base/showToast.dart';
@@ -32,7 +33,12 @@ class _verifyLoginPageState extends State<verifyloginPage> {
 
     return Scaffold(
         extendBodyBehindAppBar: true,
-        appBar: AppBar(
+        resizeToAvoidBottomInset: false,
+       appBar: AppBar(
+          toolbarHeight: 100,
+          centerTitle: true,
+          title: Image.asset('assets/Images/white_logo3.png',
+          height: 90, alignment: FractionalOffset.center),
           backgroundColor: Colors.transparent,
           elevation: 0,
           automaticallyImplyLeading: true,
@@ -53,7 +59,7 @@ class _verifyLoginPageState extends State<verifyloginPage> {
               image: DecorationImage(
                 fit: BoxFit.cover,
                 image: Image.asset(
-                  'assets/images/background_(1).png',
+                  'assets/Images/loginPage_noLogo3.png',
                 ).image,
               ),
             ),
@@ -78,7 +84,7 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                         ),
                       ),
                       SizedBox(
-                        height: 190,
+                        height: 168,
                       ),
                       Text(
                         " ادخل رمز التفعيل المرسل إليك  ",
@@ -131,7 +137,12 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                           onChanged: (value) {
                             setState(() {});
                           },
-                          keyboardType: TextInputType.number,
+                            keyboardType:
+                            TextInputType.numberWithOptions(signed: true),
+                              inputFormatters: [
+                                FilteringTextInputFormatter.digitsOnly,
+                                LengthLimitingTextInputFormatter(6)
+                              ],
                           maxLength: 6,
                         ),
                       ),
@@ -166,16 +177,16 @@ class _verifyLoginPageState extends State<verifyloginPage> {
                                   //     MaterialPageRoute(
                                   //         builder: (context) => homePage()));
                                 },
-                                child: const Text('اعادة ارسال رمز التحقق',
+                                child: const Text('اعادة ارسال الرمز ',
                                     style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 17,
                                       color: Color.fromARGB(255, 84, 139, 187),
                                       decoration: TextDecoration.underline,
                                     ))),
                             Text(
                               'لم يصلك رمز التفعيل؟',
                               style: GoogleFonts.tajawal(
-                                  fontSize: 16,
+                                  fontSize: 17,
                                   color: Color.fromARGB(157, 117, 156, 181),
                                   fontWeight: FontWeight.bold),
                             ),

@@ -33,7 +33,7 @@ class AuthController {
         userModel == null) {
       return appShowSnackBar(
               context,
-              " رقم الهاتف الذي قمت بادخاله غير مسجل , يرجى التاكد من صحة الرقم او القيام بتسجيل حساب ",
+              " رقم الهاتف الذي قمت بادخاله غير مسجل , يرجى التاكد من صحة الرقم او القيام بإنشاء حساب ",
               true)
           .then((value) {
         return false;

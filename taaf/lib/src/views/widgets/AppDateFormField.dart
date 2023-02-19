@@ -36,7 +36,7 @@ class AppDateFormField extends StatelessWidget {
     }
     return Container(
       width: dimensions.width300,
-      height: dimensions.height59_9,
+      height: dimensions.height55,
       margin: EdgeInsets.only(
           right: dimensions.width15 * 3, left: dimensions.width15 * 3),
       decoration: BoxDecoration(
@@ -71,6 +71,7 @@ class AppDateFormField extends StatelessWidget {
               DateTime? date = DateTime(DateTime.now().year);
               FocusScope.of(context).requestFocus(new FocusNode());
               date = await showDatePicker(
+                initialEntryMode: DatePickerEntryMode.calendarOnly,
                 locale: const Locale("ar", "AR"),
                 context: context,
                 initialDate: textEditingController.text.isEmpty != true
@@ -147,6 +148,7 @@ class AppDateFormField extends StatelessWidget {
                   DateTime? date = DateTime(DateTime.now().year);
                   FocusScope.of(context).requestFocus(new FocusNode());
                   date = await showDatePicker(
+                    initialEntryMode: DatePickerEntryMode.calendarOnly,
                     locale: const Locale("ar", "AR"),
                     context: context,
                     initialDate: textEditingController.text.isEmpty != true
